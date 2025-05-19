@@ -6,6 +6,9 @@ public class HandPosTracking : MonoBehaviour
 {
     public GameObject firePf;
 
+    public GameObject ballPf;
+    public float spawnSpeed = 5;
+
     public void FireOn()
     {
         firePf.SetActive(true);
@@ -16,9 +19,15 @@ public class HandPosTracking : MonoBehaviour
         firePf.SetActive(false);
     }
 
-    void Start()
+    public void ShootBall()
     {
-        firePf.SetActive(false);
+        GameObject shootBall = Instantiate(ballPf, transform.position, Quaternion.identity);
+        Rigidbody shootBallRB = shootBall.GetComponent<Rigidbody>();
+        shootBallRB.velocity = transform.forward * spawnSpeed;
+    }
+
+    void Start()
+    {   
 
     }
 
