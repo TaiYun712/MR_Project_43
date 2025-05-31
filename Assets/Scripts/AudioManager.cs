@@ -7,11 +7,20 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     [SerializeField]
-    AudioSource bgmSource,uiSourse;
+    AudioSource bgmSource,uiSourse, animalSourse;
 
+    [Header("BGM")]
     [SerializeField]
-    AudioClip titleBGM, popSound;
-    
+    AudioClip titleBGM;
+
+    [Header("UI")]
+    [SerializeField]
+    AudioClip popSound;
+
+    [Header("Animals")]
+    [SerializeField]
+    AudioClip happybirdSound;
+
 
     private void Awake()
     {
@@ -34,6 +43,12 @@ public class AudioManager : MonoBehaviour
     {
         uiSourse.clip = popSound;
         uiSourse.Play();
+    }
+
+    public void SFXSoundTest()
+    {
+        animalSourse.clip = happybirdSound;
+        animalSourse.Play();
     }
 
 
