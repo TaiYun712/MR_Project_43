@@ -30,11 +30,11 @@ MonoBehaviour:
       _state: 0
   _ringFeatureConfigs:
     _value:
-    - _mode: 0
+    - _mode: 1
       _feature: 0
       _state: 0
   _pinkyFeatureConfigs:
     _value:
-    - _mode: 0
+    - _mode: 1
       _feature: 0
       _state: 0
