@@ -9,11 +9,34 @@ public class TitleButtons : MonoBehaviour
 
     public float quitGameTime = 3f;
 
+    
+    public GameObject settingBuble;
+    public GameObject startBuble;
+    public GameObject quitBuble;
+
+    public GameObject bublePop;
+    public Vector3 settingPos;
+    public Vector3 startPos;
+    public Vector3 quitPos;
+
+   // public GameObject settingPop;
+   // public GameObject startPop;
+    //public GameObject quitPop;
+
 
     void Start()
     {
         settingPanel.SetActive(false);
         settingBoardAni.SetBool("settingIn",false);
+
+        bublePop.SetActive(false);
+        settingPos = settingBuble.transform.position;
+        startPos = startBuble.transform.position;
+        quitPos = quitBuble.transform.position;
+
+       // settingPop.SetActive(false);
+       // startPop.SetActive(false);
+        //quitPop.SetActive(false);
 
     }
 
@@ -24,12 +47,20 @@ public class TitleButtons : MonoBehaviour
         settingPanel.SetActive(true);
         settingBoardAni.SetBool("settingIn",true);
 
+       // settingPop.SetActive(true);
+        bublePop.transform.position = settingPos;
+        bublePop.SetActive(true);
+        settingBuble.SetActive(false);
+
         AudioManager.instance.BublePopkeSound();
     }
 
     public void CloseSettingPanel()
     {
         settingBoardAni.SetBool("settingIn", false);
+        // settingPop.SetActive(false);
+        bublePop.SetActive(false);
+        settingBuble.SetActive(true);
 
         Invoke("HideTheBoard",0.5f);
     }
@@ -39,10 +70,27 @@ public class TitleButtons : MonoBehaviour
         settingPanel.SetActive(false);
     }
 
+    //Start«ö¶s
+    public void StartGame()
+    {
+        AudioManager.instance.BublePopkeSound();
+        startBuble.SetActive(false);
+        //startPop.SetActive(true);
+        bublePop.transform.position = startPos;
+        bublePop.SetActive(true);
+
+        Debug.Log("¶i¤J¹CÀ¸");
+    }
+
     //Quit«ö¶s
     public void QuitGame()
     {
         AudioManager.instance.BublePopkeSound();
+        quitBuble.SetActive(false);
+        // quitPop.SetActive(true);
+        bublePop.transform.position = quitPos;
+        bublePop.SetActive(true);
+
         Invoke("LeaveTheGame",quitGameTime);
     }
 
