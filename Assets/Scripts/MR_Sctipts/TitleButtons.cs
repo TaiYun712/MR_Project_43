@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleButtons : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class TitleButtons : MonoBehaviour
     public Animator settingBoardAni;
 
     public float quitGameTime = 3f;
+    public float startGameTime = 2f;
 
-    
     public GameObject settingBuble;
     public GameObject startBuble;
     public GameObject quitBuble;
@@ -19,10 +20,7 @@ public class TitleButtons : MonoBehaviour
     public Vector3 startPos;
     public Vector3 quitPos;
 
-   // public GameObject settingPop;
-   // public GameObject startPop;
-    //public GameObject quitPop;
-
+  
 
     void Start()
     {
@@ -34,10 +32,7 @@ public class TitleButtons : MonoBehaviour
         startPos = startBuble.transform.position;
         quitPos = quitBuble.transform.position;
 
-       // settingPop.SetActive(false);
-       // startPop.SetActive(false);
-        //quitPop.SetActive(false);
-
+     
     }
 
 
@@ -47,8 +42,7 @@ public class TitleButtons : MonoBehaviour
         settingPanel.SetActive(true);
         settingBoardAni.SetBool("settingIn",true);
 
-       // settingPop.SetActive(true);
-        bublePop.transform.position = settingPos;
+          bublePop.transform.position = settingPos;
         bublePop.SetActive(true);
         settingBuble.SetActive(false);
 
@@ -58,7 +52,7 @@ public class TitleButtons : MonoBehaviour
     public void CloseSettingPanel()
     {
         settingBoardAni.SetBool("settingIn", false);
-        // settingPop.SetActive(false);
+
         bublePop.SetActive(false);
         settingBuble.SetActive(true);
 
@@ -75,11 +69,18 @@ public class TitleButtons : MonoBehaviour
     {
         AudioManager.instance.BublePopkeSound();
         startBuble.SetActive(false);
-        //startPop.SetActive(true);
+        
         bublePop.transform.position = startPos;
+        bublePop.SetActive(false);
         bublePop.SetActive(true);
 
         Debug.Log("¶i¤J¹CÀ¸");
+        Invoke("LoadTestScene",startGameTime);
+    }
+
+    public void LoadTestScene()
+    {
+        SceneManager.LoadScene("JankenScene");
     }
 
     //Quit«ö¶s
@@ -87,8 +88,9 @@ public class TitleButtons : MonoBehaviour
     {
         AudioManager.instance.BublePopkeSound();
         quitBuble.SetActive(false);
-        // quitPop.SetActive(true);
+        
         bublePop.transform.position = quitPos;
+        bublePop.SetActive(false);
         bublePop.SetActive(true);
 
         Invoke("LeaveTheGame",quitGameTime);
