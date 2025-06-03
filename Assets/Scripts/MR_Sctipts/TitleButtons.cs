@@ -5,11 +5,15 @@ using UnityEngine;
 public class TitleButtons : MonoBehaviour
 {
     public GameObject settingPanel;
+    public Animator settingBoardAni;
+
     public float quitGameTime = 3f;
+
 
     void Start()
     {
         settingPanel.SetActive(false);
+        settingBoardAni.SetBool("settingIn",false);
 
     }
 
@@ -18,10 +22,19 @@ public class TitleButtons : MonoBehaviour
     public void OpenSettingPanel()
     {
         settingPanel.SetActive(true);
+        settingBoardAni.SetBool("settingIn",true);
+
         AudioManager.instance.BublePopkeSound();
     }
 
     public void CloseSettingPanel()
+    {
+        settingBoardAni.SetBool("settingIn", false);
+
+        Invoke("HideTheBoard",0.5f);
+    }
+
+    public void HideTheBoard()
     {
         settingPanel.SetActive(false);
     }
