@@ -18,45 +18,20 @@ public class Pose_Keyboard : MonoBehaviour
     public static bool isPaper = false;
 
 
+    public Animator birdAni;
+
     void Start()
     {
         myPoseImage.sprite = knife;
+
+        birdAni.SetBool("isfly",false);
     }
 
-    /*
-    void Update()
+   //尘笆 北
+   public void BirdFly()
     {
-        if (Input.GetKey(KeyCode.F))
-        {
-            myPoseImage.sprite = knife;
-            isKnife = true;
-            Debug.Log("產瞷  芭");
-        }
-        else if (Input.GetKey(KeyCode.G))
-        {
-            myPoseImage.sprite = rock;
-            isRock = true;
-            Debug.Log("產瞷  ホ繷");
-        }
-        else if (Input.GetKey(KeyCode.H))
-        {
-            myPoseImage.sprite = paper;
-            isPaper = true;
-            Debug.Log("產瞷  ガ");
-        }
-        else
-        {
-            myPoseImage.sprite = normal;
-
-            isKnife = false;
-            isRock = false;
-            isPaper = false;
-
-            Debug.Log("產瞷ぐ或常⊿");
-        }
-
+        birdAni.SetBool("isfly",true);
     }
-    */
 
     //========も墩北
 

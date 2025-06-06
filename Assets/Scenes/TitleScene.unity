@@ -25778,6 +25778,7 @@ MonoBehaviour:
   settingPanel: {fileID: 1708475010}
   settingBoardAni: {fileID: 1708475014}
   quitGameTime: 3
+  startGameTime: 2
   settingBuble: {fileID: 1562166339}
   startBuble: {fileID: 2069325714}
   quitBuble: {fileID: 999109519}
