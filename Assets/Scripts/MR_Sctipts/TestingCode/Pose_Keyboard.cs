@@ -27,33 +27,33 @@ public class Pose_Keyboard : MonoBehaviour
         birdAni.SetBool("isfly",false);
     }
 
-   //³¾°Ê ±±¨î
+   //é³¥å‹• æ§åˆ¶
    public void BirdFly()
-    {
-        birdAni.SetBool("isfly",true);
-    }
+   {
+     birdAni.SetBool("isfly",!birdAni.GetBool("isfly"));
+   }
 
-    //========¤â¶Õ±±¨î
+    //========æ‰‹å‹¢æ§åˆ¶
 
     public void PoseKnife()
     {
         myPoseImage.sprite = knife;
         isKnife = true;
-        Debug.Log("ª±®a²{¦b¥X  °Å¤M");
+        Debug.Log("ç©å®¶ç¾åœ¨å‡º  å‰ªåˆ€");
     }
 
     public void PoseRock()
     {
         myPoseImage.sprite = rock;
         isRock = true;
-        Debug.Log("ª±®a²{¦b¥X  ¥ÛÀY");
+        Debug.Log("ç©å®¶ç¾åœ¨å‡º  çŸ³é ­");
     }
 
     public void PosePaper()
     {
         myPoseImage.sprite = paper;
         isPaper = true;
-        Debug.Log("ª±®a²{¦b¥X  ¥¬");
+        Debug.Log("ç©å®¶ç¾åœ¨å‡º  å¸ƒ");
     }
 
     public void NoPose()
@@ -64,6 +64,6 @@ public class Pose_Keyboard : MonoBehaviour
         isRock = false;
         isPaper = false;
 
-        Debug.Log("ª±®a²{¤°»ò³£¨S¥X");
+        Debug.Log("ç©å®¶ç¾ä»€éº¼éƒ½æ²’å‡º");
     }
 }
