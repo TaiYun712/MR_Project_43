@@ -81,6 +81,7 @@ public class TitleButtons : MonoBehaviour
     public void LoadTestScene()
     {
         SceneManager.LoadScene("JankenScene");
+        AudioManager.instance.SwitchGameBGM();
     }
 
     //Quit按鈕

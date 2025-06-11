@@ -48049,12 +48049,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0536731a55a0b43a4fd78b59ab3e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseClose: {fileID: 21300000, guid: c127f41d58a102446ae5f315d10849ae, type: 3}
-  mouseOpen: {fileID: 21300000, guid: 8fd15b35efef8f841a6cba8652e2f0eb, type: 3}
   bgmSource: {fileID: 365555760}
   uiSourse: {fileID: 1862328733}
   animalSourse: {fileID: 382408229}
   titleBGM: {fileID: 8300000, guid: 247575f552b413541aad224748eb3d14, type: 3}
+  gameBGM: {fileID: 8300000, guid: d65344d2ab12c1843bb9046c4cd27fdd, type: 3}
   popSound: {fileID: 8300000, guid: cbb283c3e02561d44853b95e38474737, type: 3}
   happybirdSound: {fileID: 8300000, guid: 6850e00b694fcdd41a1a9f84ba3b6151, type: 3}
 --- !u!4 &1886768455

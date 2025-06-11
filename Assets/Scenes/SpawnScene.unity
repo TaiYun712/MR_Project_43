@@ -30665,7 +30665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnOnStart: 1
   SpawnObject: {fileID: 4798725413071531616, guid: 06737c191cfacf646b0dc575c459ee0c, type: 3}
-  SpawnAmount: 10
+  SpawnAmount: 5
   MaxIterations: 1000
   SpawnLocations: 0
   Labels: -1

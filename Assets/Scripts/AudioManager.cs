@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("BGM")]
     [SerializeField]
-    AudioClip titleBGM;
+    AudioClip titleBGM,gameBGM;
 
     [Header("UI")]
     [SerializeField]
@@ -35,6 +35,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //BGM
     void Start()
     {
         bgmSource.clip = titleBGM;
@@ -43,6 +44,15 @@ public class AudioManager : MonoBehaviour
         bgmSource.Play();
     }
 
+    public void SwitchGameBGM()
+    {
+        bgmSource.clip = gameBGM;
+        bgmSource.loop = true;
+        bgmSource.Play();
+    }
+
+    
+    //SFX
     public void BublePopkeSound()
     {
         uiSourse.clip = popSound;
