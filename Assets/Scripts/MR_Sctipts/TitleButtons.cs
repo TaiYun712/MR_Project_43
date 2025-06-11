@@ -36,7 +36,7 @@ public class TitleButtons : MonoBehaviour
     }
 
 
-    //Setting«ö¶s
+    //SettingæŒ‰éˆ•
     public void OpenSettingPanel()
     {
         settingPanel.SetActive(true);
@@ -64,7 +64,7 @@ public class TitleButtons : MonoBehaviour
         settingPanel.SetActive(false);
     }
 
-    //Start«ö¶s
+    //StartæŒ‰éˆ•
     public void StartGame()
     {
         AudioManager.instance.BublePopkeSound();
@@ -74,7 +74,7 @@ public class TitleButtons : MonoBehaviour
         bublePop.SetActive(false);
         bublePop.SetActive(true);
 
-        Debug.Log("¶i¤J¹CÀ¸");
+        Debug.Log("é€²å…¥éŠæˆ²");
         Invoke("LoadTestScene",startGameTime);
     }
 
@@ -83,7 +83,7 @@ public class TitleButtons : MonoBehaviour
         SceneManager.LoadScene("JankenScene");
     }
 
-    //Quit«ö¶s
+    //QuitæŒ‰éˆ•
     public void QuitGame()
     {
         AudioManager.instance.BublePopkeSound();
@@ -99,7 +99,7 @@ public class TitleButtons : MonoBehaviour
     public void LeaveTheGame()
     {
         Application.Quit();
-        Debug.Log("Â÷¶}¹CÀ¸");
+        Debug.Log("é›¢é–‹éŠæˆ²");
 
     }
 

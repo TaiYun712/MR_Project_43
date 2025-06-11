@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
+   
+    
     [SerializeField]
     AudioSource bgmSource,uiSourse, animalSourse;
 
@@ -51,6 +55,7 @@ public class AudioManager : MonoBehaviour
         animalSourse.Play();
     }
 
+    
 
   
 }
