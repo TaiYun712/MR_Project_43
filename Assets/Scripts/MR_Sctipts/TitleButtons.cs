@@ -80,7 +80,7 @@ public class TitleButtons : MonoBehaviour
 
     public void LoadTestScene()
     {
-        SceneManager.LoadScene("JankenScene");
+        SceneManager.LoadScene("LandScene");
         AudioManager.instance.SwitchGameBGM();
     }
 
