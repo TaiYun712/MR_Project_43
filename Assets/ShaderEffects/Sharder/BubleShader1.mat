@@ -60,6 +60,6 @@ Material:
     - _T: 0.3
     m_Colors:
     - _BaseColor: {r: 0.6933962, g: 0.886443, b: 1, a: 0.6039216}
-    - _LightColor: {r: 0.9969122, g: 0.9408856, b: 3.4994345, a: 0.64705884}
+    - _LightColor: {r: 0.9969123, g: 0.9408857, b: 3.499435, a: 0.64705884}
     - _Outlight: {r: 1, g: 1, b: 1, a: 0.5529412}
   m_BuildTextureStacks: []
