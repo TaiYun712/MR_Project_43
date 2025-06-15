@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class HandPosTracking : MonoBehaviour
 {
     public GameObject firePf;
@@ -26,13 +27,5 @@ public class HandPosTracking : MonoBehaviour
         shootBallRB.velocity = transform.forward * spawnSpeed;
     }
 
-    void Start()
-    {   
-
-    }
-
-    void Update()
-    {
-        
-    }
+  
 }

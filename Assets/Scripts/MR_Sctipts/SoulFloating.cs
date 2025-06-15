@@ -21,7 +21,7 @@ public class SoulFloating : MonoBehaviour
     {
         if (other.CompareTag("PlayerHand"))
         {
-           
+           AudioManager.instance.CatchTheSoul();
             Destroy(gameObject);
 
         }
