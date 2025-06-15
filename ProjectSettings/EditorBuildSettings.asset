@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SpawnScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/JankenScene.unity
-    guid: 9b6515fcae23c024697fd3554472f55d
-  - enabled: 1
     path: Assets/Scenes/PowerDEMO.unity
     guid: d04ed5610e04e144b80b07f8e001d450
+  - enabled: 1
+    path: Assets/Scenes/JankenScene.unity
+    guid: 9b6515fcae23c024697fd3554472f55d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 76868d36b3e252e47a6dbf3de4a4fa69, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4d2c8f9ba35b6464ab99ce78e260407b, type: 2}
