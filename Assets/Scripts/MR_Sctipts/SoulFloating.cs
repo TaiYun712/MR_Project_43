@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class SoulFloating : MonoBehaviour
 {
     public float floatSpeed;
-    
+   
     void Start()
     {
         
@@ -14,5 +15,15 @@ public class SoulFloating : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.up * floatSpeed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerHand"))
+        {
+           
+            Destroy(gameObject);
+
+        }
     }
 }

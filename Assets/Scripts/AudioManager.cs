@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
    
     
     [SerializeField]
-    AudioSource bgmSource,uiSourse, animalSourse;
+    AudioSource bgmSource,uiSourse, animalSourse,sfxSource;
 
     [Header("BGM")]
     [SerializeField]
@@ -25,6 +25,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip happybirdSound;
 
+    [Header("SFX")]
+    [SerializeField]
+    AudioClip catchSoulSound;
 
     private void Awake()
     {
@@ -52,7 +55,7 @@ public class AudioManager : MonoBehaviour
     }
 
     
-    //SFX
+    //SFX-TItle、Setting
     public void BublePopkeSound()
     {
         uiSourse.clip = popSound;
@@ -63,6 +66,12 @@ public class AudioManager : MonoBehaviour
     {
         animalSourse.clip = happybirdSound;
         animalSourse.Play();
+    }
+
+    public void CatchTheSoul()
+    {
+        sfxSource.clip = catchSoulSound;
+        sfxSource.Play();
     }
 
     
