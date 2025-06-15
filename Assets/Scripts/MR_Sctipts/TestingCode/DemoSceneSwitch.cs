@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class DemoSceneSwitch : MonoBehaviour
 {
     public GameObject scenePanel;
+    public Transform panelPos;
 
     private void Start()
     {
@@ -15,6 +16,8 @@ public class DemoSceneSwitch : MonoBehaviour
 
     public void OpenScenePanel()
     {
+        Vector3 openPos = panelPos.transform.position;
+        scenePanel.transform.position = openPos;
         bool isActive = scenePanel.activeSelf;
         scenePanel.SetActive(!isActive);
     }
