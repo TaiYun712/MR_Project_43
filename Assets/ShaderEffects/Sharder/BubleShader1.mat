@@ -54,12 +54,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Power: 0.2
+    - _Power: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _T: 0.3
+    - _T: 0.5
     m_Colors:
     - _BaseColor: {r: 0.6933962, g: 0.886443, b: 1, a: 0.6039216}
-    - _LightColor: {r: 0.49845615, g: 0.47044286, b: 1.7497175, a: 0.64705884}
+    - _LightColor: {r: 0.24922808, g: 0.23522143, b: 0.87485874, a: 0.64705884}
     - _Outlight: {r: 1, g: 1, b: 1, a: 0.5529412}
   m_BuildTextureStacks: []
