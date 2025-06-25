@@ -97,7 +97,7 @@ public class PoseDemo : MonoBehaviour
             
             GameObject shootBall = Instantiate(ballPf, bulletPos, Quaternion.identity);
             Rigidbody shootBallRB = shootBall.GetComponent<Rigidbody>();
-            shootBallRB.velocity = transform.forward * spawnSpeed;
+            shootBallRB.velocity = shootPos.forward * spawnSpeed;
             isShooting = false;
         }
        
