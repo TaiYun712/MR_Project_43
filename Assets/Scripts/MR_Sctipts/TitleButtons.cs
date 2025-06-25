@@ -14,6 +14,7 @@ public class TitleButtons : MonoBehaviour
     public GameObject settingBuble;
     public GameObject startBuble;
     public GameObject quitBuble;
+    public GameObject allBubles;
 
     public GameObject bublePop;
     public Vector3 settingPos;
@@ -24,6 +25,8 @@ public class TitleButtons : MonoBehaviour
 
     void Start()
     {
+        allBubles.SetActive(true);
+        
         settingPanel.SetActive(false);
         settingBoardAni.SetBool("settingIn",false);
 
@@ -31,8 +34,7 @@ public class TitleButtons : MonoBehaviour
         settingPos = settingBuble.transform.position;
         startPos = startBuble.transform.position;
         quitPos = quitBuble.transform.position;
-
-     
+        
     }
 
 
@@ -42,10 +44,12 @@ public class TitleButtons : MonoBehaviour
         settingPanel.SetActive(true);
         settingBoardAni.SetBool("settingIn",true);
 
-          bublePop.transform.position = settingPos;
+        bublePop.transform.position = settingPos;
         bublePop.SetActive(true);
         settingBuble.SetActive(false);
 
+        allBubles.SetActive(false);
+        
         AudioManager.instance.BublePopkeSound();
     }
 
@@ -56,6 +60,7 @@ public class TitleButtons : MonoBehaviour
         bublePop.SetActive(false);
         settingBuble.SetActive(true);
 
+        allBubles.SetActive(true);
         Invoke("HideTheBoard",0.5f);
     }
 
