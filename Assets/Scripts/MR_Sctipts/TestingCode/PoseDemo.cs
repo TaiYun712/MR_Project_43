@@ -15,7 +15,9 @@ public class PoseDemo : MonoBehaviour
     public int totalSkill = 4;
 
     public GameObject ballPf;
+    public GameObject aimLine;
     public float spawnSpeed = 5;
+    public float ballDestoryTime = 5f; 
     public Transform shootPos;
 
     public bool isShooting;
@@ -25,6 +27,7 @@ public class PoseDemo : MonoBehaviour
     {
         infoPanel.SetActive(false);
         tablePanel.SetActive(false);
+        aimLine.SetActive(false);
         currentSkill = 0;
 
         isShooting = false;
@@ -87,17 +90,23 @@ public class PoseDemo : MonoBehaviour
     public void HoldRock()
     {
         isShooting = true;
+        
+        aimLine.SetActive(true);
     }
 
     public void ShootTheBall()
     {
         if (isShooting)
         {
+            aimLine.SetActive(false);
+            
             Vector3 bulletPos = shootPos.transform.position;
             
             GameObject shootBall = Instantiate(ballPf, bulletPos, Quaternion.identity);
             Rigidbody shootBallRB = shootBall.GetComponent<Rigidbody>();
             shootBallRB.velocity = shootPos.forward * spawnSpeed;
+            Destroy(shootBall,ballDestoryTime);
+            
             isShooting = false;
         }
        
