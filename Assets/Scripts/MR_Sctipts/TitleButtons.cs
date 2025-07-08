@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Profiling.LowLevel.Unsafe;
@@ -23,14 +24,13 @@ public class TitleButtons : MonoBehaviour
     public Vector3 quitPos;
 
     public Transform seePoint;
-    
+   
+
 
     void Start()
     {
         allBubles.SetActive(true);
-        float bubleHeight = seePoint.transform.position.y;
-        allBubles.transform.position = new Vector3(0, bubleHeight, 0.5f);
-        
+       Invoke("SetBubleHeight",0.8f);
         
         settingPanel.SetActive(false);
         settingBoardAni.SetBool("settingIn",false);
@@ -42,6 +42,13 @@ public class TitleButtons : MonoBehaviour
         
     }
 
+    public void SetBubleHeight()
+    {
+        Vector3 eyePos = seePoint.position;
+        Vector3 targetPos = new Vector3(eyePos.x, eyePos.y-0.2f, eyePos.z + 0.5f); // Y 是高度, Z 是距離前方
+        allBubles.transform.position = targetPos;
+    }
+ 
 
     //Setting按鈕
     public void OpenSettingPanel()
