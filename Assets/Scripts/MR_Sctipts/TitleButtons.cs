@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,11 +22,15 @@ public class TitleButtons : MonoBehaviour
     public Vector3 startPos;
     public Vector3 quitPos;
 
-  
+    public Transform seePoint;
+    
 
     void Start()
     {
         allBubles.SetActive(true);
+        float bubleHeight = seePoint.transform.position.y;
+        allBubles.transform.position = new Vector3(0, bubleHeight, 0.5f);
+        
         
         settingPanel.SetActive(false);
         settingBoardAni.SetBool("settingIn",false);
