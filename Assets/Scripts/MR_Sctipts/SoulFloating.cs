@@ -29,6 +29,7 @@ public class SoulFloating : MonoBehaviour
         }
     }
 
+    //抓取碎片
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerHand"))
