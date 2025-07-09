@@ -6,15 +6,27 @@ using UnityEngine;
 public class SoulFloating : MonoBehaviour
 {
     public float floatSpeed;
-   
-    void Start()
+    public float topHeight;
+    public SoulSpawner spawner;
+
+
+    private void Start()
     {
-        
+        spawner = FindObjectOfType<SoulSpawner>();
     }
 
     void Update()
     {
         transform.position += Vector3.up * floatSpeed * Time.deltaTime;
+
+        if (transform.position.y >= topHeight)
+        {
+            if (spawner != null)
+            {
+                spawner.RespawnSoul();
+            }
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

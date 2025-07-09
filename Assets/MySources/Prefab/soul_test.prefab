@@ -88,6 +88,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatSpeed: 0.02
+  topHeight: 2
+  spawner: {fileID: 0}
 --- !u!54 &7942850564712632273
 Rigidbody:
   m_ObjectHideFlags: 0
