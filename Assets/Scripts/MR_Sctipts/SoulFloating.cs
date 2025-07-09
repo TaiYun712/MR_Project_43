@@ -9,6 +9,7 @@ public class SoulFloating : MonoBehaviour
     public float topHeight;
     public SoulSpawner spawner;
 
+    
 
     private void Start()
     {
@@ -34,9 +35,13 @@ public class SoulFloating : MonoBehaviour
     {
         if (other.CompareTag("PlayerHand"))
         {
+            if (spawner != null)
+            {
+                spawner.AddSoulCount();
+            }
+            
            AudioManager.instance.CatchTheSoul();
             Destroy(gameObject);
-
         }
     }
 }

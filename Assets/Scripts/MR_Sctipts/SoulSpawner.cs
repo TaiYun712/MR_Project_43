@@ -9,10 +9,36 @@ public class SoulSpawner : MonoBehaviour
     public int soulCount;
     public float spawnRadius;
     
+    public int catchCount = 0;
+
+    public Transform lvHintPos;
+    public GameObject levelPanel;
+    public float showTime;
+    public float loadTime;
+  
+    
     
     void Start()
     {
-        SpawnSouls(soulCount);
+        Invoke("OpenLevelPanel",loadTime);
+        
+        Invoke("CloseLevelPanel",showTime);
+        
+    }
+
+    public void OpenLevelPanel()
+    {
+        Vector3 lvPanelPos = lvHintPos.transform.position;
+        levelPanel.transform.position = lvPanelPos;
+        
+        levelPanel.SetActive(true);
+    }
+    
+    public void CloseLevelPanel()
+    {
+        levelPanel.SetActive(false);
+        
+        SpawnSouls(soulCount); //提示結束後開始生成
     }
 
     public void SpawnSouls(int count)
@@ -33,5 +59,11 @@ public class SoulSpawner : MonoBehaviour
         GameObject soul = Instantiate(soulPf, randomPos, Quaternion.identity);
         soul.GetComponent<SoulFloating>().spawner = this;
 
+    }
+
+    public void AddSoulCount()
+    {
+        catchCount++;
+        Debug.Log($"收集{catchCount}個碎片");
     }
 }
