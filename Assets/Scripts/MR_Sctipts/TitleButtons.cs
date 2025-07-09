@@ -36,9 +36,6 @@ public class TitleButtons : MonoBehaviour
         settingBoardAni.SetBool("settingIn",false);
 
         bublePop.SetActive(false);
-        settingPos = settingBuble.transform.position;
-        startPos = startBuble.transform.position;
-        quitPos = quitBuble.transform.position;
         
     }
 
@@ -47,6 +44,10 @@ public class TitleButtons : MonoBehaviour
         Vector3 eyePos = seePoint.position;
         Vector3 targetPos = new Vector3(eyePos.x, eyePos.y-0.2f, eyePos.z + 0.5f); // Y 是高度, Z 是距離前方
         allBubles.transform.position = targetPos;
+        
+        settingPos = settingBuble.transform.position;
+        startPos = startBuble.transform.position;
+        quitPos = quitBuble.transform.position;
     }
  
 
