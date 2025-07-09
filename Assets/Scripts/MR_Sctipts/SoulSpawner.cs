@@ -11,8 +11,9 @@ public class SoulSpawner : MonoBehaviour
     
     public int catchCount = 0;
 
-    public Transform lvHintPos;
-    public GameObject levelPanel;
+   // public Transform lvHintPos;
+    public GameObject levelReadyPanel;
+    public GameObject levelStartPanel;
     public float showTime;
     public float loadTime;
   
@@ -21,26 +22,33 @@ public class SoulSpawner : MonoBehaviour
     void Start()
     {
         Invoke("OpenLevelPanel",loadTime);
-        
         Invoke("CloseLevelPanel",showTime);
         
-    }
-
-    public void OpenLevelPanel()
-    {
-        Vector3 lvPanelPos = lvHintPos.transform.position;
-        levelPanel.transform.position = lvPanelPos;
+        levelStartPanel.SetActive(false);
         
-        levelPanel.SetActive(true);
     }
     
+    
+
+    //開頭收集碎片提示
+    public void OpenLevelPanel()
+    {
+      //  Vector3 lvPanelPos = lvHintPos.transform.position;
+      //  levelPanel.transform.position = lvPanelPos;
+        
+      levelReadyPanel.SetActive(true);
+      AudioManager.instance.ShowHint();
+    }
+    
+    //關閉提示
     public void CloseLevelPanel()
     {
-        levelPanel.SetActive(false);
+        levelReadyPanel.SetActive(false);
         
         SpawnSouls(soulCount); //提示結束後開始生成
     }
 
+    //生成碎片
     public void SpawnSouls(int count)
     {
         for (int i = 0; i < count; i++)
@@ -52,6 +60,7 @@ public class SoulSpawner : MonoBehaviour
         }
     }
 
+    //到達一定高度，重新生成碎片
     public void RespawnSoul()
     {
         Vector3 randomPos = playerPos.position + Random.insideUnitSphere * spawnRadius;
@@ -61,9 +70,28 @@ public class SoulSpawner : MonoBehaviour
 
     }
 
+    //計算碎片收集數量
     public void AddSoulCount()
     {
-        catchCount++;
-        Debug.Log($"收集{catchCount}個碎片");
+        if (catchCount < soulCount)
+        {
+            catchCount++;
+            Debug.Log($"收集{catchCount}個碎片");
+
+            if (catchCount >= soulCount)
+            {
+                Debug.Log("收集完畢");
+                levelStartPanel.SetActive(true);
+                AudioManager.instance.ShowHint();
+                Invoke("CloseLvStartPanel",showTime);
+            }
+        }
+        
+    }
+    
+    //關閉收集完成提示
+    public void CloseLvStartPanel()
+    {
+        levelStartPanel.SetActive(false);
     }
 }

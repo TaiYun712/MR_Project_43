@@ -27,7 +27,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField]
-    AudioClip catchSoulSound;
+    AudioClip catchSoulSound,showHintSound;
+
+   
 
     private void Awake()
     {
@@ -72,9 +74,16 @@ public class AudioManager : MonoBehaviour
         animalSourse.Play();
     }
 
+    //SFX-Gaming
     public void CatchTheSoul()
     {
         sfxSource.clip = catchSoulSound;
+        sfxSource.Play();
+    }
+
+    public void ShowHint()
+    {
+        sfxSource.clip = showHintSound;
         sfxSource.Play();
     }
 
