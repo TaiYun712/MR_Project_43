@@ -113,8 +113,9 @@ public class PoseDemo : MonoBehaviour
     public void HoldRock()
     {
         isShooting = true;
-        
         aimLine.SetActive(true);
+        
+        AudioManager.instance.AimReadySound();
     }
 
     public void ShootTheBall()
@@ -122,6 +123,7 @@ public class PoseDemo : MonoBehaviour
         if (isShooting)
         {
             aimLine.SetActive(false);
+            AudioManager.instance.FireOutSound();
             
             Vector3 bulletPos = shootPos.transform.position;
             

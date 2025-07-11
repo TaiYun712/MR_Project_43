@@ -95,6 +95,7 @@ public class SoulSpawner : MonoBehaviour
                 Debug.Log("收集完畢");
                 levelStartPanel.SetActive(true);
                 AudioManager.instance.PlayRedbirdSound();
+                AudioManager.instance.ShowHint();
                 Invoke("CloseLvStartPanel",showTime);
             }
         }

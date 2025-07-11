@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField]
-    AudioClip popSound;
+    AudioClip popSound,showHintSound;
 
     [Header("Animals")]
     [SerializeField]
@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField]
-    AudioClip catchSoulSound,showHintSound;
+    AudioClip catchSoulSound,aimSound,fireSound;
 
    
 
@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
     }
 
     
-    //SFX-TItle、Setting
+    //UI-TItle、Setting
     public void BublePopkeSound()
     {
         uiSourse.clip = popSound;
@@ -73,6 +73,13 @@ public class AudioManager : MonoBehaviour
         animalSourse.clip = happybirdSound;
         animalSourse.Play();
     }
+    
+    public void ShowHint()
+    {
+        uiSourse.clip = showHintSound;
+        uiSourse.Play();
+    }
+
 
     //SFX-Gaming
     public void CatchTheSoul()
@@ -80,19 +87,24 @@ public class AudioManager : MonoBehaviour
         sfxSource.clip = catchSoulSound;
         sfxSource.Play();
     }
-
-    public void ShowHint()
-    {
-        sfxSource.clip = showHintSound;
-        sfxSource.Play();
-    }
-
+    
     public void PlayRedbirdSound()
     {
         animalSourse.clip = redbirdSound;
         animalSourse.Play();
     }
 
+    public void AimReadySound()
+    {
+        sfxSource.clip = aimSound;
+        sfxSource.Play();
+    }
+
+    public void FireOutSound()
+    {
+        sfxSource.clip = fireSound;
+        sfxSource.Play();
+    }
     
 
   
