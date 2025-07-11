@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SoulSpawner : MonoBehaviour
 {
@@ -103,5 +105,6 @@ public class SoulSpawner : MonoBehaviour
     public void CloseLvStartPanel()
     {
         levelStartPanel.SetActive(false);
+        SceneManager.LoadScene("PowerDEMO");
     }
 }
