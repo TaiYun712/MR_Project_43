@@ -8,6 +8,9 @@ public class PoseDemo : MonoBehaviour
 {
     public GameObject infoPanel;
     public GameObject tablePanel;
+    public GameObject badHintPanel_L;
+    public GameObject badHintPanel_R;
+
 
     public Text skillNameText;
 
@@ -27,6 +30,9 @@ public class PoseDemo : MonoBehaviour
     {
         infoPanel.SetActive(false);
         tablePanel.SetActive(false);
+        badHintPanel_L.SetActive(false);
+        badHintPanel_R.SetActive(false);
+        
         aimLine.SetActive(false);
         currentSkill = 0;
 
@@ -34,6 +40,23 @@ public class PoseDemo : MonoBehaviour
         
     }
 
+    //比中指bad bad
+    public void OpenBadHint_R()
+    {
+        badHintPanel_R.SetActive(true);
+    }
+
+    public void OpenBadHint_L()
+    {
+        badHintPanel_L.SetActive(true);
+    }
+
+    public void CloseBadHint()
+    {
+        badHintPanel_L.SetActive(false);
+        badHintPanel_R.SetActive(false);
+    }
+    
     //資訊面板
     public void OpenInfoPanel()
     {
