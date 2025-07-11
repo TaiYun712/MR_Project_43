@@ -47,6 +47,11 @@ public class DemoSceneSwitch : MonoBehaviour
     {
         SceneManager.LoadScene("JankenScene");
     }
+
+    public void GoToBallRoom()
+    {
+        SceneManager.LoadScene("BallRoom");
+    }
     
     
 }
