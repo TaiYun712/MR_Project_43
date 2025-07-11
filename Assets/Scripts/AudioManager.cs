@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField]
-    AudioClip catchSoulSound,aimSound,fireSound;
+    AudioClip catchSoulSound,aimSound,fireSound,brokeSound;
 
    
 
@@ -105,7 +105,12 @@ public class AudioManager : MonoBehaviour
         sfxSource.clip = fireSound;
         sfxSource.Play();
     }
-    
+
+    public void TargetBroken()
+    {
+        uiSourse.clip = brokeSound;
+        uiSourse.Play();
+    }
 
   
 }

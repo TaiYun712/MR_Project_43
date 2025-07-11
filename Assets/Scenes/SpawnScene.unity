@@ -12154,6 +12154,7 @@ MonoBehaviour:
   catchSoulSound: {fileID: 8300000, guid: 33b8262cb32efd54ba2defdf2e99d09a, type: 3}
   aimSound: {fileID: 8300000, guid: 9f865636bd658aa47b49667e81017320, type: 3}
   fireSound: {fileID: 8300000, guid: b131e179419fc724ebda18d6024e38c6, type: 3}
+  brokeSound: {fileID: 8300000, guid: 03738b14dd4371141a310f5216630b25, type: 3}
 --- !u!4 &512488526
 Transform:
   m_ObjectHideFlags: 0
