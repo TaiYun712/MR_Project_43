@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Animals")]
     [SerializeField]
-    AudioClip happybirdSound;
+    AudioClip happybirdSound,redbirdSound;
 
     [Header("SFX")]
     [SerializeField]
@@ -85,6 +85,12 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.clip = showHintSound;
         sfxSource.Play();
+    }
+
+    public void PlayRedbirdSound()
+    {
+        animalSourse.clip = redbirdSound;
+        animalSourse.Play();
     }
 
     
