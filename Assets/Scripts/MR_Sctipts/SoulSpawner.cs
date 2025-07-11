@@ -11,33 +11,43 @@ public class SoulSpawner : MonoBehaviour
     
     public int catchCount = 0;
 
-   // public Transform lvHintPos;
+   // public Transform hintPos;
     public GameObject levelReadyPanel;
     public GameObject levelStartPanel;
     public float showTime;
     public float loadTime;
-  
-    
+
+    public GameObject soulBt; //demo用，去收集碎片按鈕
     
     void Start()
     {
-        Invoke("OpenLevelPanel",loadTime);
-        Invoke("CloseLevelPanel",showTime);
-        
+       // Invoke("OpenLevelPanel",loadTime);
+       soulBt.SetActive(false); 
+       
         levelStartPanel.SetActive(false);
         
     }
     
-    
+    //觸發收集碎片按鈕
+    public void GoToSoulPart()
+    {
+       
+        bool isActive = soulBt.activeSelf;
+        soulBt.SetActive(!isActive);
+    }
 
     //開頭收集碎片提示
     public void OpenLevelPanel()
     {
       //  Vector3 lvPanelPos = lvHintPos.transform.position;
       //  levelPanel.transform.position = lvPanelPos;
-        
+      soulBt.SetActive(false); //demo用
+      
       levelReadyPanel.SetActive(true);
       AudioManager.instance.ShowHint();
+      
+      Invoke("CloseLevelPanel",showTime);
+
     }
     
     //關閉提示
