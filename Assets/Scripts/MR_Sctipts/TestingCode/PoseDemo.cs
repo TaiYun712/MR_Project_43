@@ -154,6 +154,7 @@ public class PoseDemo : MonoBehaviour
         if (isShooting)
         {
             aimLine.SetActive(false);
+            aimImpactPf.SetActive(false);
             AudioManager.instance.FireOutSound();
             
             Vector3 bulletPos = shootPos.transform.position;
