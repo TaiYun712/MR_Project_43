@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class SoulSpawner : MonoBehaviour
 {
     public Transform playerPos;
-    public GameObject soulPf;
+    public GameObject[] soulPf;
     public int soulCount;
     public float spawnRadius;
     
     public int catchCount = 0;
+    public int randomSoulIndex;
 
    // public Transform hintPos;
     public GameObject levelReadyPanel;
@@ -67,7 +68,8 @@ public class SoulSpawner : MonoBehaviour
         {
             Vector3 randomPos = playerPos.position + Random.insideUnitSphere * spawnRadius;
             randomPos.y = Random.Range(0,1.5f);
-            GameObject soul = Instantiate(soulPf, randomPos, Quaternion.identity);
+            randomSoulIndex = Random.Range(0, soulPf.Length);
+            GameObject soul = Instantiate(soulPf[randomSoulIndex], randomPos, Quaternion.identity);
             soul.GetComponent<SoulFloating>().spawner = this;
         }
     }
@@ -77,7 +79,7 @@ public class SoulSpawner : MonoBehaviour
     {
         Vector3 randomPos = playerPos.position + Random.insideUnitSphere * spawnRadius;
         randomPos.y = Random.Range(0,1.5f);
-        GameObject soul = Instantiate(soulPf, randomPos, Quaternion.identity);
+        GameObject soul = Instantiate(soulPf[randomSoulIndex], randomPos, Quaternion.identity);
         soul.GetComponent<SoulFloating>().spawner = this;
 
     }

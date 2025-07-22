@@ -24734,7 +24734,8 @@ PrefabInstance:
       value: soulpart_orange_ani
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8704828530533918057, guid: dc47ea546525b0342acd30e9aa51dcb4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc47ea546525b0342acd30e9aa51dcb4, type: 3}
@@ -24852,7 +24853,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6302156940471993655, guid: 176109240d3367a4a9900346ede60ad5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 176109240d3367a4a9900346ede60ad5, type: 3}
@@ -24909,7 +24911,8 @@ PrefabInstance:
       value: soulpart_pink_ani
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6298587266357255282, guid: 2c72f541a7dfce048b59f1cebef620e5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c72f541a7dfce048b59f1cebef620e5, type: 3}
@@ -24966,7 +24969,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 309347240010546698, guid: a51063fe9fa9c0b499008bedf067dad4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a51063fe9fa9c0b499008bedf067dad4, type: 3}
