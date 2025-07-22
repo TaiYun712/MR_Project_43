@@ -55,6 +55,7 @@ public class TitleButtons : MonoBehaviour
     public void OpenSettingPanel()
     {
         settingPanel.SetActive(true);
+        AudioManager.instance.SettingBoardMove();
         settingBoardAni.SetBool("settingIn",true);
 
         bublePop.transform.position = settingPos;
@@ -69,6 +70,8 @@ public class TitleButtons : MonoBehaviour
     public void CloseSettingPanel()
     {
         settingBoardAni.SetBool("settingIn", false);
+        AudioManager.instance.SettingBoardMove();
+        AudioManager.instance.UISound_Wood();
 
         bublePop.SetActive(false);
         settingBuble.SetActive(true);

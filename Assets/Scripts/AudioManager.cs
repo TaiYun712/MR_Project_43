@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField]
-    AudioClip popSound,showHintSound;
+    AudioClip popSound,showHintSound,woodUISound;
 
     [Header("Animals")]
     [SerializeField]
@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField]
-    AudioClip catchSoulSound,aimSound,fireSound,brokeSound;
+    AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound;
 
    
 
@@ -73,7 +73,20 @@ public class AudioManager : MonoBehaviour
         animalSourse.clip = happybirdSound;
         animalSourse.Play();
     }
+
+    public void SettingBoardMove()
+    {
+        sfxSource.clip = broadMoveSound;
+        sfxSource.Play();
+    }
+
+    public void UISound_Wood()
+    {
+        uiSourse.clip = woodUISound;
+        uiSourse.Play();
+    }
     
+    //UI-Gaming
     public void ShowHint()
     {
         uiSourse.clip = showHintSound;

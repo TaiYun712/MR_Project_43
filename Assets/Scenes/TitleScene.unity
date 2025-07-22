@@ -51308,12 +51308,14 @@ MonoBehaviour:
   gameBGM: {fileID: 8300000, guid: d65344d2ab12c1843bb9046c4cd27fdd, type: 3}
   popSound: {fileID: 8300000, guid: cbb283c3e02561d44853b95e38474737, type: 3}
   showHintSound: {fileID: 8300000, guid: f72160dce950971458cdd0ecb5560256, type: 3}
+  woodUISound: {fileID: 8300000, guid: ca6fc50307511a446ba6fa8519f968fc, type: 3}
   happybirdSound: {fileID: 8300000, guid: 6850e00b694fcdd41a1a9f84ba3b6151, type: 3}
   redbirdSound: {fileID: 8300000, guid: 7411680e693166740befdfce46b73dd2, type: 3}
   catchSoulSound: {fileID: 8300000, guid: 33b8262cb32efd54ba2defdf2e99d09a, type: 3}
   aimSound: {fileID: 8300000, guid: 9f865636bd658aa47b49667e81017320, type: 3}
   fireSound: {fileID: 8300000, guid: b131e179419fc724ebda18d6024e38c6, type: 3}
   brokeSound: {fileID: 8300000, guid: 03738b14dd4371141a310f5216630b25, type: 3}
+  broadMoveSound: {fileID: 8300000, guid: e656ce3e6feea1c4db9491aa29fe9a55, type: 3}
 --- !u!4 &1886768455
 Transform:
   m_ObjectHideFlags: 0
