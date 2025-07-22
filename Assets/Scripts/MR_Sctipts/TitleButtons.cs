@@ -24,6 +24,8 @@ public class TitleButtons : MonoBehaviour
     public Vector3 quitPos;
 
     public Transform seePoint;
+
+    public GameObject changeSceneEffect;
    
 
 
@@ -36,6 +38,8 @@ public class TitleButtons : MonoBehaviour
         settingBoardAni.SetBool("settingIn",false);
 
         bublePop.SetActive(false);
+        
+        changeSceneEffect.SetActive(false);
         
     }
 
@@ -96,9 +100,15 @@ public class TitleButtons : MonoBehaviour
         bublePop.SetActive(true);
 
         Debug.Log("進入遊戲");
+        Invoke("ChangeBubleEffect",2f);
         Invoke("LoadTestScene",startGameTime);
     }
 
+    public void ChangeBubleEffect()
+    {
+        changeSceneEffect.SetActive(true);
+    }
+    
     public void LoadTestScene()
     {
         SceneManager.LoadScene("SpawnScene");
