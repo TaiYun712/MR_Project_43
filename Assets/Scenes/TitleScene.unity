@@ -24507,7 +24507,7 @@ Transform:
   m_GameObject: {fileID: 896549174}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0.5}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0.362}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -28268,7 +28268,7 @@ MonoBehaviour:
   settingPanel: {fileID: 1708475010}
   settingBoardAni: {fileID: 1708475014}
   quitGameTime: 3
-  startGameTime: 4
+  startGameTime: 3
   settingBuble: {fileID: 1562166339}
   startBuble: {fileID: 2069325714}
   quitBuble: {fileID: 999109519}
@@ -33551,7 +33551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237540335954411356, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.473
       objectReference: {fileID: 0}
     - target: {fileID: 1237540335954411356, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33591,7 +33591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: lengthInSec
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -35605,7 +35605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1237540335954411356, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.173
       objectReference: {fileID: 0}
     - target: {fileID: 1237540335954411356, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35645,7 +35645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: lengthInSec
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -51556,6 +51556,7 @@ MonoBehaviour:
   fireSound: {fileID: 8300000, guid: b131e179419fc724ebda18d6024e38c6, type: 3}
   brokeSound: {fileID: 8300000, guid: 03738b14dd4371141a310f5216630b25, type: 3}
   broadMoveSound: {fileID: 8300000, guid: e656ce3e6feea1c4db9491aa29fe9a55, type: 3}
+  bubleUpSound: {fileID: 8300000, guid: 9a26cf8d4f3bc47428c1545fc3ec6129, type: 3}
 --- !u!4 &1886768455
 Transform:
   m_ObjectHideFlags: 0
@@ -58101,7 +58102,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: lengthInSec
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7479205259601750133, guid: ab98bf6be0d5f234a9818ff094ee7531, type: 3}
       propertyPath: InitialModule.startSpeed.scalar

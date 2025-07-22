@@ -107,6 +107,7 @@ public class TitleButtons : MonoBehaviour
     public void ChangeBubleEffect()
     {
         changeSceneEffect.SetActive(true);
+        AudioManager.instance.BubleUp();
     }
     
     public void LoadTestScene()

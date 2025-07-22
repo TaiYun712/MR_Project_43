@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField]
-    AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound;
+    AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound,bubleUpSound;
 
    
 
@@ -84,6 +84,12 @@ public class AudioManager : MonoBehaviour
     {
         uiSourse.clip = woodUISound;
         uiSourse.Play();
+    }
+
+    public void BubleUp()
+    {
+        sfxSource.clip = bubleUpSound;
+        sfxSource.Play();
     }
     
     //UI-Gaming
