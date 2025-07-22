@@ -21,22 +21,26 @@ public class SoulSpawner : MonoBehaviour
     public float loadTime;
 
     public GameObject soulBt; //demo用，去收集碎片按鈕
+    public bool isStartSoulPart;  //demo用，避免開始收集時誤觸
     
     void Start()
     {
        // Invoke("OpenLevelPanel",loadTime);
-       soulBt.SetActive(false); 
-       
-        levelStartPanel.SetActive(false);
+       soulBt.SetActive(false);
+       isStartSoulPart = false;
+       levelStartPanel.SetActive(false);
         
     }
     
     //觸發收集碎片按鈕
     public void GoToSoulPart()
     {
+        if (!isStartSoulPart)
+        {
+            bool isActive = soulBt.activeSelf;
+            soulBt.SetActive(!isActive);
+        }
        
-        bool isActive = soulBt.activeSelf;
-        soulBt.SetActive(!isActive);
     }
 
     //開頭收集碎片提示
@@ -44,6 +48,8 @@ public class SoulSpawner : MonoBehaviour
     {
       //  Vector3 lvPanelPos = lvHintPos.transform.position;
       //  levelPanel.transform.position = lvPanelPos;
+      
+      isStartSoulPart = true; //demo用
       soulBt.SetActive(false); //demo用
       
       levelReadyPanel.SetActive(true);
