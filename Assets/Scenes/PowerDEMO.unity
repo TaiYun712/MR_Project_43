@@ -12879,6 +12879,7 @@ MonoBehaviour:
   fireSound: {fileID: 8300000, guid: b131e179419fc724ebda18d6024e38c6, type: 3}
   brokeSound: {fileID: 8300000, guid: 03738b14dd4371141a310f5216630b25, type: 3}
   broadMoveSound: {fileID: 8300000, guid: e656ce3e6feea1c4db9491aa29fe9a55, type: 3}
+  bubleUpSound: {fileID: 0}
 --- !u!4 &459810118
 Transform:
   m_ObjectHideFlags: 0
@@ -52718,7 +52719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.083, y: 0.086}
+  m_AnchoredPosition: {x: 0.1432, y: 0.086}
   m_SizeDelta: {x: 20, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981824377
