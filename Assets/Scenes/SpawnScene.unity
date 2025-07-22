@@ -24856,13 +24856,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 2014732340}
-  soulPf: {fileID: 4798725413071531616, guid: 06737c191cfacf646b0dc575c459ee0c, type: 3}
+  soulPf: {fileID: 5270978891871441958, guid: dc47ea546525b0342acd30e9aa51dcb4, type: 3}
   soulCount: 5
   spawnRadius: 1
   catchCount: 0
   levelReadyPanel: {fileID: 1870932139}
   levelStartPanel: {fileID: 1323670117}
-  showTime: 8
+  showTime: 5
   loadTime: 2
   soulBt: {fileID: 1817801512}
 --- !u!4 &991233605
