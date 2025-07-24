@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField]
-    AudioClip popSound,showHintSound,woodUISound;
+    AudioClip popSound,showHintSound,woodUISound,overHintSound;
 
     [Header("Animals")]
     [SerializeField]
@@ -96,6 +96,12 @@ public class AudioManager : MonoBehaviour
     public void ShowHint()
     {
         uiSourse.clip = showHintSound;
+        uiSourse.Play();
+    }
+
+    public void SoulCatchOverHint()
+    {
+        uiSourse.clip = overHintSound;
         uiSourse.Play();
     }
 
