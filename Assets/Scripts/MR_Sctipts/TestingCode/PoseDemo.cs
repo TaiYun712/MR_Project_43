@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class PoseDemo : MonoBehaviour
 {
-    public GameObject infoPanel;
+    public GameObject infoPanel_hand;
+    public GameObject infoPanel_front;
     public GameObject tablePanel;
     public GameObject badHintPanel_L;
     public GameObject badHintPanel_R;
@@ -31,7 +32,8 @@ public class PoseDemo : MonoBehaviour
 
     void Start()
     {
-        infoPanel.SetActive(false);
+        infoPanel_hand.SetActive(false);
+        infoPanel_front.SetActive(false);
         tablePanel.SetActive(false);
         badHintPanel_L.SetActive(false);
         badHintPanel_R.SetActive(false);
@@ -69,14 +71,20 @@ public class PoseDemo : MonoBehaviour
     }
     
     //資訊面板
-    public void OpenInfoPanel()
+    public void OpenInfoPanel()  //手面板
     {
-        infoPanel.SetActive(true);
+        infoPanel_hand.SetActive(true);
+    }
+
+    public void OpenFrontPanel()  //前方面板
+    {
+        infoPanel_front.SetActive(true);
     }
 
     public void CloseInfoPanel()
     {
-        infoPanel.SetActive(false);
+        infoPanel_hand.SetActive(false);
+        infoPanel_front.SetActive(false);
     }
 
     //切換屬性
