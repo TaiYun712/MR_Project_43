@@ -8,7 +8,10 @@ public class PoseDemo : MonoBehaviour
 {
     public GameObject infoPanel_hand;
     public GameObject infoPanel_front;
+    
     public GameObject tablePanel;
+    public Animator tableAni;
+    
     public GameObject badHintPanel_L;
     public GameObject badHintPanel_R;
 
@@ -34,7 +37,10 @@ public class PoseDemo : MonoBehaviour
     {
         infoPanel_hand.SetActive(false);
         infoPanel_front.SetActive(false);
+        
         tablePanel.SetActive(false);
+        tableAni.SetBool("opentable",false);
+        
         badHintPanel_L.SetActive(false);
         badHintPanel_R.SetActive(false);
         
@@ -119,12 +125,18 @@ public class PoseDemo : MonoBehaviour
     public void OpenTablePanel()
     {
         tablePanel.SetActive(true);
+        tableAni.SetBool("opentable",true);
     }
 
     public void CloseTablePanel()
     {
-        tablePanel.SetActive(false);
+        tableAni.SetBool("opentable",false);
+        Invoke("WaitToClosePanel",0.2f);
+    }
 
+    public void WaitToClosePanel()
+    {
+        tablePanel.SetActive(false);
     }
 
     //發射能量球
