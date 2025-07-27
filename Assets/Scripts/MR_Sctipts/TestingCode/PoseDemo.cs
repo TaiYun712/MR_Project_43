@@ -3,25 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 public class PoseDemo : MonoBehaviour
 {
+    public bool isOpenOtherPanel;
+    public bool isFalmFacing;
+    
+    [Header("資訊面板")]
     public GameObject infoPanel_hand;
     public GameObject infoPanel_front;
     
+    [Header("棲地合成台")]
     public GameObject tablePanel;
     public Animator tableAni;
     
+    [Header("中指馬賽克")]
     public GameObject badHintPanel_L;
     public GameObject badHintPanel_R;
 
-
+    [Header("技能面板")]
     public Text skillNameText;
-
+    public GameObject skillPanel;
     public int currentSkill = 0;
     public int totalSkill = 4;
 
+    [Header("發射能量球")]
     public GameObject ballPf;
     
     public GameObject aimRay;
@@ -39,6 +47,9 @@ public class PoseDemo : MonoBehaviour
 
     void Start()
     {
+        isOpenOtherPanel = false;
+        isFalmFacing = false;
+        
         infoPanel_hand.SetActive(false);
         infoPanel_front.SetActive(false);
         
@@ -47,6 +58,8 @@ public class PoseDemo : MonoBehaviour
         
         badHintPanel_L.SetActive(false);
         badHintPanel_R.SetActive(false);
+        
+        skillPanel.SetActive(false);
         
         aimRay.SetActive(false);
 
@@ -58,13 +71,21 @@ public class PoseDemo : MonoBehaviour
 
     private void Update()
     {
+        //持續瞄準-右
         if (isShooting)
         {
             HoldToAim();
         }
+        
+        //偵測面板狀況-左
+        if (!isOpenOtherPanel && IsPalmStillFacing() && !skillPanel.activeSelf)
+        {
+            ShowSkillPanel();
+        }
+        
     }
 
-    //比中指bad bad
+    //比中指bad bad-左、右
     public void OpenBadHint_R()
     {
         badHintPanel_R.SetActive(true);
@@ -73,18 +94,26 @@ public class PoseDemo : MonoBehaviour
     public void OpenBadHint_L()
     {
         badHintPanel_L.SetActive(true);
+        isOpenOtherPanel = true;
+        
+        HideSkillPanel();
     }
 
     public void CloseBadHint()
     {
         badHintPanel_L.SetActive(false);
         badHintPanel_R.SetActive(false);
+
+        isOpenOtherPanel = false;
     }
     
-    //資訊面板
+    //資訊面板-左
     public void OpenInfoPanel()  //手面板
     {
         infoPanel_hand.SetActive(true);
+        
+        isOpenOtherPanel = true;
+        HideSkillPanel();
     }
 
     public void OpenFrontPanel()  //前方面板
@@ -96,10 +125,44 @@ public class PoseDemo : MonoBehaviour
     {
         infoPanel_hand.SetActive(false);
         infoPanel_front.SetActive(false);
+        
+        isOpenOtherPanel = false;
     }
 
-    //切換屬性
-    public void SwitchToNextSkill()
+    //技能面板-左
+
+    public void HandIsFacing()  //技能面板顯示
+    {
+        isFalmFacing = true;
+        
+        if (!isOpenOtherPanel)
+        {
+            ShowSkillPanel();
+        }
+    }
+
+    public void HandFacingEnd()
+    {
+        isFalmFacing = false;
+        HideSkillPanel();
+    }
+
+    bool IsPalmStillFacing()
+    {
+        return isFalmFacing;
+    }
+    
+    public void ShowSkillPanel()
+    {
+        skillPanel.SetActive(true);
+    }
+
+    public void HideSkillPanel()
+    {
+        skillPanel.SetActive(false);
+    }
+    
+    public void SwitchToNextSkill()   //技能面板切換
     {
         currentSkill = (currentSkill + 1) % totalSkill;
 
@@ -126,7 +189,7 @@ public class PoseDemo : MonoBehaviour
         }
     }
 
-    //棲地合成台
+    //棲地合成台-右
     public void OpenTablePanel()
     {
         tablePanel.SetActive(true);
@@ -144,7 +207,7 @@ public class PoseDemo : MonoBehaviour
         tablePanel.SetActive(false);
     }
 
-    //發射能量球
+    //發射能量球-右
 
     public void HoldRock()
     {
