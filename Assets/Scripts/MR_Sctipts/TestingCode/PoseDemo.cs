@@ -10,6 +10,8 @@ public class PoseDemo : MonoBehaviour
 {
     public bool isOpenOtherPanel;
     public bool isFalmFacing;
+
+    public bool isTableSkill = false;
     
     [Header("資訊面板")]
     public GameObject infoPanel_hand;
@@ -171,21 +173,26 @@ public class PoseDemo : MonoBehaviour
             switch (currentSkill)
             {
                 case 0:
-                    skillNameText.text = "無屬性";
+                    skillNameText.text = "能量球";
+                    isTableSkill = false;
+                    
                     break;
 
                 case 1:
                     skillNameText.text = "淨化";
-
+                    isTableSkill = false;
+                    
                     break;
 
                 case 2:
                     skillNameText.text = "生長";
+                    isTableSkill = true;
 
                     break;
 
                 case 3:
                     skillNameText.text = "移除";
+                    isTableSkill = false;
 
                     break;
             }
@@ -196,8 +203,12 @@ public class PoseDemo : MonoBehaviour
     //棲地合成台-右
     public void OpenTablePanel()
     {
-        tablePanel.SetActive(true);
-        tableAni.SetBool("opentable",true);
+        if (isTableSkill)
+        {
+            tablePanel.SetActive(true);
+            tableAni.SetBool("opentable",true);
+        }
+       
     }
 
     public void CloseTablePanel()

@@ -13275,6 +13275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpenOtherPanel: 0
   isFalmFacing: 0
+  isTableSkill: 0
   infoPanel_hand: {fileID: 1981824375}
   infoPanel_front: {fileID: 955152279}
   tablePanel: {fileID: 1290999307}
