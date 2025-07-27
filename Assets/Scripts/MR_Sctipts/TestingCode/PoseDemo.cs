@@ -164,29 +164,33 @@ public class PoseDemo : MonoBehaviour
     
     public void SwitchToNextSkill()   //技能面板切換
     {
-        currentSkill = (currentSkill + 1) % totalSkill;
-
-        switch (currentSkill)
+        if (isFalmFacing)
         {
-            case 0:
-                skillNameText.text = "無屬性";
-                break;
+            currentSkill = (currentSkill + 1) % totalSkill;
 
-            case 1:
-                skillNameText.text = "淨化";
+            switch (currentSkill)
+            {
+                case 0:
+                    skillNameText.text = "無屬性";
+                    break;
 
-                break;
+                case 1:
+                    skillNameText.text = "淨化";
 
-            case 2:
-                skillNameText.text = "生長";
+                    break;
 
-                break;
+                case 2:
+                    skillNameText.text = "生長";
 
-            case 3:
-                skillNameText.text = "移除";
+                    break;
 
-                break;
+                case 3:
+                    skillNameText.text = "移除";
+
+                    break;
+            }
         }
+       
     }
 
     //棲地合成台-右
