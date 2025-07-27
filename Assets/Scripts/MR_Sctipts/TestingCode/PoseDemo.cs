@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,10 @@ public class PoseDemo : MonoBehaviour
     public int totalSkill = 4;
 
     public GameObject ballPf;
-    public GameObject aimLine;
+    
+    public GameObject aimRay;
+    public LineRenderer aimRayLine;
+    
     public GameObject aimImpactPf;
     public float spawnSpeed = 5;
     public float ballDestoryTime = 5f; 
@@ -44,7 +48,8 @@ public class PoseDemo : MonoBehaviour
         badHintPanel_L.SetActive(false);
         badHintPanel_R.SetActive(false);
         
-        aimLine.SetActive(false);
+        aimRay.SetActive(false);
+
         currentSkill = 0;
 
         isShooting = false;
@@ -121,7 +126,7 @@ public class PoseDemo : MonoBehaviour
         }
     }
 
-    //濕地合成台
+    //棲地合成台
     public void OpenTablePanel()
     {
         tablePanel.SetActive(true);
@@ -144,7 +149,6 @@ public class PoseDemo : MonoBehaviour
     public void HoldRock()
     {
         isShooting = true;
-        aimLine.SetActive(true);
         AudioManager.instance.AimReadySound();
     }
 
@@ -152,7 +156,11 @@ public class PoseDemo : MonoBehaviour
     {
         Ray ray = new Ray(shootPos.position, shootPos.forward);
         bool hasHit = Physics.Raycast(ray, out RaycastHit hit, maxLineDistance, layerMask);
-
+        
+        aimRay.SetActive(true);
+        aimRayLine.positionCount = 2;
+        aimRayLine.SetPosition(0,shootPos.position);
+        
         Vector3 endPos = Vector3.zero;
         if (hasHit)
         {
@@ -167,13 +175,15 @@ public class PoseDemo : MonoBehaviour
         {
             endPos = shootPos.position + shootPos.forward * maxLineDistance;
         }
+        
+        aimRayLine.SetPosition(1,endPos);
     }
 
     public void ShootTheBall()
     {
         if (isShooting)
         {
-            aimLine.SetActive(false);
+            aimRay.SetActive(false);
             aimImpactPf.SetActive(false);
             AudioManager.instance.FireOutSound();
             
