@@ -11,7 +11,11 @@ public class PoseDemo : MonoBehaviour
     public bool isOpenOtherPanel;
     public bool isFalmFacing;
 
-    public bool isTableSkill = false;
+    [Header("目前使用技能")] 
+    [SerializeField]
+    private bool isTableSkill = false;
+    [SerializeField]
+    private bool isShootSkill = true;
     
     [Header("資訊面板")]
     public GameObject infoPanel_hand;
@@ -51,6 +55,8 @@ public class PoseDemo : MonoBehaviour
     {
         isOpenOtherPanel = false;
         isFalmFacing = false;
+
+        isShootSkill = true;
         
         infoPanel_hand.SetActive(false);
         infoPanel_front.SetActive(false);
@@ -174,25 +180,29 @@ public class PoseDemo : MonoBehaviour
             {
                 case 0:
                     skillNameText.text = "能量球";
+                    isShootSkill = true;
                     isTableSkill = false;
                     
                     break;
 
                 case 1:
                     skillNameText.text = "淨化";
+                    isShootSkill = true;
                     isTableSkill = false;
                     
                     break;
 
                 case 2:
-                    skillNameText.text = "生長";
+                    skillNameText.text = "棲地合成";
                     isTableSkill = true;
+                    isShootSkill = false;
 
                     break;
 
                 case 3:
                     skillNameText.text = "移除";
                     isTableSkill = false;
+                    isShootSkill = false;
 
                     break;
             }
@@ -226,8 +236,11 @@ public class PoseDemo : MonoBehaviour
 
     public void HoldRock()
     {
-        isShooting = true;
-        AudioManager.instance.AimReadySound();
+        if (isShootSkill)
+        {
+            isShooting = true;
+            AudioManager.instance.AimReadySound();
+        }
     }
 
     public void HoldToAim()

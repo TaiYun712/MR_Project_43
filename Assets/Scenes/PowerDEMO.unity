@@ -13276,6 +13276,7 @@ MonoBehaviour:
   isOpenOtherPanel: 0
   isFalmFacing: 0
   isTableSkill: 0
+  isShootSkill: 0
   infoPanel_hand: {fileID: 1981824375}
   infoPanel_front: {fileID: 955152279}
   tablePanel: {fileID: 1290999307}
@@ -13290,7 +13291,7 @@ MonoBehaviour:
   aimRay: {fileID: 546387986}
   aimRayLine: {fileID: 546387988}
   aimImpactPf: {fileID: 39107072}
-  spawnSpeed: 10
+  spawnSpeed: 8
   ballDestoryTime: 5
   shootPos: {fileID: 1230350689}
   maxLineDistance: 5
@@ -33141,7 +33142,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1230350688}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
