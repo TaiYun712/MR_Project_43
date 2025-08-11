@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Scenes/PowerDEMO.unity
     guid: d04ed5610e04e144b80b07f8e001d450
   - enabled: 1
-    path: Assets/Scenes/JankenScene.unity
+    path: Assets/Scenes/MRSample_TestScene/JankenScene.unity
     guid: 9b6515fcae23c024697fd3554472f55d
   - enabled: 1
-    path: Assets/Scenes/BallRoom.unity
+    path: Assets/Scenes/MRSample_TestScene/BallRoom.unity
     guid: 8027cd84cd71961468cbe19c84caf477
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 76868d36b3e252e47a6dbf3de4a4fa69, type: 2}
