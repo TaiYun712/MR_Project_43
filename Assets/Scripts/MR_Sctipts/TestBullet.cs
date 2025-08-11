@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class TestBullet : MonoBehaviour
 {
+   public DestructibleEnvironment_Manager destructibleManager;
+
+   private void Start()
+   {
+      destructibleManager = FindObjectOfType<DestructibleEnvironment_Manager>();
+   }
+
    private void OnTriggerEnter(Collider other)
    {
       if (other.CompareTag("target"))
@@ -14,5 +21,10 @@ public class TestBullet : MonoBehaviour
          
          AudioManager.instance.TargetBroken();
       }
+      else
+      {
+         destructibleManager.DestroyMeshSegment(other.gameObject);
+      }
+      
    }
 }
