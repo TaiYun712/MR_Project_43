@@ -37,7 +37,8 @@ public class PoseDemo : MonoBehaviour
 
     [Header("發射能量球")]
     public GameObject ballPf;
-    
+
+    public GameObject handAim;
     public GameObject aimRay;
     public LineRenderer aimRayLine;
     
@@ -183,6 +184,7 @@ public class PoseDemo : MonoBehaviour
                     isShootSkill = true;
                     isTableSkill = false;
                     
+                    handAim.SetActive(true);
                     break;
 
                 case 1:
@@ -190,6 +192,7 @@ public class PoseDemo : MonoBehaviour
                     isShootSkill = true;
                     isTableSkill = false;
                     
+                    handAim.SetActive(true);
                     break;
 
                 case 2:
@@ -197,13 +200,15 @@ public class PoseDemo : MonoBehaviour
                     isTableSkill = true;
                     isShootSkill = false;
 
+                    handAim.SetActive(false);
                     break;
 
                 case 3:
                     skillNameText.text = "移除";
                     isTableSkill = false;
                     isShootSkill = false;
-
+                    
+                    handAim.SetActive(false);
                     break;
             }
         }
@@ -245,6 +250,7 @@ public class PoseDemo : MonoBehaviour
 
     public void HoldToAim()
     {
+        
         Ray ray = new Ray(shootPos.position, shootPos.forward);
         bool hasHit = Physics.Raycast(ray, out RaycastHit hit, maxLineDistance, layerMask);
         
