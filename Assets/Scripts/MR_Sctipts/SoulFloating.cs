@@ -41,7 +41,8 @@ public class SoulFloating : MonoBehaviour
             }
             
            AudioManager.instance.CatchTheSoul();
-            Destroy(gameObject);
+           spawner.PlayCatchSoulParticle();
+           Destroy(gameObject);
         }
     }
 }

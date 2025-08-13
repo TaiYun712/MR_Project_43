@@ -20,6 +20,8 @@ public class SoulSpawner : MonoBehaviour
     public float showTime;
     public float loadTime;
 
+    public ParticleSystem catchPrt_R,catchPrt_L;
+
     public GameObject soulBt; //demo用，去收集碎片按鈕
     public bool isStartSoulPart;  //demo用，避免開始收集時誤觸
     
@@ -29,7 +31,7 @@ public class SoulSpawner : MonoBehaviour
        soulBt.SetActive(false);
        isStartSoulPart = false;
        levelStartPanel.SetActive(false);
-        
+       
     }
     
     //觸發收集碎片按鈕
@@ -108,6 +110,13 @@ public class SoulSpawner : MonoBehaviour
             }
         }
         
+    }
+    
+    //抓取碎片效果
+    public void PlayCatchSoulParticle()
+    {
+        catchPrt_R.Play();
+        catchPrt_L.Play();
     }
     
     //關閉收集完成提示

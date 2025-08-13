@@ -23532,6 +23532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubblepoke_Prt
       objectReference: {fileID: 0}
+    - target: {fileID: 1220105005902977149, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4522416739320052613, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
       propertyPath: looping
       value: 0
