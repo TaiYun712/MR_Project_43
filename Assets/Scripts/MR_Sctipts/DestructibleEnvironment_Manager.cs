@@ -23,6 +23,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         foreach (var item in segments)
         {
             item.AddComponent<MeshCollider>();
+            item.tag = "DestructibleWalls";
         }
     }
 

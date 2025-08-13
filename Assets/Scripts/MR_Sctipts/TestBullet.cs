@@ -23,7 +23,12 @@ public class TestBullet : MonoBehaviour
       }
       else
       {
-         destructibleManager.DestroyMeshSegment(other.gameObject);
+         if (other.CompareTag("DestructibleWalls"))
+         {
+            destructibleManager.DestroyMeshSegment(other.gameObject);
+            Destroy(this.gameObject);
+         }
+         
       }
       
    }
