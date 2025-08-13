@@ -40,7 +40,7 @@ public class DemoSceneSwitch : MonoBehaviour
 
     public void GoToPoseDemo()
     {
-        SceneManager.LoadScene("PowerDEMO");
+        SceneManager.LoadScene("Power_Destructible Mesh");
     }
 
     public void GoToJanken()
