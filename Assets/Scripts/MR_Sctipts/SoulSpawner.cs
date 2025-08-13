@@ -123,6 +123,6 @@ public class SoulSpawner : MonoBehaviour
     public void CloseLvStartPanel()
     {
         levelStartPanel.SetActive(false);
-        SceneManager.LoadScene("PowerDEMO");
+        SceneManager.LoadScene("Power_Destructible Mesh");
     }
 }
