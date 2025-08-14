@@ -9,6 +9,8 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     
     private List<GameObject> segments = new List<GameObject>();
     private DestructibleMeshComponent currentComponent;
+    [SerializeField]
+    private int ignoreLayer = 2;
     void Start()
     {
         meshSpawner.OnDestructibleMeshCreated.AddListener(SetUpDestructibleComponents);
@@ -24,6 +26,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         {
             item.AddComponent<MeshCollider>();
             item.tag = "DestructibleWalls";
+            item.layer = ignoreLayer;
         }
     }
 

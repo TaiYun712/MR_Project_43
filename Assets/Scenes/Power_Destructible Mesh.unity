@@ -10004,17 +10004,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 562058678}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &343738770 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2296141232796561049, guid: 37c47f9928e3fef4bb9a9ffaafab5526, type: 3}
-  m_PrefabInstance: {fileID: 354338616}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76943ac7e7394f3e969f0c048b26639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &345757541
 GameObject:
   m_ObjectHideFlags: 0
@@ -10953,18 +10942,18 @@ PrefabInstance:
     - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
       propertyPath: <SceneLoadedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 343738770}
+      objectReference: {fileID: 1777347139}
     - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
       propertyPath: <SceneLoadedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
       propertyPath: <SceneLoadedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CreateMesh
+      value: StartSpawn
       objectReference: {fileID: 0}
     - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
       propertyPath: <SceneLoadedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Meta.XR.MRUtilityKit.EffectMesh, meta.xr.mrutilitykit
+      value: Meta.XR.MRUtilityKit.FindSpawnPositions, meta.xr.mrutilitykit
       objectReference: {fileID: 0}
     - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
       propertyPath: <SceneLoadedEvent>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -11217,7 +11206,7 @@ GameObject:
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &392444575
 Transform:
   m_ObjectHideFlags: 0
@@ -15113,7 +15102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f8bf8f24c878c0945bcd1daea287239c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adc82a8e4cf5a224a81f52ef5b85c8b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34121,6 +34110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshSpawner: {fileID: 1248420698}
+  ignoreLayer: 2
 --- !u!1 &1250869872
 GameObject:
   m_ObjectHideFlags: 0
@@ -35803,6 +35793,10 @@ PrefabInstance:
     - target: {fileID: 5201637225824680224, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       propertyPath: m_Name
       value: DestructibleMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201637225824680224, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5201637225824680224, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       propertyPath: m_IsActive
@@ -47294,7 +47288,7 @@ MonoBehaviour:
   OverrideBounds: -1
   LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4
   SurfaceClearanceDistance: 0.1
 --- !u!4 &1777347140
 Transform:
@@ -61319,7 +61313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f8bf8f24c878c0945bcd1daea287239c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad4ca5b2202967a49b289e10997cd466, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
