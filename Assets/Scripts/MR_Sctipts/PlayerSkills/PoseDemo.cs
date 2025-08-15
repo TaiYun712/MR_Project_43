@@ -176,6 +176,7 @@ public class PoseDemo : MonoBehaviour
         if (isFalmFacing)
         {
             currentSkill = (currentSkill + 1) % totalSkill;
+            AudioManager.instance.SwitchSkillSound();
 
             switch (currentSkill)
             {
