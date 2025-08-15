@@ -22975,7 +22975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &836124895
 AudioSource:
   m_ObjectHideFlags: 0
@@ -29839,7 +29839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1104678533
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -35800,7 +35800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5201637225824680224, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5201637225824680237, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       propertyPath: _pointsPerUnitX
@@ -61314,7 +61314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ad4ca5b2202967a49b289e10997cd466, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adc82a8e4cf5a224a81f52ef5b85c8b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -62300,8 +62300,8 @@ SceneRoots:
   - {fileID: 26071230}
   - {fileID: 803168962}
   - {fileID: 1777347140}
-  - {fileID: 1793755675}
   - {fileID: 1488317161}
   - {fileID: 1315716687}
   - {fileID: 1104678536}
   - {fileID: 1891970096}
+  - {fileID: 1793755675}
