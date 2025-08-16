@@ -6,6 +6,7 @@ using UnityEngine;
 public class TestBullet : MonoBehaviour
 {
    public DestructibleEnvironment_Manager destructibleManager;
+   public static bool targetIsBroken  = false;
 
    private void Start()
    {
@@ -18,7 +19,8 @@ public class TestBullet : MonoBehaviour
       {
          Destroy(other.gameObject);
          Destroy(this.gameObject);
-         
+
+         targetIsBroken = true;
          AudioManager.instance.TargetBroken();
       }
       else
