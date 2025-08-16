@@ -6,11 +6,12 @@ using UnityEngine;
 public class TestBullet : MonoBehaviour
 {
    public DestructibleEnvironment_Manager destructibleManager;
-   public static bool targetIsBroken  = false;
+   public Demo_GetPlant getPlant;
 
    private void Start()
    {
       destructibleManager = FindObjectOfType<DestructibleEnvironment_Manager>();
+      getPlant = FindObjectOfType<Demo_GetPlant>();
    }
 
    private void OnTriggerEnter(Collider other)
@@ -19,8 +20,8 @@ public class TestBullet : MonoBehaviour
       {
          Destroy(other.gameObject);
          Destroy(this.gameObject);
-
-         targetIsBroken = true;
+         
+         getPlant.ShowPlantPanel();
          AudioManager.instance.TargetBroken();
       }
       else
