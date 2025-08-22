@@ -8,6 +8,8 @@ public class TestBullet : MonoBehaviour
    public DestructibleEnvironment_Manager destructibleManager;
    public Demo_GetPlant getPlant;
 
+   public ParticleSystem dirtDestoryPt;
+   
    private void Start()
    {
       destructibleManager = FindObjectOfType<DestructibleEnvironment_Manager>();
@@ -29,7 +31,9 @@ public class TestBullet : MonoBehaviour
          if (other.CompareTag("DestructibleWalls"))
          {
             destructibleManager.DestroyMeshSegment(other.gameObject);
-            Destroy(this.gameObject);
+            dirtDestoryPt.Play();
+            
+            Destroy(this.gameObject,0.2f);
          }
          
       }
