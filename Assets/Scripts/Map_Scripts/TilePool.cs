@@ -21,24 +21,24 @@ public class TilePool : MonoBehaviour
     Stack<GameObject> villagePool = new Stack<GameObject>();
     Stack<GameObject> industryPool = new Stack<GameObject>();
 
-    //¨ú±oÀH¾÷³y«¬
+    //å–å¾—éš¨æ©Ÿé€ å‹
     GameObject GetRandomPf(GameObject[] pfs)
     {
-        if (pfs.Length == 0 || pfs == null) {Debug.Log("¹w»sÅé¼Æ²Õ¬°ªÅ"); return null; } 
+        if (pfs.Length == 0 || pfs == null) {Debug.Log("é è£½é«”æ•¸çµ„ç‚ºç©º"); return null; } 
         return pfs[Random.Range(0, pfs.Length)];
     }
 
-    //¨ú±otile
+    //å–å¾—tile
     public GameObject GetTile(TileData tileData)
     {
         
         if (tileData == null)
         {
-            Debug.LogError("¶Ç¤JªºTileData¬°null¡I");
+            Debug.LogError("å‚³å…¥çš„TileDataç‚ºnullï¼");
             return null;
         }
 
-        //¿ï¾Ü¥Î­ş­Ópool&tile
+        //é¸æ“‡ç”¨å“ªå€‹pool&tile
         Stack<GameObject> pool;
         GameObject pf;
 
@@ -82,13 +82,13 @@ public class TilePool : MonoBehaviour
    
 
 
-    //¨ú¥Xtile
+    //å–å‡ºtile
     GameObject GetFromPool(Stack<GameObject> pool,GameObject prefab)
     {
 
         if (prefab == null)
         {
-            Debug.LogError("¹w»sÅé¬°null¡AµLªk±q¹ï¶H¦ÀÀò¨ú¹ï¶H¡I");
+            Debug.LogError("é è£½é«”ç‚ºnullï¼Œç„¡æ³•å¾å°è±¡æ± ç²å–å°è±¡ï¼");
             return null;
         }
 
@@ -97,7 +97,7 @@ public class TilePool : MonoBehaviour
         return obj;
     }
 
-    //¦^¦¬tile
+    //å›æ”¶tile
     public void ReturnTile(GameObject tile,TileData tileData)
     {
         tile.SetActive(false);
