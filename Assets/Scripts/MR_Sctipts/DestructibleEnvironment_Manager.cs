@@ -19,15 +19,19 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public float allSegmentsCount = 0;
     public float destoryCount = 0;
     
-    public float damageRatio;
-    public float restoreTime = 10f;
+    [SerializeField]
+    float damageRatio;
+    [SerializeField]
+    float restoreTime;
     void Start()
     {
         meshSpawner.OnDestructibleMeshCreated.AddListener(SetUpDestructibleComponents);
         
         allSegmentsCount = 0; 
         destoryCount = 0;
+        
         environmentPower = 10;
+        restoreTime = 10f;
     }
 
     public void SetUpDestructibleComponents(DestructibleMeshComponent component)
@@ -54,7 +58,14 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
            destoryCount++;
            damageRatio = destoryCount / allSegmentsCount;
 
-           
+           if (environmentPower <= 9)
+           {
+               restoreTime = 20f;
+           }
+           else 
+           {
+               restoreTime = 10f;
+;           }
            StartCoroutine(RestoreSegment(segment, restoreTime));
         }
     }
@@ -68,6 +79,17 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
             segment.SetActive(true);
             destoryCount--;
             damageRatio = destoryCount / allSegmentsCount;
+
+            if (damageRatio >= 0.1)
+            {
+                environmentPower--;
+            }
+            else
+            {
+                environmentPower = 10;
+            }
+           
+            
         }
     }
 }
