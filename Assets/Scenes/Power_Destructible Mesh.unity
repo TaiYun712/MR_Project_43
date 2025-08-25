@@ -34298,9 +34298,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshSpawner: {fileID: 1248420698}
   ignoreLayer: 2
-  environmentPower: 10
   allSegmentsCount: 0
   destoryCount: 0
+  environmentPower: 10
+  normalRestoreTime: 15
+  overRestoreTime_1: 30
   damageRatio: 0
   restoreTime: 0
 --- !u!1 &1250869872

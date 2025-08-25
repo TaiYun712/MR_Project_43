@@ -13,11 +13,15 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     [SerializeField]
     private int ignoreLayer = 2;
 
-    [Header("碎塊互動")] 
-    public float environmentPower = 10;
-    
+    [Header("所有碎塊&被破壞碎塊")] 
     public float allSegmentsCount = 0;
     public float destoryCount = 0;
+    
+    [Header("碎塊破壞程度")]
+    public float environmentPower = 10;
+
+    public float normalRestoreTime;
+    public float overRestoreTime_1;
     
     [SerializeField]
     float damageRatio;
@@ -31,9 +35,10 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         destoryCount = 0;
         
         environmentPower = 10;
-        restoreTime = 10f;
+        restoreTime = normalRestoreTime;
     }
 
+    //開始時，為每個碎塊加上Collider
     public void SetUpDestructibleComponents(DestructibleMeshComponent component)
     {
         currentComponent = component;
@@ -50,6 +55,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         }
     }
 
+    //摧毀碎塊
     public void DestroyMeshSegment(GameObject segment)
     {
         if (segments.Contains(segment) && currentComponent.ReservedSegment != segment)
@@ -60,11 +66,11 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
 
            if (environmentPower <= 9)
            {
-               restoreTime = 20f;
+               restoreTime = overRestoreTime_1;
            }
            else 
            {
-               restoreTime = 10f;
+               restoreTime = normalRestoreTime;
 ;           }
            StartCoroutine(RestoreSegment(segment, restoreTime));
         }
