@@ -13420,7 +13420,7 @@ MonoBehaviour:
   aimRayLine: {fileID: 546387988}
   aimImpactPf: {fileID: 39107072}
   spawnSpeed: 8
-  ballDestoryTime: 3
+  ballDestoryTime: 2
   shootPos: {fileID: 1230350689}
   maxLineDistance: 5
   layerMask:
@@ -13442,6 +13442,7 @@ Transform:
   m_Children:
   - {fileID: 1335105494}
   - {fileID: 305209400}
+  - {fileID: 2051621069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459204136
@@ -59807,6 +59808,52 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.6778891, y: -3.017043, z: -1.9610169}
     m_Extent: {x: 3.368389, y: 4.314377, z: 5.282364}
   m_DirtyAABB: 0
+--- !u!1 &2051621067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051621069}
+  - component: {fileID: 2051621068}
+  m_Layer: 0
+  m_Name: BulletPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2051621068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051621067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aac77ae04872964098bcd071bda1d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPf: {fileID: 445036593026585034, guid: 1a79f154bbac4b64f9a15481b7c6416c, type: 3}
+  initialSize: 5
+--- !u!4 &2051621069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051621067}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 454846469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051762945
 GameObject:
   m_ObjectHideFlags: 0

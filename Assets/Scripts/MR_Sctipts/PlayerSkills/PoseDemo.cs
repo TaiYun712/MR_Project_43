@@ -285,17 +285,31 @@ public class PoseDemo : MonoBehaviour
             aimImpactPf.SetActive(false);
             AudioManager.instance.FireOutSound();
             
-            Vector3 bulletPos = shootPos.transform.position;
-            
-            GameObject shootBall = Instantiate(ballPf, bulletPos, Quaternion.identity);
+            GameObject shootBall =BulletPool.instance.GetBullet(shootPos.position, shootPos.rotation);
+           
             Rigidbody shootBallRB = shootBall.GetComponent<Rigidbody>();
             shootBallRB.velocity = shootPos.forward * spawnSpeed;
-            Destroy(shootBall,ballDestoryTime);
-            
+          
+            StartCoroutine(ReturnBulletAfterDelay(shootBall, ballDestoryTime));
+           
             isShooting = false;
         }
-       
+
+        IEnumerator ReturnBulletAfterDelay(GameObject bullet,float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            if (bullet.activeInHierarchy)
+            {
+                BulletPool.instance.ReturnBullet(bullet);
+            }
+        }
+        
     }
+    
+    
+
+   
 
   
 

@@ -33,10 +33,15 @@ public class TestBullet : MonoBehaviour
             destructibleManager.DestroyMeshSegment(other.gameObject);
             dirtDestoryPt.Play();
             
-            Destroy(this.gameObject,0.2f);
+            //Destroy(this.gameObject,0.2f);
+            Invoke(nameof(ReturnToPool),0.2f);
          }
          
       }
-      
+   }
+
+   private void ReturnToPool()
+   {
+      BulletPool.instance.ReturnBullet(this.gameObject);
    }
 }
