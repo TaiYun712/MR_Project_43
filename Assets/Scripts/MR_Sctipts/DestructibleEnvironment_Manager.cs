@@ -63,6 +63,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
            segment.SetActive(false);
            destoryCount++;
            damageRatio = destoryCount / allSegmentsCount;
+           AudioManager.instance.WallBrokenSound();
 
            if (environmentPower <= 9)
            {

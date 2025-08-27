@@ -48522,6 +48522,10 @@ MonoBehaviour:
   brokeSound: {fileID: 8300000, guid: 03738b14dd4371141a310f5216630b25, type: 3}
   broadMoveSound: {fileID: 8300000, guid: e656ce3e6feea1c4db9491aa29fe9a55, type: 3}
   bubleUpSound: {fileID: 8300000, guid: 9a26cf8d4f3bc47428c1545fc3ec6129, type: 3}
+  wallBrokenSounds:
+  - {fileID: 8300000, guid: fe6767e774e322f47b84ef8518c48c3b, type: 3}
+  - {fileID: 8300000, guid: 2183484683b6a7e4091ce176a16f4665, type: 3}
+  - {fileID: 8300000, guid: 7b5bc9190e69e774dac8f0b70cc439a5, type: 3}
 --- !u!4 &1793755675
 Transform:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class AudioManager : MonoBehaviour
     [Header("SFX")]
     [SerializeField]
     AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound,bubleUpSound;
+    [SerializeField]
+    private AudioClip[] wallBrokenSounds;
 
    
 
@@ -140,6 +142,13 @@ public class AudioManager : MonoBehaviour
     public void TargetBroken()
     {
         uiSourse.clip = brokeSound;
+        uiSourse.Play();
+    }
+
+    public void WallBrokenSound()
+    {
+        int index = Random.Range(0, wallBrokenSounds.Length);
+        uiSourse.clip = wallBrokenSounds[index];
         uiSourse.Play();
     }
 
