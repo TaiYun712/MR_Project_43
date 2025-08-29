@@ -34310,10 +34310,20 @@ MonoBehaviour:
   allSegmentsCount: 0
   destoryCount: 0
   environmentPower: 10
-  normalRestoreTime: 15
-  overRestoreTime_1: 30
+  normalRestoreTime: 30
+  overRestoreTime_1: 60
   damageRatio: 0
   restoreTime: 0
+  spawnFinder: {fileID: 1777347139}
+  spawnInterval: 5
+  maxCollectionCount: 12
+  minCollectionCount: 3
+  currentCollectionCount: 0
+--- !u!4 &1248420701 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
+  m_PrefabInstance: {fileID: 1315716687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1250869872
 GameObject:
   m_ObjectHideFlags: 0
@@ -36059,7 +36069,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1777347140}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5201637225824680224, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       insertIndex: -1
@@ -47713,7 +47726,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1777347140}
   - component: {fileID: 1777347139}
-  - component: {fileID: 1777347138}
   m_Layer: 0
   m_Name: 'Collection Hole Spawn  '
   m_TagString: Untagged
@@ -47721,37 +47733,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1777347138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777347137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selector: {fileID: 2111915717}
-  _whenSelected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1777347139}
-        m_TargetAssemblyTypeName: Meta.XR.MRUtilityKit.FindSpawnPositions, meta.xr.mrutilitykit
-        m_MethodName: StartSpawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnselected:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1777347139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47766,7 +47747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnOnStart: 1
   SpawnObject: {fileID: 8752032361294126633, guid: 35fa65d001bde8240841f088b6775189, type: 3}
-  SpawnAmount: 10
+  SpawnAmount: 0
   MaxIterations: 1000
   SpawnLocations: 2
   Labels: 65527
@@ -47784,12 +47765,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777347137}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1248420701}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1778867732
 GameObject:
@@ -63118,7 +63099,6 @@ SceneRoots:
   - {fileID: 202561119}
   - {fileID: 26071230}
   - {fileID: 803168962}
-  - {fileID: 1777347140}
   - {fileID: 1488317161}
   - {fileID: 1315716687}
   - {fileID: 1104678536}

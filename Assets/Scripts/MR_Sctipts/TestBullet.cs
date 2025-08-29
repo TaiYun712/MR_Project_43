@@ -21,7 +21,9 @@ public class TestBullet : MonoBehaviour
       if (other.CompareTag("target"))
       {
          Destroy(other.gameObject);
-         Destroy(this.gameObject);
+         destructibleManager.currentCollectionCount--;
+         Debug.Log("已採集，目前場上採集點為" + destructibleManager.currentCollectionCount);
+         ReturnToPool();
          
          getPlant.ShowPlantPanel();
          AudioManager.instance.TargetBroken();
@@ -33,7 +35,6 @@ public class TestBullet : MonoBehaviour
             destructibleManager.DestroyMeshSegment(other.gameObject);
             dirtDestoryPt.Play();
             
-            //Destroy(this.gameObject,0.2f);
             Invoke(nameof(ReturnToPool),0.2f);
          }
          
