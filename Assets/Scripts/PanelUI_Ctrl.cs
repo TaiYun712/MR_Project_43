@@ -12,6 +12,7 @@ public class PanelUI_Ctrl : MonoBehaviour
     public GameObject getPlantPanel;
     public Image getPlantImage;
     public Text getPlantText;
+    public GameObject pioneerText;
     public float closeHintTime;
 
     private void Awake()
@@ -37,6 +38,8 @@ public class PanelUI_Ctrl : MonoBehaviour
         if(plant == null){return;}
         
         getPlantPanel.SetActive(true);
+        PioneerPlantCheck(plant);
+        
         getPlantImage.sprite = plant.plantSprite;
         getPlantText.text = plant.plantName;
         
@@ -48,4 +51,17 @@ public class PanelUI_Ctrl : MonoBehaviour
     {
         getPlantPanel.SetActive(false);
     }
+
+    public void PioneerPlantCheck(Plant plant)
+    {
+        if (plant.isPioneer)
+        {
+            pioneerText.SetActive(true);
+        }
+        else
+        {
+            pioneerText.SetActive(false);
+        }
+    }
+    
 }
