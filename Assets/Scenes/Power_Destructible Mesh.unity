@@ -13607,7 +13607,7 @@ GameObject:
   - component: {fileID: 454846469}
   - component: {fileID: 454846468}
   m_Layer: 0
-  m_Name: PoseDEMO
+  m_Name: PlayerPoseSkills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49433,6 +49433,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799069409}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1802562063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1802562065}
+  - component: {fileID: 1802562064}
+  m_Layer: 0
+  m_Name: PlantManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1802562064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802562063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd0bdebfa11503645bacd2f580684fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allPlants:
+  - {fileID: 11400000, guid: 6a0a080b2ab2c0c4592c47c55aa73d1d, type: 2}
+  - {fileID: 11400000, guid: 633bd2be1d689c14eb309077aff2f874, type: 2}
+  - {fileID: 11400000, guid: 1d1b513753a6e1444ba009e4c52b68ff, type: 2}
+--- !u!4 &1802562065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802562063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804174394
 GameObject:
   m_ObjectHideFlags: 0
@@ -56775,6 +56823,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49429a7e16b9304449a1ad22cb26c8f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  getPlantPanel: {fileID: 2079835326}
+  getPlantImage: {fileID: 708642930}
+  getPlantText: {fileID: 598425435}
+  closeHintTime: 0.5
 --- !u!4 &1899302639
 Transform:
   m_ObjectHideFlags: 0
@@ -61750,7 +61802,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079835326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86c6b5960dffdd043b01aaae5d3f1665, type: 3}
   m_Name: 
@@ -64099,3 +64151,4 @@ SceneRoots:
   - {fileID: 1181934117}
   - {fileID: 672657115}
   - {fileID: 1899302639}
+  - {fileID: 1802562065}
