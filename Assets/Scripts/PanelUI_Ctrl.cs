@@ -14,6 +14,18 @@ public class PanelUI_Ctrl : MonoBehaviour
     public Text getPlantText;
     public float closeHintTime;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+    
     private void Start()
     {
         getPlantPanel.SetActive(false);

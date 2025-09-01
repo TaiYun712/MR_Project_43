@@ -56826,7 +56826,7 @@ MonoBehaviour:
   getPlantPanel: {fileID: 2079835326}
   getPlantImage: {fileID: 708642930}
   getPlantText: {fileID: 598425435}
-  closeHintTime: 0.5
+  closeHintTime: 1
 --- !u!4 &1899302639
 Transform:
   m_ObjectHideFlags: 0

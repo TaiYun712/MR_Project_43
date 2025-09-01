@@ -21,6 +21,7 @@ public class PlantManager : MonoBehaviour
     {
         if(allPlants.Length == 0){return;}
 
+        Debug.Log("打中採集點，隨機生成植物");
         int index = Random.Range(0, allPlants.Length);
         Plant getPlant = allPlants[index];
         
