@@ -19298,7 +19298,7 @@ Transform:
   m_GameObject: {fileID: 672657112}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0465, y: 0.592, z: 0.3}
+  m_LocalPosition: {x: 0.0465, y: 0.717, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25777,7 +25777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactorFilters: []
-  _maxInteractors: -1
+  _maxInteractors: 1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
   _rigidbody: {fileID: 1178699721}
@@ -33119,7 +33119,7 @@ Transform:
   m_GameObject: {fileID: 1181934114}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.592, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0.717, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -59657,7 +59657,7 @@ Transform:
   m_GameObject: {fileID: 1992585083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0458, y: 0.592, z: 0.3}
+  m_LocalPosition: {x: -0.0458, y: 0.717, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
