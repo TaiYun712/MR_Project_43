@@ -12,10 +12,12 @@ public class PoseDemo : MonoBehaviour
     public bool isFalmFacing;
 
     [Header("目前使用技能")] 
-    [SerializeField]
+    [SerializeField] //合成
     private bool isTableSkill = false;
-    [SerializeField]
-    private bool isShootSkill = true;
+    [SerializeField] //採集
+    private bool isShootSkill = false;
+    [SerializeField] //淨化
+    private bool isCleanSkill = false;
     
     [Header("資訊面板")]
     public GameObject infoPanel_hand;
@@ -41,8 +43,8 @@ public class PoseDemo : MonoBehaviour
     public GameObject handAim;
     public GameObject aimRay;
     public LineRenderer aimRayLine;
-    
     public GameObject aimImpactPf;
+    
     public float spawnSpeed = 5;
     public float ballDestoryTime = 5f; 
     public Transform shootPos;
@@ -50,7 +52,15 @@ public class PoseDemo : MonoBehaviour
     public LayerMask layerMask;
 
     public bool isShooting;
-   
+    
+    [Header("清潔光束")]
+    public bool isCleaning;
+
+    public GameObject cleanRayHead;
+    public GameObject cleanRay;
+    public LineRenderer cleanRayLine;
+
+    public GameObject cleanImpactPf;
 
     void Start()
     {
@@ -71,19 +81,28 @@ public class PoseDemo : MonoBehaviour
         skillPanel.SetActive(false);
         
         aimRay.SetActive(false);
+        aimImpactPf.SetActive(false);
 
+        cleanRayHead.SetActive(false);
+        cleanRay.SetActive(false);
+        cleanImpactPf.SetActive(false);
+        
         currentSkill = 0;
 
         isShooting = false;
-        aimImpactPf.SetActive(false);
+        isCleaning = false;
+        
     }
 
     private void Update()
     {
-        //持續瞄準-右
-        if (isShooting)
+        //能量球發射瞄準線-右
+        if (isShooting && isShootSkill)
         {
             HoldToAim();
+        }else if (isCleaning && isCleanSkill) //淨化光束-右
+        {
+            OpenCleanLaser();
         }
         
         //偵測面板狀況-左
@@ -184,13 +203,15 @@ public class PoseDemo : MonoBehaviour
                     skillNameText.text = "能量球";
                     isShootSkill = true;
                     isTableSkill = false;
+                    isCleanSkill = false;
                     
                     handAim.SetActive(true);
                     break;
 
                 case 1:
                     skillNameText.text = "淨化";
-                    isShootSkill = true;
+                    isCleanSkill = true;
+                    isShootSkill = false;
                     isTableSkill = false;
                     
                     handAim.SetActive(true);
@@ -200,6 +221,7 @@ public class PoseDemo : MonoBehaviour
                     skillNameText.text = "棲地合成";
                     isTableSkill = true;
                     isShootSkill = false;
+                    isCleanSkill = false;
 
                     handAim.SetActive(false);
                     break;
@@ -208,6 +230,7 @@ public class PoseDemo : MonoBehaviour
                     skillNameText.text = "移除";
                     isTableSkill = false;
                     isShootSkill = false;
+                    isCleanSkill = false;
                     
                     handAim.SetActive(false);
                     break;
@@ -238,17 +261,21 @@ public class PoseDemo : MonoBehaviour
         tablePanel.SetActive(false);
     }
 
-    //發射能量球-右
-
+    //瞄準 & 辨認發射能量球或淨化光束-右
     public void HoldRock()
     {
         if (isShootSkill)
         {
             isShooting = true;
             AudioManager.instance.AimReadySound();
+        }else if (isCleanSkill)
+        {
+            isCleaning = true;
+            AudioManager.instance.AimReadySound();
         }
     }
 
+    //採集用準心
     public void HoldToAim()
     {
         
@@ -305,6 +332,48 @@ public class PoseDemo : MonoBehaviour
             }
         }
         
+    }
+    
+    //淨化光束
+    public void OpenCleanLaser()
+    {
+        if (isCleaning)
+        {
+            cleanRayHead.SetActive(true);
+            
+            Ray ray = new Ray(shootPos.position, shootPos.forward);
+            bool hasHit = Physics.Raycast(ray, out RaycastHit hit, maxLineDistance, layerMask);
+        
+            cleanRay.SetActive(true);
+            cleanRayLine.positionCount = 2;
+            cleanRayLine.SetPosition(0,shootPos.position);
+        
+            Vector3 endPos = Vector3.zero;
+            if (hasHit)
+            {
+                endPos = hit.point;
+                cleanImpactPf.SetActive(true);
+
+                Quaternion aimImpactRotate = Quaternion.LookRotation(-hit.normal);
+                cleanImpactPf.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+                cleanImpactPf.transform.rotation = aimImpactRotate;
+            }
+            else
+            {
+                endPos = shootPos.position + shootPos.forward * maxLineDistance;
+            }
+        
+            cleanRayLine.SetPosition(1,endPos);
+        }
+    }
+
+    public void CloseCleanLaser()
+    {
+        cleanRayHead.SetActive(false);
+        cleanRay.SetActive(false);
+        cleanImpactPf.SetActive(false);
+
+        isCleaning = false;
     }
     
     
