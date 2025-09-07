@@ -11,4 +11,6 @@ public class Plant : ScriptableObject
    
    public bool isPioneer;
    public int growPower;
+
+   public GameObject plantPrefab;
 }

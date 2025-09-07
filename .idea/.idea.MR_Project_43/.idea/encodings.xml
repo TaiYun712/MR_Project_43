@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/Assets/Scripts/MR_Scripts/PlayerSkills/RandomPoseGame.cs" charset="x-windows-950" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/MR_Scripts/PlayerSkills/ShootBall.cs" charset="x-windows-950" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/MR_Sctipts/TestingCode/ShootBall.cs" charset="x-windows-950" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Map_Scripts/MapMaker.cs" charset="x-windows-950" />
   </component>
 </project>
