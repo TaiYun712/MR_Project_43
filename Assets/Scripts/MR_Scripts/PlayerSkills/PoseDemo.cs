@@ -271,37 +271,14 @@ public class PoseDemo : MonoBehaviour
         }else if (isCleanSkill)
         {
             isCleaning = true;
-            AudioManager.instance.AimReadySound();
+            
         }
     }
 
     //採集用準心
     public void HoldToAim()
     {
-        
-        Ray ray = new Ray(shootPos.position, shootPos.forward);
-        bool hasHit = Physics.Raycast(ray, out RaycastHit hit, maxLineDistance, layerMask);
-        
-        aimRay.SetActive(true);
-        aimRayLine.positionCount = 2;
-        aimRayLine.SetPosition(0,shootPos.position);
-        
-        Vector3 endPos = Vector3.zero;
-        if (hasHit)
-        {
-            endPos = hit.point;
-            aimImpactPf.SetActive(true);
-
-            Quaternion aimImpactRotate = Quaternion.LookRotation(-hit.normal);
-            aimImpactPf.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            aimImpactPf.transform.rotation = aimImpactRotate;
-        }
-        else
-        {
-            endPos = shootPos.position + shootPos.forward * maxLineDistance;
-        }
-        
-        aimRayLine.SetPosition(1,endPos);
+        HoldTheRay(aimRay,aimRayLine,aimImpactPf);
     }
 
     public void ShootTheBall()
@@ -339,31 +316,10 @@ public class PoseDemo : MonoBehaviour
     {
         if (isCleaning)
         {
+            HoldTheRay(cleanRay,cleanRayLine,cleanImpactPf);
+            
             cleanRayHead.SetActive(true);
             
-            Ray ray = new Ray(shootPos.position, shootPos.forward);
-            bool hasHit = Physics.Raycast(ray, out RaycastHit hit, maxLineDistance, layerMask);
-        
-            cleanRay.SetActive(true);
-            cleanRayLine.positionCount = 2;
-            cleanRayLine.SetPosition(0,shootPos.position);
-        
-            Vector3 endPos = Vector3.zero;
-            if (hasHit)
-            {
-                endPos = hit.point;
-                cleanImpactPf.SetActive(true);
-
-                Quaternion aimImpactRotate = Quaternion.LookRotation(-hit.normal);
-                cleanImpactPf.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-                cleanImpactPf.transform.rotation = aimImpactRotate;
-            }
-            else
-            {
-                endPos = shootPos.position + shootPos.forward * maxLineDistance;
-            }
-        
-            cleanRayLine.SetPosition(1,endPos);
         }
     }
 
@@ -375,8 +331,34 @@ public class PoseDemo : MonoBehaviour
 
         isCleaning = false;
     }
-    
-    
+
+    //瞄準線
+    void HoldTheRay(GameObject theRay,LineRenderer theRayLine,GameObject rayImpact)
+    {
+        Ray ray = new Ray(shootPos.position, shootPos.forward);
+        bool hasHit = Physics.Raycast(ray, out RaycastHit hit, maxLineDistance, layerMask);
+        
+        theRay.SetActive(true);
+        theRayLine.positionCount = 2;
+        theRayLine.SetPosition(0,shootPos.position);
+        
+        Vector3 endPos = Vector3.zero;
+        if (hasHit)
+        {
+            endPos = hit.point;
+            rayImpact.SetActive(true);
+
+            Quaternion aimImpactRotate = Quaternion.LookRotation(-hit.normal);
+            rayImpact.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            rayImpact.transform.rotation = aimImpactRotate;
+        }
+        else
+        {
+            endPos = shootPos.position + shootPos.forward * maxLineDistance;
+        }
+        
+        theRayLine.SetPosition(1,endPos);
+    }
 
    
 
