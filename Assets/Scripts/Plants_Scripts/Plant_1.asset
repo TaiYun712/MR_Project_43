@@ -17,3 +17,4 @@ MonoBehaviour:
   plantSprite: {fileID: 21300000, guid: 3c85ae1a4e9e71c4b857099ba1c27068, type: 3}
   isPioneer: 1
   growPower: 1
+  plantPrefab: {fileID: 1769259720145576886, guid: bb0ed18a59154374fa4e7a0aeca60f54, type: 3}
