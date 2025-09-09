@@ -54450,6 +54450,8 @@ MonoBehaviour:
   maxCollectionCount: 8
   minCollectionCount: 3
   currentCollectionCount: 0
+  collectHolePfs:
+  - {fileID: 8752032361294126633, guid: 35fa65d001bde8240841f088b6775189, type: 3}
 --- !u!4 &1248420701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}

@@ -36,6 +36,8 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public int maxCollectionCount;
     public int minCollectionCount;
     public int currentCollectionCount;
+
+    public GameObject[] collectHolePfs;
     
     void Start()
     {
@@ -147,6 +149,8 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         
         if(targetAmount <= 0) return;
 
+        int index = Random.Range(0, collectHolePfs.Length);
+        spawnFinder.SpawnObject = collectHolePfs[index];
         spawnFinder.SpawnAmount = targetAmount;
         spawnFinder.SpawnLocations = FindSpawnPositions.SpawnLocation.VerticalSurfaces;
         spawnFinder.StartSpawn();
