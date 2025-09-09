@@ -209,46 +209,52 @@ public class PoseDemo : MonoBehaviour
             currentSkill = (currentSkill + 1) % totalSkill;
             AudioManager.instance.SwitchSkillSound();
 
-            switch (currentSkill)
-            {
-                case 0:
-                    skillNameText.text = "能量球";
-                    isShootSkill = true;
-                    isTableSkill = false;
-                    isCleanSkill = false;
-                    
-                    handAim.SetActive(true);
-                    break;
+            SetSkills();
 
-                case 1:
-                    skillNameText.text = "淨化";
-                    isCleanSkill = true;
-                    isShootSkill = false;
-                    isTableSkill = false;
-                    
-                    handAim.SetActive(true);
-                    break;
-
-                case 2:
-                    skillNameText.text = "棲地合成";
-                    isTableSkill = true;
-                    isShootSkill = false;
-                    isCleanSkill = false;
-
-                    handAim.SetActive(false);
-                    break;
-
-                case 3:
-                    skillNameText.text = "移除";
-                    isTableSkill = false;
-                    isShootSkill = false;
-                    isCleanSkill = false;
-                    
-                    handAim.SetActive(false);
-                    break;
-            }
         }
        
+    }
+
+    void SetSkills()
+    {
+        switch (currentSkill)
+        {
+            case 0:
+                skillNameText.text = "能量球";
+                isShootSkill = true;
+                isTableSkill = false;
+                isCleanSkill = false;
+                    
+                handAim.SetActive(true);
+                break;
+
+            case 1:
+                skillNameText.text = "淨化";
+                isCleanSkill = true;
+                isShootSkill = false;
+                isTableSkill = false;
+                    
+                handAim.SetActive(true);
+                break;
+
+            case 2:
+                skillNameText.text = "棲地合成";
+                isTableSkill = true;
+                isShootSkill = false;
+                isCleanSkill = false;
+
+                handAim.SetActive(false);
+                break;
+
+            case 3:
+                skillNameText.text = "移除";
+                isTableSkill = false;
+                isShootSkill = false;
+                isCleanSkill = false;
+                    
+                handAim.SetActive(false);
+                break;
+        }
     }
 
     //棲地合成台-右
@@ -276,6 +282,7 @@ public class PoseDemo : MonoBehaviour
     //瞄準 & 辨認發射能量球或淨化光束-右
     public void HoldRock()
     {
+        Debug.Log("拳頭被觸發！");
         if (isShootSkill)
         {
             isShooting = true;
@@ -295,6 +302,10 @@ public class PoseDemo : MonoBehaviour
 
     public void ShootTheBall()
     {
+        if(!isShootSkill){return;}
+        
+        Debug.Log("ShootTheBall 被觸發！");
+        
         if (isShooting)
         {
             aimRay.SetActive(false);
