@@ -26,5 +26,7 @@ public class PlantManager : MonoBehaviour
         Plant getPlant = allPlants[index];
         
         PanelUI_Ctrl.instance.ShowGetPlantPanel(getPlant);
+        
+        PlantInventory.instance.AddPlant(getPlant);
     }
 }

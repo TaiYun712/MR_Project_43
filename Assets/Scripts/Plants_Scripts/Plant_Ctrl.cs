@@ -11,6 +11,11 @@ public class Plant_Ctrl : MonoBehaviour
         Debug.Log("這是個" + plantData.plantName);
     }
 
+    public void PickUpThePlant()
+    {
+        Debug.Log("拿起" + plantData.plantName);
+    }
+    
     void Update()
     {
         
