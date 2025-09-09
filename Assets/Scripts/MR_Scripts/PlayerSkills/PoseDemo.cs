@@ -100,11 +100,23 @@ public class PoseDemo : MonoBehaviour
         if (isShooting && isShootSkill)
         {
             HoldToAim();
-        }else if (isCleaning && isCleanSkill) //淨化光束-右
+        }
+        else
+        {
+            CloseAimLine();
+        }
+        
+        //淨化光束-右
+        if (isCleaning && isCleanSkill) 
         {
             OpenCleanLaser();
         }
-        
+        else
+        {
+           CloseCleanLaser();
+        }
+            
+            
         //偵測面板狀況-左
         if (!isOpenOtherPanel && IsPalmStillFacing() && !skillPanel.activeSelf)
         {
@@ -311,6 +323,15 @@ public class PoseDemo : MonoBehaviour
         
     }
     
+    //關閉瞄準線
+    public void CloseAimLine()
+    {
+        aimRay.SetActive(false);
+        aimImpactPf.SetActive(false);
+
+        isShooting = false;
+    }
+    
     //淨化光束
     public void OpenCleanLaser()
     {
@@ -323,6 +344,7 @@ public class PoseDemo : MonoBehaviour
         }
     }
 
+    //關閉淨化光束
     public void CloseCleanLaser()
     {
         cleanRayHead.SetActive(false);
