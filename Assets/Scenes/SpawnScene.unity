@@ -23722,10 +23722,17 @@ MonoBehaviour:
   allSegmentsCount: 0
   destoryCount: 0
   environmentPower: 10
+  environmentPowerAlertvalue: 6
   normalRestoreTime: 0
   overRestoreTime_1: 0
   damageRatio: 0
   restoreTime: 0
+  spawnFinder: {fileID: 0}
+  spawnInterval: 0
+  maxCollectionCount: 0
+  minCollectionCount: 0
+  currentCollectionCount: 0
+  collectHolePfs: []
 --- !u!1 &667781779
 GameObject:
   m_ObjectHideFlags: 0

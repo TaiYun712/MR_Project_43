@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Laser01
+  m_Name: Laser02_ball
   m_Shader: {fileID: -6465566751694194690, guid: 25287807674c7194cbd201b692c7d0c0, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -36,8 +36,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: e5cc2d5b3152c714886f00222416c286, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: cb8def6812de90d419425294d96a5b33, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2bb9582deef4b044bbab73241881cee5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -56,11 +60,11 @@ Material:
     m_Floats:
     - _NoiseAmount: 0
     - _NoisePower: 1
-    - _NoiseScale: 5
-    - _NoiseSpeed: -1
+    - _NoiseScale: 20
+    - _NoiseSpeed: -3
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0
+    - _Speed: 1
     m_Colors:
-    - _Color: {r: 0.025884366, g: 0.78392607, b: 0.07547972, a: 0}
+    - _Color: {r: 10.15582, g: 2.2028787, b: 0.85074914, a: 0}
   m_BuildTextureStacks: []

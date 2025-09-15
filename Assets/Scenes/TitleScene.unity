@@ -23139,17 +23139,33 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4522416739320052613, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522416739320052613, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522416739320052613, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.95485175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522416739320052613, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.6839622
+      objectReference: {fileID: 0}
     - target: {fileID: 8872246957866856600, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.349
       objectReference: {fileID: 0}
     - target: {fileID: 8872246957866856600, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.014000058
+      value: -0.037
       objectReference: {fileID: 0}
     - target: {fileID: 8872246957866856600, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.011399984
+      value: 0.067
       objectReference: {fileID: 0}
     - target: {fileID: 8872246957866856600, guid: d089a85ebb0fc11468990f3aef33c122, type: 3}
       propertyPath: m_LocalRotation.w
@@ -46861,6 +46877,7 @@ MonoBehaviour:
   maxCollectionCount: 0
   minCollectionCount: 0
   currentCollectionCount: 0
+  collectHolePfs: []
 --- !u!1 &1735841483
 GameObject:
   m_ObjectHideFlags: 0
@@ -58242,6 +58259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Board
       objectReference: {fileID: 0}
+    - target: {fileID: 8284367318778356521, guid: af5efccd5663f864db6aa9ec8607c754, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c32bcbbf5c41b294cb57fc5bc3960881, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

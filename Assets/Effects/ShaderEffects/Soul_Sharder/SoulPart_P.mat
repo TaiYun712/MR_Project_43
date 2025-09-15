@@ -41,13 +41,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorPower: 2
+    - _ColorPower: 3
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smooth: 0.5
     - _Speed: 2
+    - _T: 0.8
     m_Colors:
     - _BaseColor: {r: 0.90588236, g: 0.6901961, b: 0.83975685, a: 0}
-    - _OulineColor: {r: 0.59607846, g: 0.13725488, b: 0.5274776, a: 0}
+    - _OulineColor: {r: 1, g: 0.8632076, b: 0.9801242, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1539748687213466417
 MonoBehaviour:
