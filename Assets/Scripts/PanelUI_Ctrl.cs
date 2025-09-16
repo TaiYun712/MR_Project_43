@@ -51,7 +51,8 @@ public class PanelUI_Ctrl : MonoBehaviour
     {
         getPlantPanel.SetActive(false);
     }
-
+    
+    //檢查是否為先驅植物
     public void PioneerPlantCheck(Plant plant)
     {
         if (plant.isPioneer)
