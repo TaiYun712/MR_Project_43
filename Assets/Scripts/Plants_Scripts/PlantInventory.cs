@@ -7,6 +7,8 @@ public class PlantInventory : MonoBehaviour
     public static PlantInventory instance;
     private Dictionary<Plant, int> inventory = new Dictionary<Plant, int>();
     
+    
+    
     private void Awake()
     {
         if (instance == null)

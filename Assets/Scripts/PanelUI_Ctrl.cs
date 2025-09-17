@@ -15,6 +15,9 @@ public class PanelUI_Ctrl : MonoBehaviour
     public GameObject pioneerText;
     public float closeHintTime;
 
+   
+
+
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +36,7 @@ public class PanelUI_Ctrl : MonoBehaviour
 
     }
 
+    ////顯示採集獲取植物////
     public void ShowGetPlantPanel(Plant plant)
     {
         if(plant == null){return;}
@@ -64,5 +68,7 @@ public class PanelUI_Ctrl : MonoBehaviour
             pioneerText.SetActive(false);
         }
     }
+    
+   
     
 }

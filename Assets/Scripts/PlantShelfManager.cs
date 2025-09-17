@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;/////暫時UI
 
 public class PlantShelfManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class PlantShelfManager : MonoBehaviour
     public PlantPool plantPool;
 
     private Dictionary<Plant, GameObject> spawnPlants = new Dictionary<Plant, GameObject>();
+    
+    public Text grass1Text;/////暫時UI
+    public Text grass2Text;/////暫時UI
+    public Text grass3Text;/////暫時UI
     
     
     private void Awake()
@@ -56,14 +61,32 @@ public class PlantShelfManager : MonoBehaviour
                 spawnPlants[plant] = plantObj;
                 
                 Debug.Log("現在架子上有"+count+"個" + plant.plantName);
+                TemUpdateUI(plant,count);/////暫時UI
             }
             else
             {
                 Debug.Log("現在架子上有"+count+"個" + plant.plantName);
+                TemUpdateUI(plant,count);/////暫時UI
 
             }
         }
     }
-    
+
+    /////暫時UI
+    public void TemUpdateUI(Plant plant,int count)
+    {
+        if (plant.plantName == "燈心草")
+        {
+            grass1Text.text = count.ToString();
+        }else if (plant.plantName == "蘆葦")
+        {
+            grass2Text.text = count.ToString();
+        }else if (plant.plantName == "香蒲")
+        {
+            grass3Text.text = count.ToString();
+        }
+    }
+
+   
     
 }
