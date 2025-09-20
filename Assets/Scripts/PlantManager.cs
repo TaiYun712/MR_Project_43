@@ -17,6 +17,7 @@ public class PlantManager : MonoBehaviour
         
     }
 
+    //擊中採集點時，隨機獲取植物
     public void GetPlant()
     {
         if(allPlants.Length == 0){return;}
