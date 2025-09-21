@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Oculus.Interaction;
 using UnityEngine;
 
 
@@ -11,8 +12,8 @@ public class PlantShelfManager : MonoBehaviour
     public PlantPool plantPool;
 
     private Dictionary<Plant, GameObject> spawnPlants = new Dictionary<Plant, GameObject>();
-    
-   
+
+    public SnapInteractable plantShelfInteractable; //植物架
 
     private void Awake()
     {
@@ -56,6 +57,11 @@ public class PlantShelfManager : MonoBehaviour
                 GameObject plantObj = plantPool.GetPlantFromPool(plant);
                 plantObj.transform.SetParent(shelfRoot);
                 plantObj.transform.localPosition = Vector3.zero;
+                
+                var interactor = plantObj.GetComponent<SnapInteractor>();
+                interactor.InjectOptionalTimeOutInteractable(plantShelfInteractable);
+                interactor.InjectOptionaTimeOut(0.1f);
+                
                 spawnPlants[plant] = plantObj;
                 
                 Debug.Log("現在架子上有"+count+"個" + plant.plantName);
@@ -68,6 +74,8 @@ public class PlantShelfManager : MonoBehaviour
 
             }
         }
+        
+       
     }
 
    

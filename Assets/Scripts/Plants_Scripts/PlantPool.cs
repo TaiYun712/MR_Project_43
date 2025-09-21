@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Oculus.Interaction;
 using UnityEngine;
 
 public class PlantPool : MonoBehaviour
@@ -29,16 +30,11 @@ public class PlantPool : MonoBehaviour
         if(!poolDict.ContainsKey(plant)){InitPlantPool(plant);}
 
         var queue = poolDict[plant];
-        if (queue.Count > 0)
-        {
-            GameObject plantObj = queue.Dequeue();
-            plantObj.SetActive(true);
-            return plantObj;
-        }
-        else
-        {
-            return Instantiate(plant.plantPrefab);
-        }
+        GameObject plantObj = queue.Count > 0 ? queue.Dequeue() : Instantiate(plant.plantPrefab);
+        plantObj.SetActive(true);
+        
+        return plantObj;
+       
     }
     
     //將植物放回植物池

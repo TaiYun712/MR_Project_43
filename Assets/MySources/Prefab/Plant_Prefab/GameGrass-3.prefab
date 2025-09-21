@@ -52,10 +52,10 @@ MonoBehaviour:
   _pointableElement: {fileID: 2949104791113706158}
   _rigidbody: {fileID: 8049683863181858431}
   _distanceThreshold: 0.01
-  _snapPoseTransform: {fileID: 0}
+  _snapPoseTransform: {fileID: 4493881290618563598}
   _defaultInteractable: {fileID: 0}
   _timeOutInteractable: {fileID: 0}
-  _timeOut: 0
+  _timeOut: 2
 --- !u!1 &2109281781345372885
 GameObject:
   m_ObjectHideFlags: 0
