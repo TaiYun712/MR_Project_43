@@ -6,7 +6,9 @@ using UnityEngine;
 public class Plant : ScriptableObject
 {
    public string plantName;
+   [TextArea]
    public string description;
+   
    public Sprite plantSprite;
    
    public bool isPioneer;

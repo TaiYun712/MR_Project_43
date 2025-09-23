@@ -58,10 +58,11 @@ public class PlantShelfManager : MonoBehaviour
                 plantObj.transform.SetParent(shelfRoot);
                 plantObj.transform.localPosition = Vector3.zero;
                 
+                //這段有問題
                 var interactor = plantObj.GetComponent<SnapInteractor>();
                 interactor.InjectOptionalTimeOutInteractable(plantShelfInteractable);
                 interactor.InjectOptionaTimeOut(0.1f);
-                
+                //這段有問題
                 spawnPlants[plant] = plantObj;
                 
                 Debug.Log("現在架子上有"+count+"個" + plant.plantName);
