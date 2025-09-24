@@ -1,14 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PlantManager : MonoBehaviour
 {
+    public static PlantManager instance;
+    
     public Plant[] allPlants;
 
     public Transform plantPeckPanel;
     public PlantSlot plantSlotPf;
-    
+
+    private Dictionary<Plant, PlantSlot> plantSlots = new Dictionary<Plant, PlantSlot>();
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     void Start()
     {
         for (int i = 0; i < allPlants.Length; i++)
@@ -16,11 +34,7 @@ public class PlantManager : MonoBehaviour
             CreateAllPlantSlotOnUIPanel(allPlants[i]);
         }
     }
-
-    void Update()
-    {
-       
-    }
+    
 
     //擊中採集點時，隨機獲取植物
     public void GetPlant()
@@ -45,7 +59,16 @@ public class PlantManager : MonoBehaviour
         newPlant.slotPlantImage.sprite= plant.plantSprite;
         newPlant.slotPlantName.text = plant.plantName;
         newPlant.slotPlantCount.text = "0";
-        
-        newPlant.gameObject.SetActive(false);
+        newPlant.UpdateCount(0);
+
+        plantSlots[plant] = newPlant;
+    }
+
+    public void UpdatePlantPeckUI(Plant plant,int count)
+    {
+        if (plantSlots.ContainsKey(plant))
+        {
+            plantSlots[plant].UpdateCount(count);
+        }
     }
 }

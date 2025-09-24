@@ -9,4 +9,10 @@ public class PlantSlot : MonoBehaviour
    public Image slotPlantImage;
    public Text slotPlantName;
    public Text slotPlantCount;
+
+   public void UpdateCount(int count)
+   {
+      slotPlantCount.text = count.ToString();
+      gameObject.SetActive(count > 0);
+   }
 }
