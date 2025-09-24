@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantData: {fileID: 11400000, guid: 1d1b513753a6e1444ba009e4c52b68ff, type: 2}
+  plantIntro: {fileID: 0}
 --- !u!114 &7806021167459372445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +454,19 @@ MonoBehaviour:
         m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4748783330375328490}
+        m_TargetAssemblyTypeName: Plant_Ctrl, Assembly-CSharp
+        m_MethodName: PutDownThePlant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenMove:
     m_PersistentCalls:
       m_Calls: []

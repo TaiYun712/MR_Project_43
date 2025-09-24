@@ -6,6 +6,8 @@ public class Plant_Ctrl : MonoBehaviour
 {
     public Plant plantData;
     
+    
+    
     void Start()
     {
         Debug.Log("這是個" + plantData.plantName);
@@ -14,10 +16,16 @@ public class Plant_Ctrl : MonoBehaviour
     public void PickUpThePlant()
     {
         Debug.Log("拿起" + plantData.plantName);
+        
+        PlantIntroduction.instance.OpenIntroPlantPanel(plantData);
     }
-    
-    void Update()
+
+    public void PutDownThePlant()
     {
+       
+       PlantIntroduction.instance.CloseIntroPlantPanel();
         
     }
+    
+    
 }
