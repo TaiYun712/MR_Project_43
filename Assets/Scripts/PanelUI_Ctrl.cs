@@ -15,6 +15,9 @@ public class PanelUI_Ctrl : MonoBehaviour
     public GameObject pioneerText;
     public float closeHintTime;
 
+    [Header("植物背包")] 
+    public GameObject plantPeckUIPanel;
+    public Transform plantPeckUIPos;
     
     private void Awake()
     {
@@ -31,10 +34,12 @@ public class PanelUI_Ctrl : MonoBehaviour
     private void Start()
     {
         getPlantPanel.SetActive(false);
+        
+        plantPeckUIPanel.SetActive(false);
 
     }
 
-    #region 顯示採集獲取植物
+    #region 採集獲取植物面板
     ////顯示採集獲取植物////
     public void ShowGetPlantPanel(Plant plant)
     {
@@ -70,8 +75,18 @@ public class PanelUI_Ctrl : MonoBehaviour
     
 
     #endregion
-    
-   
+
+    public void OpenPlantPeckUI()
+    {
+        float peckPosHeigh = plantPeckUIPos.transform.position.y;
+        plantPeckUIPanel.transform.position = new Vector3(-0.2f, peckPosHeigh-0.3f,1f);
+        plantPeckUIPanel.SetActive(true);
+    }
+
+    public void ClosePlantPeckUI()
+    {
+        plantPeckUIPanel.SetActive(false);
+    }
     
    
     

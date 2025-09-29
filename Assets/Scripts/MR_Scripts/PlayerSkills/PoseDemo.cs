@@ -125,6 +125,8 @@ public class PoseDemo : MonoBehaviour
         
     }
 
+    #region 中指馬賽克
+
     //比中指bad bad-左、右
     public void OpenBadHint_R()
     {
@@ -146,6 +148,9 @@ public class PoseDemo : MonoBehaviour
 
         isOpenOtherPanel = false;
     }
+
+    #endregion
+   
     
     //資訊面板-左
     public void OpenInfoPanel()  //手面板
@@ -226,6 +231,7 @@ public class PoseDemo : MonoBehaviour
                 isCleanSkill = false;
                     
                 handAim.SetActive(true);
+                PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
 
             case 1:
@@ -235,6 +241,7 @@ public class PoseDemo : MonoBehaviour
                 isTableSkill = false;
                     
                 handAim.SetActive(true);
+                PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
 
             case 2:
@@ -244,6 +251,7 @@ public class PoseDemo : MonoBehaviour
                 isCleanSkill = false;
 
                 handAim.SetActive(false);
+                PanelUI_Ctrl.instance.OpenPlantPeckUI();
                 break;
 
             case 3:
@@ -253,6 +261,7 @@ public class PoseDemo : MonoBehaviour
                 isCleanSkill = false;
                     
                 handAim.SetActive(false);
+                PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
         }
     }
