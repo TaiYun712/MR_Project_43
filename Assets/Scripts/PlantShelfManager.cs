@@ -59,21 +59,13 @@ public class PlantShelfManager : MonoBehaviour
             {
                 GameObject plantObj = plantPool.GetPlantFromPool(plant);
                 plantObj.transform.SetParent(shelfRoot);
-                //plantObj.transform.localPosition = Vector3.zero;
                 spawnPlants[plant] = plantObj;
                 
                 shelfOder.Add(plant);
                 
-                Debug.Log("現在架子上有"+count+"個" + plant.plantName);
-                
-            }
-            else
-            {
-                Debug.Log("現在架子上有"+count+"個" + plant.plantName);
             }
         }
-
-
+        
         RearrangeShelf();
     }
 
