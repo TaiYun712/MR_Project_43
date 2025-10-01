@@ -49,13 +49,17 @@ public class PlantInventory : MonoBehaviour
         {
             inventory.Remove(plant);
             PlantManager.instance.UpdatePlantPeckUI(plant,0);
+            
+            PlantShelfManager.instance.UpdateShelf(inventory);
         }
         else
         {
             PlantManager.instance.UpdatePlantPeckUI(plant,inventory[plant]);
+            
+            PlantShelfManager.instance.RefreshShelf(inventory);
         }
         
-        PlantShelfManager.instance.UpdateShelf(inventory);
+        //PlantShelfManager.instance.UpdateShelf(inventory);
     }
     
     //獲得植物數量

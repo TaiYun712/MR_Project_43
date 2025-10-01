@@ -5,26 +5,34 @@ using UnityEngine;
 public class Plant_Ctrl : MonoBehaviour
 {
     public Plant plantData;
-    
-    
+    public GameObject basePlate;
+
+    public bool isHeld;
     
     void Start()
     {
         Debug.Log("這是個" + plantData.plantName);
+        basePlate.SetActive(true);
+        isHeld = false;
     }
 
     public void PickUpThePlant()
     {
         Debug.Log("拿起" + plantData.plantName);
-        //顯示植物說明
-        PlantIntroduction.instance.OpenIntroPlantPanel(plantData);
+        PlantIntroduction.instance.OpenIntroPlantPanel(plantData);//顯示植物說明
+        
+        basePlate.SetActive(false);
+        isHeld = true;
+        
+        PlantInventory.instance.RemovePlant(plantData);
     }
 
     public void PutDownThePlant()
     {
-        //關閉植物說明
-       PlantIntroduction.instance.CloseIntroPlantPanel();
-        
+       PlantIntroduction.instance.CloseIntroPlantPanel();//關閉植物說明
+       isHeld = false;
+       
+       PlantShelfManager.instance.StarReturnCountdown(plantData.plantPrefab,plantData);
     }
     
     
