@@ -7,18 +7,10 @@ public class PlantInventory : MonoBehaviour
     public static PlantInventory instance;
     private Dictionary<Plant, int> inventory = new Dictionary<Plant, int>();
     
-    
-    
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
+        if (instance == null) { instance = this; }
+        else { Destroy(this); }
     }
 
     //增加植物數量
@@ -33,9 +25,8 @@ public class PlantInventory : MonoBehaviour
             inventory[plant] = amount;
         }
         
+        PlantManager.instance.UpdatePlantPeckUI(plant,inventory[plant]);
         PlantShelfManager.instance.UpdateShelf(inventory);
-        int count = inventory[plant];
-        PlantManager.instance.UpdatePlantPeckUI(plant,count);
     }
 
 
@@ -49,17 +40,13 @@ public class PlantInventory : MonoBehaviour
         {
             inventory.Remove(plant);
             PlantManager.instance.UpdatePlantPeckUI(plant,0);
-            
-            PlantShelfManager.instance.UpdateShelf(inventory);
         }
         else
         {
             PlantManager.instance.UpdatePlantPeckUI(plant,inventory[plant]);
-            
-            PlantShelfManager.instance.RefreshShelf(inventory);
         }
         
-        //PlantShelfManager.instance.UpdateShelf(inventory);
+        PlantShelfManager.instance.UpdateShelf(inventory);
     }
     
     //獲得植物數量

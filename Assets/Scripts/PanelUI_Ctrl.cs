@@ -21,14 +21,8 @@ public class PanelUI_Ctrl : MonoBehaviour
     
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
+        if (instance == null) { instance = this; }
+        else { Destroy(this); }
     }
     
     private void Start()

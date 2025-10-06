@@ -19,13 +19,16 @@ public class PlantShelfManager : MonoBehaviour
     public float returnDelay = 2f;
     private void Awake()
     {
-        if (instance == null)
+        if (instance == null) { instance = this; }
+        else { Destroy(this); }
+    }
+
+    //當架上的植物被拿起
+    public void PickPlantFromShelf(Plant plant,GameObject pickObj)
+    {
+        if (spawnPlants.TryGetValue(plant, out var current) && current == pickObj)
         {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
+            spawnPlants[plant] = null;
         }
     }
 
@@ -39,64 +42,69 @@ public class PlantShelfManager : MonoBehaviour
         {
             Plant plant = kv.Key;
             int count = kv.Value;
+            
+            if(count <= 0){continue;}
 
-            if (count > 0 && !spawnPlants.ContainsKey(plant))
+            //若為首次加入，新增欄位
+            if(!shelfOder.Contains(plant)){shelfOder.Add(plant);}
+
+            //持有數尚未歸零
+            if (!spawnPlants.ContainsKey(plant) || spawnPlants == null)
             {
                 GameObject plantObj = plantPool.GetPlantFromPool(plant);
                 plantObj.transform.SetParent(shelfRoot);
-                spawnPlants[plant] = plantObj;
-                shelfOder.Add(plant);
-            }
-           
-        }
-        
-        RearrangeShelf();
-    }
 
-    
-    public void RefreshShelf(Dictionary<Plant, int> inventory)
-    {
-        RemoveEmptyPlant(inventory);
-        
-        //更新或新增
-        foreach (var kv in inventory)
-        {
-            Plant plant = kv.Key;
-            int count = kv.Value;
-            
-            if (count > 0 && spawnPlants.ContainsKey(plant))
-            {
-                GameObject newPlant = plantPool.GetPlantFromPool(plant);
-                newPlant.transform.SetParent(shelfRoot);
-                spawnPlants[plant] = newPlant;
+                var ctrl = plantObj.GetComponent<Plant_Ctrl>();
+                if (ctrl != null)
+                {
+                    ctrl.isOnShelf = true;
+                    ctrl.isHeld = false;
+                    ctrl.basePlate?.SetActive(true);
+                }
+
+                spawnPlants[plant] = plantObj;
+
+                int idx = shelfOder.IndexOf(plant);
+                plantObj.transform.localPosition = new Vector3(idx * shelfSpacing, 0f, 0f);
             }
-           
         }
         
         RearrangeShelf();
-        
     }
     
 
     //移除不存在的植物
     public void RemoveEmptyPlant(Dictionary<Plant, int> inventory)
     {
-        
         List<Plant> toRemove = new List<Plant>();
         //可縮寫為kv
         foreach (KeyValuePair<Plant,GameObject> kv in spawnPlants)
         {
-            if (!inventory.ContainsKey(kv.Key) || inventory[kv.Key] <= 0)
+            Plant plant = kv.Key;
+            GameObject obj = kv.Value;
+
+            bool isNoMore = !inventory.ContainsKey(kv.Key) || inventory[plant] <= 0;
+
+            if (isNoMore)
             {
-                plantPool.ReturnPlantToPool(kv.Key,kv.Value);
-                toRemove.Add(kv.Key);
-                shelfOder.Remove(kv.Key);
+                if (obj != null)
+                {
+                    var ctrl = obj.GetComponent<Plant_Ctrl>();
+                    if (ctrl == null || !ctrl.isHeld)
+                    {
+                        plantPool.ReturnPlantToPool(plant,obj);
+                    }
+                }
             }
+            
+            toRemove.Add(plant);
+           
         }
 
         foreach (var plant in toRemove)
         {
             spawnPlants.Remove(plant);
+            shelfOder.Remove(plant);
         }
 
     }
@@ -108,10 +116,9 @@ public class PlantShelfManager : MonoBehaviour
         for (int i = 0; i < shelfOder.Count; i++)
         {
             Plant plant = shelfOder[i];
-            if (spawnPlants.ContainsKey(plant))
+            if (spawnPlants.TryGetValue(plant,out var obj) && obj != null)
             {
-                GameObject plantObj = spawnPlants[plant];
-                plantObj.transform.localPosition = new Vector3(i * shelfSpacing, 0, 0);
+                obj.transform.localPosition = new Vector3(i * shelfSpacing, 0f, 0f);
             }
         }
     }
@@ -130,11 +137,7 @@ public class PlantShelfManager : MonoBehaviour
         if (plantObj.activeInHierarchy && !plantObj.GetComponent<Plant_Ctrl>().isHeld)
         {
             plantPool.ReturnPlantToPool(plant,plantObj);
-
-            if (!spawnPlants.ContainsKey(plant))
-            {
-                PlantInventory.instance.AddPlant(plant);
-            }
+            PlantInventory.instance.AddPlant(plant);
             
         }
     }

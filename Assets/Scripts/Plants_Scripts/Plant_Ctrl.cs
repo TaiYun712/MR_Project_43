@@ -8,7 +8,7 @@ public class Plant_Ctrl : MonoBehaviour
     public GameObject basePlate;
 
     public bool isHeld;
-    
+    public bool isOnShelf;
     void Start()
     {
         Debug.Log("這是個" + plantData.plantName);
@@ -19,8 +19,14 @@ public class Plant_Ctrl : MonoBehaviour
     public void PickUpThePlant()
     {
         Debug.Log("拿起" + plantData.plantName);
-        PlantIntroduction.instance.OpenIntroPlantPanel(plantData);//顯示植物說明
+
+        if (isOnShelf)
+        {
+            PlantShelfManager.instance.PickPlantFromShelf(plantData,this.gameObject);
+            isOnShelf = false;
+        }
         
+        PlantIntroduction.instance.OpenIntroPlantPanel(plantData);//顯示植物說明
         basePlate.SetActive(false);
         isHeld = true;
         
@@ -32,7 +38,7 @@ public class Plant_Ctrl : MonoBehaviour
        PlantIntroduction.instance.CloseIntroPlantPanel();//關閉植物說明
        isHeld = false;
        
-       PlantShelfManager.instance.StarReturnCountdown(plantData.plantPrefab,plantData);
+       PlantShelfManager.instance.StarReturnCountdown(this.gameObject,plantData);
     }
     
     
