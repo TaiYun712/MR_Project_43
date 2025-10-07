@@ -49,10 +49,13 @@ public class PlantShelfManager : MonoBehaviour
             if(!shelfOder.Contains(plant)){shelfOder.Add(plant);}
 
             //持有數尚未歸零
-            if (!spawnPlants.ContainsKey(plant) || spawnPlants == null)
+            if (!spawnPlants.ContainsKey(plant) || spawnPlants[plant] == null)
             {
                 GameObject plantObj = plantPool.GetPlantFromPool(plant);
-                plantObj.transform.SetParent(shelfRoot);
+                plantObj.transform.SetParent(shelfRoot,false);
+                plantObj.transform.localPosition = Vector3.zero;
+                plantObj.transform.localRotation = Quaternion.identity;
+                plantObj.transform.localScale = Vector3.one;
 
                 var ctrl = plantObj.GetComponent<Plant_Ctrl>();
                 if (ctrl != null)
@@ -95,16 +98,15 @@ public class PlantShelfManager : MonoBehaviour
                         plantPool.ReturnPlantToPool(plant,obj);
                     }
                 }
+                
+                toRemove.Add(plant);
+                shelfOder.Remove(plant);
             }
-            
-            toRemove.Add(plant);
-           
         }
 
         foreach (var plant in toRemove)
         {
             spawnPlants.Remove(plant);
-            shelfOder.Remove(plant);
         }
 
     }
@@ -119,6 +121,8 @@ public class PlantShelfManager : MonoBehaviour
             if (spawnPlants.TryGetValue(plant,out var obj) && obj != null)
             {
                 obj.transform.localPosition = new Vector3(i * shelfSpacing, 0f, 0f);
+                obj.transform.localRotation = Quaternion.identity;
+                obj.transform.localScale = Vector3.one;
             }
         }
     }
