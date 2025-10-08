@@ -46942,7 +46942,7 @@ Transform:
   m_GameObject: {fileID: 944466033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.036, y: 0.745, z: 0.333}
+  m_LocalPosition: {x: -0.03, y: 0.7, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61637,7 +61637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1516352076
 Transform:
   m_ObjectHideFlags: 0
@@ -70309,6 +70309,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6a0a080b2ab2c0c4592c47c55aa73d1d, type: 2}
   - {fileID: 11400000, guid: 633bd2be1d689c14eb309077aff2f874, type: 2}
   - {fileID: 11400000, guid: 1d1b513753a6e1444ba009e4c52b68ff, type: 2}
+  - {fileID: 11400000, guid: 1e263ed9b107f124da7551789d0096b9, type: 2}
   plantPeckPanel: {fileID: 1801474343}
   plantSlotPf: {fileID: 3729610561012499847, guid: 0302acb5771a08542b34f2516cdbadf2, type: 3}
 --- !u!4 &1802562065
