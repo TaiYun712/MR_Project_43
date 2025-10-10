@@ -17,6 +17,7 @@ public class PanelUI_Ctrl : MonoBehaviour
 
     [Header("植物背包")] 
     public GameObject plantPeckUIPanel;
+    public GameObject planPeckShelf;
     public Transform plantPeckUIPos;
     
     private void Awake()
@@ -30,6 +31,7 @@ public class PanelUI_Ctrl : MonoBehaviour
         getPlantPanel.SetActive(false);
         
         plantPeckUIPanel.SetActive(false);
+        planPeckShelf.SetActive(false);
 
     }
 
@@ -75,11 +77,15 @@ public class PanelUI_Ctrl : MonoBehaviour
         float peckPosHeigh = plantPeckUIPos.transform.position.y;
         plantPeckUIPanel.transform.position = new Vector3(-0.2f, peckPosHeigh-0.3f,1f);
         plantPeckUIPanel.SetActive(true);
+
+        planPeckShelf.transform.position = new Vector3(-0.1f, peckPosHeigh - 0.2f, 0.6f);
+        planPeckShelf.SetActive(true);
     }
 
     public void ClosePlantPeckUI()
     {
         plantPeckUIPanel.SetActive(false);
+        planPeckShelf.SetActive(false);
     }
     
    

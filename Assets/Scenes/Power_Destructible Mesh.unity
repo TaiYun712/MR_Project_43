@@ -46942,7 +46942,7 @@ Transform:
   m_GameObject: {fileID: 944466033}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 0.7, z: 0.35}
+  m_LocalPosition: {x: -0.1, y: -0.2, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -72919,6 +72919,7 @@ MonoBehaviour:
   pioneerText: {fileID: 578195293}
   closeHintTime: 1
   plantPeckUIPanel: {fileID: 649857599}
+  planPeckShelf: {fileID: 944466033}
   plantPeckUIPos: {fileID: 1061389592}
 --- !u!4 &1899302639
 Transform:
