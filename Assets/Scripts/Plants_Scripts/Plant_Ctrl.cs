@@ -24,13 +24,14 @@ public class Plant_Ctrl : MonoBehaviour
         {
             PlantShelfManager.instance.PickPlantFromShelf(plantData,this.gameObject);
             isOnShelf = false;
+            
+            PlantInventory.instance.RemovePlant(plantData);
         }
         
         PlantIntroduction.instance.OpenIntroPlantPanel(plantData);//顯示植物說明
         basePlate.SetActive(false);
         isHeld = true;
         
-        PlantInventory.instance.RemovePlant(plantData);
     }
 
     public void PutDownThePlant()

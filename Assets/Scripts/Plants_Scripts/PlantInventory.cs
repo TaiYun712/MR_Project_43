@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlantInventory : MonoBehaviour
@@ -34,7 +35,7 @@ public class PlantInventory : MonoBehaviour
     public void RemovePlant(Plant plant, int amount = 1)
     {
         if(!inventory.ContainsKey(plant)){return;}
-
+        
         inventory[plant] -= amount;
         if (inventory[plant] <= 0)
         {
