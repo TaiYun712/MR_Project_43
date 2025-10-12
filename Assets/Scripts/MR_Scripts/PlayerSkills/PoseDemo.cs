@@ -227,6 +227,9 @@ public class PoseDemo : MonoBehaviour
 
     void SetSkills()
     {
+        isShooting = false;
+        isCleaning = false;
+        
         switch (currentSkill)
         {
             case 0:
@@ -310,6 +313,11 @@ public class PoseDemo : MonoBehaviour
             isCleaning = true;
             
         }
+        else
+        {
+            frontAimAni.SetBool("aiming",false);
+            backAimAni.SetBool("aiming",false);
+        }
     }
 
     //採集用準心
@@ -322,8 +330,6 @@ public class PoseDemo : MonoBehaviour
     {
         if(!isShootSkill){return;}
         
-        frontAimAni.SetBool("aiming",false);
-        backAimAni.SetBool("aiming",false);
         Debug.Log("ShootTheBall 被觸發！");
         
         if (isShooting)
@@ -360,6 +366,9 @@ public class PoseDemo : MonoBehaviour
         aimRay.SetActive(false);
         aimImpactPf.SetActive(false);
 
+        frontAimAni.SetBool("aiming",false);
+        backAimAni.SetBool("aiming",false);
+        
         isShooting = false;
     }
     
