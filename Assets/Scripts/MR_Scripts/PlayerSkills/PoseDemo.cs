@@ -52,6 +52,11 @@ public class PoseDemo : MonoBehaviour
     public LayerMask layerMask;
 
     public bool isShooting;
+
+    [Header("能量球動畫")] 
+    public Animator mainAimAni;
+    public Animator frontAimAni;
+    public Animator backAimAni;
     
     [Header("清潔光束")]
     public bool isCleaning;
@@ -295,6 +300,10 @@ public class PoseDemo : MonoBehaviour
         if (isShootSkill)
         {
             isShooting = true;
+            
+            mainAimAni.SetTrigger("aiming");
+            frontAimAni.SetBool("aiming",true);
+            backAimAni.SetBool("aiming",true);
             AudioManager.instance.AimReadySound();
         }else if (isCleanSkill)
         {
@@ -313,6 +322,8 @@ public class PoseDemo : MonoBehaviour
     {
         if(!isShootSkill){return;}
         
+        frontAimAni.SetBool("aiming",false);
+        backAimAni.SetBool("aiming",false);
         Debug.Log("ShootTheBall 被觸發！");
         
         if (isShooting)
