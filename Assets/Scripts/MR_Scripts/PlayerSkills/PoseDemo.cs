@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
@@ -155,9 +156,9 @@ public class PoseDemo : MonoBehaviour
     }
 
     #endregion
-   
-    
-    //資訊面板-左
+
+    #region 資訊面板
+//資訊面板-左
     public void OpenInfoPanel()  //手面板
     {
         infoPanel_hand.SetActive(true);
@@ -178,9 +179,13 @@ public class PoseDemo : MonoBehaviour
         
         isOpenOtherPanel = false;
     }
+    
+
+    #endregion
+
+    #region 技能面板顯示
 
     //技能面板-左
-
     public void HandIsFacing()  //技能面板顯示
     {
         isFalmFacing = true;
@@ -211,7 +216,7 @@ public class PoseDemo : MonoBehaviour
     {
         skillPanel.SetActive(false);
     }
-    
+
     public void SwitchToNextSkill()   //技能面板切換
     {
         if (isFalmFacing)
@@ -220,10 +225,11 @@ public class PoseDemo : MonoBehaviour
             AudioManager.instance.SwitchSkillSound();
 
             SetSkills();
-
         }
-       
     }
+    #endregion
+
+    #region 切換技能
 
     void SetSkills()
     {
@@ -239,6 +245,7 @@ public class PoseDemo : MonoBehaviour
                 isCleanSkill = false;
                     
                 handAim.SetActive(true);
+                tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
 
@@ -249,6 +256,7 @@ public class PoseDemo : MonoBehaviour
                 isTableSkill = false;
                     
                 handAim.SetActive(true);
+                tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
 
@@ -269,11 +277,15 @@ public class PoseDemo : MonoBehaviour
                 isCleanSkill = false;
                     
                 handAim.SetActive(false);
+                tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
         }
     }
 
+    #endregion
+
+    #region 棲地合成台
     //棲地合成台-右
     public void OpenTablePanel()
     {
@@ -296,7 +308,12 @@ public class PoseDemo : MonoBehaviour
         tablePanel.SetActive(false);
     }
 
-    //瞄準 & 辨認發射能量球或淨化光束-右
+
+    #endregion
+
+    #region 能量球&淨化光束
+
+     //瞄準 & 辨認發射能量球或淨化光束-右
     public void HoldRock()
     {
         Debug.Log("拳頭被觸發！");
@@ -422,6 +439,10 @@ public class PoseDemo : MonoBehaviour
         theRayLine.SetPosition(1,endPos);
     }
 
+
+    #endregion
+    
+   
    
 
   
