@@ -235,6 +235,7 @@ public class PoseDemo : MonoBehaviour
     {
         isShooting = false;
         isCleaning = false;
+        isTableSkill = false;
         
         switch (currentSkill)
         {
@@ -330,11 +331,12 @@ public class PoseDemo : MonoBehaviour
             isCleaning = true;
             
         }
-        else
+        else if(isTableSkill)
         {
-            frontAimAni.SetBool("aiming",false);
-            backAimAni.SetBool("aiming",false);
+            CraftingManager.instance.TryCraft();
+            Debug.Log("觸發合成");
         }
+        
     }
 
     //採集用準心

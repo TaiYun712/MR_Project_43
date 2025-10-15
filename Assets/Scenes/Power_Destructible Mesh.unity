@@ -44357,6 +44357,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &846684882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846684879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25bb390895e72224bb9bebffdded41ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots:
+  - {fileID: 1178699723}
+  - {fileID: 459514577}
+  - {fileID: 349102275}
+  - {fileID: 908640127}
+  - {fileID: 1232245170}
+  wetlandBasicPf: {fileID: 5108724512746461258, guid: 20813147e3287954ab836635d0ad3655, type: 3}
+  wetlandAdvancedPf: {fileID: 3149614083171843765, guid: 1d375951fd478c247ac122213e611aec, type: 3}
+  habitatBasicPf: {fileID: 3166677686295452715, guid: 373913f32e2d5da45aef49eed5c09e51, type: 3}
+  habitatAdvancedPf: {fileID: 429574806620909911, guid: f95031cf134a3ec45bc14aa7459f1763, type: 3}
+  resultSpawnPos: {fileID: 1077007331}
 --- !u!1 &847500068
 GameObject:
   m_ObjectHideFlags: 0
@@ -50419,6 +50442,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072580973}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1077007330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077007331}
+  m_Layer: 0
+  m_Name: ResultSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077007331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077007330}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.138, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 846684880}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079484457
 GameObject:
   m_ObjectHideFlags: 0
@@ -53654,10 +53708,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1e91fc3e0139bc043a4bc38fddba38a5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1106309638}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1e91fc3e0139bc043a4bc38fddba38a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1077007331}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1e91fc3e0139bc043a4bc38fddba38a5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 846684881}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1e91fc3e0139bc043a4bc38fddba38a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 846684882}
   m_SourcePrefab: {fileID: 100100000, guid: 1e91fc3e0139bc043a4bc38fddba38a5, type: 3}
 --- !u!1 &1194127686
 GameObject:

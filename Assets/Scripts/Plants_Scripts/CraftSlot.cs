@@ -36,7 +36,6 @@ public class CraftSlot : MonoBehaviour
         if (ctrl == null || ctrl.plantData == null) return;          // 只保護 NRE
         if (holdCtrl != null && holdCtrl != ctrl) return;            // 避免覆蓋不同佔用者
 
-        // 到這裡：要嘛是第一次放入，要嘛是同一顆重複呼叫（可覆寫同值，不影響）
         holdCtrl  = ctrl;
         plantName = ctrl.plantData.plantName;
         isPioneer = ctrl.plantData.isPioneer;
