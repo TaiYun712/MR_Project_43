@@ -131,7 +131,7 @@ public class PlantShelfManager : MonoBehaviour
     public void StarReturnCountdown(GameObject plantObj, Plant plant, float delay = 2f)
     {
         StartCoroutine(ReturnPlantAfterDelay(plantObj, plant, delay));
-        Debug.Log(delay+"開始回收"+plant.plantName);
+       // Debug.Log(delay+"開始回收"+plant.plantName);
     }
     
     IEnumerator ReturnPlantAfterDelay(GameObject plantObj,Plant plant,float delay)

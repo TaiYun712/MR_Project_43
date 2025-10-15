@@ -316,7 +316,7 @@ public class PoseDemo : MonoBehaviour
      //瞄準 & 辨認發射能量球或淨化光束-右
     public void HoldRock()
     {
-        Debug.Log("拳頭被觸發！");
+       // Debug.Log("拳頭被觸發！");
         if (isShootSkill)
         {
             isShooting = true;
@@ -347,7 +347,7 @@ public class PoseDemo : MonoBehaviour
     {
         if(!isShootSkill){return;}
         
-        Debug.Log("ShootTheBall 被觸發！");
+       // Debug.Log("ShootTheBall 被觸發！");
         
         if (isShooting)
         {

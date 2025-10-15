@@ -1,0 +1,81 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CraftSlot : MonoBehaviour
+{
+    public Plant_Ctrl holdCtrl;
+
+    public string plantName;
+    public bool isPioneer;
+    public int growPower;
+
+    //檢查格子中是否有東西
+    public bool IsFilled() => holdCtrl != null;
+    public Plant GetPlantSO() => holdCtrl ? holdCtrl.plantData : null;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        TryCapture(other, "Enter");
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        // 放手後還在 trigger 裡，可補抓
+        TryCapture(other, "Stay");
+    }
+
+    private void TryCapture(Collider other, string tag)
+    {
+        // 抓 ctrl：先從剛體根找，找不到再往父階
+        var ctrl = other.attachedRigidbody
+            ? other.attachedRigidbody.GetComponent<Plant_Ctrl>()
+            : other.GetComponentInParent<Plant_Ctrl>();
+
+        if (ctrl == null || ctrl.plantData == null) return;          // 只保護 NRE
+        if (holdCtrl != null && holdCtrl != ctrl) return;            // 避免覆蓋不同佔用者
+
+        // 到這裡：要嘛是第一次放入，要嘛是同一顆重複呼叫（可覆寫同值，不影響）
+        holdCtrl  = ctrl;
+        plantName = ctrl.plantData.plantName;
+        isPioneer = ctrl.plantData.isPioneer;
+        growPower = ctrl.plantData.growPower;
+
+        // （可選）只在第一次成功時印
+         Debug.Log($"[Slot {name}] {tag} 放入：{plantName}｜先驅:{isPioneer}｜繁殖力:{growPower}");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (holdCtrl == null) return;
+
+        var ctrl = other.attachedRigidbody
+            ? other.attachedRigidbody.GetComponent<Plant_Ctrl>()
+            : other.GetComponentInParent<Plant_Ctrl>();
+
+        if (ctrl != holdCtrl) return;
+
+        var leaving = plantName;
+
+        holdCtrl = null;
+        plantName = null;
+        isPioneer = false;
+        growPower = 0;
+
+         Debug.Log($"[Slot {name}] 離開：{leaving}");
+    }
+    
+    //合成後消耗
+    public void ClearToPool()
+    {
+        if(holdCtrl == null || holdCtrl.plantData == null){return;}
+        
+        PlantShelfManager.instance.plantPool.ReturnPlantToPool(holdCtrl.plantData,holdCtrl.gameObject);
+        
+        holdCtrl = null;
+        plantName = null;
+        isPioneer = false;
+        growPower = 0;
+    }
+}

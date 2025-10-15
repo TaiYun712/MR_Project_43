@@ -11,14 +11,14 @@ public class Plant_Ctrl : MonoBehaviour
     public bool isOnShelf;
     void Start()
     {
-        Debug.Log("這是個" + plantData.plantName);
+       // Debug.Log("這是個" + plantData.plantName);
         basePlate.SetActive(true);
         isHeld = false;
     }
 
     public void PickUpThePlant()
     {
-        Debug.Log("拿起" + plantData.plantName);
+       // Debug.Log("拿起" + plantData.plantName);
 
         if (isOnShelf)
         {

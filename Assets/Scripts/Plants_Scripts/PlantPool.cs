@@ -9,7 +9,7 @@ public class PlantPool : MonoBehaviour
     
     
     //初始化某植物池
-    public void InitPlantPool(Plant plant, int size = 20)
+    public void InitPlantPool(Plant plant, int size = 10)
     {
         if(poolDict.ContainsKey(plant))return;
 
