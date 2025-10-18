@@ -11,6 +11,33 @@ public class CraftSlot : MonoBehaviour
     public bool isPioneer;
     public int growPower;
 
+    private Collider slotCol;
+
+    private void Awake()
+    {
+        slotCol = GetComponent<Collider>();
+    }
+    
+    //確認格子占用狀況
+    public void Revalidate()
+    {
+        if (holdCtrl == null ){return;}
+
+        if (!holdCtrl.gameObject.activeInHierarchy)
+        {
+            ForceClear();
+            return;
+        }
+
+        if (slotCol != null && !slotCol.bounds.Contains(holdCtrl.transform.position))
+        {
+            ForceClear();
+        }
+
+    }
+    
+    
+
     //檢查格子中是否有東西
     public bool IsFilled() => holdCtrl != null;
     public Plant GetPlantSO() => holdCtrl ? holdCtrl.plantData : null;
@@ -33,8 +60,9 @@ public class CraftSlot : MonoBehaviour
             ? other.attachedRigidbody.GetComponent<Plant_Ctrl>()
             : other.GetComponentInParent<Plant_Ctrl>();
 
-        if (ctrl == null || ctrl.plantData == null) return;          // 只保護 NRE
-        if (holdCtrl != null && holdCtrl != ctrl) return;            // 避免覆蓋不同佔用者
+        if (ctrl == null || ctrl.plantData == null){ return;}          // 只保護 NRE
+        if (holdCtrl != null && holdCtrl != ctrl) {return;}          // 避免覆蓋不同佔用者
+        //if(ctrl.isHeld){return;} //手還抓著就先別計
 
         holdCtrl  = ctrl;
         plantName = ctrl.plantData.plantName;
@@ -71,7 +99,12 @@ public class CraftSlot : MonoBehaviour
         if(holdCtrl == null || holdCtrl.plantData == null){return;}
         
         PlantShelfManager.instance.plantPool.ReturnPlantToPool(holdCtrl.plantData,holdCtrl.gameObject);
-        
+
+        ForceClear();
+    }
+
+    void ForceClear()
+    {
         holdCtrl = null;
         plantName = null;
         isPioneer = false;

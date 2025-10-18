@@ -317,12 +317,12 @@ public class PoseDemo : MonoBehaviour
 
     #endregion
 
-    #region 能量球&淨化光束
+    #region 握拳:瞄準or合成
 
-     //瞄準 & 辨認發射能量球或淨化光束-右
+    //瞄準 & 辨認發射能量球或淨化光束 & 觸發合成-右
     public void HoldRock()
     {
-       // Debug.Log("拳頭被觸發！");
+        // Debug.Log("拳頭被觸發！");
         if (isShootSkill)
         {
             isShooting = true;
@@ -344,6 +344,10 @@ public class PoseDemo : MonoBehaviour
         
     }
 
+    #endregion
+    
+    #region 能量球&淨化光束
+    
     //採集用準心
     public void HoldToAim()
     {

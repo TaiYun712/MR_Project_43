@@ -20,19 +20,35 @@ public class CraftingManager : MonoBehaviour
     [Header("棲地生成位置")]
     public Transform resultSpawnPos;
 
-    /*
+    
     [Header("合成UI提示")]
     public GameObject craftHint;
     public Text craftHintText;
-   */
+    public Image craftHintBG;
+    public Sprite failSp, SuccessSp;
+   
     private void Awake()
     {
         if (instance == null) { instance = this; }
         else{Destroy(this);}
     }
 
+    private void Start()
+    {
+        craftHint.SetActive(false);
+    }
+
     public void TryCraft()
     {
+        //先確認並清除已不在的舊占用
+        if (slots != null)
+        {
+            foreach (var s in slots)
+            {
+                s?.Revalidate();
+            }
+        }
+        
         //檢查是否有填滿
         if (!AllFilled())
         {
@@ -83,7 +99,7 @@ public class CraftingManager : MonoBehaviour
         //生成對應棲地
         SpawnResult(isWetland,isAdvanced);
         
-        Success($"合成成功：{(isWetland ? "濕地塊" : "棲地塊")} × {(isAdvanced ? "高階" : "初階")}");
+        Success($"成功合成：{(isAdvanced ? "高階" : "初階")}{(isWetland ? "濕地塊" : "棲地塊")}");
 
     }
 
@@ -136,7 +152,7 @@ public class CraftingManager : MonoBehaviour
 
              if (count > limit)
              {
-                 reason = $"{name}過量：growPower={{gp}}，上限 {{limit}}，實際放了 {{count}}";
+                 reason = $"{name}過量：growPower={gp}，上限 {limit}，實際放了 {count}";
                  return false;
              }
          }
@@ -164,6 +180,10 @@ public class CraftingManager : MonoBehaviour
     void Fail(string msg)
     {
         Debug.Log("[Craft] " + msg);
+        craftHintText.text = msg;
+        craftHintBG.sprite = failSp;
+        craftHint.SetActive(true);
+        Invoke("CloseHint",2f);
     }
     
     
@@ -171,5 +191,14 @@ public class CraftingManager : MonoBehaviour
     void Success(string msg)
     {
         Debug.Log("[Craft] " + msg);
+        craftHintText.text = msg;
+        craftHintBG.sprite = SuccessSp;
+        craftHint.SetActive(true);
+        Invoke("CloseHint",2f);
+    }
+
+    void CloseHint()
+    {
+        craftHint.SetActive(false);
     }
 }
