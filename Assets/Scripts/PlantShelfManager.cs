@@ -145,6 +145,10 @@ public class PlantShelfManager : MonoBehaviour
             
         }
     }
+
+  
+
+   
    
     
 }

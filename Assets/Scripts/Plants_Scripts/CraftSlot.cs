@@ -62,12 +62,13 @@ public class CraftSlot : MonoBehaviour
 
         if (ctrl == null || ctrl.plantData == null){ return;}          // 只保護 NRE
         if (holdCtrl != null && holdCtrl != ctrl) {return;}          // 避免覆蓋不同佔用者
-        //if(ctrl.isHeld){return;} //手還抓著就先別計
-
+        
+        
         holdCtrl  = ctrl;
         plantName = ctrl.plantData.plantName;
         isPioneer = ctrl.plantData.isPioneer;
         growPower = ctrl.plantData.growPower;
+       
 
         // （可選）只在第一次成功時印
          Debug.Log($"[Slot {name}] {tag} 放入：{plantName}｜先驅:{isPioneer}｜繁殖力:{growPower}");
@@ -82,7 +83,7 @@ public class CraftSlot : MonoBehaviour
             : other.GetComponentInParent<Plant_Ctrl>();
 
         if (ctrl != holdCtrl) return;
-
+        
         var leaving = plantName;
 
         holdCtrl = null;
