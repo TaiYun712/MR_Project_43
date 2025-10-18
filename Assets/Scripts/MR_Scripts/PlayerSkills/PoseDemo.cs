@@ -34,6 +34,7 @@ public class PoseDemo : MonoBehaviour
 
     [Header("技能面板")]
     public Text skillNameText;
+    public Text skillDescribeText;
     public GameObject skillPanel;
     public int currentSkill = 0;
     public int totalSkill = 4;
@@ -241,6 +242,7 @@ public class PoseDemo : MonoBehaviour
         {
             case 0:
                 skillNameText.text = "能量球";
+                skillDescribeText.text = "用以採集植物&泥土";
                 isShootSkill = true;
                 isTableSkill = false;
                 isCleanSkill = false;
@@ -252,6 +254,7 @@ public class PoseDemo : MonoBehaviour
 
             case 1:
                 skillNameText.text = "淨化";
+                skillDescribeText.text = "清除環境中的髒污";
                 isCleanSkill = true;
                 isShootSkill = false;
                 isTableSkill = false;
@@ -263,6 +266,7 @@ public class PoseDemo : MonoBehaviour
 
             case 2:
                 skillNameText.text = "棲地合成";
+                skillDescribeText.text = "用各種植物組成棲地";
                 isTableSkill = true;
                 isShootSkill = false;
                 isCleanSkill = false;
@@ -273,6 +277,7 @@ public class PoseDemo : MonoBehaviour
 
             case 3:
                 skillNameText.text = "移除";
+                skillDescribeText.text = "移除過度生長的植物";
                 isTableSkill = false;
                 isShootSkill = false;
                 isCleanSkill = false;

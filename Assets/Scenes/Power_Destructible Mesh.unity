@@ -28533,6 +28533,7 @@ MonoBehaviour:
   badHintPanel_L: {fileID: 723180460}
   badHintPanel_R: {fileID: 2108669954}
   skillNameText: {fileID: 1483223103}
+  skillDescribeText: {fileID: 1834394167}
   skillPanel: {fileID: 1039267635}
   currentSkill: 0
   totalSkill: 4
@@ -63177,7 +63178,7 @@ GameObject:
   - component: {fileID: 1572651187}
   - component: {fileID: 1572651186}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: 'SkillDescribePanel '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71146,7 +71147,7 @@ GameObject:
   - component: {fileID: 1834394168}
   - component: {fileID: 1834394167}
   m_Layer: 5
-  m_Name: SkillIllustrateText
+  m_Name: SkillDescribeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71161,15 +71162,15 @@ RectTransform:
   m_GameObject: {fileID: 1834394165}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.09290057, y: 0.09290057, z: 0.09290057}
+  m_LocalScale: {x: 0.05759185, y: 0.05759185, z: 0.05759185}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1572651185}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.065}
-  m_SizeDelta: {x: 160, y: 79.784}
+  m_AnchoredPosition: {x: 0, y: 0.0000024437904}
+  m_SizeDelta: {x: 269.335, y: 141.356}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834394167
 MonoBehaviour:
@@ -71193,10 +71194,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -71204,7 +71205,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u80FD\u91CF\u8AAA\u660E"
+  m_Text: "\u7528\u4EE5\u63A1\u96C6\u690D\u7269&\u6CE5\u571F"
 --- !u!222 &1834394168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -79548,7 +79549,7 @@ GameObject:
   - component: {fileID: 2128585197}
   - component: {fileID: 2128585196}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SkillNamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
