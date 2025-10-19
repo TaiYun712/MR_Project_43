@@ -34,7 +34,7 @@ public class PlantRecallManager : MonoBehaviour
         foreach (var ctrl in snapShot)
         {
             if(!ctrl || ctrl.plantData == null){continue;}
-            if(!ctrl.gameObject.activeInHierarchy){continue;} //合成台上的已回收
+           // if(!ctrl.gameObject.activeInHierarchy){continue;} //合成台上的已回收
             if(ctrl.isOnShelf){continue;} //植物架上的不收
 
             int id = ctrl.GetInstanceID();

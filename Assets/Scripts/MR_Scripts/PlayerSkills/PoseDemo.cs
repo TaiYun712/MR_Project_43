@@ -238,6 +238,8 @@ public class PoseDemo : MonoBehaviour
         isCleaning = false;
         isTableSkill = false;
         
+        PlantRecallManager.instance.RecallAllUnusePlants();
+        
         switch (currentSkill)
         {
             case 0:
@@ -270,7 +272,7 @@ public class PoseDemo : MonoBehaviour
                 isTableSkill = true;
                 isShootSkill = false;
                 isCleanSkill = false;
-                PlantRecallManager.instance.RecallAllUnusePlants();
+                
 
                 handAim.SetActive(false);
                 PanelUI_Ctrl.instance.OpenPlantPeckUI();
