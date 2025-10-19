@@ -36,6 +36,16 @@ public class CraftSlot : MonoBehaviour
 
     }
     
+    //切換技能時，把場上所有未使用的植物收回背包
+    public void ReturnToPlantPeckAndClear()
+    {
+        if(holdCtrl == null || holdCtrl.plantData == null){return;}
+        
+        PlantShelfManager.instance.plantPool.ReturnPlantToPool(holdCtrl.plantData,holdCtrl.gameObject);
+        PlantInventory.instance.AddPlant(holdCtrl.plantData);
+        
+        ForceClear();
+    }
     
 
     //檢查格子中是否有東西

@@ -1,15 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Plant_Ctrl : MonoBehaviour
 {
+    public static readonly HashSet<Plant_Ctrl> Active = new HashSet<Plant_Ctrl>();
+    
     public Plant plantData;
     public GameObject basePlate;
 
     public bool isHeld;
     public bool isOnShelf;
-    
+
+    private void OnEnable() { Active.Add(this);}
+    private void OnDisable() { Active.Remove(this);}
+   
+
+
     void Start()
     {
        // Debug.Log("這是個" + plantData.plantName);
