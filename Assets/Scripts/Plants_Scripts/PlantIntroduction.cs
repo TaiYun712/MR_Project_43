@@ -43,7 +43,7 @@ public class PlantIntroduction : MonoBehaviour
         switch (pickPlant.growPower)
         {
             case 1 :
-                introPlantGrowPower.text = "強";
+                introPlantGrowPower.text = "弱";
                 break;
             
             case 2 :
@@ -51,7 +51,7 @@ public class PlantIntroduction : MonoBehaviour
                 break;
             
             case 3 :
-                introPlantGrowPower.text = "弱";
+                introPlantGrowPower.text = "強";
                 break;
         }
         
