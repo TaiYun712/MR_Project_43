@@ -55668,9 +55668,9 @@ MonoBehaviour:
   minCollectionCount: 3
   currentCollectionCount: 0
   collectHolePfs:
-  - {fileID: 7223205509191959454, guid: 662fdd52de1cd554f95ba4b1000928de, type: 3}
-  - {fileID: 4032149147693143870, guid: 488d5af2bcc2cf642937bb22ca9eed5e, type: 3}
-  - {fileID: 4198345561959138571, guid: 278823781627d0e4b826dd2ca1e0fd8b, type: 3}
+  - {fileID: 4431496294747059950, guid: 7c54a5353cf3edf4eaa591ba86adaf19, type: 3}
+  - {fileID: 8203266324402767524, guid: f17b008f6bd385b48b305a750f5ee86a, type: 3}
+  - {fileID: 1587493220786565391, guid: daaa5aa04138eaf4ca20d1c490c9a19a, type: 3}
 --- !u!4 &1248420701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
@@ -69499,11 +69499,11 @@ MonoBehaviour:
   SpawnLocations: 2
   Labels: 65527
   CheckOverlaps: 1
-  OverrideBounds: -1
+  OverrideBounds: 0.01
   LayerMask:
     serializedVersion: 2
     m_Bits: 4
-  SurfaceClearanceDistance: 1
+  SurfaceClearanceDistance: 0.1
 --- !u!4 &1777347140
 Transform:
   m_ObjectHideFlags: 0
