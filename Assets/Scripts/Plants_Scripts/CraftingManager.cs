@@ -146,13 +146,13 @@ public class CraftingManager : MonoBehaviour
          {
              string name = kv.Key;
              int count = kv.Value;
-             int gp = Math.Clamp(dataByName[name].growPower, 1, 3);
+             int gp = Math.Clamp(dataByName[name].growPower, 1, 3); //植物繁殖力
 
              int limit = (gp == 1) ? 3 : (gp == 2) ? 2 : 1;
 
              if (count > limit)
              {
-                 reason = $"{name}過量：growPower={gp}，上限 {limit}，實際放了 {count}";
+                 reason = $"{name}過量，超過 {count - limit}";
                  return false;
              }
          }

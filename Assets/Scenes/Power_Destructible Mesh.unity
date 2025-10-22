@@ -55669,6 +55669,8 @@ MonoBehaviour:
   currentCollectionCount: 0
   collectHolePfs:
   - {fileID: 7223205509191959454, guid: 662fdd52de1cd554f95ba4b1000928de, type: 3}
+  - {fileID: 4032149147693143870, guid: 488d5af2bcc2cf642937bb22ca9eed5e, type: 3}
+  - {fileID: 4198345561959138571, guid: 278823781627d0e4b826dd2ca1e0fd8b, type: 3}
 --- !u!4 &1248420701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
