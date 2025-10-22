@@ -68,8 +68,7 @@ public class TilePool : MonoBehaviour
         }
 
         GameObject tileGO =  GetFromPool(pool, pf);
-
-        var tileBehavior = pf.GetComponent<TileBehaviour>();
+        var tileBehavior = tileGO.GetComponent<TileBehaviour>();
         if(tileBehavior != null)
         {
             tileBehavior.tileData = tileData;

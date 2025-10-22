@@ -80,17 +80,9 @@ public class MapMaker : MonoBehaviour
     {
         foreach (var tileGo in activeTiles)
         {
-            TileData tileData = tileGo.GetComponent<TileData>();
-
-            if (tileData == null)
-            {
-                Debug.Log(tileGo.name + "¨S¦³TileData");
-                continue;
-            }
-
-            tilePool.ReturnTile(tileGo, tileData);
-
-           
+            var behaviour = tileGo.GetComponent<TileBehaviour>();
+            if (behaviour == null || behaviour.tileData == null) { continue; }
+            tilePool.ReturnTile(tileGo, behaviour.tileData);
         }
 
         activeTiles.Clear();
