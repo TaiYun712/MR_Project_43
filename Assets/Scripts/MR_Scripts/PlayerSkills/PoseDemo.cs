@@ -27,6 +27,7 @@ public class PoseDemo : MonoBehaviour
     [Header("棲地合成台")]
     public GameObject tablePanel;
     public Animator tableAni;
+    public bool isOpenTable;
     
     [Header("中指馬賽克")]
     public GameObject badHintPanel_L;
@@ -81,6 +82,7 @@ public class PoseDemo : MonoBehaviour
         
         tablePanel.SetActive(false);
         tableAni.SetBool("opentable",false);
+        isOpenTable = false;
         
         badHintPanel_L.SetActive(false);
         badHintPanel_R.SetActive(false);
@@ -300,14 +302,19 @@ public class PoseDemo : MonoBehaviour
     {
         if (isTableSkill)
         {
+            isOpenTable = true;
+            
             tablePanel.SetActive(true);
             tableAni.SetBool("opentable",true);
+            AudioManager.instance.CallCraftTableSound();
         }
        
     }
 
     public void CloseTablePanel()
     {
+        isOpenTable = false;
+        
         tableAni.SetBool("opentable",false);
         Invoke("WaitToClosePanel",0.2f);
     }
@@ -339,7 +346,7 @@ public class PoseDemo : MonoBehaviour
             isCleaning = true;
             
         }
-        else if(isTableSkill)
+        else if(isTableSkill && isOpenTable)
         {
             CraftingManager.instance.TryCraft();
             Debug.Log("觸發合成");

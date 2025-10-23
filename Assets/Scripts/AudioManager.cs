@@ -27,7 +27,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField]
-    AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound,bubleUpSound;
+    AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound,bubleUpSound
+        ,callTableSound,craftSuccessSound,craftFailSound;
     [SerializeField]
     private AudioClip[] wallBrokenSounds;
 
@@ -150,6 +151,24 @@ public class AudioManager : MonoBehaviour
         int index = Random.Range(0, wallBrokenSounds.Length);
         uiSourse.clip = wallBrokenSounds[index];
         uiSourse.Play();
+    }
+
+    public void CallCraftTableSound()
+    {
+        sfxSource.clip = callTableSound;
+        sfxSource.Play();
+    }
+
+    public void CraftSuccessSound()
+    {
+        sfxSource.clip = craftSuccessSound;
+        sfxSource.Play();
+    }
+
+    public void CraftFailSound()
+    {
+        sfxSource.clip = craftFailSound;
+        sfxSource.Play();
     }
 
   

@@ -183,6 +183,7 @@ public class CraftingManager : MonoBehaviour
         craftHintText.text = msg;
         craftHintBG.sprite = failSp;
         craftHint.SetActive(true);
+        AudioManager.instance.CraftFailSound();
         Invoke("CloseHint",2f);
     }
     
@@ -194,6 +195,7 @@ public class CraftingManager : MonoBehaviour
         craftHintText.text = msg;
         craftHintBG.sprite = SuccessSp;
         craftHint.SetActive(true);
+        AudioManager.instance.CraftSuccessSound();
         Invoke("CloseHint",2f);
     }
 
