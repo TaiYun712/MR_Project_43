@@ -12,7 +12,9 @@ public class PanelUI_Ctrl : MonoBehaviour
     public GameObject getPlantPanel;
     public Image getPlantImage;
     public Text getPlantText;
-    public GameObject pioneerText;
+
+    public Image getPlantBG;
+    public Sprite normalPlantBG, pioneerPlantBG;
     public float closeHintTime;
 
     [Header("植物背包")] 
@@ -61,11 +63,11 @@ public class PanelUI_Ctrl : MonoBehaviour
     {
         if (plant.isPioneer)
         {
-            pioneerText.SetActive(true);
+            getPlantBG.sprite = pioneerPlantBG;
         }
         else
         {
-            pioneerText.SetActive(false);
+            getPlantBG.sprite = normalPlantBG;
         }
     }
     

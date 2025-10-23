@@ -101,6 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantData: {fileID: 11400000, guid: 6a0a080b2ab2c0c4592c47c55aa73d1d, type: 2}
   basePlate: {fileID: 6504043151238163384}
+  isHeld: 0
+  isOnShelf: 0
 --- !u!114 &5079423356326793039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,8 +278,8 @@ Transform:
   m_GameObject: {fileID: 6504043151238163384}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.03, z: 0}
-  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_LocalPosition: {x: 0, y: -0.025, z: 0}
+  m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3295207562156058063}
@@ -310,7 +312,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d9ebefd83d7977e40952d8afe58289bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
