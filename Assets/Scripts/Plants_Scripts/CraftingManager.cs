@@ -26,6 +26,7 @@ public class CraftingManager : MonoBehaviour
     public Text craftHintText;
     public Image craftHintBG;
     public Sprite failSp, SuccessSp;
+    public ParticleSystem successPrt;
    
     private void Awake()
     {
@@ -195,6 +196,7 @@ public class CraftingManager : MonoBehaviour
         craftHintText.text = msg;
         craftHintBG.sprite = SuccessSp;
         craftHint.SetActive(true);
+        successPrt.Play();
         AudioManager.instance.CraftSuccessSound();
         Invoke("CloseHint",2f);
     }

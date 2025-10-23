@@ -60,10 +60,13 @@ public class PoseDemo : MonoBehaviour
     public Animator mainAimAni;
     public Animator frontAimAni;
     public Animator backAimAni;
+
+    public Animator cleanAimAni;
     
     [Header("清潔光束")]
     public bool isCleaning;
 
+    public GameObject cleanHandAim;
     public GameObject cleanRayHead;
     public GameObject cleanRay;
     public LineRenderer cleanRayLine;
@@ -92,6 +95,7 @@ public class PoseDemo : MonoBehaviour
         aimRay.SetActive(false);
         aimImpactPf.SetActive(false);
 
+        cleanHandAim.SetActive(false);
         cleanRayHead.SetActive(false);
         cleanRay.SetActive(false);
         cleanImpactPf.SetActive(false);
@@ -234,11 +238,16 @@ public class PoseDemo : MonoBehaviour
 
     #region 切換技能
 
+    void CloseAllSkill()
+    {
+        isTableSkill = false;
+        isShootSkill = false;
+        isCleanSkill = false;
+    }
+    
     void SetSkills()
     {
-        isShooting = false;
-        isCleaning = false;
-        isTableSkill = false;
+        CloseAllSkill();
         
         PlantRecallManager.instance.RecallAllUnusePlants();
         
@@ -247,11 +256,11 @@ public class PoseDemo : MonoBehaviour
             case 0:
                 skillNameText.text = "能量球";
                 skillDescribeText.text = "用以採集植物&泥土";
+                CloseAllSkill();
                 isShootSkill = true;
-                isTableSkill = false;
-                isCleanSkill = false;
                     
                 handAim.SetActive(true);
+                cleanHandAim.SetActive(false);
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
@@ -259,11 +268,12 @@ public class PoseDemo : MonoBehaviour
             case 1:
                 skillNameText.text = "淨化";
                 skillDescribeText.text = "清除環境中的髒污";
+                CloseAllSkill();
                 isCleanSkill = true;
-                isShootSkill = false;
-                isTableSkill = false;
-                    
-                handAim.SetActive(true);
+                
+                
+                cleanHandAim.SetActive(true);    
+                handAim.SetActive(false);
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
@@ -271,11 +281,10 @@ public class PoseDemo : MonoBehaviour
             case 2:
                 skillNameText.text = "棲地合成";
                 skillDescribeText.text = "用各種植物組成棲地";
+                CloseAllSkill();
                 isTableSkill = true;
-                isShootSkill = false;
-                isCleanSkill = false;
                 
-
+                cleanHandAim.SetActive(false);
                 handAim.SetActive(false);
                 PanelUI_Ctrl.instance.OpenPlantPeckUI();
                 break;
@@ -283,10 +292,9 @@ public class PoseDemo : MonoBehaviour
             case 3:
                 skillNameText.text = "移除";
                 skillDescribeText.text = "移除過度生長的植物";
-                isTableSkill = false;
-                isShootSkill = false;
-                isCleanSkill = false;
-                    
+                CloseAllSkill();
+                
+                cleanHandAim.SetActive(false);
                 handAim.SetActive(false);
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
@@ -418,7 +426,7 @@ public class PoseDemo : MonoBehaviour
             HoldTheRay(cleanRay,cleanRayLine,cleanImpactPf);
             
             cleanRayHead.SetActive(true);
-            
+            cleanAimAni.SetBool("iscleaning",true);
         }
     }
 
@@ -428,7 +436,8 @@ public class PoseDemo : MonoBehaviour
         cleanRayHead.SetActive(false);
         cleanRay.SetActive(false);
         cleanImpactPf.SetActive(false);
-
+        cleanAimAni.SetBool("iscleaning",false);
+        
         isCleaning = false;
     }
 
