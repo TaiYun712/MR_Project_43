@@ -255,7 +255,7 @@ public class PoseDemo : MonoBehaviour
         {
             case 0:
                 skillNameText.text = "能量球";
-                skillDescribeText.text = "用以採集植物&泥土";
+                skillDescribeText.text = "用以採集植物";
                 CloseAllSkill();
                 isShootSkill = true;
                     
