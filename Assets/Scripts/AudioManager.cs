@@ -19,7 +19,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField]
-    AudioClip popSound,showHintSound,woodUISound,overHintSound,switchSound;
+    AudioClip popSound,showHintSound,woodUISound,overHintSound,switchSound
+        ,pickUpSound,putInSound;
 
     [Header("Animals")]
     [SerializeField]
@@ -169,6 +170,18 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.clip = craftFailSound;
         sfxSource.Play();
+    }
+
+    public void PickUpThePlantSound()
+    {
+        uiSourse.clip = pickUpSound;
+        uiSourse.Play();
+    }
+
+    public void PutPlantInToCraft()
+    {
+        uiSourse.clip = putInSound;
+        uiSourse.Play();
     }
 
   

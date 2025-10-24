@@ -55,6 +55,7 @@ public class CraftSlot : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         TryCapture(other, "Enter");
+        holdCtrl.isOnCraft = true;
     }
 
     private void OnTriggerStay(Collider other)
@@ -88,6 +89,8 @@ public class CraftSlot : MonoBehaviour
     {
         if (holdCtrl == null) return;
 
+        holdCtrl.isOnCraft = false;
+        
         var ctrl = other.attachedRigidbody
             ? other.attachedRigidbody.GetComponent<Plant_Ctrl>()
             : other.GetComponentInParent<Plant_Ctrl>();

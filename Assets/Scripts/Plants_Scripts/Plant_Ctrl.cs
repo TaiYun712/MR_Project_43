@@ -12,6 +12,7 @@ public class Plant_Ctrl : MonoBehaviour
 
     public bool isHeld;
     public bool isOnShelf;
+    public bool isOnCraft;
 
     private void OnEnable() { Active.Add(this);}
     private void OnDisable() { Active.Remove(this);}
@@ -23,13 +24,14 @@ public class Plant_Ctrl : MonoBehaviour
        // Debug.Log("這是個" + plantData.plantName);
         basePlate.SetActive(true);
         isHeld = false;
-        
+        isOnCraft = false;
+
     }
 
     public void PickUpThePlant()
     {
        // Debug.Log("拿起" + plantData.plantName);
-
+       AudioManager.instance.PickUpThePlantSound();
         if (isOnShelf)
         {
             PlantShelfManager.instance.PickPlantFromShelf(plantData,this.gameObject);
@@ -48,6 +50,11 @@ public class Plant_Ctrl : MonoBehaviour
     {
        PlantIntroduction.instance.CloseIntroPlantPanel();//關閉植物說明
        isHeld = false;
+
+       if (isOnCraft)
+       {
+           AudioManager.instance.PutPlantInToCraft();
+       }
        
        PlantShelfManager.instance.StarReturnCountdown(this.gameObject,plantData);
     }

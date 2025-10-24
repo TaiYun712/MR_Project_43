@@ -62,6 +62,7 @@ public class PlantShelfManager : MonoBehaviour
                 {
                     ctrl.isOnShelf = true;
                     ctrl.isHeld = false;
+                    ctrl.isOnCraft = false;
                     ctrl.basePlate?.SetActive(true);
                 }
 
