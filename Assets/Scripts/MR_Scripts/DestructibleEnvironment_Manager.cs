@@ -31,6 +31,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
 
     [Header("採集點生成")] 
     public FindSpawnPositions spawnFinder;
+    public Transform holeSpawnPos;
     public float spawnInterval;
     
     public int maxCollectionCount;
@@ -143,9 +144,10 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     {
         float ratio = 1f - damageRatio;
         int targetAmount = Mathf.RoundToInt(Random.Range(3, 10) * ratio);
-        currentCollectionCount += targetAmount;
-        Debug.Log("生成"+targetAmount+"個採集點");
-        Debug.Log("目前場上"+currentCollectionCount+"個採集點");
+        
+        //currentCollectionCount += targetAmount; 
+        Debug.Log("嘗試生成"+targetAmount+"個採集點");
+       
         
         if(targetAmount <= 0) return;
 
@@ -154,6 +156,9 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         spawnFinder.SpawnAmount = targetAmount;
         spawnFinder.SpawnLocations = FindSpawnPositions.SpawnLocation.VerticalSurfaces;
         spawnFinder.StartSpawn();
+
+        currentCollectionCount = holeSpawnPos.childCount;
+        Debug.Log("目前場上"+currentCollectionCount+"個採集點"); 
 
     }
     
