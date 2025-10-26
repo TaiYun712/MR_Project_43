@@ -67,8 +67,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2ef0cb51bac2a4abe5d651b6dd378e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirtyPf: {fileID: 0}
+  destructibleManager: {fileID: 0}
+  dirtyPf: {fileID: 7673337121794266068}
+  maxCleanTime: 3
+  minCleanTime: 1
   cleanTime: 1
+  clearSize: 0.02
 --- !u!1 &5645656023931821776
 GameObject:
   m_ObjectHideFlags: 0

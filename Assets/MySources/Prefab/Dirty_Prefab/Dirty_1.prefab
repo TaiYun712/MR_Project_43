@@ -150,4 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2ef0cb51bac2a4abe5d651b6dd378e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dirtyPf: {fileID: 0}
+  destructibleManager: {fileID: 0}
+  dirtyPf: {fileID: 8480425172427395081}
+  maxCleanTime: 3
+  minCleanTime: 1
+  cleanTime: 1
+  clearSize: 0.01

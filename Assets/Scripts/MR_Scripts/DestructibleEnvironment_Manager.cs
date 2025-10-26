@@ -142,10 +142,13 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
              yield return wait;
 
             //若是場上採集點數量足夠或環境生命力過低就不生成
-             if (currentCollectionCount >= maxCollectionCount || environmentPower <= environmentWarning_3)
+             if (currentCollectionCount >= maxCollectionCount)
              {
-                    Debug.Log("目前場上採集點足夠");
-                    continue;
+                 Debug.Log("目前場上採集點足夠");
+             }
+             else if(environmentPower <= environmentWarning_3)
+             {
+                 Debug.Log("環境生命力過低，不給生");
              }
              else if(currentCollectionCount <= minCollectionCount && environmentPower > environmentWarning_3)
              {
@@ -207,6 +210,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         int dirtyAmount;
         int dirtySpawnAmount;
         dirtyAmount = Random.Range(0,12);
+        
         if (dirtyAmount / 2 == 0)   //偶數才生，奇數不生
         {
             dirtySpawnAmount = dirtyAmount;
@@ -220,7 +224,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         
         int index = Random.Range(0, dirtyPfs.Length);
         dirtySpawnFinder.SpawnObject = dirtyPfs[index];
-        dirtySpawnFinder.SpawnAmount = dirtySpawnAmount;
+        dirtySpawnFinder.SpawnAmount = dirtyAmount;
         dirtySpawnFinder.SpawnLocations = FindSpawnPositions.SpawnLocation.VerticalSurfaces;
         dirtySpawnFinder.StartSpawn();
 
