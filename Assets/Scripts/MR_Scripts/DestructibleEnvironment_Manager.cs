@@ -162,9 +162,6 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
             Debug.Log("破壞過度，不給生");
         }
         
-        
-        
-        
         if(targetAmount <= 0) return;
 
         int index = Random.Range(0, collectHolePfs.Length);

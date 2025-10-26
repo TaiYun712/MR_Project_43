@@ -8,14 +8,15 @@ TagManager:
   - PlayerHand
   - target
   - DestructibleWalls
+  - Cleaner
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CleanHit
   - Water
   - UI
-  - 
+  - Dirty
   - 
   - 
   - 

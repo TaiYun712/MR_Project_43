@@ -24,11 +24,6 @@ public class PoseDemo : MonoBehaviour
     public GameObject infoPanel_hand;
     public GameObject infoPanel_front;
     
-    [Header("棲地合成台")]
-    public GameObject tablePanel;
-    public Animator tableAni;
-    public bool isOpenTable;
-    
     [Header("中指馬賽克")]
     public GameObject badHintPanel_L;
     public GameObject badHintPanel_R;
@@ -41,6 +36,7 @@ public class PoseDemo : MonoBehaviour
     public int totalSkill = 4;
 
     [Header("發射能量球")]
+    public bool isShooting;
     public GameObject ballPf;
 
     public GameObject handAim;
@@ -53,9 +49,7 @@ public class PoseDemo : MonoBehaviour
     public Transform shootPos;
     public float maxLineDistance = 5f;
     public LayerMask layerMask;
-
-    public bool isShooting;
-
+    
     [Header("能量球動畫")] 
     public Animator mainAimAni;
     public Animator frontAimAni;
@@ -66,12 +60,21 @@ public class PoseDemo : MonoBehaviour
     [Header("清潔光束")]
     public bool isCleaning;
 
+    public GameObject cleanImpactPf;
     public GameObject cleanHandAim;
     public GameObject cleanRayHead;
     public GameObject cleanRay;
     public LineRenderer cleanRayLine;
+    
+    public GameObject cleanTrigger;
+    public float triggerSkin = 0.02f;
+    public LayerMask dirtyLayerMask;
+    
+    [Header("棲地合成台")]
+    public bool isOpenTable;
+    public GameObject tablePanel;
+    public Animator tableAni;
 
-    public GameObject cleanImpactPf;
 
     void Start()
     {
@@ -99,6 +102,7 @@ public class PoseDemo : MonoBehaviour
         cleanRayHead.SetActive(false);
         cleanRay.SetActive(false);
         cleanImpactPf.SetActive(false);
+        cleanTrigger.SetActive(false);
         
         currentSkill = 0;
 
@@ -123,6 +127,8 @@ public class PoseDemo : MonoBehaviour
         if (isCleaning && isCleanSkill) 
         {
             OpenCleanLaser();
+            cleanTrigger.SetActive(true);
+            
         }
         else
         {
@@ -460,10 +466,22 @@ public class PoseDemo : MonoBehaviour
             Quaternion aimImpactRotate = Quaternion.LookRotation(-hit.normal);
             rayImpact.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
             rayImpact.transform.rotation = aimImpactRotate;
+
+            if (isCleaning && cleanTrigger != null)
+            {
+                Vector3 triggerPos = hit.point + hit.normal * triggerSkin;
+                cleanTrigger.SetActive(true);
+                cleanTrigger.transform.SetPositionAndRotation(triggerPos, aimImpactRotate);
+            }
         }
         else
         {
             endPos = shootPos.position + shootPos.forward * maxLineDistance;
+            
+            if (cleanTrigger != null)
+            {
+                cleanTrigger.SetActive(false);
+            }
         }
         
         theRayLine.SetPosition(1,endPos);

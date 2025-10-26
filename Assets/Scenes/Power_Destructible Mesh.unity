@@ -3062,6 +3062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clean_Prt_End
       objectReference: {fileID: 0}
+    - target: {fileID: 2705781817775488305, guid: 0ab3e81d36f36e24681288f4f09e24ef, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4063,6 +4067,87 @@ Transform:
   - {fileID: 15818972}
   m_Father: {fileID: 1104748321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &150149916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150149917}
+  - component: {fileID: 150149919}
+  - component: {fileID: 150149918}
+  m_Layer: 3
+  m_Name: Cleaner_Trigger
+  m_TagString: Cleaner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &150149917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150149916}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &150149918
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150149916}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &150149919
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150149916}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.1232907
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &155354891
 GameObject:
   m_ObjectHideFlags: 0
@@ -28684,9 +28769,6 @@ MonoBehaviour:
   isCleanSkill: 0
   infoPanel_hand: {fileID: 1981824375}
   infoPanel_front: {fileID: 955152279}
-  tablePanel: {fileID: 846684879}
-  tableAni: {fileID: 846684881}
-  isOpenTable: 0
   badHintPanel_L: {fileID: 723180460}
   badHintPanel_R: {fileID: 2108669954}
   skillNameText: {fileID: 1483223103}
@@ -28694,6 +28776,7 @@ MonoBehaviour:
   skillPanel: {fileID: 1039267635}
   currentSkill: 0
   totalSkill: 4
+  isShooting: 0
   ballPf: {fileID: 445036593026585034, guid: 1a79f154bbac4b64f9a15481b7c6416c, type: 3}
   handAim: {fileID: 1425441952}
   aimRay: {fileID: 804272118}
@@ -28706,17 +28789,24 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1
-  isShooting: 0
   mainAimAni: {fileID: 339116594}
   frontAimAni: {fileID: 539737926}
   backAimAni: {fileID: 955855270}
   cleanAimAni: {fileID: 1917558850}
   isCleaning: 0
+  cleanImpactPf: {fileID: 2079478084}
   cleanHandAim: {fileID: 1917558844}
   cleanRayHead: {fileID: 1764075674}
   cleanRay: {fileID: 1447487933}
   cleanRayLine: {fileID: 1447487935}
-  cleanImpactPf: {fileID: 2079478084}
+  cleanTrigger: {fileID: 150149916}
+  triggerSkin: 0.02
+  dirtyLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  isOpenTable: 0
+  tablePanel: {fileID: 846684879}
+  tableAni: {fileID: 846684881}
 --- !u!4 &454846469
 Transform:
   m_ObjectHideFlags: 0
@@ -62538,6 +62628,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1777347140}
+    - targetCorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1552513396}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5201637225824680224, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       insertIndex: -1
@@ -67640,6 +67733,62 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1552513395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1552513396}
+  - component: {fileID: 1552513397}
+  m_Layer: 0
+  m_Name: 'Collection Dirty Spawn '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1552513396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552513395}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1248420701}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552513397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552513395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d14e43228043c04db9e374568cb89a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnOnStart: 1
+  SpawnObject: {fileID: 6663001971801071410, guid: 794c5de1120fba743bd79e28edae851b, type: 3}
+  SpawnAmount: 10
+  MaxIterations: 1000
+  SpawnLocations: 2
+  Labels: 65527
+  CheckOverlaps: 1
+  OverrideBounds: -1
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 4
+  SurfaceClearanceDistance: 0.1
 --- !u!1 &1558043327
 GameObject:
   m_ObjectHideFlags: 0
@@ -85789,6 +85938,7 @@ SceneRoots:
   - {fileID: 202561119}
   - {fileID: 26071230}
   - {fileID: 110658558}
+  - {fileID: 150149917}
   - {fileID: 1104678536}
   - {fileID: 649857600}
   - {fileID: 944466034}
