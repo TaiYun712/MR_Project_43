@@ -5085,12 +5085,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249130010}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0041, y: -0.0184, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3693497, y: 0.07544206, z: 0.0022484264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1119685927}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &249130012
 MonoBehaviour:
@@ -5172,7 +5172,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.57e-43, z: 0, w: 1.57e-43}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -24798,7 +24798,6 @@ Transform:
   - {fileID: 575142463}
   - {fileID: 1148565346}
   - {fileID: 861052924}
-  - {fileID: 249130011}
   - {fileID: 1281845032}
   - {fileID: 710743948}
   - {fileID: 68453611}
@@ -44553,3 +44552,4 @@ SceneRoots:
   - {fileID: 471221270}
   - {fileID: 6597528389524562806}
   - {fileID: 7104220841949757367}
+  - {fileID: 249130011}
