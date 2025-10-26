@@ -60810,6 +60810,9 @@ MonoBehaviour:
   damageTier1: 0.1
   damageTier2: 0.3
   damageTier3: 0.5
+  dirtyLevel1: 5
+  dirtyLevel2: 10
+  dirtyLevel3: 15
   meshSpawner: {fileID: 1248420698}
   ignoreLayer: 2
   allSegmentsCount: 0
@@ -60824,6 +60827,14 @@ MonoBehaviour:
   - {fileID: 4431496294747059950, guid: 7c54a5353cf3edf4eaa591ba86adaf19, type: 3}
   - {fileID: 8203266324402767524, guid: f17b008f6bd385b48b305a750f5ee86a, type: 3}
   - {fileID: 1587493220786565391, guid: daaa5aa04138eaf4ca20d1c490c9a19a, type: 3}
+  dirtySpawnFinder: {fileID: 1552513397}
+  dirtySpawnPos: {fileID: 1552513396}
+  dirtySpawmInterval: 3
+  currentDirtyCount: 0
+  maxDirtyCount: 20
+  dirtyPfs:
+  - {fileID: 6663001971801071410, guid: 794c5de1120fba743bd79e28edae851b, type: 3}
+  - {fileID: 5266046422938038310, guid: 7ab2061738087974fbcbe23ad24af97c, type: 3}
 --- !u!4 &1248420701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}

@@ -31,12 +31,12 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public float damageTier1 = 0.10f;  // 10% 以上 > 等級1
     public float damageTier2 = 0.30f;  // 30% 以上 > 等級2
     public float damageTier3 = 0.50f;  // 50% 以上 > 等級3
-    /*
+    
     [Header("髒污汙染等級（數量）")]
-    public int grimeLevel1 = 5;        // 髒污≥5 > 等級1
-    public int grimeLevel2 = 10;       // 髒污≥10 > 等級2
-    public int grimeLevel3 = 15;       // 髒污≥15 > 等級3
-    */
+    public int dirtyLevel1 = 5;        // 髒污≥5 > 等級1
+    public int dirtyLevel2 = 10;       // 髒污≥10 > 等級2
+    public int dirtyLevel3 = 15;       // 髒污≥15 > 等級3
+    
     [Header("碎塊生成")]
     public DestructibleGlobalMeshSpawner meshSpawner;
     
@@ -59,6 +59,16 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public int currentCollectionCount;
 
     public GameObject[] collectHolePfs;
+
+    [Header("髒污生成")] 
+    public FindSpawnPositions dirtySpawnFinder;
+    public Transform dirtySpawnPos;
+    public float dirtySpawmInterval;
+    
+    public int currentDirtyCount;
+    public int maxDirtyCount;
+
+    public GameObject[] dirtyPfs; 
     
     void Start()
     {
@@ -71,6 +81,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
 
         currentCollectionCount = 0;
         StartCoroutine(PlantSpawnLoop());
+        StartCoroutine(DirtySpawnLoop());
     }
 
     //開始時，為每個碎塊加上Collider
@@ -125,25 +136,22 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     //每隔一段時間生成採集點
     IEnumerator PlantSpawnLoop()
     {
+       var wait = new WaitForSeconds(spawnInterval);
         while (true)
         {
-            var wait = new WaitForSeconds(spawnInterval);
-            while (true)
-            {
-                yield return wait;
+             yield return wait;
 
-                //若是場上採集點數量足夠或環境生命力過低就不生成
-                if (currentCollectionCount >= maxCollectionCount || environmentPower <= environmentWarning_3)
-                {
+            //若是場上採集點數量足夠或環境生命力過低就不生成
+             if (currentCollectionCount >= maxCollectionCount || environmentPower <= environmentWarning_3)
+             {
                     Debug.Log("目前場上採集點足夠");
                     continue;
-                }
-                else if(currentCollectionCount <= minCollectionCount && environmentPower > environmentWarning_3)
-                {
+             }
+             else if(currentCollectionCount <= minCollectionCount && environmentPower > environmentWarning_3)
+             {
                     SpawnPlantByRoom();
-                }
+             }
                     
-            }
         }
     }
 
@@ -175,6 +183,53 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
 
     }
 
+    //每隔一段時間生成髒污
+    IEnumerator DirtySpawnLoop()
+    {
+        var wait = new WaitForSeconds(dirtySpawmInterval);
+        ReComputeEnviromentPower();
+        while (true)
+        {
+            yield return wait;
+            if (currentDirtyCount <= maxDirtyCount)
+            {
+                SpawnDirtyByRoom();
+            }
+            else
+            {
+                Debug.Log("已經很髒了");
+            }
+        }
+    }
+
+    void SpawnDirtyByRoom()
+    {
+        int dirtyAmount;
+        int dirtySpawnAmount;
+        dirtyAmount = Random.Range(0,12);
+        if (dirtyAmount / 2 == 0)   //偶數才生，奇數不生
+        {
+            dirtySpawnAmount = dirtyAmount;
+            Debug.Log($"嘗試生成{dirtySpawnAmount}個髒污");
+        }
+        else
+        {
+            dirtySpawnAmount = 0;
+            Debug.Log($"抽中奇數，不生成髒污");
+        }
+        
+        int index = Random.Range(0, dirtyPfs.Length);
+        dirtySpawnFinder.SpawnObject = dirtyPfs[index];
+        dirtySpawnFinder.SpawnAmount = dirtySpawnAmount;
+        dirtySpawnFinder.SpawnLocations = FindSpawnPositions.SpawnLocation.VerticalSurfaces;
+        dirtySpawnFinder.StartSpawn();
+
+        currentDirtyCount = dirtySpawnPos.childCount;
+        Debug.Log("目前場上"+currentDirtyCount+"個髒污"); 
+    }
+
+    
+    //根據破壞計算環境生命力
     void ReComputeEnviromentPower()
     {
         int damageTier = 0;
@@ -195,11 +250,21 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         else if (damageRatio >= damageTier1) { damageTier = 1; }
         else { damageTier = 0; }
 
-        int newPower = maxEnvironmentPower - damageTier;
+        //髒污汙染程度
+        int dirtyTier = 0;
+        
+        if (currentDirtyCount >= dirtyLevel1) { damageTier = 2; }
+        else if(currentDirtyCount >= dirtyLevel2) { damageTier = 4; }
+        else if (currentDirtyCount >= dirtyLevel3) { damageTier = 6;}
+        else { damageTier = 0; }
+
+        int totalDamage = damageTier + dirtyTier;
+        int newPower = environmentPower - totalDamage;
         
         //避免低於0或高於上限
         if (newPower < 0) { newPower = 0; }
         if (newPower > maxEnvironmentPower) { newPower = maxEnvironmentPower; }
+        if (environmentPower < 0) { environmentPower = 0; }
 
         environmentPower = newPower;
         

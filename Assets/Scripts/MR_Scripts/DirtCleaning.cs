@@ -6,6 +6,7 @@ using UnityEngine;
 public class DirtCleaning : MonoBehaviour
 {
     public GameObject dirtyPf; //用於縮小
+    public float cleanTime = 1f; //清理時間
     
     private void OnTriggerEnter(Collider other)
     {
