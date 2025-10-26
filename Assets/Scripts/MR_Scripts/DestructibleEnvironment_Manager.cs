@@ -5,6 +5,34 @@ using Meta.XR.MRUtilityKit;
 
 public class DestructibleEnvironment_Manager : MonoBehaviour
 {
+    [Header("環境破壞程度/環境生命力")]
+    public int environmentPower = 10;   //"目前"生命力
+    public int maxEnvironmentPower = 10;//"最大"生命力
+    
+    public float normalRestoreTime;       //一般回復時間
+    public float overRestoreTime_1;       //"過度時"回復時間
+
+    public float spwanRatio; //採集點生成率
+    
+    [Header("環境生命力過低警示")]
+    public float environmentPowerAlertvalue = 6;
+    private bool hasAlerted = false;
+    
+   // [SerializeField]
+  //  float damageRatio;
+    [SerializeField]
+    float restoreTime;
+
+    [Header("碎塊破壞等級(比例)")]
+    public float damageTier1 = 0.10f;  // 10% 以上 > 等級1
+    public float damageTier2 = 0.30f;  // 30% 以上 > 等級2
+    public float damageTier3 = 0.50f;  // 50% 以上 > 等級3
+    /*
+    [Header("髒污汙染等級（數量）")]
+    public int grimeLevel1 = 5;        // 髒污≥5 > 等級1
+    public int grimeLevel2 = 10;       // 髒污≥10 > 等級2
+    public int grimeLevel3 = 15;       // 髒污≥15 > 等級3
+    */
     [Header("碎塊生成")]
     public DestructibleGlobalMeshSpawner meshSpawner;
     
@@ -17,18 +45,6 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public float allSegmentsCount = 0;
     public float destoryCount = 0;
     
-    [Header("碎塊破壞程度")]
-    public float environmentPower = 10;
-    public float environmentPowerAlertvalue = 6;
-
-    public float normalRestoreTime;
-    public float overRestoreTime_1;
-    
-    [SerializeField]
-    float damageRatio;
-    [SerializeField]
-    float restoreTime;
-
     [Header("採集點生成")] 
     public FindSpawnPositions spawnFinder;
     public Transform holeSpawnPos;
@@ -76,18 +92,12 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         if (segments.Contains(segment) && currentComponent.ReservedSegment != segment)
         {
            segment.SetActive(false);
-           destoryCount++;
-           damageRatio = destoryCount / allSegmentsCount;
            AudioManager.instance.WallBrokenSound();
 
-           if (environmentPower <= 9)
-           {
-               restoreTime = overRestoreTime_1;
-           }
-           else 
-           {
-               restoreTime = normalRestoreTime;
-;           }
+           destoryCount = destoryCount + 1;
+           if (destoryCount > allSegmentsCount) { destoryCount = allSegmentsCount;}
+           ReComputeEnviromentPower();
+         
            StartCoroutine(RestoreSegment(segment, restoreTime));
         }
     }
@@ -100,18 +110,11 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         if (!segment.activeSelf)
         {
             segment.SetActive(true);
-            destoryCount--;
-            damageRatio = destoryCount / allSegmentsCount;
 
-            if (damageRatio >= 0.1)
-            {
-                environmentPower--;
-            }
-            else
-            {
-                environmentPower = 10;
-            }
-            
+            destoryCount = destoryCount - 1;
+            if (destoryCount < 0) { destoryCount = 0; }
+            ReComputeEnviromentPower();
+
         }
     }
 
@@ -142,12 +145,10 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
 
     void SpawnPlantByRoom()
     {
-        float ratio = 1f - damageRatio;
-        int targetAmount = Mathf.RoundToInt(Random.Range(3, 10) * ratio);
+        ReComputeEnviromentPower();
+        int targetAmount = Mathf.RoundToInt(Random.Range(3, 10) * spwanRatio);
         
-        //currentCollectionCount += targetAmount; 
         Debug.Log("嘗試生成"+targetAmount+"個採集點");
-       
         
         if(targetAmount <= 0) return;
 
@@ -160,6 +161,55 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         currentCollectionCount = holeSpawnPos.childCount;
         Debug.Log("目前場上"+currentCollectionCount+"個採集點"); 
 
+    }
+
+    void ReComputeEnviromentPower()
+    {
+        int damageTier = 0;
+        float  damageRatio = 0f;
+
+        if (allSegmentsCount > 0)
+        {
+            damageRatio = (float)destoryCount / (float)allSegmentsCount;
+        }
+        else
+        {
+            damageRatio = 0;
+        }
+        
+        //碎塊破壞程度
+        if (damageRatio >= damageTier3) { damageTier = 3; }
+        else if (damageRatio >= damageTier2) { damageTier = 2; }
+        else if (damageRatio >= damageTier1) { damageTier = 1; }
+        else { damageTier = 0; }
+
+        int newPower = maxEnvironmentPower - damageTier;
+        
+        //避免低於0或高於上限
+        if (newPower < 0) { newPower = 0; }
+        if (newPower > maxEnvironmentPower) { newPower = maxEnvironmentPower; }
+
+        environmentPower = newPower;
+        
+        //根據破壞程度調整回復時間
+        if (environmentPower <= environmentPowerAlertvalue)
+        {
+            restoreTime = overRestoreTime_1;
+        }
+        else
+        {
+            restoreTime = normalRestoreTime;
+        }
+        
+        //根據破壞程度調整採集點生成
+        if (environmentPower <= environmentPowerAlertvalue)
+        {
+            spwanRatio = 0.3f;
+        }
+        else
+        {
+            spwanRatio = 1f;
+        }
     }
     
 }
