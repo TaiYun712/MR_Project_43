@@ -194,14 +194,11 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         while (true)
         {
             yield return wait;
-            if (currentDirtyCount <= maxDirtyCount)
+            if (currentDirtyCount <= maxDirtyCount )
             {
                 SpawnDirtyByRoom();
             }
-            else
-            {
-                Debug.Log("已經很髒了");
-            }
+           
         }
     }
 
@@ -263,7 +260,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         else { damageTier = 0; }
 
         int totalDamage = damageTier + dirtyTier;
-        int newPower = environmentPower - totalDamage;
+        int newPower = maxEnvironmentPower - totalDamage;
         
         //避免低於0或高於上限
         if (newPower < 0) { newPower = 0; }
