@@ -60705,16 +60705,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b15000bebc58946b7a058fb8898c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  environmentPower: 10
+  maxEnvironmentPower: 10
+  normalRestoreTime: 30
+  overRestoreTime_1: 60
+  newSpawnCount: 0
+  normalMaxSpwanCount: 10
+  maxSpwanCount_1: 8
+  maxSpwanCount_2: 5
+  environmentWarning_1: 8
+  environmentWarning_2: 6
+  environmentWarning_3: 5
+  restoreTime: 0
+  damageTier1: 0.1
+  damageTier2: 0.3
+  damageTier3: 0.5
   meshSpawner: {fileID: 1248420698}
   ignoreLayer: 2
   allSegmentsCount: 0
   destoryCount: 0
-  environmentPower: 10
-  environmentPowerAlertvalue: 6
-  normalRestoreTime: 30
-  overRestoreTime_1: 60
-  damageRatio: 0
-  restoreTime: 0
   spawnFinder: {fileID: 1777347139}
   holeSpawnPos: {fileID: 1777347140}
   spawnInterval: 5

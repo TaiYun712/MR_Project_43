@@ -12,14 +12,18 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public float normalRestoreTime;       //一般回復時間
     public float overRestoreTime_1;       //"過度時"回復時間
 
-    public float spwanRatio; //採集點生成率
+    public int newSpawnCount;
+    public int normalMaxSpwanCount = 10;
+    public int maxSpwanCount_1 = 8; //等級1破壞_採集點生成數
+    public int maxSpwanCount_2 = 5; //等級1破壞_採集點生成數
     
-    [Header("環境生命力過低警示")]
-    public float environmentPowerAlertvalue = 6;
+    [Header("環境生命力警示")]
+   
+    public int environmentWarning_1 = 8;
+    public int environmentWarning_2 = 6;
+    public int environmentWarning_3 = 5;
     private bool hasAlerted = false;
     
-   // [SerializeField]
-  //  float damageRatio;
     [SerializeField]
     float restoreTime;
 
@@ -129,12 +133,12 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
                 yield return wait;
 
                 //若是場上採集點數量足夠或環境生命力過低就不生成
-                if (currentCollectionCount >= maxCollectionCount || environmentPower <= environmentPowerAlertvalue)
+                if (currentCollectionCount >= maxCollectionCount || environmentPower <= environmentWarning_3)
                 {
                     Debug.Log("目前場上採集點足夠");
                     continue;
                 }
-                else if(currentCollectionCount <= minCollectionCount && environmentPower > environmentPowerAlertvalue)
+                else if(currentCollectionCount <= minCollectionCount && environmentPower > environmentWarning_3)
                 {
                     SpawnPlantByRoom();
                 }
@@ -146,9 +150,20 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     void SpawnPlantByRoom()
     {
         ReComputeEnviromentPower();
-        int targetAmount = Mathf.RoundToInt(Random.Range(3, 10) * spwanRatio);
+        int targetAmount;
+        if (environmentPower > environmentWarning_3)
+        {
+            targetAmount = Mathf.RoundToInt(Random.Range(3, newSpawnCount));
+            Debug.Log("嘗試生成"+targetAmount+"個採集點");
+        }
+        else
+        {
+            targetAmount = 0;
+            Debug.Log("破壞過度，不給生");
+        }
         
-        Debug.Log("嘗試生成"+targetAmount+"個採集點");
+        
+        
         
         if(targetAmount <= 0) return;
 
@@ -192,7 +207,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         environmentPower = newPower;
         
         //根據破壞程度調整回復時間
-        if (environmentPower <= environmentPowerAlertvalue)
+        if (environmentPower <= environmentWarning_2)
         {
             restoreTime = overRestoreTime_1;
         }
@@ -202,13 +217,20 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         }
         
         //根據破壞程度調整採集點生成
-        if (environmentPower <= environmentPowerAlertvalue)
+        if (environmentPower <= environmentWarning_1) //8
         {
-            spwanRatio = 0.3f;
+            newSpawnCount = maxSpwanCount_1; //8
+            Debug.Log("破壞程度1，最多生" + maxSpwanCount_1);
         }
-        else
+        else if (environmentPower <= environmentWarning_2) //6
         {
-            spwanRatio = 1f;
+            newSpawnCount = maxSpwanCount_2; //5
+            Debug.Log("破壞程度2，最多生" + maxSpwanCount_2);
+        }
+        else 
+        {
+            newSpawnCount = normalMaxSpwanCount; //10
+            Debug.Log("破壞程度小，生最多" + normalMaxSpwanCount);
         }
     }
     
