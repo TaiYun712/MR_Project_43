@@ -23270,6 +23270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentPower: 10
+  currentDirtyCount: 0
+  currentCollectionCount: 0
   maxEnvironmentPower: 10
   normalRestoreTime: 0
   overRestoreTime_1: 0
@@ -23296,12 +23298,10 @@ MonoBehaviour:
   spawnInterval: 0
   maxCollectionCount: 0
   minCollectionCount: 0
-  currentCollectionCount: 0
   collectHolePfs: []
   dirtySpawnFinder: {fileID: 0}
   dirtySpawnPos: {fileID: 0}
   dirtySpawmInterval: 0
-  currentDirtyCount: 0
   maxDirtyCount: 0
   dirtyPfs: []
 --- !u!1 &667781779

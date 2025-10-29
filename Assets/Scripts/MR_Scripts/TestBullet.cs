@@ -22,7 +22,7 @@ public class TestBullet : MonoBehaviour
       {
          Destroy(other.gameObject);
          destructibleManager.currentCollectionCount--;
-         Debug.Log("已採集，目前場上採集點為" + destructibleManager.currentCollectionCount);
+         //Debug.Log("已採集，目前場上採集點為" + destructibleManager.currentCollectionCount);
          ReturnToPool();
          
          plantManager.GetPlant();

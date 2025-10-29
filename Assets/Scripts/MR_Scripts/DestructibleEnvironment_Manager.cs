@@ -10,6 +10,10 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public int currentDirtyCount;
     public int currentCollectionCount;
     
+    [Header("所有碎塊&被破壞碎塊")] 
+    public float allSegmentsCount = 0;
+    public float destoryCount = 0;
+    
     [Header("環境破壞程度/環境生命力")]
     
     public int maxEnvironmentPower = 10;//"最大"生命力
@@ -49,10 +53,6 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     private DestructibleMeshComponent currentComponent;
     [SerializeField]
     private int ignoreLayer = 2;
-
-    [Header("所有碎塊&被破壞碎塊")] 
-    public float allSegmentsCount = 0;
-    public float destoryCount = 0;
     
     [Header("採集點生成")] 
     public FindSpawnPositions spawnFinder;
@@ -145,14 +145,18 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         {
              yield return wait;
 
+             ReComputeEnviromentPower();
+             
             //若是場上採集點數量足夠或環境生命力過低就不生成
              if (currentCollectionCount >= maxCollectionCount)
              {
                  Debug.Log("目前場上採集點足夠");
+                 continue;
              }
              else if(environmentPower <= environmentWarning_3)
              {
                  Debug.Log("環境生命力過低，不給生");
+                 continue;
              }
              else if(currentCollectionCount <= minCollectionCount && environmentPower > environmentWarning_3)
              {
@@ -165,20 +169,10 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     void SpawnPlantByRoom()
     {
         ReComputeEnviromentPower();
-        int targetAmount;
-        if (environmentPower > environmentWarning_3)
-        {
-            targetAmount = Mathf.RoundToInt(Random.Range(3, newSpawnCount));
-            Debug.Log("嘗試生成"+targetAmount+"個採集點");
-        }
-        else
-        {
-            targetAmount = 0;
-            Debug.Log("破壞過度，不給生");
-        }
-        
+        int targetAmount= Mathf.RoundToInt(Random.Range(3, newSpawnCount));
         if(targetAmount <= 0) return;
-
+        Debug.Log("嘗試生成"+targetAmount+"個採集點");
+        
         int index = Random.Range(0, collectHolePfs.Length);
         spawnFinder.SpawnObject = collectHolePfs[index];
         spawnFinder.SpawnAmount = targetAmount;
@@ -198,7 +192,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         while (true)
         {
             yield return wait;
-            if (currentDirtyCount <= maxDirtyCount )
+            if (currentDirtyCount < maxDirtyCount )
             {
                 SpawnDirtyByRoom();
             }
@@ -212,7 +206,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         int dirtySpawnAmount;
         dirtyAmount = Random.Range(0,12);
         
-        if (dirtyAmount / 2 == 0)   //偶數才生，奇數不生
+        if (dirtyAmount % 2 == 0)   //偶數才生，奇數不生
         {
             dirtySpawnAmount = dirtyAmount;
             Debug.Log($"嘗試生成{dirtySpawnAmount}個髒污");
@@ -225,7 +219,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         
         int index = Random.Range(0, dirtyPfs.Length);
         dirtySpawnFinder.SpawnObject = dirtyPfs[index];
-        dirtySpawnFinder.SpawnAmount = dirtyAmount;
+        dirtySpawnFinder.SpawnAmount = dirtySpawnAmount;
         dirtySpawnFinder.SpawnLocations = FindSpawnPositions.SpawnLocation.VerticalSurfaces;
         dirtySpawnFinder.StartSpawn();
 
@@ -251,17 +245,17 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         
         //碎塊破壞程度
         if (damageRatio >= damageTier3) { damageTier = 3; }
-        else if (damageRatio >= damageTier2) { damageTier = 2; }
+        else if (damageRatio >= damageTier2) { damageTier = 2; Debug.Log("環境破碎嚴重"); }
         else if (damageRatio >= damageTier1) { damageTier = 1; }
         else { damageTier = 0; }
 
         //髒污汙染程度
         int dirtyTier = 0;
         
-        if (currentDirtyCount >= dirtyLevel1) { damageTier = 2; }
-        else if(currentDirtyCount >= dirtyLevel2) { damageTier = 4; }
-        else if (currentDirtyCount >= dirtyLevel3) { damageTier = 6;}
-        else { damageTier = 0; }
+        if (currentDirtyCount >= dirtyLevel3) { dirtyTier = 6; }
+        else if(currentDirtyCount >= dirtyLevel2) { dirtyTier = 4; Debug.Log("環境污染過多"); }
+        else if (currentDirtyCount >= dirtyLevel1) { dirtyTier = 2;}
+        else { dirtyTier = 0; }
 
         int totalDamage = damageTier + dirtyTier;
         int newPower = maxEnvironmentPower - totalDamage;
