@@ -67755,7 +67755,7 @@ GameObject:
   - component: {fileID: 1552513396}
   - component: {fileID: 1552513397}
   m_Layer: 0
-  m_Name: 'Collection Dirty Spawn '
+  m_Name: ' Dirty Spawn '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

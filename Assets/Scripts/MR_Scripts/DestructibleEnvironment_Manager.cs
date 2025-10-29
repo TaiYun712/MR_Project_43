@@ -68,10 +68,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public FindSpawnPositions dirtySpawnFinder;
     public Transform dirtySpawnPos;
     public float dirtySpawmInterval;
-    
-   
     public int maxDirtyCount;
-
     public GameObject[] dirtyPfs; 
     
     void Start()
@@ -196,7 +193,6 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
             {
                 SpawnDirtyByRoom();
             }
-           
         }
     }
 
