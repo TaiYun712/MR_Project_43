@@ -5,8 +5,13 @@ using Meta.XR.MRUtilityKit;
 
 public class DestructibleEnvironment_Manager : MonoBehaviour
 {
-    [Header("環境破壞程度/環境生命力")]
+    [Header("場上目前數值")]
     public int environmentPower = 10;   //"目前"生命力
+    public int currentDirtyCount;
+    public int currentCollectionCount;
+    
+    [Header("環境破壞程度/環境生命力")]
+    
     public int maxEnvironmentPower = 10;//"最大"生命力
     
     public float normalRestoreTime;       //一般回復時間
@@ -56,8 +61,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     
     public int maxCollectionCount;
     public int minCollectionCount;
-    public int currentCollectionCount;
-
+    
     public GameObject[] collectHolePfs;
 
     [Header("髒污生成")] 
@@ -65,7 +69,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public Transform dirtySpawnPos;
     public float dirtySpawmInterval;
     
-    public int currentDirtyCount;
+   
     public int maxDirtyCount;
 
     public GameObject[] dirtyPfs; 
@@ -273,10 +277,12 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         if (environmentPower <= environmentWarning_2)
         {
             restoreTime = overRestoreTime_1;
+            Debug.Log("現在回復時間" + restoreTime);
         }
         else
         {
             restoreTime = normalRestoreTime;
+            Debug.Log("現在回復時間" + restoreTime);
         }
         
         //根據破壞程度調整採集點生成
