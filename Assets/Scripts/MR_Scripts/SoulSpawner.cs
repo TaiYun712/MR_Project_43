@@ -33,6 +33,7 @@ public class SoulSpawner : MonoBehaviour
       // soulBt.SetActive(false);
       // isStartSoulPart = false;
        levelStartPanel.SetActive(false);
+       levelReadyPanel.SetActive(false);
        
        handCatcher_L.SetActive(true);
        handCatcher_R.SetActive(true);
