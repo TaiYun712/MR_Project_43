@@ -80,7 +80,7 @@ public class PanelUI_Ctrl : MonoBehaviour
         plantPeckUIPanel.transform.position = new Vector3(-0.2f, peckPosHeigh-0.3f,1f);
         plantPeckUIPanel.SetActive(true);
 
-        planPeckShelf.transform.position = new Vector3(-0.1f, peckPosHeigh - 0.2f, 0.3f);
+        planPeckShelf.transform.position = new Vector3(-0.2f, peckPosHeigh - 0.2f, 0.5f);
         planPeckShelf.SetActive(true);
     }
 
