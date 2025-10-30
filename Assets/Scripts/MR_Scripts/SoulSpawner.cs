@@ -13,8 +13,7 @@ public class SoulSpawner : MonoBehaviour
     
     public int catchCount = 0;
     public int randomSoulIndex;
-
-   // public Transform hintPos;
+    
     public GameObject levelReadyPanel;
     public GameObject levelStartPanel;
     public float showTime;
@@ -22,18 +21,25 @@ public class SoulSpawner : MonoBehaviour
 
     public ParticleSystem catchPrt_R,catchPrt_L;
 
+    public GameObject handCatcher_L, handCatcher_R;
+    
+    /*
     public GameObject soulBt; //demo用，去收集碎片按鈕
     public bool isStartSoulPart;  //demo用，避免開始收集時誤觸
-    
+    */
     void Start()
-    {
-       // Invoke("OpenLevelPanel",loadTime);
-       soulBt.SetActive(false);
-       isStartSoulPart = false;
+    { 
+        Invoke("OpenLevelPanel",loadTime);
+      // soulBt.SetActive(false);
+      // isStartSoulPart = false;
        levelStartPanel.SetActive(false);
+       
+       handCatcher_L.SetActive(true);
+       handCatcher_R.SetActive(true);
        
     }
     
+    /*
     //觸發收集碎片按鈕
     public void GoToSoulPart()
     {
@@ -44,15 +50,12 @@ public class SoulSpawner : MonoBehaviour
         }
        
     }
-
+   */
     //開頭收集碎片提示
     public void OpenLevelPanel()
     {
-      //  Vector3 lvPanelPos = lvHintPos.transform.position;
-      //  levelPanel.transform.position = lvPanelPos;
-      
-      isStartSoulPart = true; //demo用
-      soulBt.SetActive(false); //demo用
+     // isStartSoulPart = true; //demo用
+     // soulBt.SetActive(false); //demo用
       
       levelReadyPanel.SetActive(true);
       AudioManager.instance.ShowHint();
@@ -121,8 +124,10 @@ public class SoulSpawner : MonoBehaviour
     
     //關閉收集完成提示
     public void CloseLvStartPanel()
-    {
+    { 
         levelStartPanel.SetActive(false);
-        SceneManager.LoadScene("Power_Destructible Mesh");
+        handCatcher_L.SetActive(false);
+        handCatcher_R.SetActive(false);
+       // SceneManager.LoadScene("Power_Destructible Mesh");
     }
 }

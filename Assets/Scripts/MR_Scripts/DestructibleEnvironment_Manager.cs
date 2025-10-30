@@ -72,6 +72,9 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public int maxDirtyCount;
     public GameObject[] dirtyPfs;
     
+    [Header("警示控制")]
+    [SerializeField] bool hasDamageWarned = false;
+    [SerializeField] private bool hasDirtyWarned  = false;
     
     void Start()
     {
@@ -243,11 +246,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         
         //碎塊破壞程度
         if (damageRatio >= damageTier3) { damageTier = 3; }
-        else if (damageRatio >= damageTier2) 
-        { damageTier = 2; 
-          Debug.Log("環境破碎嚴重");
-          PanelUI_Ctrl.instance.OverDestoryWarningHint("環境破碎嚴重");
-        }
+        else if (damageRatio >= damageTier2) { damageTier = 2; }
         else if (damageRatio >= damageTier1) { damageTier = 1; }
         else { damageTier = 0; }
 
@@ -255,14 +254,32 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         int dirtyTier = 0;
         
         if (currentDirtyCount >= dirtyLevel3) { dirtyTier = 6; }
-        else if(currentDirtyCount >= dirtyLevel2)
-        { dirtyTier = 4; 
-          Debug.Log("環境污染過多");
-          PanelUI_Ctrl.instance.OverDestoryWarningHint("環境污染過多");
-        }
+        else if(currentDirtyCount >= dirtyLevel2) { dirtyTier = 4; }
         else if (currentDirtyCount >= dirtyLevel1) { dirtyTier = 2;}
         else { dirtyTier = 0; }
 
+        //提示破壞狀況
+        if (damageTier >= 2 && !hasDamageWarned)
+        {
+            Debug.Log("環境破碎嚴重");
+           PanelUI_Ctrl.instance.OverDestoryWarningHint("環境破碎嚴重");
+        }
+        else
+        {
+            hasDamageWarned = false;
+        }
+
+        if (dirtyTier >= 4 && !hasDirtyWarned)
+        {
+            Debug.Log("環境污染過多");
+            PanelUI_Ctrl.instance.OverDestoryWarningHint("環境污染過多");
+            hasDirtyWarned = true;
+        }
+        else
+        {
+            hasDirtyWarned = false;
+        }
+      //計算總破壞程度  
         int totalDamage = damageTier + dirtyTier;
         int newPower = maxEnvironmentPower - totalDamage;
         
