@@ -101,7 +101,7 @@ public class TitleButtons : MonoBehaviour
 
         Debug.Log("進入遊戲");
         Invoke("ChangeBubleEffect",2f);
-        Invoke("LoadTestScene",startGameTime);
+        Invoke("LoadGameScene",startGameTime);
     }
 
     public void ChangeBubleEffect()
@@ -110,9 +110,9 @@ public class TitleButtons : MonoBehaviour
         AudioManager.instance.BubleUp();
     }
     
-    public void LoadTestScene()
+    public void LoadGameScene()
     {
-        SceneManager.LoadScene("SpawnScene");
+        SceneManager.LoadScene("Power_Destructible Mesh");
         AudioManager.instance.SwitchGameBGM();
     }
 
