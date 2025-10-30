@@ -75702,6 +75702,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 633bd2be1d689c14eb309077aff2f874, type: 2}
   - {fileID: 11400000, guid: 1d1b513753a6e1444ba009e4c52b68ff, type: 2}
   - {fileID: 11400000, guid: 1e263ed9b107f124da7551789d0096b9, type: 2}
+  - {fileID: 11400000, guid: 78c36a4601fbcfd4f933e1b9802cef3f, type: 2}
+  - {fileID: 11400000, guid: e5f924eb9ef77da4b98649941baf70b2, type: 2}
+  - {fileID: 11400000, guid: 386a7db404aa0ac48a5c2aa86bd32cf7, type: 2}
+  - {fileID: 11400000, guid: e57b03222de21b44b8e3769e7d8c0d9b, type: 2}
+  - {fileID: 11400000, guid: d7f69baa4beee7944b6eb63f349fd6cd, type: 2}
   plantPeckPanel: {fileID: 1801474343}
   plantSlotPf: {fileID: 3729610561012499847, guid: 0302acb5771a08542b34f2516cdbadf2, type: 3}
 --- !u!4 &1802562065

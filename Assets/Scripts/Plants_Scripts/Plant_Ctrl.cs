@@ -9,6 +9,7 @@ public class Plant_Ctrl : MonoBehaviour
     
     public Plant plantData;
     public GameObject basePlate;
+    public GameObject gpHint;
 
     public bool isHeld;
     public bool isOnShelf;
@@ -23,6 +24,7 @@ public class Plant_Ctrl : MonoBehaviour
     {
        // Debug.Log("這是個" + plantData.plantName);
         basePlate.SetActive(true);
+        gpHint.SetActive(true);
         isHeld = false;
         isOnCraft = false;
 
@@ -42,6 +44,7 @@ public class Plant_Ctrl : MonoBehaviour
         
         PlantIntroduction.instance.OpenIntroPlantPanel(plantData);//顯示植物說明
         basePlate.SetActive(false);
+        gpHint.SetActive(false);
         isHeld = true;
         
     }

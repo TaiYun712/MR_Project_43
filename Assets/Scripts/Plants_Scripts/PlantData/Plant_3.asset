@@ -15,6 +15,6 @@ MonoBehaviour:
   plantName: "\u9999\u84B2"
   description: "\u5177\u6297\u87F2\u3001\u6297\u75C5\u6027\u4F4D\u9762\u7A4D\u6709\u6700\u5FEB\u8207\u6700\u9AD8\u7684\u7522\u91CF\uFF0C\u80FD\u5438\u5F15\u91CE\u751F\u52D5\u7269\u68F2\u606F"
   plantSprite: {fileID: 21300000, guid: 24df3be7ec68d9048b3258c75fa60bde, type: 3}
-  isPioneer: 0
+  isPioneer: 1
   growPower: 2
   plantPrefab: {fileID: 5902821013725407125, guid: 23411accebf43d94cbee66e1ac8dc775, type: 3}

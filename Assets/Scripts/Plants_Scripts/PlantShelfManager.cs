@@ -64,6 +64,7 @@ public class PlantShelfManager : MonoBehaviour
                     ctrl.isHeld = false;
                     ctrl.isOnCraft = false;
                     ctrl.basePlate?.SetActive(true);
+                    ctrl.gpHint?.SetActive(true);
                 }
 
                 spawnPlants[plant] = plantObj;
