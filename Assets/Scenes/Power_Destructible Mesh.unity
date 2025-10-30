@@ -5292,6 +5292,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0239078640af3cd45a2f30efe7159a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollecting: 0
+  isPlaying: 0
+  isEnd: 0
+  currentState: 0
 --- !u!4 &176364119
 Transform:
   m_ObjectHideFlags: 0
@@ -34471,6 +34475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpenOtherPanel: 0
   isFalmFacing: 0
+  hasFirstGamePlay: 0
   isTableSkill: 0
   isShootSkill: 0
   isCleanSkill: 0

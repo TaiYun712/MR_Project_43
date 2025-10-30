@@ -129,6 +129,8 @@ public class SoulSpawner : MonoBehaviour
         levelStartPanel.SetActive(false);
         handCatcher_L.SetActive(false);
         handCatcher_R.SetActive(false);
+        
+        GameManager.instance.ToGamePlay();
        // SceneManager.LoadScene("Power_Destructible Mesh");
     }
 }

@@ -11,6 +11,7 @@ public class PoseDemo : MonoBehaviour
 {
     public bool isOpenOtherPanel;
     public bool isFalmFacing;
+    public bool hasFirstGamePlay = false;
 
     [Header("目前使用技能")] 
     [SerializeField] //合成
@@ -78,69 +79,56 @@ public class PoseDemo : MonoBehaviour
 
     void Start()
     {
-        isOpenOtherPanel = false;
-        isFalmFacing = false;
-
-        isShootSkill = true;
-        
-        infoPanel_hand.SetActive(false);
-        infoPanel_front.SetActive(false);
-        
-        tablePanel.SetActive(false);
-        tableAni.SetBool("opentable",false);
-        isOpenTable = false;
-        
-        badHintPanel_L.SetActive(false);
-        badHintPanel_R.SetActive(false);
-        
-        skillPanel.SetActive(false);
-        
-        aimRay.SetActive(false);
-        aimImpactPf.SetActive(false);
-
-        cleanHandAim.SetActive(false);
-        cleanRayHead.SetActive(false);
-        cleanRay.SetActive(false);
-        cleanImpactPf.SetActive(false);
-        cleanTrigger.SetActive(false);
-        
-        currentSkill = 0;
-
-        isShooting = false;
-        isCleaning = false;
-        
+        SkillInitialState();
+        hasFirstGamePlay = false;
     }
 
     private void Update()
     {
-        //能量球發射瞄準線-右
-        if (isShooting && isShootSkill)
+        if (GameManager.instance !=null && GameManager.instance.isPlaying)
         {
-            HoldToAim();
-        }
-        else
-        {
-            CloseAimLine();
-        }
+            if (!hasFirstGamePlay)
+            {
+                currentSkill = 0;
+                SetSkills();
+                hasFirstGamePlay = true;
+            }
+            
+            
+            //能量球發射瞄準線-右
+            if (isShooting && isShootSkill)
+            {
+                HoldToAim();
+            }
+            else
+            {
+                CloseAimLine();
+            }
         
-        //淨化光束-右
-        if (isCleaning && isCleanSkill) 
-        {
-            OpenCleanLaser();
-            cleanTrigger.SetActive(true);
+            //淨化光束-右
+            if (isCleaning && isCleanSkill) 
+            {
+                OpenCleanLaser();
+                cleanTrigger.SetActive(true);
             
+            }
+            else
+            {
+                CloseCleanLaser();
+            }
+            
+            
+            //偵測面板狀況-左
+            if (!isOpenOtherPanel && IsPalmStillFacing() && !skillPanel.activeSelf)
+            {
+                ShowSkillPanel();
+            }
         }
         else
         {
-           CloseCleanLaser();
+            SkillInitialState();
         }
-            
-            
-        //偵測面板狀況-左
-        if (!isOpenOtherPanel && IsPalmStillFacing() && !skillPanel.activeSelf)
-        {
-            ShowSkillPanel();
-        }
+       
         
     }
 
@@ -489,8 +477,46 @@ public class PoseDemo : MonoBehaviour
 
 
     #endregion
+
+    #region 技能初始設置
+
+    void SkillInitialState()
+    {
+        isOpenOtherPanel = false;
+        isFalmFacing = false;
+
+        isShootSkill = false;
+        
+        infoPanel_hand.SetActive(false);
+        infoPanel_front.SetActive(false);
+        
+        tablePanel.SetActive(false);
+        tableAni.SetBool("opentable",false);
+        isOpenTable = false;
+        
+        badHintPanel_L.SetActive(false);
+        badHintPanel_R.SetActive(false);
+        
+        skillPanel.SetActive(false);
+        
+        handAim.SetActive(false);
+        aimRay.SetActive(false);
+        aimImpactPf.SetActive(false);
+
+        cleanHandAim.SetActive(false);
+        cleanRayHead.SetActive(false);
+        cleanRay.SetActive(false);
+        cleanImpactPf.SetActive(false);
+        cleanTrigger.SetActive(false);
+        
+        currentSkill = 0;
+
+        isShooting = false;
+        isCleaning = false;
+    }
+
+    #endregion
     
-   
    
 
   

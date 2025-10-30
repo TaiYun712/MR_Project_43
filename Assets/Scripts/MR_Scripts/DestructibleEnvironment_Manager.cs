@@ -147,6 +147,9 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         {
              yield return wait;
 
+             //不是遊戲階段就跳過
+             if (GameManager.instance == null || !GameManager.instance.isPlaying) { continue; }
+             
              ReComputeEnviromentPower();
              
             //若是場上採集點數量足夠或環境生命力過低就不生成
@@ -194,6 +197,10 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         while (true)
         {
             yield return wait;
+            
+            //不是遊戲階段就跳過
+            if (GameManager.instance == null || !GameManager.instance.isPlaying) { continue; }
+            
             if (currentDirtyCount < maxDirtyCount )
             {
                 SpawnDirtyByRoom();
