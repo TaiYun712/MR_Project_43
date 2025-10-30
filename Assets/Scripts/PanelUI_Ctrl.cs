@@ -22,6 +22,11 @@ public class PanelUI_Ctrl : MonoBehaviour
     public GameObject planPeckShelf;
     public Transform plantPeckUIPos;
     
+    [Header("生命力過低提示UI")] 
+    public GameObject overDestoryHint;
+    public Text overDestoryText;
+    public float closeWarningTime;
+    
     private void Awake()
     {
         if (instance == null) { instance = this; }
@@ -34,6 +39,8 @@ public class PanelUI_Ctrl : MonoBehaviour
         
         plantPeckUIPanel.SetActive(false);
         planPeckShelf.SetActive(false);
+        
+        overDestoryHint.SetActive(false);
 
     }
 
@@ -74,6 +81,8 @@ public class PanelUI_Ctrl : MonoBehaviour
 
     #endregion
 
+
+    #region 植物背包
     public void OpenPlantPeckUI()
     {
         float peckPosHeigh = plantPeckUIPos.transform.position.y;
@@ -89,6 +98,23 @@ public class PanelUI_Ctrl : MonoBehaviour
         plantPeckUIPanel.SetActive(false);
         planPeckShelf.SetActive(false);
     }
+
+    #endregion
+
+    public void OverDestoryWarningHint(string overReason)
+    {
+        overDestoryText.text = overReason;
+        overDestoryHint.SetActive(true);
+        
+        Invoke(nameof(CloseWarning),closeWarningTime);
+    }
+
+    void CloseWarning()
+    {
+        overDestoryHint.SetActive(false);
+    }
+    
+    
     
    
     

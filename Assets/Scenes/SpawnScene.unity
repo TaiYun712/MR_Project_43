@@ -87020,7 +87020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934362454628486909, guid: f894e8dbff0f30b4d8407fd65526d64c, type: 3}
       propertyPath: _rotationConstraints.YAxis.ConstrainAxis
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5934362454628486909, guid: f894e8dbff0f30b4d8407fd65526d64c, type: 3}
       propertyPath: _rotationConstraints.ZAxis.ConstrainAxis

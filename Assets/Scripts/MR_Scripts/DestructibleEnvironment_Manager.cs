@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Meta.XR.MRUtilityKit;
+using UnityEngine.UI;
 
 public class DestructibleEnvironment_Manager : MonoBehaviour
 {
@@ -69,7 +70,8 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public Transform dirtySpawnPos;
     public float dirtySpawmInterval;
     public int maxDirtyCount;
-    public GameObject[] dirtyPfs; 
+    public GameObject[] dirtyPfs;
+    
     
     void Start()
     {
@@ -241,7 +243,11 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         
         //碎塊破壞程度
         if (damageRatio >= damageTier3) { damageTier = 3; }
-        else if (damageRatio >= damageTier2) { damageTier = 2; Debug.Log("環境破碎嚴重"); }
+        else if (damageRatio >= damageTier2) 
+        { damageTier = 2; 
+          Debug.Log("環境破碎嚴重");
+          PanelUI_Ctrl.instance.OverDestoryWarningHint("環境破碎嚴重");
+        }
         else if (damageRatio >= damageTier1) { damageTier = 1; }
         else { damageTier = 0; }
 
@@ -249,7 +255,11 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         int dirtyTier = 0;
         
         if (currentDirtyCount >= dirtyLevel3) { dirtyTier = 6; }
-        else if(currentDirtyCount >= dirtyLevel2) { dirtyTier = 4; Debug.Log("環境污染過多"); }
+        else if(currentDirtyCount >= dirtyLevel2)
+        { dirtyTier = 4; 
+          Debug.Log("環境污染過多");
+          PanelUI_Ctrl.instance.OverDestoryWarningHint("環境污染過多");
+        }
         else if (currentDirtyCount >= dirtyLevel1) { dirtyTier = 2;}
         else { dirtyTier = 0; }
 
@@ -292,5 +302,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
             Debug.Log("破壞程度小，生最多" + normalMaxSpwanCount);
         }
     }
+
+ 
     
 }
