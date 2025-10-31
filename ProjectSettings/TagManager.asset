@@ -9,6 +9,7 @@ TagManager:
   - target
   - DestructibleWalls
   - Cleaner
+  - habitat
   layers:
   - Default
   - TransparentFX

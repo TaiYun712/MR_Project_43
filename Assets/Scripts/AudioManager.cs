@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("BGM")]
     [SerializeField]
-    AudioClip titleBGM,gameBGM;
+    AudioClip titleBGM,gameBGM,gameWinBGM;
 
     [Header("UI")]
     [SerializeField]
@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
     [Header("SFX")]
     [SerializeField]
     AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound,bubleUpSound
-        ,callTableSound,craftSuccessSound,craftFailSound;
+        ,callTableSound,craftSuccessSound,craftFailSound,gameWinSFX;
     [SerializeField]
     private AudioClip[] wallBrokenSounds;
 
@@ -182,6 +182,16 @@ public class AudioManager : MonoBehaviour
     {
         uiSourse.clip = putInSound;
         uiSourse.Play();
+    }
+    
+    //BGM_GameOver
+    public void PlayWinBGM()
+    {
+        sfxSource.clip = gameWinSFX;
+        sfxSource.Play();
+        
+        bgmSource.clip = gameWinBGM;
+        bgmSource.Play();
     }
 
   

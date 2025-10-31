@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
                 CloseALLState();
                 isEnd = true;
                 
+                PanelUI_Ctrl.instance.OpenGameOverUI();
                 Debug.Log("結算階段");
                 break;
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PanelUI_Ctrl : MonoBehaviour
@@ -26,6 +27,10 @@ public class PanelUI_Ctrl : MonoBehaviour
     public GameObject overDestoryHint;
     public Text overDestoryText;
     public float closeWarningTime;
+
+    [Header("遊戲結束提示")] 
+    public GameObject gameOverPanel;
+    public float closeGameOverUITime;
     
     private void Awake()
     {
@@ -41,6 +46,8 @@ public class PanelUI_Ctrl : MonoBehaviour
         planPeckShelf.SetActive(false);
         
         overDestoryHint.SetActive(false);
+        
+        gameOverPanel.SetActive(false);
 
     }
 
@@ -112,6 +119,21 @@ public class PanelUI_Ctrl : MonoBehaviour
     void CloseWarning()
     {
         overDestoryHint.SetActive(false);
+    }
+
+    public void OpenGameOverUI()
+    {
+        gameOverPanel.SetActive(true);
+        AudioManager.instance.ShowHint();
+        AudioManager.instance.PlayWinBGM();
+        
+        Invoke("CloseGameOverUI",closeGameOverUITime);
+    }
+
+    void CloseGameOverUI()
+    {
+        gameOverPanel.SetActive(false);
+        SceneManager.LoadScene("TitleScene");
     }
     
     

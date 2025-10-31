@@ -228,6 +228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BWtile_1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94602dbbd251b45dabcbb9b684c0d5b2, type: 3}
+      propertyPath: m_TagString
+      value: habitat
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
