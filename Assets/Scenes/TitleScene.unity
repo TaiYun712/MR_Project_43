@@ -3286,6 +3286,7 @@ MonoBehaviour:
   sfxSource: {fileID: 361606266}
   titleBGM: {fileID: 8300000, guid: 247575f552b413541aad224748eb3d14, type: 3}
   gameBGM: {fileID: 8300000, guid: d65344d2ab12c1843bb9046c4cd27fdd, type: 3}
+  gameWinBGM: {fileID: 8300000, guid: 3fb367c25636e3a419195024ac3d2b76, type: 3}
   popSound: {fileID: 8300000, guid: cbb283c3e02561d44853b95e38474737, type: 3}
   showHintSound: {fileID: 8300000, guid: f72160dce950971458cdd0ecb5560256, type: 3}
   woodUISound: {fileID: 8300000, guid: ca6fc50307511a446ba6fa8519f968fc, type: 3}
@@ -3304,6 +3305,7 @@ MonoBehaviour:
   callTableSound: {fileID: 8300000, guid: 016c4ee10ce878842a03146ee88573ff, type: 3}
   craftSuccessSound: {fileID: 8300000, guid: c8dcf97c758ee814fa142438610b29b0, type: 3}
   craftFailSound: {fileID: 8300000, guid: 54b6b34d437aaef49a5208426268aaaf, type: 3}
+  gameWinSFX: {fileID: 8300000, guid: 34d0100e5925ebe4cad327fe9693e6df, type: 3}
   wallBrokenSounds:
   - {fileID: 8300000, guid: 147f2347eeeb436488b8b27749772cc2, type: 3}
   - {fileID: 8300000, guid: 6744286284d43794c9e6a32f2b4e39a4, type: 3}
@@ -46995,22 +46997,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b15000bebc58946b7a058fb8898c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshSpawner: {fileID: 1734641636}
-  ignoreLayer: 2
+  environmentPower: 10
+  currentDirtyCount: 0
+  currentCollectionCount: 0
   allSegmentsCount: 0
   destoryCount: 0
-  environmentPower: 10
-  environmentPowerAlertvalue: 6
+  maxEnvironmentPower: 10
   normalRestoreTime: 0
   overRestoreTime_1: 0
-  damageRatio: 0
+  newSpawnCount: 0
+  normalMaxSpwanCount: 10
+  maxSpwanCount_1: 8
+  maxSpwanCount_2: 5
+  environmentWarning_1: 8
+  environmentWarning_2: 6
+  environmentWarning_3: 5
   restoreTime: 0
+  damageTier1: 0.1
+  damageTier2: 0.3
+  damageTier3: 0.5
+  dirtyLevel1: 5
+  dirtyLevel2: 10
+  dirtyLevel3: 15
+  meshSpawner: {fileID: 1734641636}
+  ignoreLayer: 2
   spawnFinder: {fileID: 0}
+  holeSpawnPos: {fileID: 0}
   spawnInterval: 0
   maxCollectionCount: 0
   minCollectionCount: 0
-  currentCollectionCount: 0
   collectHolePfs: []
+  dirtySpawnFinder: {fileID: 0}
+  dirtySpawnPos: {fileID: 0}
+  dirtySpawmInterval: 0
+  maxDirtyCount: 0
+  dirtyPfs: []
+  hasDamageWarned: 0
+  hasDirtyWarned: 0
 --- !u!1 &1735841483
 GameObject:
   m_ObjectHideFlags: 0
