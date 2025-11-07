@@ -8,6 +8,7 @@ public class LittleGuyCtrl : MonoBehaviour
     public Animator guyAni;
 
     public Transform initialPos;
+    public ParticleSystem shoeUpPrt;
     
     void Start()
     {
@@ -22,12 +23,15 @@ public class LittleGuyCtrl : MonoBehaviour
     
     public void HoldGuy()
     {
-        guyAni.SetBool("isfine",true);
+        guyAni.SetTrigger("isfine");
     }
 
     public void CallBackGuy()
     {
         transform.position = nearPlayerPos.position;
+        guyAni.SetTrigger("showup");
+        shoeUpPrt.Play();
+        AudioManager.instance.ShowHint();
     }
     
     
