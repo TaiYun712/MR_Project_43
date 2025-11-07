@@ -28,6 +28,12 @@ public class SoulFloating : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+        //如果不是收集階段就銷毀
+        if (GameManager.instance.currentState != GameManager.GameState.SoulCollect)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //抓取碎片

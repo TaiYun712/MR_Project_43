@@ -5,34 +5,30 @@ using UnityEngine;
 public class LittleGuyCtrl : MonoBehaviour
 {
     public Transform nearPlayerPos;
-    public Vector3 guyPos;
-
     public Animator guyAni;
+
+    public Transform initialPos;
+    
     void Start()
     {
-       Invoke("SetGuyPos",1f);
+        transform.position = initialPos.transform.position;
+
     }
 
     void Update()
     {
         
     }
-
-    void SetGuyPos()
-    {
-        guyPos = new Vector3(nearPlayerPos.transform.position.x, nearPlayerPos.transform.position.y,
-            nearPlayerPos.transform.position.z);
-        gameObject.transform.position = guyPos;
-    }
-
+    
     public void HoldGuy()
     {
         guyAni.SetBool("isfine",true);
     }
 
-    public void NotHoldGuy()
+    public void CallBackGuy()
     {
-        guyAni.SetBool("isfine",false);
-        SetGuyPos();
+        transform.position = nearPlayerPos.position;
     }
+    
+    
 }
