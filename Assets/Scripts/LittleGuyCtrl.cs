@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class LittleGuyCtrl : MonoBehaviour
 {
-    public Transform nearPlayerPos;
+    public Transform leftHandPos;
+    public Transform rightHandPos;
+    
     public Animator guyAni;
 
     public Transform initialPos;
@@ -26,9 +28,17 @@ public class LittleGuyCtrl : MonoBehaviour
         guyAni.SetTrigger("isfine");
     }
 
-    public void CallBackGuy()
+    public void CallBackGuy_L()
     {
-        transform.position = nearPlayerPos.position;
+        transform.position = leftHandPos.position;
+        guyAni.SetTrigger("showup");
+        shoeUpPrt.Play();
+        AudioManager.instance.ShowHint();
+    }
+
+    public void CallBackGuy_R()
+    {
+        transform.position = rightHandPos.position;
         guyAni.SetTrigger("showup");
         shoeUpPrt.Play();
         AudioManager.instance.ShowHint();

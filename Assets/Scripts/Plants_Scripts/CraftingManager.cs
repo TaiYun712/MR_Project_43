@@ -198,7 +198,7 @@ public class CraftingManager : MonoBehaviour
         craftHint.SetActive(true);
         successPrt.Play();
         AudioManager.instance.CraftSuccessSound();
-        Invoke("CloseHint",2f);
+        Invoke("CloseHint",3f);
     }
 
     void CloseHint()
