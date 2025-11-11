@@ -70,3 +70,18 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# JetBrains Rider / IntelliJ
+.idea/
+**/.idea/
+*.iml
+
+# Rider workspace files (不要進版控)
+workspace.xml
+indexLayout.xml
+encodings.xml
+projectSettingsUpdater.xml
+vcs.xml
+
+# 偶爾誤入的暫存
+TempAssembly.dll
