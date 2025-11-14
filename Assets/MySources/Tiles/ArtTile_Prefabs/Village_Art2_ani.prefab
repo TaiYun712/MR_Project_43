@@ -420,8 +420,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 0.8
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1121,7 +1121,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 8
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6058,7 +6058,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 2
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -14858,7 +14858,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -9111639518647373915, guid: 98c0c011858d4f14aad1d9394c5fd502, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 109.00591
+      value: 279.2679
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 98c0c011858d4f14aad1d9394c5fd502, type: 3}
       propertyPath: m_LocalPosition.x
