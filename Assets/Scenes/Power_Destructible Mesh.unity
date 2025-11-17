@@ -36120,7 +36120,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   _whenUnselect:
     m_PersistentCalls:
@@ -86735,7 +86735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1017905076
 Animator:
   serializedVersion: 5
@@ -124325,6 +124325,14 @@ PrefabInstance:
     - target: {fileID: 7285382736263161365, guid: f894e8dbff0f30b4d8407fd65526d64c, type: 3}
       propertyPath: m_Layer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297805744651613776, guid: f894e8dbff0f30b4d8407fd65526d64c, type: 3}
+      propertyPath: _whenSelectingInteractorViewAdded.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297805744651613776, guid: f894e8dbff0f30b4d8407fd65526d64c, type: 3}
+      propertyPath: _whenSelectingInteractorViewRemoved.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7297805744651613776, guid: f894e8dbff0f30b4d8407fd65526d64c, type: 3}
       propertyPath: _whenSelectingInteractorViewAdded.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
-   
+    
+    
     
     [SerializeField]
     AudioSource bgmSource,uiSourse, animalSourse,sfxSource;
@@ -51,10 +52,27 @@ public class AudioManager : MonoBehaviour
     //BGM
     void Start()
     {
-        bgmSource.clip = titleBGM;
-        bgmSource.playOnAwake = true;
-        bgmSource.loop = true;
-        bgmSource.Play();
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+        if (sceneName == "TitleScene")
+        {
+            bgmSource.clip = titleBGM;
+            bgmSource.playOnAwake = true;
+            bgmSource.loop = true;
+            bgmSource.Play();
+        }
+        else  if (sceneName == "Power_Destructible Mesh")
+        {
+            bgmSource.clip = gameBGM;
+            bgmSource.loop = true;
+            bgmSource.Play();
+        }
+        else
+        {
+            bgmSource.Stop();
+        }
+        
     }
 
     public void SwitchGameBGM()
