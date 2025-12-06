@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+
 public class TileData
 {
-    public bool isLand; //不是陸地就是水，預設為陸地
-
-    public SetTownType setTownType = SetTownType.None; //預設 無聚落
-
-    
+    public TileKind kind;
+    public HabitaKind habitat = HabitaKind.None;
 }
 
 public enum SetTownType
@@ -19,6 +17,25 @@ public enum SetTownType
     Village,
     Industry
 }
+
+public enum TileKind
+{   Empty, 
+    Land,
+    Water,
+    TownCity,
+    TownVillage,
+    TownIndustry
+}
+
+public enum HabitaKind
+{
+    None,
+    LandBasic,
+    LandAdvanced, 
+    WetBasic,
+    WetAdvanced
+}
+
 
 
 

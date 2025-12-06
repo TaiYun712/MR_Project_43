@@ -44,15 +44,26 @@ public class MapGenerator : MonoBehaviour
                 TileData data = new TileData();
                 if (IsColorClose(px, BLACK, colorTolerance))
                 {
-                    data.isLand = true;
+                    data.kind = TileKind.Land;
                 }
                 else if(IsColorClose(px,WHITE, colorTolerance))
                 {
-                    data.isLand = false;
+                    data.kind = TileKind.Water;
                 }
                 else if(IsColorClose(px, ORANGE, colorTolerance))
                 {
-                    data.setTownType = GetRandomTownType();
+                    switch (GetRandomTownType())
+                    {
+                        case SetTownType.City:
+                            data.kind = TileKind.TownCity;
+                            break;
+                        case SetTownType.Village:
+                            data.kind = TileKind.TownVillage;
+                            break;
+                        default:
+                            data.kind = TileKind.TownIndustry;
+                            break;
+                    }
                 }
                 else
                 {

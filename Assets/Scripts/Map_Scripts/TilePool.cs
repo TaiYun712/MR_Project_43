@@ -42,21 +42,21 @@ public class TilePool : MonoBehaviour
         Stack<GameObject> pool;
         GameObject pf;
 
-        if(tileData.setTownType == SetTownType.City)
+        if(tileData.kind == TileKind.TownCity)
         {
             pool = cityPool;
             pf = GetRandomPf(cityTilePf);
-        }else if(tileData.setTownType == SetTownType.Village)
+        }else if(tileData.kind == TileKind.TownVillage)
         {
             pool = villagePool;
             pf = GetRandomPf(villageTilePf);
         }
-        else if(tileData.setTownType == SetTownType.Industry)
+        else if(tileData.kind == TileKind.TownIndustry)
         {
             pool = industryPool;
             pf = GetRandomPf(industryTilePf);
         }
-        else if (tileData.isLand)
+        else if (tileData.kind == TileKind.Land)
         {
             pool = landPool;
             pf = landTilePf;
@@ -101,10 +101,10 @@ public class TilePool : MonoBehaviour
     {
         tile.SetActive(false);
 
-        if (tileData.setTownType == SetTownType.City) { cityPool.Push(tile); }
-        else if (tileData.setTownType == SetTownType.Village) { villagePool.Push(tile); }
-        else if (tileData.setTownType == SetTownType.Industry) { industryPool.Push(tile); }   
-        else if (tileData.isLand) { landPool.Push(tile); }
+        if (tileData.kind == TileKind.TownCity) { cityPool.Push(tile); }
+        else if (tileData.kind == TileKind.TownVillage) { villagePool.Push(tile); }
+        else if (tileData.kind == TileKind.TownIndustry) { industryPool.Push(tile); }   
+        else if (tileData.kind == TileKind.Land) { landPool.Push(tile); }
         else { waterPool.Push(tile); }
            
     }

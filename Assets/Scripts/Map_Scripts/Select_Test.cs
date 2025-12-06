@@ -31,7 +31,7 @@ public class Select_Test : MonoBehaviour
                 {
                     selectHintPf.SetActive(true);
                     selectHintPf.transform.position = tile.transform.position + Vector3.up * hintHeight;
-                    Debug.Log($"座標位置{tile.gridPos}，地形為{(tile.IsLand ? "陸地" : "水")}，聚落為{tile.tileData.setTownType}");
+                   // Debug.Log($"座標位置{tile.gridPos}，地形為{(tile.IsLand ? "陸地" : "水")}，聚落為{tile.tileData.setTownType}");
 
                 }
                 else

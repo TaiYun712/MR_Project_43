@@ -38,13 +38,7 @@ public class MapMaker : MonoBehaviour
         int width = mapData.GetLength(0);
         int height = mapData.GetLength(1);
 
-        if (mapData == null)
-        {
-            Debug.LogError("沒呼叫到地圖資訊");
-            return;
-        }
-
-            
+      
        //生成tile
         for (int x = 0; x < width; x++)
         {
