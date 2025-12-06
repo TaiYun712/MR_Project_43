@@ -318,8 +318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileData:
-    isLand: 0
-    setTownType: 0
+    kind: 0
+    habitat: 3
   gridPos: {x: 0, y: 0}
 --- !u!4 &7998398817940588335 stripped
 Transform:
