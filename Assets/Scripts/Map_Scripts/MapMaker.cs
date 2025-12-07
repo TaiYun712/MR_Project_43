@@ -49,10 +49,11 @@ public class MapMaker : MonoBehaviour
     public void MakeMap()
     {
         ClearTiles();
-
-        TileData[,] mapData = mapGenerator.GenerateMapData();
-        int width = mapData.GetLength(0);
-        int height = mapData.GetLength(1);
+        
+        MapData = mapGenerator.GenerateMapData();
+        int width = MapData.GetLength(0);
+        int height = MapData.GetLength(1);
+        
         GridBehaviours = new TileBehaviour[width, height]; //新增
 
       
@@ -61,7 +62,7 @@ public class MapMaker : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
-               TileData data = mapData[x, y];
+               TileData data = MapData[x, y];
                if(data == null) { continue; }
 
                 //從物件池中取tile
