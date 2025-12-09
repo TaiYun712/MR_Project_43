@@ -8846,7 +8846,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 41fc08e0dbb4b9d48b74986cb6e692c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04be92a3795a45e4da16522540fb761c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28930,14 +28930,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9128835, b: 0.6650944, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d28ec053ce3df5f43aa2eeb72ef65fba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbeb99386c989564182f5d1c9715ca7b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -71978,8 +71978,8 @@ MonoBehaviour:
   craftHint: {fileID: 1106309637}
   craftHintText: {fileID: 176585726}
   craftHintBG: {fileID: 1255711546}
-  failSp: {fileID: 21300000, guid: f0e3765bd34925b4ea34149a3d69c32d, type: 3}
-  SuccessSp: {fileID: 21300000, guid: 5c86d25abf97e4246ae6d27bc080739c, type: 3}
+  failSp: {fileID: 21300000, guid: 193538536db464a44bfdd2ce2f93b6fe, type: 3}
+  SuccessSp: {fileID: 21300000, guid: 04be92a3795a45e4da16522540fb761c, type: 3}
   successPrt: {fileID: 1222112441}
 --- !u!1 &847500068
 GameObject:
@@ -99696,7 +99696,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5c86d25abf97e4246ae6d27bc080739c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04be92a3795a45e4da16522540fb761c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -120596,7 +120596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a69ec9823452a1c49a30463f259c5f6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc74b0f4247589a4288a42f8c2be5036, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
