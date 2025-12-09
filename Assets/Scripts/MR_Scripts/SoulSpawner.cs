@@ -23,15 +23,10 @@ public class SoulSpawner : MonoBehaviour
 
     public GameObject handCatcher_L, handCatcher_R;
     
-    /*
-    public GameObject soulBt; //demo用，去收集碎片按鈕
-    public bool isStartSoulPart;  //demo用，避免開始收集時誤觸
-    */
     void Start()
     { 
         Invoke("OpenLevelPanel",loadTime);
-      // soulBt.SetActive(false);
-      // isStartSoulPart = false;
+    
        levelStartPanel.SetActive(false);
        levelReadyPanel.SetActive(false);
        
@@ -40,29 +35,17 @@ public class SoulSpawner : MonoBehaviour
        
     }
     
-    /*
-    //觸發收集碎片按鈕
-    public void GoToSoulPart()
-    {
-        if (!isStartSoulPart)
-        {
-            bool isActive = soulBt.activeSelf;
-            soulBt.SetActive(!isActive);
-        }
-       
-    }
-   */
+ 
     //開頭收集碎片提示
     public void OpenLevelPanel()
     {
-     // isStartSoulPart = true; //demo用
-     // soulBt.SetActive(false); //demo用
-      
       levelReadyPanel.SetActive(true);
       AudioManager.instance.ShowHint();
       
       Invoke("CloseLevelPanel",showTime);
 
+      
+      GameManager.instance.ToGamePlay();///////////////////////測試用
     }
     
     //關閉提示
@@ -130,7 +113,6 @@ public class SoulSpawner : MonoBehaviour
         handCatcher_L.SetActive(false);
         handCatcher_R.SetActive(false);
         
-        GameManager.instance.ToGamePlay();
-       // SceneManager.LoadScene("Power_Destructible Mesh");
+      //  GameManager.instance.ToGamePlay();
     }
 }

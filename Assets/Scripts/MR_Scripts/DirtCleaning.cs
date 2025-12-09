@@ -19,6 +19,7 @@ public class DirtCleaning : MonoBehaviour
     
     private bool isCleaning;    //是否正在清理
     private float process = 0f; //清潔累積
+    private bool hasPlayHitSound = false;
 
     private void Awake()
     {
@@ -44,6 +45,9 @@ public class DirtCleaning : MonoBehaviour
         if (other.CompareTag("Cleaner"))
         {
             isCleaning = true;
+            
+            AudioManager.instance.CleanHit();
+            hasPlayHitSound = true;
         }
     }
 
@@ -52,6 +56,8 @@ public class DirtCleaning : MonoBehaviour
         if (other.CompareTag("Cleaner"))
         {
             isCleaning = false;
+            
+            hasPlayHitSound = false;
         }    
     }
 

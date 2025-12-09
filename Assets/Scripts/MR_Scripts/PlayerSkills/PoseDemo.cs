@@ -110,7 +110,6 @@ public class PoseDemo : MonoBehaviour
             {
                 OpenCleanLaser();
                 cleanTrigger.SetActive(true);
-            
             }
             else
             {
@@ -347,6 +346,9 @@ public class PoseDemo : MonoBehaviour
         {
             isCleaning = true;
             
+            AudioManager.instance.OpenCleanBeam();
+            AudioManager.instance.KeepCleanBeam();
+            
         }
         else if(isTableSkill && isOpenTable)
         {
@@ -427,6 +429,7 @@ public class PoseDemo : MonoBehaviour
     //關閉淨化光束
     public void CloseCleanLaser()
     {
+        AudioManager.instance.EndCleanBeam();
         cleanRayHead.SetActive(false);
         cleanRay.SetActive(false);
         cleanImpactPf.SetActive(false);

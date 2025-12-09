@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
     
     
     [SerializeField]
-    AudioSource bgmSource,uiSourse, animalSourse,sfxSource;
+    AudioSource bgmSource,uiSourse, animalSourse,sfxSource,sfxSource2;
 
     [Header("BGM")]
     [SerializeField]
@@ -30,7 +30,8 @@ public class AudioManager : MonoBehaviour
     [Header("SFX")]
     [SerializeField]
     AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound,bubleUpSound
-        ,callTableSound,craftSuccessSound,craftFailSound,gameWinSFX;
+        ,callTableSound,craftSuccessSound,craftFailSound,gameWinSFX,
+        cleanStartSd,cleanKeepSd,cleanHitSd;
     [SerializeField]
     private AudioClip[] wallBrokenSounds;
 
@@ -135,6 +136,8 @@ public class AudioManager : MonoBehaviour
 
 
     //SFX-Gaming
+    
+    //收集碎片
     public void CatchTheSoul()
     {
         sfxSource.clip = catchSoulSound;
@@ -147,6 +150,7 @@ public class AudioManager : MonoBehaviour
         animalSourse.Play();
     }
 
+    //發射能量球
     public void AimReadySound()
     {
         sfxSource.clip = aimSound;
@@ -172,6 +176,7 @@ public class AudioManager : MonoBehaviour
         uiSourse.Play();
     }
 
+    //棲地合成
     public void CallCraftTableSound()
     {
         sfxSource.clip = callTableSound;
@@ -200,6 +205,31 @@ public class AudioManager : MonoBehaviour
     {
         uiSourse.clip = putInSound;
         uiSourse.Play();
+    }
+    
+    //清潔光束
+    public void OpenCleanBeam()
+    {
+        sfxSource.clip = cleanStartSd;
+        sfxSource.Play();
+    }
+
+    public void KeepCleanBeam()
+    {
+        sfxSource2.clip = cleanKeepSd;
+        sfxSource2.loop = true;
+        sfxSource2.Play();
+    }
+
+    public void EndCleanBeam()
+    {
+        sfxSource2.Stop();
+    }
+
+    public void CleanHit()
+    {
+        sfxSource.clip = cleanHitSd;
+        sfxSource.Play();
     }
     
     //BGM_GameOver
