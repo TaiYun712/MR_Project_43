@@ -99338,6 +99338,7 @@ MonoBehaviour:
   dirtyPfs:
   - {fileID: 6663001971801071410, guid: 794c5de1120fba743bd79e28edae851b, type: 3}
   - {fileID: 5266046422938038310, guid: 7ab2061738087974fbcbe23ad24af97c, type: 3}
+  - {fileID: 4711910337149895874, guid: af9891ea21bb37548b5a6dd62289c23e, type: 3}
   hasDamageWarned: 0
   hasDirtyWarned: 0
 --- !u!4 &1248420701 stripped
