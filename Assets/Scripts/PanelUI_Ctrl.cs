@@ -58,7 +58,7 @@ public class PanelUI_Ctrl : MonoBehaviour
         if(plant == null){return;}
         
         getPlantPanel.SetActive(true);
-        PioneerPlantCheck(plant);
+       // PioneerPlantCheck(plant);
         
         getPlantImage.sprite = plant.plantSprite;
         getPlantText.text = plant.plantName;
