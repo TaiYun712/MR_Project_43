@@ -11,6 +11,7 @@ public class PlacementHelper : MonoBehaviour
     [Header("\"棲地\"偵測")]
     public TileBehaviour heldHabitat;
     public GameObject ghostTile;
+    public Transform mapHabitatPos;
 
     private Vector2Int snapGrid;
     private Vector3 snapPos;
@@ -60,8 +61,6 @@ public class PlacementHelper : MonoBehaviour
         if (TryFindBestFrontierTarget(heldTilePos, out snapGrid, out snapPos))
         {
             hasSnap = true;
-            //作為"預覽"暫時吸附到可能放置位置
-            //heldHabitat.transform.position = snapPos;
             ghostTile.transform.position = snapPos;
             ghostTile.SetActive(true);
         }
@@ -96,6 +95,9 @@ public class PlacementHelper : MonoBehaviour
 
         map.habitaAt[snapGrid] = heldHabitat;
         heldHabitat.transform.position = snapPos;
+        heldHabitat.transform.SetParent(mapHabitatPos,true);
+        heldHabitat.transform.localEulerAngles = Vector3.zero;
+        
         map.UpdateFrontierAfterChange(snapGrid); //更新外圍合法位置
 
         //解除「手上物件」狀態
