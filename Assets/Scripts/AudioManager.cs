@@ -18,6 +18,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip titleBGM,gameBGM,gameWinBGM;
 
+    public float titleBgmVol = 1f;
+    public float gamingBgmVol = 0.6f;
+
     [Header("UI")]
     [SerializeField]
     AudioClip popSound,showHintSound,woodUISound,overHintSound,switchSound
@@ -58,16 +61,11 @@ public class AudioManager : MonoBehaviour
 
         if (sceneName == "TitleScene")
         {
-            bgmSource.clip = titleBGM;
-            bgmSource.playOnAwake = true;
-            bgmSource.loop = true;
-            bgmSource.Play();
+            SwitchTitleBGM();
         }
         else  if (sceneName == "Power_Destructible Mesh")
         {
-            bgmSource.clip = gameBGM;
-            bgmSource.loop = true;
-            bgmSource.Play();
+            SwitchGameBGM();
         }
         else
         {
@@ -76,10 +74,19 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    public void SwitchTitleBGM()
+    {
+        bgmSource.clip = titleBGM;
+        bgmSource.loop = true;
+        bgmSource.volume = titleBgmVol;
+        bgmSource.Play();
+    }
+    
     public void SwitchGameBGM()
     {
         bgmSource.clip = gameBGM;
         bgmSource.loop = true;
+        bgmSource.volume = gamingBgmVol;
         bgmSource.Play();
     }
 

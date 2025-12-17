@@ -27,6 +27,7 @@ public class DemoSceneSwitch : MonoBehaviour
     public void GoToTitle()
     {
         SceneManager.LoadScene("TitleScene");
+        AudioManager.instance.SwitchTitleBGM();
     }
 
     public void GOToLandScene()
@@ -41,6 +42,7 @@ public class DemoSceneSwitch : MonoBehaviour
     public void GoToPoseDemo()
     {
         SceneManager.LoadScene("Power_Destructible Mesh");
+        AudioManager.instance.SwitchGameBGM();
     }
 
     public void GoToJanken()

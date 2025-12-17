@@ -66858,7 +66858,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3483730763875923994, guid: d285b79e3774de1468a7422db1d0080c, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -120387,9 +120387,11 @@ MonoBehaviour:
   animalSourse: {fileID: 159850391}
   sfxSource: {fileID: 790012759}
   sfxSource2: {fileID: 4219840}
-  titleBGM: {fileID: 8300000, guid: 247575f552b413541aad224748eb3d14, type: 3}
-  gameBGM: {fileID: 8300000, guid: d65344d2ab12c1843bb9046c4cd27fdd, type: 3}
+  titleBGM: {fileID: 8300000, guid: 110cc6fbe502f7d4e9edc0c26f3615ac, type: 3}
+  gameBGM: {fileID: 8300000, guid: 0527517666c66f945841531552a4a4c4, type: 3}
   gameWinBGM: {fileID: 8300000, guid: 3fb367c25636e3a419195024ac3d2b76, type: 3}
+  titleBgmVol: 1
+  gamingBgmVol: 0.5
   popSound: {fileID: 8300000, guid: cbb283c3e02561d44853b95e38474737, type: 3}
   showHintSound: {fileID: 8300000, guid: f72160dce950971458cdd0ecb5560256, type: 3}
   woodUISound: {fileID: 8300000, guid: ca6fc50307511a446ba6fa8519f968fc, type: 3}
