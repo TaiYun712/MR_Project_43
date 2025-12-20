@@ -2,13 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class TestBullet : MonoBehaviour
 {
    public DestructibleEnvironment_Manager destructibleManager;
    public PlantManager plantManager;
 
-   public ParticleSystem dirtDestoryPt;
+   public ParticleSystem[] dirtDestoryPts;
    
    private void Start()
    {
@@ -32,8 +34,9 @@ public class TestBullet : MonoBehaviour
       {
          if (other.CompareTag("DestructibleWalls"))
          {
+            int destoryPrtIndex = Random.Range(0, dirtDestoryPts.Length);
             destructibleManager.DestroyMeshSegment(other.gameObject);
-            dirtDestoryPt.Play();
+            dirtDestoryPts[destoryPrtIndex].Play();
             
             Invoke(nameof(ReturnToPool),0.2f);
          }
