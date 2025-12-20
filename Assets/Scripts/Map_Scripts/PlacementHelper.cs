@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlacementHelper : MonoBehaviour
 {
+    public static PlacementHelper instance;
+    
     [Header("\"地圖\"偵測")]
     public MapMaker map;
     public float maxSnapDist = 0.5f; //放置偵測距離
@@ -17,6 +19,20 @@ public class PlacementHelper : MonoBehaviour
     private Vector3 snapPos;
     private bool hasSnap;
     
+    
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     
     void Start()
     {

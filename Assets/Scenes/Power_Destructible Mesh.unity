@@ -120391,7 +120391,7 @@ MonoBehaviour:
   gameBGM: {fileID: 8300000, guid: 0527517666c66f945841531552a4a4c4, type: 3}
   gameWinBGM: {fileID: 8300000, guid: 3fb367c25636e3a419195024ac3d2b76, type: 3}
   titleBgmVol: 1
-  gamingBgmVol: 0.5
+  gamingBgmVol: 0.3
   popSound: {fileID: 8300000, guid: cbb283c3e02561d44853b95e38474737, type: 3}
   showHintSound: {fileID: 8300000, guid: f72160dce950971458cdd0ecb5560256, type: 3}
   woodUISound: {fileID: 8300000, guid: ca6fc50307511a446ba6fa8519f968fc, type: 3}
