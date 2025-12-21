@@ -10,10 +10,12 @@ public class PlantIntroduction : MonoBehaviour
     
     public Image introPlantImage;
     public Text introPlantName;
-    public Text introPlantPioneer;
-    public Text introPlantGrowPower;
     public Text introPlantDescription;
 
+    public GameObject pioneerPlantBg;
+    public Image gpImage;
+    public Sprite gp_1, gp_2, gp_3;
+    
     private void Awake()
     {
         if (instance == null)
@@ -37,21 +39,27 @@ public class PlantIntroduction : MonoBehaviour
         introPlantName.text = pickPlant.plantName;
         introPlantDescription.text = pickPlant.description;
 
-        introPlantPioneer.text = pickPlant.isPioneer ? "是" : "不是";
-        
+        if (pickPlant.isPioneer)
+        {
+            pioneerPlantBg.SetActive(true);
+        }
+        else
+        {
+            pioneerPlantBg.SetActive(false);
+        }
         
         switch (pickPlant.growPower)
         {
             case 1 :
-                introPlantGrowPower.text = "弱";
+                gpImage.sprite = gp_1;
                 break;
             
             case 2 :
-                introPlantGrowPower.text = "中";
+                gpImage.sprite = gp_2;
                 break;
             
             case 3 :
-                introPlantGrowPower.text = "強";
+               gpImage.sprite = gp_3;
                 break;
         }
         
