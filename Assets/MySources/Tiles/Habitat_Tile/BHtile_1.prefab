@@ -254,6 +254,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a21cfb9c124349d18d39fb780a4d47b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4890982296527514289}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a21cfb9c124349d18d39fb780a4d47b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1594888012456092335}
   m_SourcePrefab: {fileID: 100100000, guid: 7a21cfb9c124349d18d39fb780a4d47b, type: 3}
 --- !u!4 &65429240994720671 stripped
 Transform:
@@ -341,3 +344,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96baea2c9dd9a6e4296c7614b3a129a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLock: 0
+  handGrab: {fileID: 984557671145049204}
+--- !u!114 &-1594888012456092335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838693316976029989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f8f6e9e6f3e114b9bf9a57c2160615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pointable: {fileID: 3808861765224644624}
+  _whenRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4890982296527514289}
+        m_TargetAssemblyTypeName: Habitat_Ctrl, Assembly-CSharp
+        m_MethodName: OnGrabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4890982296527514289}
+        m_TargetAssemblyTypeName: Habitat_Ctrl, Assembly-CSharp
+        m_MethodName: OnReleased
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenMove:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenCancel:
+    m_PersistentCalls:
+      m_Calls: []

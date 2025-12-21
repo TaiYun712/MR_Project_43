@@ -172,18 +172,54 @@ public class MapMaker : MonoBehaviour
     }
     
     // 重新計算與 g 相鄰的外圈（局部更新）
+
+    bool InBounds(Vector2Int q)
+    {
+        int w = MapData.GetLength(0), h = MapData.GetLength(1);
+        return q.x >= 0 && q.y >= 0 && q.x < w && q.y < h;
+    }
+    
     public void UpdateFrontierAfterChange(Vector2Int g)
     {
         occupied.Add(g);
         frontier.Remove(g);
 
+        var toCheck = new HashSet<Vector2Int>() { g };
         foreach (var n in Neighbors(g))
         {
-            if (!occupied.Contains(n) && MapData[n.x, n.y] == null)
+            toCheck.Add(n);
+            foreach (var m in Neighbors(n))
             {
-                frontier.Add(n);
+                toCheck.Add(m);
             }
         }
+
+        foreach (var c in toCheck)
+        {
+            if(!InBounds(c)){continue;}
+
+            frontier.Remove(c);
+
+            if (!occupied.Contains(c) && MapData[c.x, c.y] == null)
+            {
+                bool nearOcc = false;
+
+                foreach (var n in Neighbors(c))
+                {
+                    if (occupied.Contains(n))
+                    {
+                        nearOcc = true;
+                        break;
+                    }
+                }
+
+                if (nearOcc)
+                {
+                    frontier.Add(c);
+                }
+            }
+        }
+        
     }
     
 }

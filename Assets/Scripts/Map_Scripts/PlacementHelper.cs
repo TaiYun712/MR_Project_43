@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Oculus.Interaction.HandGrab;
 using UnityEngine;
 
 public class PlacementHelper : MonoBehaviour
@@ -51,9 +52,25 @@ public class PlacementHelper : MonoBehaviour
         snapWorldPos = default;
         float bestSqr = float.MaxValue;
         bool canPut = false;
+        
+        //檢查是否有鄰居
+        bool AdjacentToOccupied(Vector2Int cell)
+        {
+            foreach (var n in map.Neighbors(cell))
+            {
+                if (map.occupied.Contains(n))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        } 
 
         foreach (var f in map.frontier)
         {
+            if(!AdjacentToOccupied(f)){continue;} //避免懸空
+            
             var wpos = map.WorldPosGrid(f);
             float sqr = (wpos - heldWorldPos).sqrMagnitude;
             if (sqr < bestSqr)
@@ -116,6 +133,14 @@ public class PlacementHelper : MonoBehaviour
         
         map.UpdateFrontierAfterChange(snapGrid); //更新外圍合法位置
 
+        //落位後不可再拿
+        var ctrl = map.habitaAt[snapGrid].GetComponent<Habitat_Ctrl>();
+        if (ctrl != null)
+        {
+            ctrl.enabled = false;
+            ctrl.isLock = true;
+        }
+        
         //解除「手上物件」狀態
         heldHabitat = null;
         hasSnap = false;

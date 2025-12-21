@@ -339,7 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96baea2c9dd9a6e4296c7614b3a129a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placer: {fileID: 0}
+  isLock: 0
+  handGrab: {fileID: 6212089037268782726}
 --- !u!114 &311209036900617435
 MonoBehaviour:
   m_ObjectHideFlags: 0
