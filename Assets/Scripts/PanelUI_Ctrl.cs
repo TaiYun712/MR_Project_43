@@ -15,7 +15,7 @@ public class PanelUI_Ctrl : MonoBehaviour
     public Text getPlantText;
 
     public Image getPlantBG;
-    public Sprite normalPlantBG, pioneerPlantBG;
+    public GameObject getPioneerHint;
     public float closeHintTime;
 
     [Header("植物背包")] 
@@ -41,6 +41,7 @@ public class PanelUI_Ctrl : MonoBehaviour
     private void Start()
     {
         getPlantPanel.SetActive(false);
+        getPioneerHint.SetActive(false);
         
         plantPeckUIPanel.SetActive(false);
         planPeckShelf.SetActive(false);
@@ -57,8 +58,8 @@ public class PanelUI_Ctrl : MonoBehaviour
     {
         if(plant == null){return;}
         
+        PioneerPlantCheck(plant);
         getPlantPanel.SetActive(true);
-       // PioneerPlantCheck(plant);
         
         getPlantImage.sprite = plant.plantSprite;
         getPlantText.text = plant.plantName;
@@ -77,11 +78,11 @@ public class PanelUI_Ctrl : MonoBehaviour
     {
         if (plant.isPioneer)
         {
-            getPlantBG.sprite = pioneerPlantBG;
+           getPioneerHint.SetActive(true);
         }
         else
         {
-            getPlantBG.sprite = normalPlantBG;
+            getPioneerHint.SetActive(false);
         }
     }
     
