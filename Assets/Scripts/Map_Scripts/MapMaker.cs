@@ -109,6 +109,64 @@ public class MapMaker : MonoBehaviour
     }
     
     //===== 鄰居 =====
+    
+    // ===== Axial <-> Offset(odd-q) 轉換 =====
+    private Vector2Int OffsetOddQ_ToAxial(Vector2Int p)
+    {
+        // q = x
+        // r = y - (x - (x & 1)) / 2
+        int q = p.x;
+        int r = p.y - (p.x - (p.x & 1)) / 2;
+        return new Vector2Int(q, r);
+    }
+
+    private Vector2Int Axial_ToOffsetOddQ(Vector2Int a)
+    {
+        // x = q
+        // y = r + (q - (q & 1)) / 2
+        int x = a.x;
+        int y = a.y + (a.x - (a.x & 1)) / 2;
+        return new Vector2Int(x, y);
+    }
+
+// 六個軸向鄰居（axial 座標系）
+    private static readonly Vector2Int[] axialDirs = new Vector2Int[]
+    {
+        new Vector2Int(+1,  0),
+        new Vector2Int(+1, -1),
+        new Vector2Int( 0, -1),
+        new Vector2Int(-1,  0),
+        new Vector2Int(-1, +1),
+        new Vector2Int( 0, +1)
+    };
+
+    public IEnumerable<Vector2Int> Neighbors(Vector2Int p)
+    {
+        if (MapData == null)
+        {
+            yield break;
+        }
+
+        int w = MapData.GetLength(0);
+        int h = MapData.GetLength(1);
+
+        // 1) 先把 offset(odd-q) 轉 axial
+        Vector2Int a = OffsetOddQ_ToAxial(p);
+
+        // 2) 在 axial 走 6 個方向，再轉回 offset(odd-q)
+        for (int i = 0; i < axialDirs.Length; i++)
+        {
+            Vector2Int na = new Vector2Int(a.x + axialDirs[i].x, a.y + axialDirs[i].y);
+            Vector2Int q = Axial_ToOffsetOddQ(na);
+
+            if (q.x >= 0 && q.y >= 0 && q.x < w && q.y < h)
+            {
+                yield return q;
+            }
+        }
+    }
+    
+    /*
     private static readonly Vector2Int[] offodd =
         { new(+1, 0), new(0, +1), new(-1, +1), new(-1, 0), new(-1, -1), new(0, -1) };
 
@@ -130,6 +188,7 @@ public class MapMaker : MonoBehaviour
             }
         }
     }
+    */
     
     //生成地圖外圈
     void BuildOccupyAndFrontier()
