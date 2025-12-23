@@ -31,6 +31,10 @@ public class LittleGuyCtrl : MonoBehaviour
     public void CallBackGuy_L()
     {
         transform.position = leftHandPos.position;
+        
+        Vector3 currentEulerAngles = transform.eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, currentEulerAngles.y, 0f);
+        
         guyAni.SetTrigger("showup");
         shoeUpPrt.Play();
         AudioManager.instance.ShowHint();
@@ -39,6 +43,10 @@ public class LittleGuyCtrl : MonoBehaviour
     public void CallBackGuy_R()
     {
         transform.position = rightHandPos.position;
+        
+        Vector3 currentEulerAngles = transform.eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, currentEulerAngles.y, 0f);
+        
         guyAni.SetTrigger("showup");
         shoeUpPrt.Play();
         AudioManager.instance.ShowHint();
