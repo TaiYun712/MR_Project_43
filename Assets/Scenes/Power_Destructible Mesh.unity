@@ -27772,7 +27772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16449bbe3c1e2ac4999b1319b5d22461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landTilePf: {fileID: 1228057605367626317, guid: 48949e7553727ef4c801a19f91e346f9, type: 3}
+  landTilePf:
+  - {fileID: 1228057605367626317, guid: 48949e7553727ef4c801a19f91e346f9, type: 3}
+  - {fileID: 9031923810443255506, guid: edd1af70a716b644395e57c64f4c8892, type: 3}
   waterTilePf: {fileID: 7996545945954321863, guid: 7c141766081cbe148a107355b850cbfa, type: 3}
   cityTilePf:
   - {fileID: 3566180193485966468, guid: ce49300f47d7e3749931790e558f3a28, type: 3}

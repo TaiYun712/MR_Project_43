@@ -5,7 +5,7 @@ using UnityEngine;
 public class TilePool : MonoBehaviour
 {
     [Header("Tile Prefabs")]
-    public GameObject landTilePf;
+    public GameObject[] landTilePf;
     public GameObject waterTilePf;
 
     [Header("Towns Prefabs")]
@@ -59,7 +59,7 @@ public class TilePool : MonoBehaviour
         else if (tileData.kind == TileKind.Land)
         {
             pool = landPool;
-            pf = landTilePf;
+            pf = GetRandomPf(landTilePf);
         }
         else
         {
