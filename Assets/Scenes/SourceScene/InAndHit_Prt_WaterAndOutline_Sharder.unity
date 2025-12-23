@@ -5093,7 +5093,7 @@ GameObject:
   - component: {fileID: 36021124}
   - component: {fileID: 36021123}
   m_Layer: 0
-  m_Name: LevelUp_prt (1)
+  m_Name: Combine_prt (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14987,7 +14987,7 @@ GameObject:
   - component: {fileID: 256163323}
   - component: {fileID: 256163322}
   m_Layer: 0
-  m_Name: LevelUp_prt
+  m_Name: Combine_prt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
