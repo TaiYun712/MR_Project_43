@@ -13,7 +13,9 @@ public class AudioManager : MonoBehaviour
     
     [SerializeField]
     AudioSource bgmSource,uiSourse, animalSourse,sfxSource,sfxSource2;
-
+    [SerializeField]
+    private GameObject townSound;
+    
     [Header("BGM")]
     [SerializeField]
     AudioClip titleBGM,gameBGM,gameWinBGM;
@@ -38,7 +40,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioClip[] wallBrokenSounds;
 
-   
+    
 
     private void Awake()
     {
@@ -56,6 +58,8 @@ public class AudioManager : MonoBehaviour
     //BGM
     void Start()
     {
+        townSound.SetActive(false);
+        
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
@@ -76,6 +80,8 @@ public class AudioManager : MonoBehaviour
 
     public void SwitchTitleBGM()
     {
+        townSound.SetActive(false);
+        
         bgmSource.clip = titleBGM;
         bgmSource.loop = true;
         bgmSource.volume = titleBgmVol;
@@ -84,10 +90,17 @@ public class AudioManager : MonoBehaviour
     
     public void SwitchGameBGM()
     {
+        Invoke("OpenTownSound",3f);
+        
         bgmSource.clip = gameBGM;
         bgmSource.loop = true;
         bgmSource.volume = gamingBgmVol;
         bgmSource.Play();
+    }
+
+    public void OpenTownSound()
+    {
+        townSound.SetActive(true);
     }
 
     
