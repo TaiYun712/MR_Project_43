@@ -28,6 +28,9 @@ public class AudioManager : MonoBehaviour
     AudioClip popSound,showHintSound,woodUISound,overHintSound,switchSound
         ,pickUpSound,putInSound;
 
+    [SerializeField] 
+    private AudioClip[] pickHabitat;
+
     [Header("Animals")]
     [SerializeField]
     AudioClip happybirdSound,redbirdSound;
@@ -224,6 +227,13 @@ public class AudioManager : MonoBehaviour
     public void PutPlantInToCraft()
     {
         uiSourse.clip = putInSound;
+        uiSourse.Play();
+    }
+
+    public void PickUpHabitatSound()
+    {
+        int pickIndex = Random.Range(0, pickHabitat.Length);
+        uiSourse.clip = pickHabitat[pickIndex];
         uiSourse.Play();
     }
     

@@ -20,6 +20,7 @@ public class Habitat_Ctrl : MonoBehaviour
 
     public void OnGrabbed()
     {
+        AudioManager.instance.PickUpThePlantSound();
         if (isLock)
         {
             handGrab.SetActive(false);

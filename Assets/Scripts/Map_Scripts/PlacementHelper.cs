@@ -120,7 +120,8 @@ public class PlacementHelper : MonoBehaviour
 
         //確定落位，寫入gridPos座標
         heldHabitat.gridPos = snapGrid;
-
+        AudioManager.instance.PickUpHabitatSound();
+        
         if (heldHabitat.tileData == null)
         {
             heldHabitat.tileData = new TileData();
