@@ -16673,14 +16673,14 @@ RectTransform:
   m_GameObject: {fileID: 325209677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.17739886, y: 0.17739886, z: 0.17739886}
+  m_LocalScale: {x: 0.19975081, y: 0.19975081, z: 0.19975081}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 399493686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38.5, y: -29.6}
+  m_AnchoredPosition: {x: -38.5, y: -29.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325209679
@@ -16703,7 +16703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1b754d25e549fce48bbcbdc90f7923a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a18446ed024beae43b0ba7ca89818e83, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -151875,9 +151875,9 @@ MonoBehaviour:
   introPlantDescription: {fileID: 2145202066}
   pioneerPlantBg: {fileID: 850969055}
   gpImage: {fileID: 325209679}
-  gp_1: {fileID: 21300000, guid: 1b754d25e549fce48bbcbdc90f7923a0, type: 3}
-  gp_2: {fileID: 21300000, guid: eec87ec22c418224dadfc1cc718c4a4b, type: 3}
-  gp_3: {fileID: 21300000, guid: 0445d806c9d11fb44b41123748c4a87f, type: 3}
+  gp_1: {fileID: 21300000, guid: a18446ed024beae43b0ba7ca89818e83, type: 3}
+  gp_2: {fileID: 21300000, guid: cfbc445dd5aebf547aaac547c9f0e13f, type: 3}
+  gp_3: {fileID: 21300000, guid: 44e47cb3fd7fc4043bffde10d97cec66, type: 3}
 --- !u!114 &2092649690
 MonoBehaviour:
   m_ObjectHideFlags: 0
