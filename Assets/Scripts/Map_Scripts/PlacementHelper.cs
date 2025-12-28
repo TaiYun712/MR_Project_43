@@ -147,5 +147,11 @@ public class PlacementHelper : MonoBehaviour
         hasSnap = false;
         ghostTile.SetActive(false);
 
+        //===落為後更新地圖
+        int regionId = -1;
+        regionId = RegionSystem.instance.OnHabitatPlaced(snapGrid);
+        
+        //重新計算地圖
+        RehabSystem.instance.OnMapChange();
     }
 }
