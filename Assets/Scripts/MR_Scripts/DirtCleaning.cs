@@ -93,6 +93,8 @@ public class DirtCleaning : MonoBehaviour
 
     void DirtyClear()
     {
+        AudioManager.instance.CleanOverSound();
+        
         destructibleManager.currentDirtyCount--;
         Destroy(this.gameObject);
     }

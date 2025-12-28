@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip catchSoulSound,aimSound,fireSound,brokeSound,broadMoveSound,bubleUpSound
         ,callTableSound,craftSuccessSound,craftFailSound,gameWinSFX,
-        cleanStartSd,cleanKeepSd,cleanHitSd;
+        cleanStartSd,cleanKeepSd,cleanHitSd,cleanOver;
     [SerializeField]
     private AudioClip[] wallBrokenSounds;
 
@@ -259,6 +259,12 @@ public class AudioManager : MonoBehaviour
     public void CleanHit()
     {
         sfxSource.clip = cleanHitSd;
+        sfxSource.Play();
+    }
+
+    public void CleanOverSound()
+    {
+        sfxSource.clip = cleanOver;
         sfxSource.Play();
     }
     

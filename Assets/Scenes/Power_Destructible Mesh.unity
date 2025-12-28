@@ -123362,6 +123362,7 @@ MonoBehaviour:
   cleanStartSd: {fileID: 8300000, guid: c846cca2b2e0feb43948fc25e9d717ae, type: 3}
   cleanKeepSd: {fileID: 8300000, guid: 7a23d7c880d77ed45b21b77ff5037253, type: 3}
   cleanHitSd: {fileID: 8300000, guid: 85e21d88999d5c3418438219e45fea33, type: 3}
+  cleanOver: {fileID: 8300000, guid: 59accca5def557444bfa099c80073232, type: 3}
   wallBrokenSounds:
   - {fileID: 8300000, guid: 147f2347eeeb436488b8b27749772cc2, type: 3}
   - {fileID: 8300000, guid: 6744286284d43794c9e6a32f2b4e39a4, type: 3}
