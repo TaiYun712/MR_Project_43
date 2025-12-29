@@ -27375,15 +27375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16449bbe3c1e2ac4999b1319b5d22461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landTilePf:
-  - {fileID: 1228057605367626317, guid: 48949e7553727ef4c801a19f91e346f9, type: 3}
-  - {fileID: 7930158320201378938, guid: 451506f835ca73d4c88e895abb1aeae7, type: 3}
-  - {fileID: 2746963482399079116, guid: 80aba60d1df06c34c972a7b25423a7d8, type: 3}
-  - {fileID: 1641941825864375824, guid: c7d74b722e88aa74fbc83b8d7aef2f4d, type: 3}
-  - {fileID: 9045960212905096637, guid: fb4bac23e0d2fee4ab80bdcc120a0c09, type: 3}
-  - {fileID: 1428241287541356598, guid: 7685151941f5e304eb9f8e3c8d9508ba, type: 3}
-  - {fileID: 7775601209830942655, guid: 22acce436fb3e2e4ca42686bfb8ce085, type: 3}
-  - {fileID: 2346270847020848183, guid: 63ef62980c211ca4aa0b307cb2abb4dc, type: 3}
+  landTilePf: []
   waterTilePf: {fileID: 7996545945954321863, guid: 7c141766081cbe148a107355b850cbfa, type: 3}
   cityTilePf:
   - {fileID: 3566180193485966468, guid: ce49300f47d7e3749931790e558f3a28, type: 3}
@@ -66083,7 +66075,7 @@ MonoBehaviour:
   failSp: {fileID: 21300000, guid: 193538536db464a44bfdd2ce2f93b6fe, type: 3}
   SuccessSp: {fileID: 21300000, guid: 04be92a3795a45e4da16522540fb761c, type: 3}
   successPrt: {fileID: 1222112441}
-  successPrt_2: {fileID: 1553657634}
+  successPrt_2: {fileID: 0}
 --- !u!1 &847500068
 GameObject:
   m_ObjectHideFlags: 0
@@ -66411,7 +66403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.98564017, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.8584906, g: 0.35436854, b: 0.052643314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -123392,7 +123384,7 @@ MonoBehaviour:
   animalSourse: {fileID: 159850391}
   sfxSource: {fileID: 790012759}
   sfxSource2: {fileID: 4219840}
-  townSound: {fileID: 856846080}
+  townSound: {fileID: 0}
   titleBGM: {fileID: 8300000, guid: 110cc6fbe502f7d4e9edc0c26f3615ac, type: 3}
   gameBGM: {fileID: 8300000, guid: 0527517666c66f945841531552a4a4c4, type: 3}
   gameWinBGM: {fileID: 8300000, guid: 3fb367c25636e3a419195024ac3d2b76, type: 3}
@@ -123405,11 +123397,7 @@ MonoBehaviour:
   switchSound: {fileID: 8300000, guid: 9f865636bd658aa47b49667e81017320, type: 3}
   pickUpSound: {fileID: 8300000, guid: c33458f15cd0d2145bb4578578ea6eab, type: 3}
   putInSound: {fileID: 8300000, guid: 928dd2be086157c45bfc22a54b4fc6f2, type: 3}
-  pickHabitat:
-  - {fileID: 8300000, guid: c6ab92bd6ffa36f4ea61876ad60b8b15, type: 3}
-  - {fileID: 8300000, guid: d2bb4ad8a7d0b534da68d8863e40f48f, type: 3}
-  - {fileID: 8300000, guid: 2560e97741a0a5042848c33c16af93f6, type: 3}
-  - {fileID: 8300000, guid: c86cea26ac7338b43a8e2d1db17ce62b, type: 3}
+  pickHabitat: []
   happybirdSound: {fileID: 8300000, guid: 6850e00b694fcdd41a1a9f84ba3b6151, type: 3}
   redbirdSound: {fileID: 8300000, guid: 7411680e693166740befdfce46b73dd2, type: 3}
   catchSoulSound: {fileID: 8300000, guid: bf41823bc537e9346863e1b7482d86dc, type: 3}
@@ -123425,7 +123413,7 @@ MonoBehaviour:
   cleanStartSd: {fileID: 8300000, guid: c846cca2b2e0feb43948fc25e9d717ae, type: 3}
   cleanKeepSd: {fileID: 8300000, guid: 7a23d7c880d77ed45b21b77ff5037253, type: 3}
   cleanHitSd: {fileID: 8300000, guid: 85e21d88999d5c3418438219e45fea33, type: 3}
-  cleanOver: {fileID: 8300000, guid: 59accca5def557444bfa099c80073232, type: 3}
+  cleanOver: {fileID: 0}
   wallBrokenSounds:
   - {fileID: 8300000, guid: 147f2347eeeb436488b8b27749772cc2, type: 3}
   - {fileID: 8300000, guid: 6744286284d43794c9e6a32f2b4e39a4, type: 3}
