@@ -116,6 +116,7 @@ public class RegionSystem : MonoBehaviour
             //若 沒鄰居 就新增一片新棲地
             targetId = nextId;
             nextId += 1;
+            Debug.Log($"目前有{nextId}片棲地");
 
             RegionInfo r = new RegionInfo();
             r.id = targetId;

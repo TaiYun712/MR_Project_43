@@ -135,6 +135,7 @@ public class PanelUI_Ctrl : MonoBehaviour
     {
         gameOverPanel.SetActive(false);
         SceneManager.LoadScene("TitleScene");
+        AudioManager.instance.SwitchTitleBGM();
     }
     
     

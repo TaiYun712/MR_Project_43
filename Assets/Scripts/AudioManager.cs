@@ -271,10 +271,13 @@ public class AudioManager : MonoBehaviour
     //BGM_GameOver
     public void PlayWinBGM()
     {
+        townSound.SetActive(false);
+        
         sfxSource.clip = gameWinSFX;
         sfxSource.Play();
         
         bgmSource.clip = gameWinBGM;
+        bgmSource.volume = titleBgmVol;
         bgmSource.Play();
     }
 

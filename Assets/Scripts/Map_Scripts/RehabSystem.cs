@@ -71,7 +71,7 @@ public class RehabSystem : MonoBehaviour
     void OnWin()
     {
          Debug.Log("[RehabSystem] 關卡通關！");
-               
+         GameManager.instance.ToResult();
          this.enabled = false;
     }
     

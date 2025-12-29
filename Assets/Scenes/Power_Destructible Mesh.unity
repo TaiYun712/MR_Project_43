@@ -66751,7 +66751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4238984314964454271, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.276
+      value: -0.068
       objectReference: {fileID: 0}
     - target: {fileID: 4238984314964454271, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -66759,7 +66759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4238984314964454271, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.186
+      value: 0.278
       objectReference: {fileID: 0}
     - target: {fileID: 4238984314964454271, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -84415,6 +84415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AWtile_2
       objectReference: {fileID: 0}
+    - target: {fileID: 4979968068899825487, guid: 53d0b4e6edac045438d3efd53d8fd14b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5645181036431130101, guid: 53d0b4e6edac045438d3efd53d8fd14b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.157
@@ -95530,7 +95534,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1419477084871788532, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.015
+      value: 0.0662
       objectReference: {fileID: 0}
     - target: {fileID: 1419477084871788532, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -95538,7 +95542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1419477084871788532, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.174
+      value: 0.2932
       objectReference: {fileID: 0}
     - target: {fileID: 1419477084871788532, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -95571,6 +95575,10 @@ PrefabInstance:
     - target: {fileID: 1799520446306540878, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
       propertyPath: m_Name
       value: AHtile_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799520446306540878, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -102568,7 +102576,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6293830573224928248, guid: cb5d0efd75ab3314fa106c37260557dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.128
+      value: 0.07999998
       objectReference: {fileID: 0}
     - target: {fileID: 6293830573224928248, guid: cb5d0efd75ab3314fa106c37260557dd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -102576,7 +102584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6293830573224928248, guid: cb5d0efd75ab3314fa106c37260557dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.186
+      value: 0.278
       objectReference: {fileID: 0}
     - target: {fileID: 6293830573224928248, guid: cb5d0efd75ab3314fa106c37260557dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -102609,6 +102617,10 @@ PrefabInstance:
     - target: {fileID: 6634925006891579714, guid: cb5d0efd75ab3314fa106c37260557dd, type: 3}
       propertyPath: m_Name
       value: BHtile_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634925006891579714, guid: cb5d0efd75ab3314fa106c37260557dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -128552,7 +128564,7 @@ MonoBehaviour:
   overDestoryText: {fileID: 625032447}
   closeWarningTime: 3
   gameOverPanel: {fileID: 1996851838}
-  closeGameOverUITime: 7
+  closeGameOverUITime: 15
 --- !u!4 &1899302639
 Transform:
   m_ObjectHideFlags: 0
