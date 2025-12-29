@@ -89,7 +89,7 @@ public class PoseDemo : MonoBehaviour
         {
             if (!hasFirstGamePlay)
             {
-                currentSkill = 0;
+                currentSkill =3;
                 SetSkills();
                 hasFirstGamePlay = true;
             }
@@ -283,8 +283,8 @@ public class PoseDemo : MonoBehaviour
                 break;
 
             case 3:
-                skillNameText.text = "移除";
-                skillDescribeText.text = "移除過度生長的植物";
+                skillNameText.text = "技能面板";
+                skillDescribeText.text = "手掌握拳以切換技能";
                 CloseAllSkill();
                 
                 cleanHandAim.SetActive(false);
@@ -292,6 +292,7 @@ public class PoseDemo : MonoBehaviour
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
                 break;
+          
         }
     }
 
