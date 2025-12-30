@@ -22073,7 +22073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5456522116536683071, guid: 37c47f9928e3fef4bb9a9ffaafab5526, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66748,6 +66748,10 @@ PrefabInstance:
     - target: {fileID: 3573665037582660037, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
       propertyPath: m_Name
       value: BWtile_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573665037582660037, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4238984314964454271, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -143693,7 +143697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseEco: 5
-  expandEco: 3
+  expandEco: 5
   targetTotalStages: 3
   totalStages: 0
 --- !u!1 &2044895680
