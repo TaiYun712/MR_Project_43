@@ -20,9 +20,12 @@ public class RegionSystem : MonoBehaviour
     
     //(tiles / ecoSum)
     private readonly Dictionary<int, RegionInfo> regions = new Dictionary<int, RegionInfo>();
-
+    
     private int nextId = 1; //下一個新片的 id
 
+    [Header("棲地外框")]
+    public Color outlineColorBelow = new Color(1.0f, 0.58f, 0.0f); // （未達基礎）
+    public Color outlineColorReached = Color.yellow;               // （已達基礎）
 
     //每片的資訊
     public class RegionInfo
@@ -104,7 +107,7 @@ public class RegionSystem : MonoBehaviour
         HashSet<int> neighborIds = new HashSet<int>();
         foreach (Vector2Int n in map.Neighbors(g))
         {
-            if (map.habitaAt.ContainsKey(n) && regionOf.TryGetValue(n, out int rid) && rid > 0)
+            if (map.habitaAt.ContainsKey(n) && regionOf.TryGetValue(n, out int rid) && rid >= 0)
             {
                 neighborIds.Add(rid);
             }
@@ -116,7 +119,7 @@ public class RegionSystem : MonoBehaviour
             //若 沒鄰居 就新增一片新棲地
             targetId = nextId;
             nextId += 1;
-            Debug.Log($"目前有{nextId}片棲地");
+            Debug.Log($"目前有{nextId -1}片棲地");
 
             RegionInfo r = new RegionInfo();
             r.id = targetId;
@@ -125,10 +128,13 @@ public class RegionSystem : MonoBehaviour
         else
         {
             //若 有鄰居 就以第一個為主將其他相連棲地合併
-            using (var it = neighborIds.GetEnumerator())
+            targetId = int.MaxValue;
+            foreach (int id in neighborIds)
             {
-                it.MoveNext();
-                targetId = it.Current;
+                if (id < targetId)
+                {
+                    targetId = id;
+                }
             }
 
             foreach (int other in neighborIds)
@@ -191,5 +197,65 @@ public class RegionSystem : MonoBehaviour
         Debug.Log($"共有{sum}生態點數");
     }
     
-    
+    //====================棲地高亮=============================
+    // 依 ecoSum 判斷該片顏色
+    private Color GetRegionColor(int ecoSum, int baseEco)
+    {
+        return (ecoSum >= baseEco) ? outlineColorReached : outlineColorBelow;
+    }
+
+    public void ShowAllRegionsOutline(int baseEco)
+    {
+        Debug.Log($"[RegionSystem] ShowAllRegionsOutline() regions={regions.Count}");
+
+        foreach (var r in regions.Values)
+        {
+            Debug.Log($" - region {r.id} tiles={r.tiles.Count} eco={r.ecoSum}");
+            bool reached = r.ecoSum >= baseEco;
+            foreach (var g in r.tiles)
+            {
+                if (!map.habitaAt.TryGetValue(g, out TileBehaviour tb) || tb == null) { continue; }
+                OutlineShellCtrl ctrl = tb.GetComponent<OutlineShellCtrl>();
+                if (ctrl == null)
+                {
+                    Debug.LogWarning($"   tile {g} 沒有 OutlineShellCtrl");
+                    continue;
+                }
+
+                if (reached) { ctrl.ShowYellow(); }
+                else { ctrl.ShowOrange(); }
+            }
+        }
+    }
+
+// 更新單一片
+    public void RefreshOneRegionOutline(int regionId, int baseEco)
+    {
+        if (!regions.TryGetValue(regionId, out RegionInfo r)) { return; }
+        bool reached = r.ecoSum >= baseEco;
+
+        foreach (var g in r.tiles)
+        {
+            if (!map.habitaAt.TryGetValue(g, out TileBehaviour tb) || tb == null) { continue; }
+            OutlineShellCtrl ctrl = tb.GetComponent<OutlineShellCtrl>();
+            if (ctrl == null) { continue; }
+
+            if (reached) { ctrl.ShowYellow(); }
+            else { ctrl.ShowOrange(); }
+        }
+    }
+
+// 全部隱藏
+    public void HideAllRegionsOutline()
+    {
+        foreach (var r in regions.Values)
+        {
+            foreach (var g in r.tiles)
+            {
+                if (!map.habitaAt.TryGetValue(g, out TileBehaviour tb) || tb == null) { continue; }
+                OutlineShellCtrl ctrl = tb.GetComponent<OutlineShellCtrl>();
+                if (ctrl != null) { ctrl.Hide(); }
+            }
+        }
+    }
 }

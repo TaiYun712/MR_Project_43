@@ -166,30 +166,6 @@ public class MapMaker : MonoBehaviour
         }
     }
     
-    /*
-    private static readonly Vector2Int[] offodd =
-        { new(+1, 0), new(0, +1), new(-1, +1), new(-1, 0), new(-1, -1), new(0, -1) };
-
-    private static readonly Vector2Int[] offEven = 
-        {  new(+1,0), new(+1,+1), new(0,+1), new(-1,0), new(0,-1), new(+1,-1)  };
-
-    public IEnumerable<Vector2Int> Neighbors(Vector2Int p)
-    {
-        if(MapData == null){yield break;}
-
-        int w = MapData.GetLength(0), h = MapData.GetLength(1);
-        var offs = (p.x % 2 == 1) ? offodd : offEven;
-        foreach (var d in offs)
-        {
-            var q = p + d;
-            if (q.x >= 0 && q.y >= 0 && q.x < w && q.y < h)
-            {
-                yield return q;
-            }
-        }
-    }
-    */
-    
     //生成地圖外圈
     void BuildOccupyAndFrontier()
     {

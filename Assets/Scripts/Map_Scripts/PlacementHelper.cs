@@ -109,6 +109,13 @@ public class PlacementHelper : MonoBehaviour
     public void OnGrabHabitat(TileBehaviour hb)
     {
         heldHabitat = hb;
+        
+        RehabSystem rehab = RehabSystem.instance;
+        RegionSystem regions = RegionSystem.instance;
+        if (rehab != null && regions != null)
+        {
+            regions.ShowAllRegionsOutline(rehab.baseEco);
+        }
     }
     
     //放開棲地
@@ -153,5 +160,15 @@ public class PlacementHelper : MonoBehaviour
         
         //重新計算地圖
         RehabSystem.instance.OnMapChange();
+        
+        RehabSystem rehab = RehabSystem.instance;
+        RegionSystem regions = RegionSystem.instance;
+        if (rehab != null && regions != null)
+        {
+            // 即時更新該片的顏色（可能從橘→黃）
+            regions.RefreshOneRegionOutline(regionId, rehab.baseEco);
+            // 幾秒後收掉
+            regions.HideAllRegionsOutline();
+        }
     }
 }

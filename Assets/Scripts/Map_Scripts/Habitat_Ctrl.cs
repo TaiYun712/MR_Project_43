@@ -37,5 +37,6 @@ public class Habitat_Ctrl : MonoBehaviour
         if (isLock) { return;}
         
         PlacementHelper.instance.OnReleaseHabitat();
+        RegionSystem.instance.HideAllRegionsOutline();
     }
 }
