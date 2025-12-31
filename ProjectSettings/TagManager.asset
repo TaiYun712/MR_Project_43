@@ -10,6 +10,7 @@ TagManager:
   - DestructibleWalls
   - Cleaner
   - habitat
+  - maphouse
   layers:
   - Default
   - TransparentFX
