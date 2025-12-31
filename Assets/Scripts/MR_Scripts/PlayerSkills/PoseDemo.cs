@@ -284,7 +284,7 @@ public class PoseDemo : MonoBehaviour
 
             case 3:
                 skillNameText.text = "技能面板";
-                skillDescribeText.text = "手掌握拳以切換技能";
+                skillDescribeText.text = "手掌握拳切換技能    手勢八看資訊面板";
                 CloseAllSkill();
                 
                 cleanHandAim.SetActive(false);

@@ -124,6 +124,8 @@ public class PanelUI_Ctrl : MonoBehaviour
 
     public void OpenGameOverUI()
     {
+        ClosePlantPeckUI();
+        
         gameOverPanel.SetActive(true);
         AudioManager.instance.ShowHint();
         AudioManager.instance.PlayWinBGM();
