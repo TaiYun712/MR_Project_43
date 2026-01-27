@@ -31,6 +31,11 @@ public class PanelUI_Ctrl : MonoBehaviour
     [Header("遊戲結束提示")] 
     public GameObject gameOverPanel;
     public float closeGameOverUITime;
+
+    [Header("對話框指引")] 
+    public GameObject diologPanel;
+    public Text diologText;
+    public float dioShowTime;
     
     private void Awake()
     {
@@ -49,6 +54,8 @@ public class PanelUI_Ctrl : MonoBehaviour
         overDestoryHint.SetActive(false);
         
         gameOverPanel.SetActive(false);
+        
+        diologPanel.SetActive(false);
 
     }
 
@@ -140,8 +147,20 @@ public class PanelUI_Ctrl : MonoBehaviour
         AudioManager.instance.SwitchTitleBGM();
     }
     
-    
-    
+    //------對話框指引
+    public void ShowDiolog(string dioContent)
+    {
+        diologText.text = dioContent;
+        diologPanel.SetActive(true);
+        AudioManager.instance.ShowHint();
+        
+        Invoke("CloseDiolog",dioShowTime);
+    }
+
+    void CloseDiolog()
+    {
+        diologPanel.SetActive(false);
+    }
    
     
 }

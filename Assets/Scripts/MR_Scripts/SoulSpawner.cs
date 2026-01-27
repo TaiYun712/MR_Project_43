@@ -45,15 +45,16 @@ public class SoulSpawner : MonoBehaviour
       Invoke("CloseLevelPanel",showTime);
 
       
-      GameManager.instance.ToGamePlay();///////////////////////測試用，暫時跳過沒收集完碎片不能用能力的部分
+     // GameManager.instance.ToGamePlay();///////////////////////測試用，暫時跳過沒收集完碎片不能用能力的部分
     }
     
     //關閉提示
     public void CloseLevelPanel()
     {
         levelReadyPanel.SetActive(false);
-        
         SpawnSouls(soulCount); //提示結束後開始生成
+        
+        PanelUI_Ctrl.instance.ShowDiolog("用*雙手觸摸*收集周遭的生靈碎片");
     }
 
     //生成碎片
@@ -112,6 +113,8 @@ public class SoulSpawner : MonoBehaviour
         levelStartPanel.SetActive(false);
         handCatcher_L.SetActive(false);
         handCatcher_R.SetActive(false);
+        
+        PanelUI_Ctrl.instance.ShowDiolog("紅冠水雞 因為棲地不足正在消失，請在地圖上增加棲地提升族群數量吧");
         
         GameManager.instance.ToGamePlay();
     }

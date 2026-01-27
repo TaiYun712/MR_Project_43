@@ -16,7 +16,6 @@ public class LittleGuyCtrl : MonoBehaviour
     public ParticleSystem shoeUpPrt;
 
     public GameObject temDiolog;
-    
     void Start()
     {
         transform.position = initialPos.transform.position;
@@ -25,6 +24,7 @@ public class LittleGuyCtrl : MonoBehaviour
     }
 
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("maphouse"))
@@ -34,7 +34,7 @@ public class LittleGuyCtrl : MonoBehaviour
             Invoke("CloseDiolog",2f);
         }
     }
-
+*/
     void CloseDiolog()
     {
         temDiolog.SetActive(false);

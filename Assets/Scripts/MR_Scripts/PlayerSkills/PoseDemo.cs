@@ -50,6 +50,8 @@ public class PoseDemo : MonoBehaviour
     public Transform shootPos;
     public float maxLineDistance = 5f;
     public LayerMask layerMask;
+
+    public GameObject skillVodeo;
     
     [Header("能量球動畫")] 
     public Animator mainAimAni;
@@ -81,6 +83,8 @@ public class PoseDemo : MonoBehaviour
     {
         SkillInitialState();
         hasFirstGamePlay = false;
+        
+        skillVodeo.SetActive(false);
     }
 
     private void Update()
@@ -256,6 +260,17 @@ public class PoseDemo : MonoBehaviour
                 cleanHandAim.SetActive(false);
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
+
+                if (PlantInventory.instance.hasGetPlant)
+                {
+                    skillVodeo.SetActive(false);
+                }
+                else
+                {
+                    skillVodeo.SetActive(true);
+
+                }
+                
                 break;
 
             case 1:
@@ -269,6 +284,8 @@ public class PoseDemo : MonoBehaviour
                 handAim.SetActive(false);
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
+                
+                skillVodeo.SetActive(false);
                 break;
 
             case 2:
@@ -280,6 +297,8 @@ public class PoseDemo : MonoBehaviour
                 cleanHandAim.SetActive(false);
                 handAim.SetActive(false);
                 PanelUI_Ctrl.instance.OpenPlantPeckUI();
+                
+                skillVodeo.SetActive(false);
                 break;
 
             case 3:
@@ -291,6 +310,8 @@ public class PoseDemo : MonoBehaviour
                 handAim.SetActive(false);
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
+                
+                skillVodeo.SetActive(false);
                 break;
           
         }

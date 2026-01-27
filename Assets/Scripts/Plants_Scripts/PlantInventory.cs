@@ -7,16 +7,22 @@ public class PlantInventory : MonoBehaviour
 {
     public static PlantInventory instance;
     private Dictionary<Plant, int> inventory = new Dictionary<Plant, int>();
+
+    public bool hasGetPlant = false; //教學用，是否收集過植物
     
     private void Awake()
     {
         if (instance == null) { instance = this; }
         else { Destroy(this); }
+        
+        hasGetPlant = false;
     }
 
     //增加植物數量
     public void AddPlant(Plant plant, int amount = 1)
     {
+        hasGetPlant = true;
+        
         if (inventory.ContainsKey(plant))
         {
             inventory[plant] += amount;
