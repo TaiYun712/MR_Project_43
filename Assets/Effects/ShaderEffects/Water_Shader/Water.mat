@@ -52,7 +52,7 @@ Material:
     m_Floats:
     - _D: 10
     - _Depth_Fade_Distance: 3
-    - _EageFoam: 1
+    - _EageFoam: 3.07
     - _FoamAmount: 0.01
     - _FoamScale: 30
     - _FoamSpeed: 0.05
@@ -62,9 +62,9 @@ Material:
     - _Speed: 3
     - _T: 2.07
     m_Colors:
-    - _BaseColor: {r: 0.47450984, g: 0.9403651, b: 1, a: 0}
+    - _BaseColor: {r: 0.4206568, g: 0.62648815, b: 0.6509434, a: 0}
     - _LightColor: {r: 0.400938, g: 0.7005634, b: 1.2623599, a: 0}
-    - _ShallowColor: {r: 0.7216981, g: 0.90723276, b: 1, a: 1}
-    - _SurfaceColor: {r: 0.27687788, g: 0.7757219, b: 0.9622642, a: 1}
+    - _ShallowColor: {r: 0.28502133, g: 0.7520722, b: 0.990566, a: 1}
+    - _SurfaceColor: {r: 1.1075115, g: 3.1028876, b: 3.8490567, a: 1}
     - _WaveDirection: {r: 15, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
