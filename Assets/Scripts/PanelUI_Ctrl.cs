@@ -100,6 +100,8 @@ public class PanelUI_Ctrl : MonoBehaviour
     #region 植物背包
     public void OpenPlantPeckUI()
     {
+        if(GameManager.instance.currentState == GameManager.GameState.GameResult){return;}
+        
         float peckPosHeigh = plantPeckUIPos.transform.position.y;
         plantPeckUIPanel.transform.position = new Vector3(-0.2f, peckPosHeigh-0.3f,1f);
         plantPeckUIPanel.SetActive(true);
