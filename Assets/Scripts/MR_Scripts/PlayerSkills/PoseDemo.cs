@@ -15,11 +15,11 @@ public class PoseDemo : MonoBehaviour
 
     [Header("目前使用技能")] 
     [SerializeField] //合成
-    private bool isTableSkill = false;
+    public static bool isTableSkill = false;
     [SerializeField] //採集
-    private bool isShootSkill = false;
+    public static bool isShootSkill = false;
     [SerializeField] //淨化
-    private bool isCleanSkill = false;
+    public static bool isCleanSkill = false;
     
     [Header("資訊面板")]
     public GameObject infoPanel_hand;

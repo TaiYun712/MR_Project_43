@@ -32,6 +32,7 @@ public class Habitat_Ctrl : MonoBehaviour
         PlacementHelper.instance.OnGrabHabitat(tb);
         
         PanelUI_Ctrl.instance.ClosePlantPeckUI();
+        
     }
 
     public void OnReleased()
@@ -40,7 +41,11 @@ public class Habitat_Ctrl : MonoBehaviour
         
         PlacementHelper.instance.OnReleaseHabitat();
         RegionSystem.instance.HideAllRegionsOutline();
+        if (PoseDemo.isTableSkill)
+        {
+            PanelUI_Ctrl.instance.OpenPlantPeckUI();
+        }
         
-        PanelUI_Ctrl.instance.OpenPlantPeckUI();
+       
     }
 }

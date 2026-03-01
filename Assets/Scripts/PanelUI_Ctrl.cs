@@ -124,7 +124,7 @@ public class PanelUI_Ctrl : MonoBehaviour
         Invoke(nameof(CloseWarning),closeWarningTime);
     }
 
-    void CloseWarning()
+    public void CloseWarning()
     {
         overDestoryHint.SetActive(false);
     }
