@@ -57,6 +57,7 @@ public class PoseDemo : MonoBehaviour
     public Animator mainAimAni;
     public Animator frontAimAni;
     public Animator backAimAni;
+    public GameObject energyPrt;
 
     public Animator cleanAimAni;
     
@@ -257,6 +258,7 @@ public class PoseDemo : MonoBehaviour
                 isShootSkill = true;
                     
                 handAim.SetActive(true);
+                energyPrt.SetActive(false);  /////////////////////////////////////
                 cleanHandAim.SetActive(false);
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
@@ -363,6 +365,7 @@ public class PoseDemo : MonoBehaviour
             mainAimAni.SetTrigger("aiming");
             frontAimAni.SetBool("aiming",true);
             backAimAni.SetBool("aiming",true);
+            energyPrt.SetActive(true); /////////////////////////////////
             AudioManager.instance.AimReadySound();
         }else if (isCleanSkill)
         {
@@ -400,6 +403,7 @@ public class PoseDemo : MonoBehaviour
         {
             aimRay.SetActive(false);
             aimImpactPf.SetActive(false);
+
             AudioManager.instance.FireOutSound();
             
             GameObject shootBall =BulletPool.instance.GetBullet(shootPos.position, shootPos.rotation);
@@ -429,7 +433,8 @@ public class PoseDemo : MonoBehaviour
     {
         aimRay.SetActive(false);
         aimImpactPf.SetActive(false);
-
+        energyPrt.SetActive(false); /////////////////////////////////
+        
         frontAimAni.SetBool("aiming",false);
         backAimAni.SetBool("aiming",false);
         
