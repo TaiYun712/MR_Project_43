@@ -99,7 +99,7 @@ public class PoseDemo : MonoBehaviour
                 hasFirstGamePlay = true;
             }
             
-            
+            /*
             //能量球發射瞄準線-右
             if (isShooting && isShootSkill)
             {
@@ -120,7 +120,7 @@ public class PoseDemo : MonoBehaviour
             {
                 CloseCleanLaser();
             }
-            
+            */
             
             //偵測面板狀況-左
             if (!isOpenOtherPanel && IsPalmStillFacing() && !skillPanel.activeSelf)
@@ -132,8 +132,31 @@ public class PoseDemo : MonoBehaviour
         {
             SkillInitialState();
         }
-       
         
+    }
+
+    private void FixedUpdate()
+    {
+        //能量球發射瞄準線-右
+        if (isShooting && isShootSkill)
+        {
+            HoldToAim();
+        }
+        else
+        {
+            CloseAimLine();
+        }
+        
+        //淨化光束-右
+        if (isCleaning && isCleanSkill) 
+        {
+            OpenCleanLaser();
+            cleanTrigger.SetActive(true);
+        }
+        else
+        {
+            CloseCleanLaser();
+        }
     }
 
     #region 中指馬賽克
@@ -258,7 +281,7 @@ public class PoseDemo : MonoBehaviour
                 isShootSkill = true;
                     
                 handAim.SetActive(true);
-                energyPrt.SetActive(false);  /////////////////////////////////////
+                energyPrt.SetActive(false);  
                 cleanHandAim.SetActive(false);
                 tablePanel.SetActive(false);
                 PanelUI_Ctrl.instance.ClosePlantPeckUI();
@@ -365,7 +388,7 @@ public class PoseDemo : MonoBehaviour
             mainAimAni.SetTrigger("aiming");
             frontAimAni.SetBool("aiming",true);
             backAimAni.SetBool("aiming",true);
-            energyPrt.SetActive(true); /////////////////////////////////
+            energyPrt.SetActive(true); 
             AudioManager.instance.AimReadySound();
         }else if (isCleanSkill)
         {
@@ -433,7 +456,7 @@ public class PoseDemo : MonoBehaviour
     {
         aimRay.SetActive(false);
         aimImpactPf.SetActive(false);
-        energyPrt.SetActive(false); /////////////////////////////////
+        energyPrt.SetActive(false); 
         
         frontAimAni.SetBool("aiming",false);
         backAimAni.SetBool("aiming",false);
