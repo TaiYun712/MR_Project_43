@@ -34750,6 +34750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AHtile_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1799520446306540878, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66674,8 +66678,8 @@ MonoBehaviour:
   - {fileID: 1232245170}
   wetlandBasicPf: {fileID: 3573665037582660037, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
   wetlandAdvancedPf: {fileID: 4979968068899825487, guid: 53d0b4e6edac045438d3efd53d8fd14b, type: 3}
-  habitatBasicPf: {fileID: 6634925006891579714, guid: cb5d0efd75ab3314fa106c37260557dd, type: 3}
-  habitatAdvancedPf: {fileID: 1799520446306540878, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
+  habitatBasicPf: {fileID: 8644826242955661170, guid: 91ff64d03b8c7804db87af762afa7305, type: 3}
+  habitatAdvancedPf: {fileID: 5089582648013761655, guid: 2e8ecc8809ee16e4199a113a58b21d89, type: 3}
   resultSpawnPos: {fileID: 1077007331}
   craftHint: {fileID: 1106309637}
   craftHintText: {fileID: 176585726}
@@ -86895,6 +86899,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AWtile_2
       objectReference: {fileID: 0}
+    - target: {fileID: 4979968068899825487, guid: 53d0b4e6edac045438d3efd53d8fd14b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5645181036431130101, guid: 53d0b4e6edac045438d3efd53d8fd14b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.12167211
@@ -95173,6 +95181,10 @@ PrefabInstance:
     - target: {fileID: 3573665037582660037, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
       propertyPath: m_Name
       value: BWtile_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3573665037582660037, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238984314964454271, guid: bf05ae5ea7d8b164ea9ffb5b7b36d7fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -111249,6 +111261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BHtile_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6634925006891579714, guid: cb5d0efd75ab3314fa106c37260557dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -126365,6 +126381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AWtile_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4979968068899825487, guid: 53d0b4e6edac045438d3efd53d8fd14b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5645181036431130101, guid: 53d0b4e6edac045438d3efd53d8fd14b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.40167212
@@ -136187,6 +136207,10 @@ PrefabInstance:
     - target: {fileID: 1799520446306540878, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
       propertyPath: m_Name
       value: AHtile_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799520446306540878, guid: e19b3e41714992940ad181ebb40e79a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
