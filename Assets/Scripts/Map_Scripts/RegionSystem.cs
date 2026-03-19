@@ -27,6 +27,15 @@ public class RegionSystem : MonoBehaviour
     public Color outlineColorBelow = new Color(1.0f, 0.58f, 0.0f); // （未達基礎）
     public Color outlineColorReached = Color.yellow;               // （已達基礎）
 
+    [Header("棲地狀態UI")] 
+    public RegionStatusUI_Ctrl RegionStatusUIPf;
+    public Transform stateUIParents;
+    public float uiHightOffset = 0.15f;
+    
+    //每片棲地對應一個狀態UI
+    private readonly Dictionary<int, RegionStatusUI_Ctrl> regionUIMap = new Dictionary<int, RegionStatusUI_Ctrl>();
+    
+    
     //每片的資訊
     public class RegionInfo
     {
@@ -197,7 +206,7 @@ public class RegionSystem : MonoBehaviour
         Debug.Log($"共有{sum}生態點數");
     }
     
-    //====================棲地高亮=============================
+    //====================棲地高亮(outline)=============================
     // 依 ecoSum 判斷該片顏色
     private Color GetRegionColor(int ecoSum, int baseEco)
     {
@@ -258,4 +267,155 @@ public class RegionSystem : MonoBehaviour
             }
         }
     }
+    
+    //====================棲地狀態UI=============================
+    //取得該片棲地最接近中心位置
+    Vector3 GetRegionUIWorldPos(RegionInfo region)
+    {
+        Vector3 average = Vector3.zero;
+        int count = 0;
+
+        foreach (Vector2Int tile in region.tiles)
+        {
+            average += map.WorldPosGrid(tile);
+            count += 1;
+        }
+
+        if (count < 0)
+        {
+            return transform.position;
+        }
+
+        average /= count;
+        float bestDist = float.MaxValue;
+        Vector2Int bestTile = default;
+
+        foreach (Vector2Int tile in region.tiles)
+        {
+            Vector3 tilePos = map.WorldPosGrid(tile);
+            float dist = (tilePos - average).sqrMagnitude;
+            if (dist < bestDist)
+            {
+                bestDist = dist;
+                bestTile = tile;
+            }
+        }
+
+        Vector3 finalPos = map.WorldPosGrid(bestTile);
+        finalPos.y += uiHightOffset;
+        return finalPos;
+    }
+
+    RegionStatusUI_Ctrl GetOrCreateRegionUI(int regionId)
+    {
+        if (regionUIMap.TryGetValue(regionId, out RegionStatusUI_Ctrl ui))
+        {
+            return ui;
+        }
+
+        if (RegionStatusUIPf == null)
+        {
+            Debug.LogWarning("RegionSystem 沒有指定 statusUiPrefab");
+            return null;
+        }
+
+        RegionStatusUI_Ctrl newUi = Instantiate(RegionStatusUIPf);
+
+        if (stateUIParents != null)
+        {
+            newUi.transform.SetParent(stateUIParents, false);
+        }
+
+        newUi.HideRegionStateUI();
+        regionUIMap[regionId] = newUi;
+        return newUi;
+    }
+    
+    //顯示"單一片"棲地UI
+    public void ShowOneRegionStateUI(int regionId,int baseEco,int expandEco)
+    {
+        if(!regions.TryGetValue(regionId,out RegionInfo region)){return;}
+
+        RegionStatusUI_Ctrl ui = GetOrCreateRegionUI(regionId);
+        if(ui = null){return;}
+
+        string message = BuildRegionStatusMessage(region, baseEco, expandEco);
+
+        ui.transform.position = GetRegionUIWorldPos(region);
+        ui.SetText(message);
+        ui.ShowRegionStateUI();
+    }
+    
+    // 顯示所有棲地片的狀態文字
+    public void ShowAllRegionStatusUI(int baseEco, int expandEco)
+    {
+        foreach (KeyValuePair<int, RegionInfo> pair in regions)
+        {
+            int regionId = pair.Key;
+            RegionInfo region = pair.Value;
+
+            RegionStatusUI_Ctrl ui = GetOrCreateRegionUI(regionId);
+            if (ui == null)
+            {
+                continue;
+            }
+
+            string message = BuildRegionStatusMessage(region, baseEco, expandEco);
+
+            ui.transform.position = GetRegionUIWorldPos(region);
+            ui.SetText(message);
+            ui.ShowRegionStateUI();
+        }
+    }
+
+// 隱藏所有棲地片狀態文字
+    public void HideAllRegionStatusUI()
+    {
+        foreach (KeyValuePair<int, RegionStatusUI_Ctrl> pair in regionUIMap)
+        {
+            if (pair.Value != null)
+            {
+                pair.Value.HideRegionStateUI();
+            }
+        }
+    }
+
+// 延遲隱藏所有棲地片狀態文字
+    public void HideAllRegionStatusUIDelay(float seconds)
+    {
+        StartCoroutine(HideStatusUiLater(seconds));
+    }
+
+    private IEnumerator HideStatusUiLater(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        HideAllRegionStatusUI();
+    }
+    
+    // 建立顯示文字
+    private string BuildRegionStatusMessage(RegionInfo region, int baseEco, int expandEco)
+    {
+        int ecoSum = region.ecoSum;
+
+        if (ecoSum < baseEco)
+        {
+            int needEco = baseEco - ecoSum;
+            return "未達棲息標準\n還差 " + needEco + " 點生態點";
+        }
+        else
+        {
+            int stage = region.stage;
+            int nextStageEco = baseEco + ((stage + 1) * expandEco);
+            int needEco = nextStageEco - ecoSum;
+
+            if (needEco < 0)
+            {
+                needEco = 0;
+            }
+
+            return "已達棲息標準\n目前復育階數：" + stage + "\n還差 " + needEco + " 點可升一階";
+        }
+    }
+    
+    
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlacementHelper : MonoBehaviour
 {
     public static PlacementHelper instance;
+
+    public float hideUITime = 2.0f;
     
     [Header("\"地圖\"偵測")]
     public MapMaker map;
@@ -114,7 +116,8 @@ public class PlacementHelper : MonoBehaviour
         RegionSystem regions = RegionSystem.instance;
         if (rehab != null && regions != null)
         {
-            regions.ShowAllRegionsOutline(rehab.baseEco);
+            regions.ShowAllRegionsOutline(rehab.baseEco);                 //顯示棲地狀態外框
+            regions.ShowAllRegionStatusUI(rehab.baseEco,rehab.expandEco); //顯示棲地狀態UI
         }
     }
     
@@ -169,6 +172,13 @@ public class PlacementHelper : MonoBehaviour
             regions.RefreshOneRegionOutline(regionId, rehab.baseEco);
             // 幾秒後收掉
             regions.HideAllRegionsOutline();
+            
+            regions.ShowOneRegionStateUI(regionId,rehab.baseEco,rehab.expandEco);
+            regions.HideAllRegionStatusUI();
+            
         }
+        
+       
+        
     }
 }
