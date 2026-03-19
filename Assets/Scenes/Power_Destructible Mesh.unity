@@ -35284,6 +35284,16 @@ MonoBehaviour:
   skillPanel: {fileID: 1039267635}
   currentSkill: 0
   totalSkill: 4
+  skillNameBg: {fileID: 2128585196}
+  skillIntroBg: {fileID: 1572651186}
+  sn_0: {fileID: 21300000, guid: f2ace300ef33420419874c646c9ea2fc, type: 3}
+  sn_1: {fileID: 21300000, guid: 5fce44175ec58d143a22b80cc4a5a3c4, type: 3}
+  sn_2: {fileID: 21300000, guid: 345c41056672737478b9c3ae097154b9, type: 3}
+  sn_3: {fileID: 21300000, guid: e98c93252c798774992f83cc0bd4af94, type: 3}
+  si_0: {fileID: 21300000, guid: 3a2b0e175f8b9fb42aeffccab47478ca, type: 3}
+  si_1: {fileID: 21300000, guid: 40034b3aea9aba14db81c50b568fc3ea, type: 3}
+  si_2: {fileID: 21300000, guid: 1a0f55fa3ec11d947b5850554c909294, type: 3}
+  si_3: {fileID: 21300000, guid: c1fa7c4173feb304792b01e7768a1f02, type: 3}
   isShooting: 0
   ballPf: {fileID: 445036593026585034, guid: 1a79f154bbac4b64f9a15481b7c6416c, type: 3}
   handAim: {fileID: 1425441952}
@@ -74146,7 +74156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944466033}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.14282665, z: -0, w: 0.98974776}
   m_LocalPosition: {x: -0.2624, y: 0.0572, z: 0.0818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -74155,7 +74165,7 @@ Transform:
   - {fileID: 1199320871}
   - {fileID: 1516352076}
   m_Father: {fileID: 983721997}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -16.423, z: 0}
 --- !u!1 &950906759
 GameObject:
   m_ObjectHideFlags: 0
@@ -105167,7 +105177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u80FD\u91CF\u7403"
+  m_Text: "\u6280\u80FD\u9762\u677F"
 --- !u!222 &1483223104
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -122201,7 +122211,7 @@ RectTransform:
   m_GameObject: {fileID: 1572651184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1456189, y: 1.1456189, z: 1.1456189}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1834394166}
@@ -122225,14 +122235,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7688679, g: 1, b: 0.94640416, a: 0.74509805}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.74509805}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d516646eac56a4640a2f7dd25e3cf9a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a2b0e175f8b9fb42aeffccab47478ca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -131264,7 +131274,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7528\u4EE5\u63A1\u96C6\u690D\u7269"
+  m_Text: "\u624B\u638C\u63E1\u62F3\u5207\u63DB\u6280\u80FD    \u624B\u52E2\u516B\u770B\u8CC7\u8A0A\u9762\u677F"
 --- !u!222 &1834394168
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -153102,14 +153112,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6367924, g: 1, b: 0.915778, a: 0.8862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0e45a00b35dcbdc4b8e44b194480df80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2ace300ef33420419874c646c9ea2fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

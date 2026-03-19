@@ -36,6 +36,12 @@ public class PoseDemo : MonoBehaviour
     public int currentSkill = 0;
     public int totalSkill = 4;
 
+    public Image skillNameBg;
+    public Image skillIntroBg;
+
+    public Sprite sn_0,sn_1,sn_2,sn_3;
+    public Sprite si_0, si_1, si_2, si_3;
+
     [Header("發射能量球")]
     public bool isShooting;
     public GameObject ballPf;
@@ -98,29 +104,6 @@ public class PoseDemo : MonoBehaviour
                 SetSkills();
                 hasFirstGamePlay = true;
             }
-            
-            /*
-            //能量球發射瞄準線-右
-            if (isShooting && isShootSkill)
-            {
-                HoldToAim();
-            }
-            else
-            {
-                CloseAimLine();
-            }
-        
-            //淨化光束-右
-            if (isCleaning && isCleanSkill) 
-            {
-                OpenCleanLaser();
-                cleanTrigger.SetActive(true);
-            }
-            else
-            {
-                CloseCleanLaser();
-            }
-            */
             
             //偵測面板狀況-左
             if (!isOpenOtherPanel && IsPalmStillFacing() && !skillPanel.activeSelf)
@@ -245,6 +228,11 @@ public class PoseDemo : MonoBehaviour
         skillPanel.SetActive(false);
     }
 
+   
+    #endregion
+
+    #region 切換技能
+
     public void SwitchToNextSkill()   //技能面板切換
     {
         if (isFalmFacing)
@@ -255,10 +243,7 @@ public class PoseDemo : MonoBehaviour
             SetSkills();
         }
     }
-    #endregion
-
-    #region 切換技能
-
+    
     void CloseAllSkill()
     {
         isTableSkill = false;
@@ -275,6 +260,9 @@ public class PoseDemo : MonoBehaviour
         switch (currentSkill)
         {
             case 0:
+                skillNameBg.sprite = sn_1;
+                skillIntroBg.sprite = si_1;
+                
                 skillNameText.text = "能量球";
                 skillDescribeText.text = "用以採集植物";
                 CloseAllSkill();
@@ -299,6 +287,9 @@ public class PoseDemo : MonoBehaviour
                 break;
 
             case 1:
+                skillNameBg.sprite = sn_2;
+                skillIntroBg.sprite = si_2;
+                
                 skillNameText.text = "淨化";
                 skillDescribeText.text = "清除環境中的髒污";
                 CloseAllSkill();
@@ -314,6 +305,9 @@ public class PoseDemo : MonoBehaviour
                 break;
 
             case 2:
+                skillNameBg.sprite = sn_3;
+                skillIntroBg.sprite = si_3;
+                
                 skillNameText.text = "棲地合成";
                 skillDescribeText.text = "用各種植物組成棲地";
                 CloseAllSkill();
@@ -327,6 +321,9 @@ public class PoseDemo : MonoBehaviour
                 break;
 
             case 3:
+                skillNameBg.sprite = sn_0;
+                skillIntroBg.sprite = si_0;
+                
                 skillNameText.text = "技能面板";
                 skillDescribeText.text = "手掌握拳切換技能    手勢八看資訊面板";
                 CloseAllSkill();
