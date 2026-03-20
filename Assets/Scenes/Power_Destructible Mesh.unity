@@ -36308,7 +36308,7 @@ MonoBehaviour:
   outlineColorReached: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   RegionStatusUIPf: {fileID: 3219546559350684975, guid: 9adc11d1b78f85642a71a2765262f3cf, type: 3}
   stateUIParents: {fileID: 505981433}
-  uiHightOffset: 0.15
+  uiHightOffset: 0.2
 --- !u!1 &509119674
 GameObject:
   m_ObjectHideFlags: 0

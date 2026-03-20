@@ -281,7 +281,7 @@ public class RegionSystem : MonoBehaviour
             count += 1;
         }
 
-        if (count < 0)
+        if (count <= 0)
         {
             return transform.position;
         }
@@ -337,7 +337,7 @@ public class RegionSystem : MonoBehaviour
         if(!regions.TryGetValue(regionId,out RegionInfo region)){return;}
 
         RegionStatusUI_Ctrl ui = GetOrCreateRegionUI(regionId);
-        if(ui = null){return;}
+        if(ui == null){return;}
 
         string message = BuildRegionStatusMessage(region, baseEco, expandEco);
 
@@ -381,15 +381,21 @@ public class RegionSystem : MonoBehaviour
     }
 
 // 延遲隱藏所有棲地片狀態文字
-    public void HideAllRegionStatusUIDelay(float seconds)
+    public void HideAllRegionVisuals()
     {
-        StartCoroutine(HideStatusUiLater(seconds));
+        HideAllRegionsOutline();
+        HideAllRegionStatusUI();
+    }
+    
+    public void HideAllRegionVisualsDelay(float seconds)
+    {
+        StartCoroutine(HideRegionVisualsLater(seconds));
     }
 
-    private IEnumerator HideStatusUiLater(float seconds)
+    private IEnumerator HideRegionVisualsLater(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        HideAllRegionStatusUI();
+        HideAllRegionVisuals();
     }
     
     // 建立顯示文字

@@ -124,10 +124,32 @@ public class PlacementHelper : MonoBehaviour
     //放開棲地
     public void OnReleaseHabitat()
     {
-        if(heldHabitat == null){return;}
-        if(!hasSnap){return;}  //放在合法範圍外的隨意位置
-        if(map.habitaAt.ContainsKey(snapGrid)){return;} //檢查位置是否被占用
+        if (heldHabitat == null)
+        {
+            RegionSystem.instance.HideAllRegionVisuals();
+            return;
+        }
 
+        // ===== 放手但沒吸附成功 =====
+        if (!hasSnap)
+        {
+            heldHabitat = null;
+            ghostTile.SetActive(false);
+
+            RegionSystem.instance.HideAllRegionVisuals();
+            return;
+        }
+
+        // ===== 放手但該格已被占用 =====
+        if (map.habitaAt.ContainsKey(snapGrid))
+        {
+            heldHabitat = null;
+            ghostTile.SetActive(false);
+
+            RegionSystem.instance.HideAllRegionVisuals();
+            return;
+        }
+        
         //確定落位，寫入gridPos座標
         heldHabitat.gridPos = snapGrid;
         AudioManager.instance.PickUpHabitatSound();
@@ -157,28 +179,25 @@ public class PlacementHelper : MonoBehaviour
         hasSnap = false;
         ghostTile.SetActive(false);
 
-        //===落為後更新地圖
-        int regionId = -1;
-        regionId = RegionSystem.instance.OnHabitatPlaced(snapGrid);
-        
-        //重新計算地圖
+        // ===== 更新 Region 與 Rehab =====
+        int regionId = RegionSystem.instance.OnHabitatPlaced(snapGrid);
         RehabSystem.instance.OnMapChange();
-        
+
         RehabSystem rehab = RehabSystem.instance;
         RegionSystem regions = RegionSystem.instance;
+
         if (rehab != null && regions != null)
         {
-            // 即時更新該片的顏色（可能從橘→黃）
+            // 先把舊的全部收掉，避免殘留
+            regions.HideAllRegionVisuals();
+
+            // 只顯示這次被影響的那一片
             regions.RefreshOneRegionOutline(regionId, rehab.baseEco);
-            // 幾秒後收掉
-            regions.HideAllRegionsOutline();
-            
-            regions.ShowOneRegionStateUI(regionId,rehab.baseEco,rehab.expandEco);
-            regions.HideAllRegionStatusUIDelay(2.0f);
-            
+            regions.ShowOneRegionStateUI(regionId, rehab.baseEco, rehab.expandEco);
+
+            // 2 秒後一起關掉
+            regions.HideAllRegionVisualsDelay(hideUITime);
         }
-        
-       
         
     }
 }
