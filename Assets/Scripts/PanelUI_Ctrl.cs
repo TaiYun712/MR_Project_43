@@ -9,7 +9,7 @@ public class PanelUI_Ctrl : MonoBehaviour
 {
     public static PanelUI_Ctrl instance;
     
-    [Header("獲取植物UI")]
+    [Header("獲取植物UI(獲得植物提示)")]
     public GameObject getPlantPanel;
     public Image getPlantImage;
     public Text getPlantText;
@@ -17,6 +17,11 @@ public class PanelUI_Ctrl : MonoBehaviour
     public Image getPlantBG;
     public GameObject getPioneerHint;
     public float closeHintTime;
+
+    [Header("獲取植物UI(擁有種類提示)")] 
+    public GameObject plantCountHint;
+    public Text plantCountText;
+    public float closePlantCountHintTime;
 
     [Header("植物背包")]
     public GameObject landSkillUI; 
@@ -46,6 +51,8 @@ public class PanelUI_Ctrl : MonoBehaviour
     {
         getPlantPanel.SetActive(false);
         getPioneerHint.SetActive(false);
+        
+        plantCountHint.SetActive(false);
         
         landSkillUI.SetActive(false);
         
@@ -129,6 +136,21 @@ public class PanelUI_Ctrl : MonoBehaviour
 
     #endregion
 
+    //目前擁有植物種類數量 提示
+    public void ShowPlantCountHint(int typeCount)
+    {
+        if(!PoseDemo.isShootSkill){return;}
+        plantCountText.text = typeCount.ToString();
+        
+        plantCountHint.SetActive(true);
+        Invoke("HidePlantCountHint",closePlantCountHintTime);
+    }
+
+    void HidePlantCountHint()
+    {
+        plantCountHint.SetActive(false);
+    }
+    
     public void OverDestoryWarningHint(string overReason)
     {
         overDestoryText.text = overReason;

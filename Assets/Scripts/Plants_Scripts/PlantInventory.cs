@@ -7,22 +7,18 @@ public class PlantInventory : MonoBehaviour
 {
     public static PlantInventory instance;
     private Dictionary<Plant, int> inventory = new Dictionary<Plant, int>();
-
-    public bool hasGetPlant = false; //教學用，是否收集過植物
+    
     
     private void Awake()
     {
         if (instance == null) { instance = this; }
         else { Destroy(this); }
         
-        hasGetPlant = false;
     }
 
     //增加植物數量
     public void AddPlant(Plant plant, int amount = 1)
     {
-        hasGetPlant = true;
-        
         if (inventory.ContainsKey(plant))
         {
             inventory[plant] += amount;
@@ -34,6 +30,8 @@ public class PlantInventory : MonoBehaviour
         
         PlantManager.instance.UpdatePlantPeckUI(plant,inventory[plant]);
         PlantShelfManager.instance.UpdateShelf(inventory);
+
+        ShowCollectedPlantTypeUI();
     }
 
 
@@ -60,6 +58,19 @@ public class PlantInventory : MonoBehaviour
     public int GetCount(Plant plant)
     {
         return inventory.ContainsKey(plant) ? inventory[plant] : 0;
+    }
+    
+    //獲得目前已收集的植物種類數
+    public int GetCollectedPlantTypeCount()
+    {
+        return inventory.Count;
+    }
+    
+    //更新UI顯示
+    private void ShowCollectedPlantTypeUI()
+    {
+        int collectedTypeCount = GetCollectedPlantTypeCount();
+        PanelUI_Ctrl.instance.ShowPlantCountHint(collectedTypeCount);
     }
    
 }
