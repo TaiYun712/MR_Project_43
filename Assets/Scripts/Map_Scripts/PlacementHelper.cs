@@ -174,7 +174,7 @@ public class PlacementHelper : MonoBehaviour
             regions.HideAllRegionsOutline();
             
             regions.ShowOneRegionStateUI(regionId,rehab.baseEco,rehab.expandEco);
-            regions.HideAllRegionStatusUI();
+            regions.HideAllRegionStatusUIDelay(2.0f);
             
         }
         
