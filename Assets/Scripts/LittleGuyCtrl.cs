@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LittleGuyCtrl : MonoBehaviour
 {
+    public Camera playerCam;
+    
     public Transform leftHandPos;
     public Transform rightHandPos;
 
@@ -15,35 +17,79 @@ public class LittleGuyCtrl : MonoBehaviour
     public Transform initialPos;
     public ParticleSystem shoeUpPrt;
 
-    public GameObject temDiolog;
-    void Start()
+
+    private void Awake()
     {
-        transform.position = initialPos.transform.position;
+        transform.SetParent(initialPos);
+    }
+
+    //精靈坐在手上
+    public void GuySitOnHand_L()
+    {
         
-        temDiolog.SetActive(false);
+        
+        if(PoseDemo.isShootSkill || PoseDemo.isCleanSkill || PoseDemo.isTableSkill){return;}
+        transform.position = leftHandPos.transform.position;
+        guyAni.SetBool("gotosit",true);
+        
+        Vector3 lookDir = transform.position - playerCam.transform.position;
+        if (lookDir.sqrMagnitude <= 0.0001f) { return; }
+        transform.rotation = Quaternion.LookRotation(lookDir.normalized);
+        
+        transform.SetParent(leftHandPos);
     }
 
-
-    /*
-    private void OnTriggerEnter(Collider other)
+    public void GuySitOnHand_R()
     {
-        if (other.gameObject.CompareTag("maphouse"))
-        {
-            temDiolog.SetActive(true);
-            
-            Invoke("CloseDiolog",2f);
-        }
+       
+        
+        if(PoseDemo.isShootSkill || PoseDemo.isCleanSkill || PoseDemo.isTableSkill){return;}
+        transform.position = rightHandPos.transform.position;
+        guyAni.SetBool("gotosit",true);
+        
+        Vector3 lookDir = transform.position - playerCam.transform.position;
+        if (lookDir.sqrMagnitude <= 0.0001f) { return; }
+        transform.rotation = Quaternion.LookRotation(lookDir.normalized);
+        
+        transform.SetParent(rightHandPos);
     }
-*/
-    void CloseDiolog()
-    {
-        temDiolog.SetActive(false);
-    }
-
-
-    public void HoldGuy()
+    
+    //精靈比讚
+    public void GuySayGood()
     {
         guyAni.SetTrigger("isfine");
+    }
+    
+    //抓起精靈說嗨
+    public void HoldGuy()
+    {
+        guyAni.SetTrigger("sayhi");
+    }
+
+    public void LetGuyGoOutOfHand()
+    {
+        guyAni.SetBool("gotosit",false);
+        transform.SetParent(outSidePos);
+        
+        Vector3 lookDir = transform.position - playerCam.transform.position;
+        if (lookDir.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+
+        transform.rotation = Quaternion.LookRotation(lookDir.normalized);
+    }
+    
+    //放下精靈 面對玩家
+    public void LetGuyGo()
+    {
+        Vector3 lookDir = transform.position - playerCam.transform.position;
+        if (lookDir.sqrMagnitude <= 0.0001f)
+        {
+            return;
+        }
+
+        transform.rotation = Quaternion.LookRotation(lookDir.normalized);
     }
 
     public void CallBackGuy_L()
