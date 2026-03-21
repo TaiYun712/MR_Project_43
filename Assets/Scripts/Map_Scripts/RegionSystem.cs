@@ -30,7 +30,12 @@ public class RegionSystem : MonoBehaviour
     [Header("棲地狀態UI")] 
     public RegionStatusUI_Ctrl RegionStatusUIPf;
     public Transform stateUIParents;
-    public float uiHightOffset = 0.15f;
+    public float uiHightOffset = 0.2f;
+    public GameObject birdPf;
+    public ParticleSystem birdPrt;
+    public Animator birdAni;
+    public bool isEcoReady = false;
+    public Camera playerCam;
     
     //每片棲地對應一個狀態UI
     private readonly Dictionary<int, RegionStatusUI_Ctrl> regionUIMap = new Dictionary<int, RegionStatusUI_Ctrl>();
@@ -56,6 +61,8 @@ public class RegionSystem : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        birdPf.SetActive(false);
     }
 
     //===給 RehabSystem 迭代所有片
@@ -344,6 +351,30 @@ public class RegionSystem : MonoBehaviour
         ui.transform.position = GetRegionUIWorldPos(region);
         ui.SetText(message);
         ui.ShowRegionStateUI();
+
+        if (isEcoReady)
+        {
+            Vector3 stateUIPos = GetRegionUIWorldPos(region);
+            
+            Vector3 lookDir = birdPf.transform.position - playerCam.transform.position;
+            if (lookDir.sqrMagnitude <= 0.0001f) { return; }
+            birdPf.transform.rotation = Quaternion.LookRotation(lookDir.normalized);
+            
+            birdPf.transform.position = new Vector3(stateUIPos.x, stateUIPos.y-0.15f, stateUIPos.z);
+            
+            birdPf.SetActive(true);
+            birdPrt.Play();
+            AudioManager.instance.HabitatIsReady();
+            
+            Invoke("HideBirdPf",2.0f);
+        }
+        
+        
+    }
+
+    void HideBirdPf()
+    {
+        birdPf.SetActive(false);
     }
     
     // 顯示所有棲地片的狀態文字
@@ -405,11 +436,13 @@ public class RegionSystem : MonoBehaviour
 
         if (ecoSum < baseEco)
         {
+            isEcoReady = false;
             int needEco = baseEco - ecoSum;
             return "未達棲息標準\n還差 " + needEco + " 點生態點";
         }
         else
         {
+            isEcoReady = true;
             int stage = region.stage;
             int nextStageEco = baseEco + ((stage + 1) * expandEco);
             int needEco = nextStageEco - ecoSum;

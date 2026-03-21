@@ -34,6 +34,8 @@ public class AudioManager : MonoBehaviour
     [Header("Animals")]
     [SerializeField]
     AudioClip happybirdSound,redbirdSound;
+    [SerializeField]
+    private AudioClip[] redBirdYells;
 
     [Header("SFX")]
     [SerializeField]
@@ -170,6 +172,16 @@ public class AudioManager : MonoBehaviour
     public void PlayRedbirdSound()
     {
         animalSourse.clip = redbirdSound;
+        animalSourse.Play();
+    }
+    
+    //Animal_Gaming
+    
+    //棲地達標
+    public void HabitatIsReady()
+    {
+        int birdSoundIndex = Random.Range(0, redBirdYells.Length);
+        animalSourse.clip = redBirdYells[birdSoundIndex];
         animalSourse.Play();
     }
 
