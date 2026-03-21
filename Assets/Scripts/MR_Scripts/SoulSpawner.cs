@@ -45,7 +45,7 @@ public class SoulSpawner : MonoBehaviour
       Invoke("CloseLevelPanel",showTime);
 
       
-      GameManager.instance.ToGamePlay();///////////////////////測試用，暫時跳過沒收集完碎片不能用能力的部分
+     // GameManager.instance.ToGamePlay();///////////////////////測試用，暫時跳過沒收集完碎片不能用能力的部分
     }
     
     //關閉提示
