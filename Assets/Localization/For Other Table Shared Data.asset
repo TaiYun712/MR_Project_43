@@ -16,11 +16,12 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 65bafe65ee4849a4ebd16b28b4eb9f62
   m_Entries:
   - m_Id: 8737062912
-    m_Key: New Entry
+    m_Key: Setting
     m_Metadata:
       m_Items: []
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 8891740099584196639
   m_KeyGenerator:
     rid: 8891740099584196634
   references:
@@ -30,3 +31,13 @@ MonoBehaviour:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1774377695744
+    - rid: 8891740099584196639
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 8737062912
+          m_TableCodes:
+          - zh-TW
+          - en
+        m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
