@@ -10,14 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: For Text Table_zh-TW
+  m_Name: UI Table_zh-TW
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: zh-TW
   m_SharedData: {fileID: 11400000, guid: ceb8f24f4362f0b4884d4a9caf5e461e, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 48574562304
+    m_Localized: "\u8A9E\u8A00:"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

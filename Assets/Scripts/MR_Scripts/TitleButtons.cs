@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Profiling.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TitleButtons : MonoBehaviour
 {
+    [Header("泡泡按鈕")]
     public GameObject settingPanel;
     public Animator settingBoardAni;
 
@@ -26,13 +30,11 @@ public class TitleButtons : MonoBehaviour
     public Transform seePoint;
 
     public GameObject changeSceneEffect;
-   
-
-
+    
     void Start()
     {
         allBubles.SetActive(true);
-       Invoke("SetBubleHeight",0.8f);
+        Invoke("SetBubleHeight",0.8f);
         
         settingPanel.SetActive(false);
         settingBoardAni.SetBool("settingIn",false);
@@ -43,6 +45,7 @@ public class TitleButtons : MonoBehaviour
         
     }
 
+    //設置UI高度
     public void SetBubleHeight()
     {
         Vector3 eyePos = seePoint.position;
@@ -53,7 +56,8 @@ public class TitleButtons : MonoBehaviour
         startPos = startBuble.transform.position;
         quitPos = quitBuble.transform.position;
     }
- 
+
+   
 
     //Setting按鈕
     public void OpenSettingPanel()
@@ -89,6 +93,7 @@ public class TitleButtons : MonoBehaviour
         settingPanel.SetActive(false);
     }
 
+    
     //Start按鈕
     public void StartGame()
     {
@@ -115,7 +120,7 @@ public class TitleButtons : MonoBehaviour
         SceneManager.LoadScene("Power_Destructible Mesh");
         AudioManager.instance.SwitchGameBGM();
     }
-
+    
     //Quit按鈕
     public void QuitGame()
     {
@@ -135,5 +140,5 @@ public class TitleButtons : MonoBehaviour
         Debug.Log("離開遊戲");
 
     }
-
+    
 }
