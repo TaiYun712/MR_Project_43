@@ -94,6 +94,7 @@ public class LanguageSwitch : MonoBehaviour
 
         // 更新按鈕上顯示的文字
         UpdateButtonText();
+        AudioManager.instance.UISound_Wood();
 
         // 稍微等一下，避免 XR UI 同一次操作又觸發一次
         yield return new WaitForSeconds(0.25f);

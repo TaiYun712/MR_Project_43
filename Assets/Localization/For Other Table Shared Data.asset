@@ -19,9 +19,18 @@ MonoBehaviour:
     m_Key: Setting
     m_Metadata:
       m_Items: []
+  - m_Id: 560611243393024
+    m_Key: BirdInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560873601302528
+    m_Key: HabitatInfo
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 8891740099584196639
+    - rid: 8891740134981238784
   m_KeyGenerator:
     rid: 8891740099584196634
   references:
@@ -39,5 +48,22 @@ MonoBehaviour:
           m_TableCodes:
           - zh-TW
           - en
+        - m_KeyId: 560873601302528
+          m_TableCodes:
+          - zh-TW
+          - en
         m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - rid: 8891740134981238784
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 560611243393024
+          m_TableCodes:
+          - zh-TW
+          - en
+        - m_KeyId: 560873601302528
+          m_TableCodes:
+          - en
+        m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

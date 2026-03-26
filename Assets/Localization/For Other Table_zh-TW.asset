@@ -22,6 +22,14 @@ MonoBehaviour:
     m_Localized: 85c162a05bfa9bc47b02c276978a4505
     m_Metadata:
       m_Items: []
+  - m_Id: 560611243393024
+    m_Localized: 64f2da364c1b26f418919c55d988a24a[BirdInfo_tw]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560873601302528
+    m_Localized: 7b1b2767a855b5d46ae56428aa73cd89
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

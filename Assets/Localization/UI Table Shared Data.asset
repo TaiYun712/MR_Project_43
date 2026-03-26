@@ -19,6 +19,34 @@ MonoBehaviour:
     m_Key: Language
     m_Metadata:
       m_Items: []
+  - m_Id: 570398890852352
+    m_Key: MapMove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 570625618149376
+    m_Key: MapRotate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 574610563465216
+    m_Key: LevelReady
+    m_Metadata:
+      m_Items: []
+  - m_Id: 574872963317760
+    m_Key: LevelStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 574934212739072
+    m_Key: GameOver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577434986807296
+    m_Key: MyPlants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577592990433280
+    m_Key: CollectedPlantSpecies
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

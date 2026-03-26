@@ -22,6 +22,36 @@ MonoBehaviour:
     m_Localized: 'Language:'
     m_Metadata:
       m_Items: []
+  - m_Id: 570398890852352
+    m_Localized: 'Grab the Lighthouse to
+
+      Move the Map'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 570625618149376
+    m_Localized: Slide the Joystick Left or Right to Rotate the Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 574610563465216
+    m_Localized: Collect Spirit Fragments to Restore Species!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 574872963317760
+    m_Localized: "Summon the    \n\"Eurasian Moorhen\"!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 574934212739072
+    m_Localized: Eurasian Moorhen Successfully Restored!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577434986807296
+    m_Localized: My Plants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577592990433280
+    m_Localized: You have collected         plant species.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

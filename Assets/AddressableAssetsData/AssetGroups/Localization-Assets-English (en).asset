@@ -17,8 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0ec2b68e6d182444ca57c2bee1ef61d6
   m_SerializeEntries:
+  - m_GUID: 119f1525702121a46b2250bb7ec0c529
+    m_Address: Habitat Info_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8eb462137a078824895ecf936e98bb6f
     m_Address: Setting_
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eadd44ee69517c24c9f0a4b37d90897b
+    m_Address: Birdinfo_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

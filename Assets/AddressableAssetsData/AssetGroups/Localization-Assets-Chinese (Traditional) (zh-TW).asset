@@ -17,6 +17,18 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9f44a87259814d84b87c4f133c26bd9f
   m_SerializeEntries:
+  - m_GUID: 64f2da364c1b26f418919c55d988a24a
+    m_Address: BirdInfo_tw
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b1b2767a855b5d46ae56428aa73cd89
+    m_Address: Habitat Info_tw
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-TW
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85c162a05bfa9bc47b02c276978a4505
     m_Address: Volume setting
     m_ReadOnly: 1
