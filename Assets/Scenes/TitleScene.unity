@@ -2699,6 +2699,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 935065374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &151609913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 151609915}
+  - component: {fileID: 151609914}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &151609914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151609913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0417ac8cb54b31e4e9a63e71135d94b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLanguage: 0
+--- !u!4 &151609915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151609913}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &154174657
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,12 +3114,12 @@ GameObject:
   - component: {fileID: 160673430}
   - component: {fileID: 160673429}
   m_Layer: 0
-  m_Name: LanguageSwitch
+  m_Name: LanguageSwitch_trash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &160673429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40004,9 +40049,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 160673429}
-        m_TargetAssemblyTypeName: LanguageSwitch, Assembly-CSharp
-        m_MethodName: ToggleLanguage
+      - m_Target: {fileID: 1007812406}
+        m_TargetAssemblyTypeName: TitleButtons, Assembly-CSharp
+        m_MethodName: ChangeLanguage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -43119,6 +43164,15 @@ MonoBehaviour:
   quitPos: {x: 0, y: 0, z: 0}
   seePoint: {fileID: 2014732340}
   changeSceneEffect: {fileID: 896549174}
+  localBtText: {fileID: 2142180517}
+  settingImage: {fileID: 2132326545}
+  languageText: {fileID: 22718650}
+  settingImage_CN: {fileID: 21300000, guid: 85c162a05bfa9bc47b02c276978a4505, type: 3}
+  settingImage_EN: {fileID: 21300000, guid: 8eb462137a078824895ecf936e98bb6f, type: 3}
+  languageText_CN: "\u8A9E\u8A00:"
+  languageText_EN: 'Language:'
+  clickLockTime: 0.25
+  isSwitching: 0
 --- !u!1 &1009245857
 GameObject:
   m_ObjectHideFlags: 0
@@ -80147,5 +80201,6 @@ SceneRoots:
   - {fileID: 1734641634}
   - {fileID: 1539899208}
   - {fileID: 235620993}
+  - {fileID: 151609915}
   - {fileID: 1301194223}
   - {fileID: 574829459}
