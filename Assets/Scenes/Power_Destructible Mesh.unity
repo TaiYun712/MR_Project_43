@@ -37286,7 +37286,7 @@ GameObject:
   - component: {fileID: 547020617}
   - component: {fileID: 547020619}
   - component: {fileID: 547020618}
-  - component: {fileID: 547020620}
+  - component: {fileID: 547020621}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -37351,7 +37351,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547020616}
   m_CullTransparentMesh: 1
---- !u!114 &547020620
+--- !u!114 &547020621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37360,32 +37360,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 547020616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Script: {fileID: 11500000, guid: dac9e24e671efc141a34c1a420c7dd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LocalizedAssetReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:65bafe65ee4849a4ebd16b28b4eb9f62
-    m_TableEntryReference:
-      m_KeyId: 560873601302528
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-  m_UpdateAsset:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 547020618}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
-        m_MethodName: set_sprite
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+  targetImage: {fileID: 547020618}
+  chineseSprite: {fileID: 21300000, guid: 7b1b2767a855b5d46ae56428aa73cd89, type: 3}
+  englishSprite: {fileID: 21300000, guid: 119f1525702121a46b2250bb7ec0c529, type: 3}
 --- !u!1 &549227695
 GameObject:
   m_ObjectHideFlags: 0
@@ -158178,7 +158158,7 @@ GameObject:
   - component: {fileID: 2118713124}
   - component: {fileID: 2118713126}
   - component: {fileID: 2118713125}
-  - component: {fileID: 2118713127}
+  - component: {fileID: 2118713128}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -158243,7 +158223,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118713123}
   m_CullTransparentMesh: 1
---- !u!114 &2118713127
+--- !u!114 &2118713128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158252,32 +158232,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2118713123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
+  m_Script: {fileID: 11500000, guid: dac9e24e671efc141a34c1a420c7dd46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LocalizedAssetReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:65bafe65ee4849a4ebd16b28b4eb9f62
-    m_TableEntryReference:
-      m_KeyId: 560611243393024
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-  m_UpdateAsset:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2118713125}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
-        m_MethodName: set_sprite
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+  targetImage: {fileID: 2118713125}
+  chineseSprite: {fileID: 21300000, guid: 64f2da364c1b26f418919c55d988a24a, type: 3}
+  englishSprite: {fileID: 21300000, guid: eadd44ee69517c24c9f0a4b37d90897b, type: 3}
 --- !u!1 &2119965685
 GameObject:
   m_ObjectHideFlags: 0
