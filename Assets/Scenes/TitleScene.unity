@@ -3091,6 +3091,7 @@ MonoBehaviour:
   languageButtonText: {fileID: 2142180517}
   chineseLocale: {fileID: 11400000, guid: 8eed9c53dbb7cbc4ba7d00720e256808, type: 2}
   englishLocale: {fileID: 11400000, guid: f4e031d4a0571dc4290652e34b8aab60, type: 2}
+  debugText: {fileID: 0}
 --- !u!4 &160673430
 Transform:
   m_ObjectHideFlags: 0

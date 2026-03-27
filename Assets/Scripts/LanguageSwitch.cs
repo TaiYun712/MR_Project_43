@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.AddressableAssets.ResourceLocators;
 
 
 public class LanguageSwitch : MonoBehaviour
@@ -22,22 +25,78 @@ public class LanguageSwitch : MonoBehaviour
 
     [SerializeField] 
     private Locale englishLocale;
-
+    
     // 這個變數用來防止 XR / VR 按鈕一次觸發兩次
     private bool isSwitchingLanguage = false;
+    
+    // 確保 Addressables 和 Localization 都初始化完成
+    private bool isLocalizationReady = false;
+    
+    public Text debugText; //測試文字
 
     private IEnumerator Start()
     {
-        // 等 Localization 系統初始化完成
+        if (debugText != null)
+        {
+            debugText.text = "開始初始化...";
+        }
+
+        // 第一步：先手動初始化 Addressables
+        AsyncOperationHandle<IResourceLocator> addressablesHandle = Addressables.InitializeAsync();
+        yield return addressablesHandle;
+
+        if (addressablesHandle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError("Addressables 初始化失敗");
+            if (debugText != null)
+            {
+                debugText.text = "Addressables 初始化失敗";
+            }
+
+            yield break;
+        }
+
+        Debug.Log("Addressables 初始化成功");
+
+        // 第二步：再等待 Localization 初始化完成
         yield return LocalizationSettings.InitializationOperation;
 
-        // 一開始先把按鈕文字更新正確
+        isLocalizationReady = true;
+
+        Debug.Log("Localization 初始化成功");
+
+        if (debugText != null)
+        {
+            if (LocalizationSettings.SelectedLocale == null)
+            {
+                debugText.text = "Localization 初始化成功，但目前語言是 null";
+            }
+            else
+            {
+                debugText.text = "Localization 初始化成功，Locale = " + LocalizationSettings.SelectedLocale.Identifier.Code;
+            }
+        }
+
+        // 初始化完成後更新按鈕文字
         UpdateButtonText();
     }
-
+    
+    
     // 這個方法要綁到 Button 的 OnClick
     public void ToggleLanguage()
     {
+        // 還沒初始化完成就不允許切換
+        if (isLocalizationReady == false)
+        {
+            Debug.LogWarning("Localization 尚未初始化完成");
+            if (debugText != null)
+            {
+                debugText.text = "Localization 尚未初始化完成";
+            }
+            return;
+        }
+        ///////////////----------------------------------
+        
         // 如果剛剛已經在切換，就直接忽略這次
         if (isSwitchingLanguage == true)
         {
