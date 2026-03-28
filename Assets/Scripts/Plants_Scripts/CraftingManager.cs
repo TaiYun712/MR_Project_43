@@ -152,38 +152,42 @@ public class CraftingManager : MonoBehaviour
      bool CheckPerSpeciesLimit(List<Plant> plants, out string reason)
      {
          //統計每個"種類"出現次數
-         var countByName = new Dictionary<string, int>();
-         var dataByName = new Dictionary<string, Plant>();
+        // var countByName = new Dictionary<string, int>();
+        // var dataByName = new Dictionary<string, Plant>();
+         var countByPlant = new Dictionary<Plant, int>();
 
          foreach (var p in plants)
          {
-             if (!countByName.ContainsKey(p.plantName))
+             if (!countByPlant.ContainsKey(p))
              {
-                 countByName[p.plantName] = 0;
-                 dataByName[p.plantName] = p;
+                 countByPlant[p] = 0;
              }
 
-             countByName[p.plantName]++;
+             countByPlant[p]++;
          }
          
          //檢查是否有植物過量
-         foreach (var kv in countByName)
+         foreach (var kv in countByPlant)
          {
-             string name = kv.Key;
+             //string name = kv.Key;
+             Plant plant = kv.Key;
              int count = kv.Value;
-             int gp = Math.Clamp(dataByName[name].growPower, 1, 3); //植物繁殖力
+             
+             int gp = Math.Clamp(plant.growPower, 1, 3); //植物繁殖力
 
              int limit = (gp == 1) ? 3 : (gp == 2) ? 2 : 1;
 
              if (count > limit)
              {
+                 string displayName = plant.GetDisplayName();
+                 
                  if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
                  {
-                     reason = $"{name}過量，超過 {count - limit}";
+                     reason = $"{displayName}過量，超過 {count - limit}";
                  }
                  else
                  {
-                     reason = $"Too much{name}\nexceeded by {count - limit}";
+                     reason = $"Too much  {displayName}\nexceeded by {count - limit}";
                  }
                  return false;
              }
