@@ -446,7 +446,7 @@ public class RegionSystem : MonoBehaviour
             }
             else
             {
-                notMetHint = "Habitat Requirements Not Met\nNeed" + needEco + "more Ecology Points";
+                notMetHint = "Habitat Requirements Not Met\nNeed  " + needEco + "  more Ecology Points";
             }
 
             return notMetHint;
@@ -470,7 +470,7 @@ public class RegionSystem : MonoBehaviour
             }
             else
             {
-                metHint = "Habitat Requirements Met\nCurrent Restoration Level:" + stage +"\nNeed" + needEco +"more\nEcology Points to reach the next level";
+                metHint = "Habitat Requirements Met\nCurrent Restoration Level:  " + stage +"\nNeed  " + needEco +"  more\nEcology Points to reach the next level";
             }
 
             return metHint;
