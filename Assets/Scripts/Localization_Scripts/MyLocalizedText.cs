@@ -8,9 +8,11 @@ public class MyLocalizedText : MonoBehaviour
     public Text targetText;
 
     [Header("中文 內容")] 
+    [TextArea(2, 5)]
     public string chineseText;
 
     [Header("英文 內容")]
+    [TextArea(2, 5)]
     public string englishText;
     void Start()
     {
