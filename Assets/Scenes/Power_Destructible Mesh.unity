@@ -47876,7 +47876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0417ac8cb54b31e4e9a63e71135d94b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: 1
+  currentLanguage: 0
 --- !u!4 &711351677
 Transform:
   m_ObjectHideFlags: 0
@@ -139909,7 +139909,9 @@ MonoBehaviour:
   getPlantPanel: {fileID: 1804174394}
   getPlantImage: {fileID: 708642930}
   getPlantText: {fileID: 598425435}
-  getPlantBG: {fileID: 1804174396}
+  pioneerImage: {fileID: 111165831}
+  getPioneer_CN: {fileID: 21300000, guid: 1c38eef66627b754480426a241880fe3, type: 3}
+  getPioneer_EN: {fileID: 21300000, guid: fc2a8c15af5e1a443a2282e4a7c89e15, type: 3}
   getPioneerHint: {fileID: 111165829}
   closeHintTime: 1
   plantCountHint: {fileID: 174828719}
@@ -156817,10 +156819,16 @@ MonoBehaviour:
   introPlantName: {fileID: 2131359472}
   introPlantDescription: {fileID: 2145202066}
   pioneerPlantBg: {fileID: 850969055}
+  pioneerPlantImage: {fileID: 850969057}
+  pioneerPlant_CN: {fileID: 21300000, guid: 1fdc2693f91fa4f43a92f127318b9e72, type: 3}
+  pioneerPlant_EN: {fileID: 21300000, guid: a0d5cee4e82aa744fa9c8761764bb4b9, type: 3}
   gpImage: {fileID: 325209679}
   gp_1: {fileID: 21300000, guid: a18446ed024beae43b0ba7ca89818e83, type: 3}
   gp_2: {fileID: 21300000, guid: cfbc445dd5aebf547aaac547c9f0e13f, type: 3}
   gp_3: {fileID: 21300000, guid: 44e47cb3fd7fc4043bffde10d97cec66, type: 3}
+  gpEN_1: {fileID: 21300000, guid: cba50f90c9f259c428293196ea17bb57, type: 3}
+  gpEN_2: {fileID: 21300000, guid: a2f410e7aaa9e8f4fa1b0ec119459d8c, type: 3}
+  gpEN_3: {fileID: 21300000, guid: 456a5df33a5d0e843899c310df479882, type: 3}
 --- !u!114 &2092649690
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,8 @@ public class PanelUI_Ctrl : MonoBehaviour
     public Image getPlantImage;
     public Text getPlantText;
 
-    public Image getPlantBG;
+    public Image pioneerImage;
+    public Sprite getPioneer_CN, getPioneer_EN; //在地化用
     public GameObject getPioneerHint;
     public float closeHintTime;
 
@@ -90,6 +91,15 @@ public class PanelUI_Ctrl : MonoBehaviour
     {
         if (plant.isPioneer)
         {
+            if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+            {
+                pioneerImage.sprite = getPioneer_CN;
+            }
+            else
+            {
+                pioneerImage.sprite = getPioneer_EN;
+            }
+            
            getPioneerHint.SetActive(true);
         }
         else

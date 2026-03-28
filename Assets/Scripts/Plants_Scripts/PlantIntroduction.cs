@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,12 @@ public class PlantIntroduction : MonoBehaviour
     public Text introPlantDescription;
 
     public GameObject pioneerPlantBg;
+    public Image pioneerPlantImage;
+    public Sprite pioneerPlant_CN, pioneerPlant_EN;
+    
     public Image gpImage;
     public Sprite gp_1, gp_2, gp_3;
+    public Sprite gpEN_1, gpEN_2, gpEN_3;
     
     private void Awake()
     {
@@ -41,6 +46,15 @@ public class PlantIntroduction : MonoBehaviour
 
         if (pickPlant.isPioneer)
         {
+            if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+            {
+                pioneerPlantImage.sprite = pioneerPlant_CN;
+            }
+            else
+            {
+                pioneerPlantImage.sprite = pioneerPlant_EN;
+            }
+            
             pioneerPlantBg.SetActive(true);
         }
         else
@@ -51,15 +65,36 @@ public class PlantIntroduction : MonoBehaviour
         switch (pickPlant.growPower)
         {
             case 1 :
-                gpImage.sprite = gp_1;
+                if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+                {
+                    gpImage.sprite = gp_1;
+                }
+                else
+                {
+                    gpImage.sprite = gpEN_1;
+                }
                 break;
             
             case 2 :
-                gpImage.sprite = gp_2;
+                if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+                {
+                    gpImage.sprite = gp_2;
+                }
+                else
+                {
+                    gpImage.sprite = gpEN_2;
+                }
                 break;
             
             case 3 :
-               gpImage.sprite = gp_3;
+                if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+                {
+                    gpImage.sprite = gp_3;
+                }
+                else
+                {
+                    gpImage.sprite = gpEN_3;
+                }
                 break;
         }
         
