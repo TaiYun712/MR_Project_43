@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Plant_2
   m_EditorClassIdentifier: 
   plantName: "\u8606\u8466"
+  plantName_EN: Common Reed
   description: "\u6839\u8396\u6DF1\u90543\u516C\u5C3A\uFF0C\u65CF\u7FA4\u5728\u8B8A\u52D5\u7684\u74B0\u5883\u4E2D\u6975\u70BA\u7A69\u5B9A\uFF0C\u8010\u6D2A\u6C34\u6C96\u5237\uFF0C\u8396\u90E8\u6728\u8CEA\u5316\u4E26\u53EF\u8010\u66B4\u96E8\u80FD\u5438\u5F15\u91CE\u751F\u52D5\u7269\u68F2\u606F\uFF0C\u53EF\u4F9B\u9CE5\u985E\u8993\u98DF\u8207\u9F20\u985E\u4F5C\u5DE2"
+  description_EN: "Scientific name: Phragmites australis. Its rhizomes can reach
+    depths of up to 3 meters, and it remains highly stable in changing environments.
+    It resists flood erosion, has woody stems that can withstand heavy rain, and
+    attracts wildlife by providing food for birds and nesting material for rodents.\r"
   plantSprite: {fileID: 21300000, guid: 88dc1a6ef836b5a4d842135359c415fe, type: 3}
   isPioneer: 1
   growPower: 2

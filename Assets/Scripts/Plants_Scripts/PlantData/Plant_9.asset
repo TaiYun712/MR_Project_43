@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Plant_9
   m_EditorClassIdentifier: 
   plantName: "\u9F8D\u9AA8\u74E3\u8395\u83DC"
+  plantName_EN: Crested Floating Heart
   description: "\u8396\u548C\u8449\u6703\u5438\u5F15\u85FB\u985E\u9644\u8457\u751F\u9577\uFF0C\u4FC3\u9032\u6C34\u8CEA\u6DE8\u5316\r"
+  description_EN: 'Scientific name: Nymphoides hydrophylla. Its stems and leaves
+    attract algae to attach and grow, which helps improve water quality.'
   plantSprite: {fileID: 21300000, guid: 9eb5a6d6cbc4f234c90bc6ac71cabdec, type: 3}
   isPioneer: 0
   growPower: 2

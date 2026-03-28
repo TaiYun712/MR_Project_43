@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Plant_4
   m_EditorClassIdentifier: 
   plantName: "\u7D05\u8FA3\u84FC"
+  plantName_EN: Smooth Knotweed
   description: "\u65E9\u671F\u5F37\u52E2\u5148\u9A45\uFF0C\u8449\u8272\u8B8A\u7D05\u5177\u666F\u89C0\u6548\u679C\uFF0C\u53EF\u6291\u5236\u5176\u4ED6\u690D\u7269\r"
+  description_EN: 'Scientific name: Polygonum glabrum. It is a strong early pioneer
+    species. Its leaves turn red, giving it ornamental value, and it can suppress
+    the growth of other plants.'
   plantSprite: {fileID: 21300000, guid: 82b3b9cca8a79fd4c81e89063f22a12d, type: 3}
   isPioneer: 1
   growPower: 3

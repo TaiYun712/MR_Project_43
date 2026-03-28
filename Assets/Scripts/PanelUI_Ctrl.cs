@@ -74,7 +74,7 @@ public class PanelUI_Ctrl : MonoBehaviour
         getPlantPanel.SetActive(true);
         
         getPlantImage.sprite = plant.plantSprite;
-        getPlantText.text = plant.plantName;
+        getPlantText.text = plant.GetDisplayName();
         
         CancelInvoke();
         Invoke(nameof(CloseHintPanel),closeHintTime);

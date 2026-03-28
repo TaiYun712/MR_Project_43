@@ -51,7 +51,7 @@ public class PlantManager : MonoBehaviour
 
         newPlant.slotPlant = plant;
         newPlant.slotPlantImage.sprite= plant.plantSprite;
-        newPlant.slotPlantName.text = plant.plantName;
+        newPlant.slotPlantName.text = plant.GetDisplayName();
         newPlant.slotPlantCount.text = "0";
         newPlant.UpdateCount(0);
 

@@ -36,8 +36,8 @@ public class PlantIntroduction : MonoBehaviour
     public void OpenIntroPlantPanel(Plant pickPlant)
     {
         introPlantImage.sprite = pickPlant.plantSprite;
-        introPlantName.text = pickPlant.plantName;
-        introPlantDescription.text = pickPlant.description;
+        introPlantName.text = pickPlant.GetDisplayName();
+        introPlantDescription.text = pickPlant.GetDisplayDescription();
 
         if (pickPlant.isPioneer)
         {

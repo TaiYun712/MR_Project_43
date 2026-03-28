@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Plant_7
   m_EditorClassIdentifier: 
   plantName: "\u5408\u840C"
+  plantName_EN: Joint Vetch
   description: "\u8C46\u79D1\u56FA\u6C2E\u690D\u7269\uFF0C\u80FD\u5728\u8CA7\u7620\u6FD5\u5730\u751F\u9577\uFF0C\u6539\u5584\u571F\u58E4\u4E26\u70BA\u5F8C\u7E8C\u690D\u7269\u63D0\u4F9B\u990A\u5206\uFF0C\u662F\u5E38\u898B\u7684\u521D\u671F\u5FA9\u80B2\u7A2E\r"
+  description_EN: 'Scientific name: Aeschynomene indica. It is a nitrogen-fixing
+    legume that can grow in poor wetlands. It improves the soil and provides nutrients
+    for later plant growth, making it a common early-stage restoration species.'
   plantSprite: {fileID: 21300000, guid: 35be6a908f4d95d42be7eae5d69327de, type: 3}
   isPioneer: 1
   growPower: 2

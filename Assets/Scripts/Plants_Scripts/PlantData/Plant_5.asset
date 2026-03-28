@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Plant_5
   m_EditorClassIdentifier: 
   plantName: "\u91D1\u9B5A\u85FB"
+  plantName_EN: Coontail
   description: "\u6709\u5F88\u597D\u7684\u6C61\u6C34\u6DE8\u5316\u80FD\u529B\uFF0C\u53EF\u826F\u597D\u751F\u9577\u65BC\u512A\u990A\u5316\u7684\u6C34\u4E2D\uFF0C\u80FD\u63D0\u4F9B\u5FAE\u751F\u7269\u9644\u8457\u751F\u9577\u7684\u7A7A\u9593\uFF0C\u4E26\u5438\u5F15\u9B5A\u985E\u53D6\u98DF\r"
+  description_EN: 'Scientific name: Ceratophyllum demersum. It has excellent wastewater
+    purification ability and grows well in eutrophic water. It also provides space
+    for microorganisms to attach and grow, while attracting fish to feed.'
   plantSprite: {fileID: 21300000, guid: 6df76342c42add446932b7f6d1d9eda2, type: 3}
   isPioneer: 0
   growPower: 2
