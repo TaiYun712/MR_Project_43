@@ -83,6 +83,34 @@ public class PoseDemo : MonoBehaviour
     public GameObject tablePanel;
     public Animator tableAni;
 
+    [Header("中文文本顯示")] 
+    public string skillName01_CN;
+    public string skillName02_CN;
+    public string skillName03_CN;
+    public string skillName00_CN;
+    [TextArea(2, 5)]
+    public string skillIntro01_CN;
+    [TextArea(2, 5)]
+    public string skillIntro02_CN;
+    [TextArea(2, 5)]
+    public string skillIntro03_CN;
+    [TextArea(2, 5)]
+    public string skillIntro00_CN;
+    
+    [Header("英文文本顯示")]
+    public string skillName01_EN;
+    public string skillName02_EN;
+    public string skillName03_EN;
+    public string skillName00_EN;
+    [TextArea(2, 5)]
+    public string skillIntro01_EN;
+    [TextArea(2, 5)]
+    public string skillIntro02_EN;
+    [TextArea(2, 5)]
+    public string skillIntro03_EN;
+    [TextArea(2, 5)]
+    public string skillIntro00_EN;
+
 
     void Start()
     {
@@ -259,9 +287,18 @@ public class PoseDemo : MonoBehaviour
             case 0:
                 skillNameBg.sprite = sn_1;
                 skillIntroBg.sprite = si_1;
+
+                if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+                {
+                    skillNameText.text = skillName01_CN;
+                    skillDescribeText.text = skillIntro01_CN;
+                }
+                else
+                {
+                    skillNameText.text = skillName01_EN;
+                    skillDescribeText.text = skillIntro01_EN;
+                }
                 
-                skillNameText.text = "能量球";
-                skillDescribeText.text = "用以採集植物";
                 CloseAllSkill();
                 isShootSkill = true;
                     
@@ -277,8 +314,17 @@ public class PoseDemo : MonoBehaviour
                 skillNameBg.sprite = sn_2;
                 skillIntroBg.sprite = si_2;
                 
-                skillNameText.text = "淨化";
-                skillDescribeText.text = "清除環境中的髒污";
+                if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+                {
+                    skillNameText.text = skillName02_CN;
+                    skillDescribeText.text = skillIntro02_CN;
+                }
+                else
+                {
+                    skillNameText.text = skillName02_EN;
+                    skillDescribeText.text = skillIntro02_EN;
+                }
+                
                 CloseAllSkill();
                 isCleanSkill = true;
                 
@@ -294,8 +340,16 @@ public class PoseDemo : MonoBehaviour
                 skillNameBg.sprite = sn_3;
                 skillIntroBg.sprite = si_3;
                 
-                skillNameText.text = "棲地合成";
-                skillDescribeText.text = "用各種植物組成棲地";
+                if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+                {
+                    skillNameText.text = skillName03_CN;
+                    skillDescribeText.text = skillIntro03_CN;
+                }
+                else
+                {
+                    skillNameText.text = skillName03_EN;
+                    skillDescribeText.text = skillIntro03_EN;
+                }
                 CloseAllSkill();
                 isTableSkill = true;
                 
@@ -309,8 +363,16 @@ public class PoseDemo : MonoBehaviour
                 skillNameBg.sprite = sn_0;
                 skillIntroBg.sprite = si_0;
                 
-                skillNameText.text = "技能面板";
-                skillDescribeText.text = "手掌握拳切換技能    手勢八看資訊面板";
+                if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+                {
+                    skillNameText.text = skillName00_CN;
+                    skillDescribeText.text = skillIntro00_CN;
+                }
+                else
+                {
+                    skillNameText.text = skillName00_EN;
+                    skillDescribeText.text = skillIntro00_EN;
+                }
                 CloseAllSkill();
                 
                 cleanHandAim.SetActive(false);

@@ -2542,6 +2542,11 @@ MonoBehaviour:
   catchPrt_L: {fileID: 1970755637}
   handCatcher_L: {fileID: 1911147277}
   handCatcher_R: {fileID: 247254522}
+  touchHint_CN: "\u7528*\u96D9\u624B\u89F8\u6478*\u6536\u96C6\u5468\u906D\u7684\u751F\u9748\u788E\u7247"
+  touchHint_EN: Touch nearby Spirit Fragments with both hands to collect them.
+  gameStartGuild_CN: "\u7D05\u51A0\u6C34\u96DE \u56E0\u70BA\u68F2\u5730\u4E0D\u8DB3\u6B63\u5728\u6D88\u5931\uFF0C\u8ACB\u5728\u5730\u5716\u4E0A\u589E\u52A0\u68F2\u5730\u63D0\u5347\u65CF\u7FA4\u6578\u91CF\u5427"
+  gameStartGuild_EN: The Eurasian Moorhen is disappearing due to habitat loss. Add
+    more habitats to the map to increase its population.
 --- !u!4 &80083359
 Transform:
   m_ObjectHideFlags: 0
@@ -5890,8 +5895,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000012218952, y: 0.0000007748604}
-  m_SizeDelta: {x: 355.1132, y: 99.6043}
+  m_AnchoredPosition: {x: 0.0000012218952, y: -0.013}
+  m_SizeDelta: {x: 355.1132, y: 138.989}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176585726
 MonoBehaviour:
@@ -35298,6 +35303,25 @@ MonoBehaviour:
   isOpenTable: 0
   tablePanel: {fileID: 846684879}
   tableAni: {fileID: 846684881}
+  skillName01_CN: "\u80FD\u91CF\u7403"
+  skillName02_CN: "\u6DE8\u5316"
+  skillName03_CN: "\u68F2\u5730\u5408\u6210"
+  skillName00_CN: "\u6280\u80FD\u9762\u677F"
+  skillIntro01_CN: "\u7528\u4EE5\u63A1\u96C6\u690D\u7269"
+  skillIntro02_CN: "\u6E05\u9664\u74B0\u5883\u4E2D\u7684\u9AD2\u6C61"
+  skillIntro03_CN: "\u7528\u5404\u7A2E\u690D\u7269\u7D44\u6210\u68F2\u5730"
+  skillIntro00_CN: "\u624B\u638C\u63E1\u62F3\u5207\u63DB\u6280\u80FD\n\u624B\u52E2\u516B\u770B\u8CC7\u8A0A\u9762\u677F"
+  skillName01_EN: Energy Ball
+  skillName02_EN: Purify
+  skillName03_EN: Habitat Synthesis
+  skillName00_EN: Skill Panel
+  skillIntro01_EN: Used to collect plants.
+  skillIntro02_EN: Removes pollution from the environment.
+  skillIntro03_EN: 'Combine different plants
+
+    to create habitats.'
+  skillIntro00_EN: "Make a fist to switch skills.\nMake the \u201C8\u201D hand signto
+    view the info panel."
 --- !u!4 &454846469
 Transform:
   m_ObjectHideFlags: 0
@@ -39589,7 +39613,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -2.24}
-  m_SizeDelta: {x: 0, y: -1.112}
+  m_SizeDelta: {x: 1.0725, y: -1.112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608038965
 MonoBehaviour:
@@ -40301,8 +40325,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 346.319, y: 86.402}
+  m_AnchoredPosition: {x: 0, y: -0.021}
+  m_SizeDelta: {x: 429.452, y: 105.533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625032447
 MonoBehaviour:
@@ -40326,7 +40350,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 45
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -66864,6 +66888,10 @@ MonoBehaviour:
   SuccessSp: {fileID: 21300000, guid: 04be92a3795a45e4da16522540fb761c, type: 3}
   successPrt: {fileID: 1222112441}
   successPrt_2: {fileID: 1553657634}
+  notFillHint_CN: "\u672A\u586B\u6EFF\u5408\u6210\u53F0\uFF0C\u4E0D\u4E88\u5408\u6210"
+  notFillHint_EN: 'Synthesis failed:
+
+    Not all slots are filled.'
 --- !u!1 &847500068
 GameObject:
   m_ObjectHideFlags: 0
@@ -93893,6 +93921,14 @@ MonoBehaviour:
   - {fileID: 4711910337149895874, guid: af9891ea21bb37548b5a6dd62289c23e, type: 3}
   hasDamageWarned: 0
   hasDirtyWarned: 0
+  overdestructionHint_CN: "\u74B0\u5883\u7834\u788E\u56B4\u91CD"
+  overpollutionHint_CN: "\u74B0\u5883\u6C61\u67D3\u904E\u591A"
+  overdestructionHint_EN: 'Severe
+
+    environmental destruction'
+  overpollutionHint_EN: 'Excessive
+
+    environmental pollution'
 --- !u!4 &1248420701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5201637225824680238, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
@@ -94227,7 +94263,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0.317}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1255711546
 MonoBehaviour:
@@ -96590,8 +96626,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.6, y: -2.9}
-  m_SizeDelta: {x: 1301.3, y: 350.3}
+  m_AnchoredPosition: {x: 7.7, y: 2.61}
+  m_SizeDelta: {x: 1417.4, y: 450.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1337258235
 MonoBehaviour:
@@ -96626,7 +96662,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u9019\u662F\u904A\u6232\u5730\u5716\n\u8981\u52AA\u529B\u5728\u4E0A\u9762\u589E\u52A0\u68F2\u5730\uFF0C\u5FA9\u80B2\u7269\u7A2E"
+  m_Text: "\u7528*\u96D9\u624B\u89F8\u6478*\u6536\u96C6\u5468\u906D\u7684\u751F\u9748\u788E\u7247"
 --- !u!222 &1337258236
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -105165,7 +105201,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.065}
-  m_SizeDelta: {x: 160, y: 79.784}
+  m_SizeDelta: {x: 185.518, y: 98.791}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1483223103
 MonoBehaviour:
@@ -105189,10 +105225,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -136209,8 +136245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0000024437904}
-  m_SizeDelta: {x: 269.335, y: 141.356}
+  m_AnchoredPosition: {x: 0, y: 0.694}
+  m_SizeDelta: {x: 333.091, y: 147.891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1834394167
 MonoBehaviour:
@@ -136245,7 +136281,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u624B\u638C\u63E1\u62F3\u5207\u63DB\u6280\u80FD    \u624B\u52E2\u516B\u770B\u8CC7\u8A0A\u9762\u677F"
+  m_Text: "\u624B\u638C\u63E1\u62F3\u5207\u63DB\u6280\u80FD \u624B\u52E2\u516B\u770B\u8CC7\u8A0A\u9762\u677F"
 --- !u!222 &1834394168
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -516,7 +516,6 @@ GameObject:
   - component: {fileID: 22718648}
   - component: {fileID: 22718651}
   - component: {fileID: 22718650}
-  - component: {fileID: 22718649}
   m_Layer: 5
   m_Name: 'LanguageText '
   m_TagString: Untagged
@@ -543,46 +542,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.45, y: -0.684}
   m_SizeDelta: {x: 322.6555, y: 193.485}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &22718649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22718647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:ceb8f24f4362f0b4884d4a9caf5e461e
-    m_TableEntryReference:
-      m_KeyId: 48574562304
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 22718650}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &22718650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79654,7 +79613,6 @@ GameObject:
   - component: {fileID: 2132326544}
   - component: {fileID: 2132326546}
   - component: {fileID: 2132326545}
-  - component: {fileID: 2132326547}
   m_Layer: 5
   m_Name: Volume settingImage
   m_TagString: Untagged
@@ -79719,41 +79677,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132326543}
   m_CullTransparentMesh: 1
---- !u!114 &2132326547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2132326543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f55fcc3768689a4f9cf863b8c11c618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LocalizedAssetReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:65bafe65ee4849a4ebd16b28b4eb9f62
-    m_TableEntryReference:
-      m_KeyId: 8737062912
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-  m_UpdateAsset:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2132326545}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
-        m_MethodName: set_sprite
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
 --- !u!1 &2134169621
 GameObject:
   m_ObjectHideFlags: 0

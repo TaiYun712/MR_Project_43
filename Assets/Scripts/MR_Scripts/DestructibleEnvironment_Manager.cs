@@ -75,7 +75,16 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     [Header("警示控制")]
     [SerializeField] bool hasDamageWarned = false;
     [SerializeField] private bool hasDirtyWarned  = false;
+
+    [Header("中文顯示文本")]
+    public string overdestructionHint_CN;
+    public string overpollutionHint_CN;
     
+    [Header("英文顯示文本")]
+    [TextArea(2,5)]
+    public string overdestructionHint_EN;
+    [TextArea(2,5)]
+    public string overpollutionHint_EN;
     void Start()
     {
         meshSpawner.OnDestructibleMeshCreated.AddListener(SetUpDestructibleComponents);
@@ -269,7 +278,15 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         if (damageTier >= 2 && !hasDamageWarned)
         {
             Debug.Log("環境破碎嚴重");
-           PanelUI_Ctrl.instance.OverDestoryWarningHint("環境破碎嚴重");
+            if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+            {
+                 PanelUI_Ctrl.instance.OverDestoryWarningHint(overdestructionHint_CN);
+            }
+            else
+            {
+                PanelUI_Ctrl.instance.OverDestoryWarningHint(overdestructionHint_EN);
+            }
+          
         }
         else
         {
@@ -279,7 +296,16 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         if (dirtyTier >= 4 && !hasDirtyWarned)
         {
             Debug.Log("環境污染過多");
-            PanelUI_Ctrl.instance.OverDestoryWarningHint("環境污染過多");
+            
+            if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+            {
+                PanelUI_Ctrl.instance.OverDestoryWarningHint(overpollutionHint_CN);
+            }
+            else
+            {
+                PanelUI_Ctrl.instance.OverDestoryWarningHint(overpollutionHint_EN);
+            }
+            
             hasDirtyWarned = true;
         }
         else

@@ -28,6 +28,13 @@ public class CraftingManager : MonoBehaviour
     public Sprite failSp, SuccessSp;
     public ParticleSystem successPrt;
     public ParticleSystem successPrt_2;
+
+    [Header("中文顯示文本")] 
+    public string notFillHint_CN;
+
+    [Header("英文顯示文本")] 
+    [TextArea(2,5)]
+    public string notFillHint_EN;
    
     private void Awake()
     {
@@ -54,7 +61,15 @@ public class CraftingManager : MonoBehaviour
         //檢查是否有填滿
         if (!AllFilled())
         {
-            Fail("未填滿合成台，不予合成");
+            if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+            {
+                Fail(notFillHint_CN); 
+            }
+            else
+            {
+                Fail(notFillHint_EN); 
+            }
+            
             return;
         }
 
@@ -100,8 +115,16 @@ public class CraftingManager : MonoBehaviour
         
         //生成對應棲地
         SpawnResult(isWetland,isAdvanced);
-        
-        Success($"成功合成：{(isAdvanced ? "高階" : "初階")}{(isWetland ? "濕地塊" : "棲地塊")}");
+
+        if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+        {
+            Success($"成功合成：{(isAdvanced ? "高階" : "初階")}{(isWetland ? "濕地塊" : "棲地塊")}");
+        }
+        else
+        {
+            Success($"Synthesis successful:\n{(isAdvanced ? "Advanced" : "Basic")}{(isWetland ? "Wetland Tile" : "Habitat Tile")}");
+        }
+       
 
     }
 
@@ -154,7 +177,14 @@ public class CraftingManager : MonoBehaviour
 
              if (count > limit)
              {
-                 reason = $"{name}過量，超過 {count - limit}";
+                 if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+                 {
+                     reason = $"{name}過量，超過 {count - limit}";
+                 }
+                 else
+                 {
+                     reason = $"Too much{name}\nexceeded by {count - limit}";
+                 }
                  return false;
              }
          }
