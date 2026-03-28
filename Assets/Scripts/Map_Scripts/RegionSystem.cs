@@ -438,7 +438,18 @@ public class RegionSystem : MonoBehaviour
         {
             isEcoReady = false;
             int needEco = baseEco - ecoSum;
-            return "未達棲息標準\n還差 " + needEco + " 點生態點";
+            string notMetHint;
+
+            if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+            {
+                notMetHint = "未達棲息標準\n還差 " + needEco + " 點生態點";
+            }
+            else
+            {
+                notMetHint = "Habitat Requirements Not Met\nNeed" + needEco + "more Ecology Points";
+            }
+
+            return notMetHint;
         }
         else
         {
@@ -452,7 +463,17 @@ public class RegionSystem : MonoBehaviour
                 needEco = 0;
             }
 
-            return "已達棲息標準\n目前復育階數：" + stage + "\n還差 " + needEco + " 點可升一階";
+            string metHint;
+            if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+            {
+                metHint = "已達棲息標準\n目前復育階數：" + stage + "\n還差 " + needEco + " 點可升一階";
+            }
+            else
+            {
+                metHint = "Habitat Requirements Met\nCurrent Restoration Level:" + stage +"\nNeed" + needEco +"more\nEcology Points to reach the next level";
+            }
+
+            return metHint;
         }
     }
     
