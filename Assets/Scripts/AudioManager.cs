@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     
     [Header("BGM")]
     [SerializeField]
-    AudioClip titleBGM,gameBGM,gameWinBGM,selectionBGM;
+    AudioClip titleBGM,gameBGM,gameWinBGM,selectionBGM,teachingBGM;
 
     public float titleBgmVol = 1f;
     public float gamingBgmVol = 0.6f;
@@ -111,6 +111,16 @@ public class AudioManager : MonoBehaviour
         townSound.SetActive(false);
         
         bgmSource.clip = selectionBGM;
+        bgmSource.loop = true;
+        bgmSource.volume = titleBgmVol;
+        bgmSource.Play();
+    }
+
+    public void SwitchTeachingBGM()
+    {
+        townSound.SetActive(false);
+        
+        bgmSource.clip = teachingBGM;
         bgmSource.loop = true;
         bgmSource.volume = titleBgmVol;
         bgmSource.Play();

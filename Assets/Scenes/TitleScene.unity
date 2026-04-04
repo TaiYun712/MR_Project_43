@@ -19603,7 +19603,8 @@ MonoBehaviour:
   titleBGM: {fileID: 8300000, guid: 110cc6fbe502f7d4e9edc0c26f3615ac, type: 3}
   gameBGM: {fileID: 8300000, guid: 0527517666c66f945841531552a4a4c4, type: 3}
   gameWinBGM: {fileID: 8300000, guid: 3fb367c25636e3a419195024ac3d2b76, type: 3}
-  selectionBGM: {fileID: 8300000, guid: d65344d2ab12c1843bb9046c4cd27fdd, type: 3}
+  selectionBGM: {fileID: 8300000, guid: 10e5b8a7db90b094b80a9ee6f3a93fb3, type: 3}
+  teachingBGM: {fileID: 8300000, guid: d65344d2ab12c1843bb9046c4cd27fdd, type: 3}
   titleBgmVol: 1
   gamingBgmVol: 0.3
   popSound: {fileID: 8300000, guid: cbb283c3e02561d44853b95e38474737, type: 3}

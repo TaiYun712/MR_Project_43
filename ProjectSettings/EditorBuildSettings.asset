@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneSelection.unity
     guid: 0d26c19f652e7994d9a5e897cd0fb720
+  - enabled: 1
+    path: Assets/Scenes/Power_Teaching.unity
+    guid: 276077d3813953f4e9fc7c8f717e44ed
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 76868d36b3e252e47a6dbf3de4a4fa69, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 2fad871775ad7c3419c1f3edd919ab53, type: 2}
