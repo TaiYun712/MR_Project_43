@@ -5,12 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
 {
+    public Transform seePoint;
+    public GameObject hintsUI;
+    
     public GameObject changeSceneEffect;
     
     void Start()
     {
+        Invoke("SetHintsHeight",0.5f);
+        
         changeSceneEffect.SetActive(false);
         AudioManager.instance.BubleUp();
+    }
+
+    public void SetHintsHeight()
+    {
+        Vector3 eyePos = seePoint.position;
+        Vector3 targetPos = new Vector3(eyePos.x, eyePos.y-0.5f, eyePos.z); // Y 是高度, Z 是距離前方
+        hintsUI.transform.position = targetPos;
     }
     
     //進入一般關卡
