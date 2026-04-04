@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     
     [Header("BGM")]
     [SerializeField]
-    AudioClip titleBGM,gameBGM,gameWinBGM;
+    AudioClip titleBGM,gameBGM,gameWinBGM,selectionBGM;
 
     public float titleBgmVol = 1f;
     public float gamingBgmVol = 0.6f;
@@ -75,6 +75,9 @@ public class AudioManager : MonoBehaviour
         else  if (sceneName == "Power_Destructible Mesh")
         {
             SwitchGameBGM();
+        }else if (sceneName == "SceneSelection")
+        {
+            SwitchSelectionBGM();
         }
         else
         {
@@ -100,6 +103,16 @@ public class AudioManager : MonoBehaviour
         bgmSource.clip = gameBGM;
         bgmSource.loop = true;
         bgmSource.volume = gamingBgmVol;
+        bgmSource.Play();
+    }
+
+    public void SwitchSelectionBGM()
+    {
+        townSound.SetActive(false);
+        
+        bgmSource.clip = selectionBGM;
+        bgmSource.loop = true;
+        bgmSource.volume = titleBgmVol;
         bgmSource.Play();
     }
 

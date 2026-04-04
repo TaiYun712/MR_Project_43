@@ -116,7 +116,7 @@ public class TitleButtons : MonoBehaviour
 
         Debug.Log("進入遊戲");
         Invoke("ChangeBubleEffect",2f);
-        Invoke("LoadGameScene",startGameTime);
+        Invoke("LoadSelectionScene",startGameTime);
     }
 
     public void ChangeBubleEffect()
@@ -129,6 +129,13 @@ public class TitleButtons : MonoBehaviour
     {
         SceneManager.LoadScene("Power_Destructible Mesh");
         AudioManager.instance.SwitchGameBGM();
+    }
+
+    //進入選取場景場景
+    public void LoadSelectionScene()
+    {
+        SceneManager.LoadScene("SceneSelection");
+        AudioManager.instance.SwitchSelectionBGM();
     }
     
     //Quit按鈕
