@@ -17,10 +17,12 @@ public class LevelSelection : MonoBehaviour
     [Header("一般關卡 手勢UI")] 
     public Image yaHint;
     public bool isYA = false;
+    public Animator nModAni;
 
     [Header("教學關卡 手勢UI")] 
     public Image goodHint;
     public bool isGood = false;
+    public Animator tModAni;
     
     void Start()
     {
@@ -82,6 +84,7 @@ public class LevelSelection : MonoBehaviour
         if(isGood){return;}
         
         AudioManager.instance.PutPlantInToCraft();
+        nModAni.SetBool("isSelect",true);
         isYA = true;
         isGood = false;
     }
@@ -92,6 +95,7 @@ public class LevelSelection : MonoBehaviour
         if(isYA){return;}
         
         AudioManager.instance.PutPlantInToCraft();
+        tModAni.SetBool("isSelect",true);
         isGood = true;
         isYA = false;
     }
@@ -105,6 +109,9 @@ public class LevelSelection : MonoBehaviour
         countdownTime = holdTime;
         yaHint.fillAmount = 1;
         goodHint.fillAmount = 1;
+        
+        tModAni.SetBool("isSelect",false);
+        nModAni.SetBool("isSelect",false);
     }
     
     
