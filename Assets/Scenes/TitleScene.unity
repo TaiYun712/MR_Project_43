@@ -3062,55 +3062,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 431241282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &160673428
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 160673430}
-  - component: {fileID: 160673429}
-  m_Layer: 0
-  m_Name: LanguageSwitch_trash
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &160673429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160673428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f9f5cb55ef3d5444a9427d0d23ffbbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  languageButton: {fileID: 927478150}
-  languageButtonText: {fileID: 2142180517}
-  chineseLocale: {fileID: 11400000, guid: 8eed9c53dbb7cbc4ba7d00720e256808, type: 2}
-  englishLocale: {fileID: 11400000, guid: f4e031d4a0571dc4290652e34b8aab60, type: 2}
-  debugText: {fileID: 0}
---- !u!4 &160673430
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160673428}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &161866557
 GameObject:
   m_ObjectHideFlags: 0
@@ -80125,7 +80076,6 @@ SceneRoots:
   - {fileID: 802868056}
   - {fileID: 1007812405}
   - {fileID: 1930992534}
-  - {fileID: 160673430}
   - {fileID: 2111310742}
   - {fileID: 1734641634}
   - {fileID: 1539899208}
