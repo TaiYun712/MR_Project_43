@@ -14,6 +14,9 @@ public class LevelSelection : MonoBehaviour
     public float holdTime = 3.0f;
     private float countdownTime;
 
+    public GameObject enteringHint;
+    public Text enterLevelText;
+    
     [Header("一般關卡 手勢UI")] 
     public Image yaHint;
     public bool isYA = false;
@@ -29,6 +32,7 @@ public class LevelSelection : MonoBehaviour
         Invoke("SetHintsHeight",0.5f);
         changeSceneEffect.SetActive(false);
         AudioManager.instance.BubleUp();
+        enteringHint.SetActive(false);
 
         countdownTime = holdTime;
         yaHint.fillAmount = 1;
@@ -87,6 +91,9 @@ public class LevelSelection : MonoBehaviour
         nModAni.SetBool("isSelect",true);
         isYA = true;
         isGood = false;
+
+        enterLevelText.text = "一般關卡";
+        enteringHint.SetActive(true);
     }
     
     //  Good 手勢觸發
@@ -98,6 +105,9 @@ public class LevelSelection : MonoBehaviour
         tModAni.SetBool("isSelect",true);
         isGood = true;
         isYA = false;
+        
+        enterLevelText.text = "教學關卡";
+        enteringHint.SetActive(true);
     }
     
     //關閉所有觸發
@@ -112,6 +122,8 @@ public class LevelSelection : MonoBehaviour
         
         tModAni.SetBool("isSelect",false);
         nModAni.SetBool("isSelect",false);
+        
+        enteringHint.SetActive(false);
     }
     
     
