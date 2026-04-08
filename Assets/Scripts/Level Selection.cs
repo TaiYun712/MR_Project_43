@@ -110,6 +110,19 @@ public class LevelSelection : MonoBehaviour
         enteringHint.SetActive(true);
     }
     
+    // good --開發中
+    public void HoldingGood_Tem()
+    {
+        if(isYA){return;}
+        
+        AudioManager.instance.PutPlantInToCraft();
+        tModAni.SetBool("isSelect",true);
+        
+        enterLevelText.text = "教學關卡 尚未開放";
+        enteringHint.SetActive(true);
+    }
+    
+    
     //關閉所有觸發
     public void HoldingNothing()
     {
