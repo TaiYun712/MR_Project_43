@@ -42,6 +42,8 @@ public class PoseDemo : MonoBehaviour
     public Sprite sn_0,sn_1,sn_2,sn_3;
     public Sprite si_0, si_1, si_2, si_3;
 
+    public GameObject l_HandHint;
+
     [Header("發射能量球")]
     public bool isShooting;
     public GameObject ballPf;
@@ -287,7 +289,8 @@ public class PoseDemo : MonoBehaviour
             case 0:
                 skillNameBg.sprite = sn_1;
                 skillIntroBg.sprite = si_1;
-
+                l_HandHint.SetActive(false);
+                
                 if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
                 {
                     skillNameText.text = skillName01_CN;
@@ -313,6 +316,7 @@ public class PoseDemo : MonoBehaviour
             case 1:
                 skillNameBg.sprite = sn_2;
                 skillIntroBg.sprite = si_2;
+                l_HandHint.SetActive(false);
                 
                 if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
                 {
@@ -339,6 +343,7 @@ public class PoseDemo : MonoBehaviour
             case 2:
                 skillNameBg.sprite = sn_3;
                 skillIntroBg.sprite = si_3;
+                l_HandHint.SetActive(false);
                 
                 if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
                 {
@@ -362,6 +367,7 @@ public class PoseDemo : MonoBehaviour
             case 3:
                 skillNameBg.sprite = sn_0;
                 skillIntroBg.sprite = si_0;
+                l_HandHint.SetActive(true);
                 
                 if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
                 {
