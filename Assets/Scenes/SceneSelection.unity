@@ -2572,7 +2572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0417ac8cb54b31e4e9a63e71135d94b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: 0
+  currentLanguage: 1
 --- !u!4 &151609915
 Transform:
   m_ObjectHideFlags: 0
@@ -3591,7 +3591,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 13.976, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.05, y: 0.147}
+  m_AnchoredPosition: {x: 0.07, y: 0.147}
   m_SizeDelta: {x: 837, y: 379}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &193685280
@@ -15068,6 +15068,7 @@ GameObject:
   - component: {fileID: 610386464}
   - component: {fileID: 610386466}
   - component: {fileID: 610386465}
+  - component: {fileID: 610386467}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -15136,6 +15137,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610386463}
   m_CullTransparentMesh: 1
+--- !u!114 &610386467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610386463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3223ea98f5537004689f235204ac122e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 610386465}
+  chineseText: "\u4E00\u822C \u95DC\u5361"
+  englishText: Standard Level
 --- !u!1 &618103003
 GameObject:
   m_ObjectHideFlags: 0
@@ -20944,8 +20960,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -37}
-  m_SizeDelta: {x: 1127.9, y: 176.5}
+  m_AnchoredPosition: {x: 0, y: -52.9}
+  m_SizeDelta: {x: 1127.9, y: 228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &817930106
 CanvasRenderer:
@@ -20988,7 +21004,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6559\u5B78\u95DC\u5361 \u5C1A\u672A\u958B\u653E"
+  m_Text: "\u6559\u5B78\u95DC\u5361"
 --- !u!1 &818104943
 GameObject:
   m_ObjectHideFlags: 0
@@ -22037,7 +22053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -13.976, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.05, y: 0.147}
+  m_AnchoredPosition: {x: -0.07, y: 0.147}
   m_SizeDelta: {x: 837, y: 379}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861995942
@@ -30348,6 +30364,7 @@ GameObject:
   - component: {fileID: 1108987162}
   - component: {fileID: 1108987164}
   - component: {fileID: 1108987163}
+  - component: {fileID: 1108987165}
   m_Layer: 5
   m_Name: Enter Text
   m_TagString: Untagged
@@ -30416,6 +30433,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108987161}
   m_CullTransparentMesh: 1
+--- !u!114 &1108987165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108987161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3223ea98f5537004689f235204ac122e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1108987163}
+  chineseText: "\u6E96\u5099\u9032\u5165..."
+  englishText: Entering...
 --- !u!1 &1110510675
 GameObject:
   m_ObjectHideFlags: 0
@@ -35706,6 +35738,7 @@ GameObject:
   - component: {fileID: 1312704597}
   - component: {fileID: 1312704599}
   - component: {fileID: 1312704598}
+  - component: {fileID: 1312704600}
   m_Layer: 5
   m_Name: 'Good Pose Text '
   m_TagString: Untagged
@@ -35730,7 +35763,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 198.3}
-  m_SizeDelta: {x: 2190.5, y: 367}
+  m_SizeDelta: {x: 2553.7, y: 367}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1312704598
 MonoBehaviour:
@@ -35774,6 +35807,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312704596}
   m_CullTransparentMesh: 1
+--- !u!114 &1312704600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312704596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3223ea98f5537004689f235204ac122e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1312704598}
+  chineseText: "\u6C92\u73A9\u904E~\n\u9032\u5165\u6559\u5B78\u95DC\u5361  \u8ACB\u6BD4\u4EE5\u4E0B\u624B\u52E2"
+  englishText: "New Player?\n Use the gesture below to enter the Tutorial Level."
 --- !u!1 &1312772206
 GameObject:
   m_ObjectHideFlags: 0
@@ -35910,6 +35958,7 @@ GameObject:
   - component: {fileID: 1317250272}
   - component: {fileID: 1317250274}
   - component: {fileID: 1317250273}
+  - component: {fileID: 1317250275}
   m_Layer: 5
   m_Name: YA Pose Text
   m_TagString: Untagged
@@ -35934,7 +35983,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 191}
-  m_SizeDelta: {x: 1792.7, y: 291.7}
+  m_SizeDelta: {x: 2599, y: 291.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317250273
 MonoBehaviour:
@@ -35978,6 +36027,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317250271}
   m_CullTransparentMesh: 1
+--- !u!114 &1317250275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317250271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3223ea98f5537004689f235204ac122e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1317250273}
+  chineseText: "\u73A9\u904E\u4E86~\n\u9032\u5165\u4E00\u822C\u95DC\u5361  \u8ACB\u6BD4\u4EE5\u4E0B\u624B\u52E2"
+  englishText: 'Played Before?
+
+    Use the gesture below to enter the Standard Level.'
 --- !u!1 &1321253129
 GameObject:
   m_ObjectHideFlags: 0
@@ -55645,8 +55711,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -15.3}
-  m_SizeDelta: {x: 282.6, y: 103.4}
+  m_AnchoredPosition: {x: 0, y: -18}
+  m_SizeDelta: {x: 345.1, y: 119.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1877030640
 MonoBehaviour:
@@ -56616,6 +56682,7 @@ GameObject:
   - component: {fileID: 1915177602}
   - component: {fileID: 1915177604}
   - component: {fileID: 1915177603}
+  - component: {fileID: 1915177605}
   m_Layer: 5
   m_Name: Text (Legacy)
   m_TagString: Untagged
@@ -56684,6 +56751,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915177601}
   m_CullTransparentMesh: 1
+--- !u!114 &1915177605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915177601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3223ea98f5537004689f235204ac122e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetText: {fileID: 1915177603}
+  chineseText: "\u6559\u5B78 \u95DC\u5361"
+  englishText: Tutorial Level
 --- !u!1 &1918148922
 GameObject:
   m_ObjectHideFlags: 0

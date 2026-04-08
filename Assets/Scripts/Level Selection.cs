@@ -92,7 +92,15 @@ public class LevelSelection : MonoBehaviour
         isYA = true;
         isGood = false;
 
-        enterLevelText.text = "一般關卡";
+        if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+        {
+            enterLevelText.text = "一般關卡";
+        }
+        else
+        {
+            enterLevelText.text = "Standard Level";
+        }
+        
         enteringHint.SetActive(true);
     }
     
@@ -106,7 +114,14 @@ public class LevelSelection : MonoBehaviour
         isGood = true;
         isYA = false;
         
-        enterLevelText.text = "教學關卡";
+        if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+        {
+            enterLevelText.text = "教學關卡";
+        }
+        else
+        {
+            enterLevelText.text = "Tutorial Level";
+        }
         enteringHint.SetActive(true);
     }
     
@@ -118,7 +133,15 @@ public class LevelSelection : MonoBehaviour
         AudioManager.instance.PutPlantInToCraft();
         tModAni.SetBool("isSelect",true);
         
-        enterLevelText.text = "教學關卡 尚未開放";
+        if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
+        {
+            enterLevelText.text = "教學關卡 尚未開放";
+        }
+        else
+        {
+            enterLevelText.text = "Tutorial Level \nComing Soon";
+        }
+        
         enteringHint.SetActive(true);
     }
     
