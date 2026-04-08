@@ -2490,6 +2490,7 @@ MonoBehaviour:
   catchPrt_L: {fileID: 1970755637}
   handCatcher_L: {fileID: 1911147277}
   handCatcher_R: {fileID: 247254522}
+  beanAni: {fileID: 1758084365}
   touchHint_CN: "\u7528*\u96D9\u624B\u89F8\u6478*\u6536\u96C6\u5468\u906D\u7684\u751F\u9748\u788E\u7247"
   touchHint_EN: Touch nearby Spirit Fragments with both hands to collect them.
   gameStartGuild_CN: "\u7D05\u51A0\u6C34\u96DE \u56E0\u70BA\u68F2\u5730\u4E0D\u8DB3\u6B63\u5728\u6D88\u5931\uFF0C\u8ACB\u5728\u5730\u5716\u4E0A\u589E\u52A0\u68F2\u5730\u63D0\u5347\u65CF\u7FA4\u6578\u91CF\u5427"
@@ -3992,7 +3993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &129896560
 Transform:
   m_ObjectHideFlags: 0
@@ -5506,6 +5507,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1993233042}
+  - {fileID: 403849599}
   m_Father: {fileID: 1061389592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -28905,6 +28907,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403236971}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &403849598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 403849599}
+  m_Layer: 0
+  m_Name: GuyPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &403849599
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403849598}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1758084364}
+  m_Father: {fileID: 174225588}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 208.39389, y: 32.69963}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &406256015
 GameObject:
   m_ObjectHideFlags: 0
@@ -83006,7 +83044,6 @@ Transform:
   - {fileID: 467245163}
   - {fileID: 509119675}
   - {fileID: 605567321}
-  - {fileID: 1940339951}
   - {fileID: 174225588}
   - {fileID: 174828723}
   m_Father: {fileID: 1292295552}
@@ -96852,13 +96889,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1335682808}
+  - component: {fileID: 1335682810}
+  - component: {fileID: 1335682809}
+  - component: {fileID: 1335682811}
   m_Layer: 0
-  m_Name: LittleGuy_Out
+  m_Name: LittleGuy_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1335682808
 Transform:
   m_ObjectHideFlags: 0
@@ -96868,12 +96908,94 @@ Transform:
   m_GameObject: {fileID: 1335682807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.427}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335682809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335682807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selector: {fileID: 1962667734}
+  _whenSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1335682810}
+        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
+        m_MethodName: CallBackGuy_R
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselected:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1335682810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335682807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61ecb7b88d7ab942b7f06c9a7e4db0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 1061389594}
+  beanMod: {fileID: 1758084363}
+  leftHandPos: {fileID: 1107802956}
+  rightHandPos: {fileID: 78569430}
+  outSidePos: {fileID: 1335682808}
+  guyAni: {fileID: 1758084365}
+  initialPos: {fileID: 0}
+  shoeUpPrt: {fileID: 669572858}
+--- !u!114 &1335682811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335682807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selector: {fileID: 1854843538}
+  _whenSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1335682810}
+        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
+        m_MethodName: CallBackGuy_L
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1337258233
 GameObject:
   m_ObjectHideFlags: 0
@@ -104515,37 +104637,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1822692527}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1454730508
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1454730509}
-  m_Layer: 0
-  m_Name: Eight_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1454730509
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454730508}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1456173641
 GameObject:
@@ -124275,37 +124366,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1470771933}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1614406262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1614406263}
-  m_Layer: 0
-  m_Name: fist_2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1614406263
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614406262}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614490708
 GameObject:
   m_ObjectHideFlags: 0
@@ -133664,25 +133724,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1758084366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758084363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b61ecb7b88d7ab942b7f06c9a7e4db0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCam: {fileID: 1061389594}
-  leftHandPos: {fileID: 1107802956}
-  rightHandPos: {fileID: 78569430}
-  outSidePos: {fileID: 1335682808}
-  guyAni: {fileID: 1758084365}
-  initialPos: {fileID: 1940339951}
-  shoeUpPrt: {fileID: 669572858}
 --- !u!65 &1758084367
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -133740,222 +133781,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1758084363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f8f6e9e6f3e114b9bf9a57c2160615, type: 3}
+  m_Script: {fileID: 11500000, guid: d65b66978b1271f47a4e6220d11b3723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pointable: {fileID: 1915064106}
-  _whenRelease:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenHover:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenUnhover:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenSelect:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenUnselect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1758084366}
-        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
-        m_MethodName: LetGuyGo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenMove:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenCancel:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1758084370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758084363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selector: {fileID: 1854843538}
-  _whenSelected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1758084366}
-        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
-        m_MethodName: CallBackGuy_L
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnselected:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1758084371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758084363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selector: {fileID: 1962667734}
-  _whenSelected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1758084366}
-        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
-        m_MethodName: CallBackGuy_R
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnselected:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1758084372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758084363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selector: {fileID: 2111915717}
-  _whenSelected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1758084366}
-        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
-        m_MethodName: GuySayGood
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnselected:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1758084373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758084363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selector: {fileID: 739276896}
-  _whenSelected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1758084366}
-        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
-        m_MethodName: GuySitOnHand_L
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnselected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1758084366}
-        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
-        m_MethodName: LetGuyGoOutOfHand
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1758084374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758084363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selector: {fileID: 647879737}
-  _whenSelected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1758084366}
-        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
-        m_MethodName: GuySitOnHand_R
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnselected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1758084366}
-        m_TargetAssemblyTypeName: LittleGuyCtrl, Assembly-CSharp
-        m_MethodName: LetGuyGoOutOfHand
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  playerCam: {fileID: 0}
 --- !u!1 &1758426907
 GameObject:
   m_ObjectHideFlags: 0
@@ -140710,7 +140539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1915064103
 Transform:
   m_ObjectHideFlags: 0
@@ -141359,38 +141188,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1372883224}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1940339950
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1940339951}
-  m_Layer: 0
-  m_Name: LittleGuyPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1940339951
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940339950}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.012, z: -1.181}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1758084364}
-  m_Father: {fileID: 1061389592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940852384
 GameObject:
@@ -154789,19 +154586,31 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1940339951}
+    m_TransformParent: {fileID: 403849599}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 746.2687
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 746.2687
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 746.2687
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.004
+      value: 18.465683
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.117
+      value: -20.759703
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.047
+      value: 32.835842
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
       propertyPath: m_LocalRotation.w
@@ -155177,9 +154986,6 @@ PrefabInstance:
       addedObject: {fileID: 1758084365}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1758084366}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1758084368}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
       insertIndex: -1
@@ -155187,21 +154993,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1758084369}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1758084370}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1758084371}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1758084372}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1758084373}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1758084374}
   m_SourcePrefab: {fileID: 100100000, guid: 052e276caa3b1ef489d5ea92357e1567, type: 3}
 --- !u!1 &2034645510
 GameObject:
@@ -160007,6 +159798,7 @@ SceneRoots:
   - {fileID: 110658558}
   - {fileID: 150149917}
   - {fileID: 1888871825}
+  - {fileID: 2137896066}
   - {fileID: 347375489}
   - {fileID: 983721997}
   - {fileID: 1652587161}
@@ -160019,9 +159811,6 @@ SceneRoots:
   - {fileID: 803168962}
   - {fileID: 711351677}
   - {fileID: 1703999116}
-  - {fileID: 1315403704}
   - {fileID: 1335682808}
+  - {fileID: 1315403704}
   - {fileID: 129896560}
-  - {fileID: 2137896066}
-  - {fileID: 1614406263}
-  - {fileID: 1454730509}

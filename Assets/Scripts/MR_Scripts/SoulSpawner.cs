@@ -23,6 +23,9 @@ public class SoulSpawner : MonoBehaviour
 
     public GameObject handCatcher_L, handCatcher_R;
 
+    public Animator beanAni;    ///////////////////暫時的小精靈
+                               
+    
     [Header("中英提示")] 
     [TextArea(2, 5)]
     public string touchHint_CN;
@@ -55,7 +58,7 @@ public class SoulSpawner : MonoBehaviour
       Invoke("CloseLevelPanel",showTime);
 
       
-      GameManager.instance.ToGamePlay();///////////////////////測試用，暫時跳過沒收集完碎片不能用能力的部分
+     // GameManager.instance.ToGamePlay();///////////////////////測試用，暫時跳過沒收集完碎片不能用能力的部分
     }
     
     //關閉提示
@@ -141,6 +144,8 @@ public class SoulSpawner : MonoBehaviour
         {
             PanelUI_Ctrl.instance.ShowDiolog(gameStartGuild_EN);
         }
+        
+        beanAni.SetTrigger("isfine"); ////////////////////////////暫時的精靈
         
         GameManager.instance.ToGamePlay();
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class LittleGuyCtrl : MonoBehaviour
 {
     public Camera playerCam;
+    public GameObject beanMod;
     
     public Transform leftHandPos;
     public Transform rightHandPos;
@@ -18,9 +19,9 @@ public class LittleGuyCtrl : MonoBehaviour
     public ParticleSystem shoeUpPrt;
 
 
-    private void Awake()
+    private void Start()
     {
-        transform.SetParent(initialPos);
+        beanMod.SetActive(false);
     }
 
     //精靈坐在手上
@@ -92,11 +93,13 @@ public class LittleGuyCtrl : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(lookDir.normalized);
     }
 
+    //召喚精靈-左手
     public void CallBackGuy_L()
     {
        GuyShowUp(leftHandPos);
     }
 
+    //召喚精靈-右手
     public void CallBackGuy_R()
     {
         GuyShowUp(rightHandPos);
@@ -104,9 +107,9 @@ public class LittleGuyCtrl : MonoBehaviour
 
     public void GuyShowUp(Transform herePos)
     {
-        transform.SetParent(outSidePos);
-        transform.position = herePos.position;
-        gameObject.SetActive(true);
+        beanMod.transform.SetParent(outSidePos);
+        beanMod.transform.position = herePos.position;
+        beanMod.gameObject.SetActive(true);
         
         Vector3 currentEulerAngles = transform.eulerAngles;
         transform.rotation = Quaternion.Euler(0f, currentEulerAngles.y, 0f);
