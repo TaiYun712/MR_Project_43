@@ -190,7 +190,7 @@ public class LevelSelection : MonoBehaviour
 
     void LoadTeachingLeval()
     {
-        SceneManager.LoadScene("Power_Teaching");
+        SceneManager.LoadScene("Power_Tutorial");
         AudioManager.instance.SwitchTeachingBGM();
     }
 }

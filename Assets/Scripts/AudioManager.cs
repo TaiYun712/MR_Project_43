@@ -78,7 +78,7 @@ public class AudioManager : MonoBehaviour
         }else if (sceneName == "SceneSelection")
         {
             SwitchSelectionBGM();
-        }else if (sceneName == "Power_Teaching")
+        }else if (sceneName == "Power_Tutorial")
         {
             SwitchTeachingBGM();
         }
