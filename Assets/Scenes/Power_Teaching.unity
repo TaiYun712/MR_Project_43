@@ -2448,6 +2448,7 @@ MonoBehaviour:
   catchPrt_L: {fileID: 1970755637}
   handCatcher_L: {fileID: 1911147277}
   handCatcher_R: {fileID: 247254522}
+  beanAni: {fileID: 0}
   touchHint_CN: "\u7528*\u96D9\u624B\u89F8\u6478*\u6536\u96C6\u5468\u906D\u7684\u751F\u9748\u788E\u7247"
   touchHint_EN: Touch nearby Spirit Fragments with both hands to collect them.
   gameStartGuild_CN: "\u7D05\u51A0\u6C34\u96DE \u56E0\u70BA\u68F2\u5730\u4E0D\u8DB3\u6B63\u5728\u6D88\u5931\uFF0C\u8ACB\u5728\u5730\u5716\u4E0A\u589E\u52A0\u68F2\u5730\u63D0\u5347\u65CF\u7FA4\u6578\u91CF\u5427"
@@ -35210,6 +35211,7 @@ MonoBehaviour:
   si_1: {fileID: 21300000, guid: 40034b3aea9aba14db81c50b568fc3ea, type: 3}
   si_2: {fileID: 21300000, guid: 1a0f55fa3ec11d947b5850554c909294, type: 3}
   si_3: {fileID: 21300000, guid: c1fa7c4173feb304792b01e7768a1f02, type: 3}
+  l_HandHint: {fileID: 0}
   isShooting: 0
   ballPf: {fileID: 445036593026585034, guid: 1a79f154bbac4b64f9a15481b7c6416c, type: 3}
   handAim: {fileID: 1425441952}
@@ -133328,6 +133330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 1061389594}
+  beanMod: {fileID: 0}
   leftHandPos: {fileID: 1107802956}
   rightHandPos: {fileID: 78569430}
   outSidePos: {fileID: 1335682808}
