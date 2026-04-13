@@ -112,6 +112,7 @@ public class Tutorial_Power : MonoBehaviour
     [TextArea(2, 5)]
     public string skillIntro00_EN;
 
+    
 
     void Start()
     {
@@ -122,7 +123,8 @@ public class Tutorial_Power : MonoBehaviour
 
     private void Update()
     {
-        
+        if (TutorialManager.instance.currentState != TutorialManager.TutorialState.TutorialOpening)
+        {
             if (!hasFirstGamePlay)
             {
                 currentSkill =3;
@@ -135,6 +137,11 @@ public class Tutorial_Power : MonoBehaviour
             {
                 ShowSkillPanel();
             }
+        }
+        else
+        {
+            SkillInitialState();
+        }
             
     }
 
@@ -255,11 +262,16 @@ public class Tutorial_Power : MonoBehaviour
 
     public void SwitchToNextSkill()   //技能面板切換
     {
-        if (isFalmFacing)
+        //能量球教學中
+        if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_1_Tutorial &&
+            currentSkill == 0)
+        {
+            return;
+        }
+        else if (isFalmFacing)
         {
             currentSkill = (currentSkill + 1) % totalSkill;
             AudioManager.instance.SwitchSkillSound();
-
             SetSkills();
         }
     }

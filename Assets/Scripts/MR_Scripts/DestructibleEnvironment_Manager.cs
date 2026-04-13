@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Meta.XR.MRUtilityKit;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DestructibleEnvironment_Manager : MonoBehaviour
 {
@@ -156,8 +157,25 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         {
              yield return wait;
 
-             //不是遊戲階段就跳過
-             if (GameManager.instance == null || !GameManager.instance.isPlaying) { continue; }
+             Scene currentScene = SceneManager.GetActiveScene();
+             string sceneName = currentScene.name;
+             
+             //不是遊戲階段 或 能量球教學 就跳過
+             if (sceneName == "Power_Tutorial")
+             {
+                 if (TutorialManager.instance.currentState != TutorialManager.TutorialState.Skill_1_Tutorial)
+                 {
+                     continue;
+                 }
+             }
+
+             if (sceneName =="Power_Destructible Mesh")
+             {
+                 if (!GameManager.instance.isPlaying)
+                 {
+                     continue;
+                 }
+             }
              
              ReComputeEnviromentPower();
              
