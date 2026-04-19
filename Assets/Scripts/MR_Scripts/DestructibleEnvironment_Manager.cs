@@ -103,6 +103,10 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     //開始時，為每個碎塊加上Collider
     public void SetUpDestructibleComponents(DestructibleMeshComponent component)
     {
+        segments.Clear();
+        allSegmentsCount = 0;
+        destoryCount = 0;
+        
         currentComponent = component;
         
         component.GetDestructibleMeshSegments(segments);
@@ -296,6 +300,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         if (damageTier >= 2 && !hasDamageWarned)
         {
             Debug.Log("環境破碎嚴重");
+            hasDamageWarned = true;
             if (LanguageManager.instance.currentLanguage == LanguageManager.GameLanguage.Chinese)
             {
                  PanelUI_Ctrl.instance.OverDestoryWarningHint(overdestructionHint_CN);
@@ -354,15 +359,15 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         }
         
         //根據破壞程度調整採集點生成
-        if (environmentPower <= environmentWarning_1) //8
+        if (environmentPower <= environmentWarning_2) //6
+        {
+            newSpawnCount = maxSpwanCount_2; //6
+            Debug.Log("破壞程度1，最多生" + maxSpwanCount_2);
+        }
+        else if (environmentPower <= environmentWarning_1) //8
         {
             newSpawnCount = maxSpwanCount_1; //8
-            Debug.Log("破壞程度1，最多生" + maxSpwanCount_1);
-        }
-        else if (environmentPower <= environmentWarning_2) //6
-        {
-            newSpawnCount = maxSpwanCount_2; //5
-            Debug.Log("破壞程度2，最多生" + maxSpwanCount_2);
+            Debug.Log("破壞程度2，最多生" + maxSpwanCount_1);
         }
         else 
         {
