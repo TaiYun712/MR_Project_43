@@ -9517,7 +9517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 984354080134106425, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3613868102660323786, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
       propertyPath: SceneSettings.DataSource
@@ -9594,7 +9594,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 984354080134106425, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1260478593}
   m_SourcePrefab: {fileID: 100100000, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
 --- !u!1 &381688795
 GameObject:
@@ -49600,6 +49603,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 444218962}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1260478590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 984354080134106425, guid: c2e00db6d2dfa42ac8d821db8d493a44, type: 3}
+  m_PrefabInstance: {fileID: 380516234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1260478593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260478590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd54ff8fbc2c99941a544f92ed3cbc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1260574293
 GameObject:
   m_ObjectHideFlags: 0
@@ -67179,7 +67199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5201637225824680224, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5201637225824680237, guid: d211279b66f25334e984011a5ebfce5b, type: 3}
       propertyPath: _pointsPerUnitX
@@ -80065,6 +80085,7 @@ SceneRoots:
   - {fileID: 2125245714}
   - {fileID: 354338616}
   - {fileID: 380516234}
+  - {fileID: 1734641634}
   - {fileID: 1566005934}
   - {fileID: 282873895}
   - {fileID: 428155431}
@@ -80077,7 +80098,6 @@ SceneRoots:
   - {fileID: 1007812405}
   - {fileID: 1930992534}
   - {fileID: 2111310742}
-  - {fileID: 1734641634}
   - {fileID: 1539899208}
   - {fileID: 235620993}
   - {fileID: 151609915}

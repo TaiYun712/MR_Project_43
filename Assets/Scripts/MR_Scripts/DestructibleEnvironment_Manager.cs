@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Meta.XR.MRUtilityKit;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class DestructibleEnvironment_Manager : MonoBehaviour
 {
@@ -86,6 +88,8 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
     public string overdestructionHint_EN;
     [TextArea(2,5)]
     public string overpollutionHint_EN;
+
+    
     void Start()
     {
         meshSpawner.OnDestructibleMeshCreated.AddListener(SetUpDestructibleComponents);
@@ -99,10 +103,14 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         StartCoroutine(PlantSpawnLoop());
         StartCoroutine(DirtySpawnLoop());
     }
+   
+
 
     //開始時，為每個碎塊加上Collider
     public void SetUpDestructibleComponents(DestructibleMeshComponent component)
     {
+        Debug.Log("SetUpDestructibleComponents 被呼叫");
+        
         segments.Clear();
         allSegmentsCount = 0;
         destoryCount = 0;
@@ -111,9 +119,14 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         
         component.GetDestructibleMeshSegments(segments);
 
+        Debug.Log("切出來的 segments 數量：" + segments.Count);
         foreach (var item in segments)
         {
-            item.AddComponent<MeshCollider>();
+            if (item.GetComponent<MeshCollider>() == null)
+            {
+                item.AddComponent<MeshCollider>();
+            }
+            
             item.tag = "DestructibleWalls";
             item.layer = ignoreLayer;
 
