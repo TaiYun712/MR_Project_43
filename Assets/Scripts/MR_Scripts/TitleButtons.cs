@@ -116,7 +116,7 @@ public class TitleButtons : MonoBehaviour
 
         Debug.Log("進入遊戲");
         Invoke("ChangeBubleEffect",2f);
-        Invoke("LoadSelectionScene",startGameTime);
+        Invoke("LoadGameScene",startGameTime);
     }
 
     public void ChangeBubleEffect()
