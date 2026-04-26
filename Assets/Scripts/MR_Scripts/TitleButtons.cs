@@ -37,7 +37,6 @@ public class TitleButtons : MonoBehaviour
     public Text languageText;
 
     public Sprite settingImage_CN,settingImage_EN;
-    public string languageText_CN, languageText_EN;
     
     //防誤觸2次
     public float clickLockTime = 0.25f;
@@ -237,14 +236,13 @@ public class TitleButtons : MonoBehaviour
             // 目前是中文，所以按鈕顯示 EN，表示按下去會切到英文
             localBtText.text = "EN";
             settingImage.sprite = settingImage_CN;
-            languageText.text = languageText_CN;
+            
         }
         else
         {
             // 目前是英文，所以按鈕顯示 TW，表示按下去會切到中文
             localBtText.text = "TW";
             settingImage.sprite = settingImage_EN;
-            languageText.text = languageText_EN;
         }
 
         Debug.Log("E：按鈕文字已更新為 = " + localBtText.text);
