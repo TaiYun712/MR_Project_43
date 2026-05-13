@@ -262,13 +262,15 @@ public class Tutorial_Power : MonoBehaviour
 
     public void SwitchToNextSkill()   //技能面板切換
     {
+        /*
         //能量球教學中
         if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_1_Tutorial &&
             currentSkill == 0)
         {
             return;
         }
-        else if (isFalmFacing)
+        else */
+        if (isFalmFacing)
         {
             currentSkill = (currentSkill + 1) % totalSkill;
             AudioManager.instance.SwitchSkillSound();
