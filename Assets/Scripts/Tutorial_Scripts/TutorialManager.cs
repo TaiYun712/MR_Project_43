@@ -47,16 +47,19 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         diologPanel.SetActive(false);
-        
+
+        Skill_1_TutorialDiolog();
+    }
+
+    void Skill_1_TutorialDiolog()
+    {
         ShowTextAfterDelay("泥好啊~人類~ 歡迎來到教學關卡! \n 你將在這裡學習技能的操作方法", firstDiologTime);
         ShowTextAfterDelay("為了幫助失去家園的生物們重新回歸 \n 運用技能為牠們打造豐富的棲地吧!", 10f);
         ShowTextAfterDelay("馬上來學習第一個技能吧! \n 將你的左手掌心面向自己 \n 試著 切換技能 或 開啟資訊面板 吧!", 20f);
 
-        Invoke("SwitchTutorialState",15f);
-        Invoke("CloseFirstDioLog",28f);
+        Invoke("SwitchTutorialState_1",15f);
+        Invoke("CloseDioLog",28f);
     }
-
-  
 
     
     public void ShowTextAfterDelay(string content, float delay)
@@ -77,12 +80,12 @@ public class TutorialManager : MonoBehaviour
         diologText.text = diolog;
     }
 
-    void CloseFirstDioLog()
+    void CloseDioLog()
     {
         diologPanel.SetActive(false);
     }
 
-    void SwitchTutorialState()
+    void SwitchTutorialState_1()
     {
         SetState(TutorialState.Skill_1_Tutorial);
         Debug.Log("進入能量球_教學");

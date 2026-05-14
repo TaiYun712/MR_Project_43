@@ -177,7 +177,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
              Scene currentScene = SceneManager.GetActiveScene();
              string sceneName = currentScene.name;
              
-             //不是遊戲階段 或 能量球教學 就跳過
+             //如果在"教學場景" 且不是能量球教學 就跳過
              if (sceneName == "Power_Tutorial")
              {
                  if (TutorialManager.instance.currentState != TutorialManager.TutorialState.Skill_1_Tutorial)
@@ -186,6 +186,7 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
                  }
              }
 
+             //如果在"關卡場景" 且不是遊戲階段 就跳過
              if (sceneName =="Power_Destructible Mesh")
              {
                  if (!GameManager.instance.isPlaying)
@@ -242,8 +243,26 @@ public class DestructibleEnvironment_Manager : MonoBehaviour
         {
             yield return wait;
             
-            //不是遊戲階段就跳過
-            if (GameManager.instance == null || !GameManager.instance.isPlaying) { continue; }
+            
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+            //如果在"教學場景" 且不是能量球教學 就跳過
+            if (sceneName == "Power_Tutorial")
+            {
+                if (TutorialManager.instance.currentState != TutorialManager.TutorialState.Skill_2_Tutorial)
+                {
+                    continue;
+                }
+            }
+
+            //如果在"關卡場景" 且不是遊戲階段 就跳過
+            if (sceneName =="Power_Destructible Mesh")
+            {
+                if (!GameManager.instance.isPlaying)
+                {
+                    continue;
+                }
+            }
             
             if (currentDirtyCount < maxDirtyCount )
             {
