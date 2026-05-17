@@ -7,13 +7,21 @@ public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager instance;
 
+    [Header("小精靈對話框")]
     public GameObject diologPanel;
+    public Animator diologBeanAni;
     public Text diologText;
     public float firstDiologTime = 3f;
     
+    public GameObject mapdiologPanel;
+
+    [Header("確認手勢")] 
+    public GameObject checkHandPanel;
+    
     public enum TutorialState
     {
-        TutorialOpening,    //開場白
+        TutorialOpening,    //開場白&地圖
+        LeftSkill,          //左手用法
         Skill_1_Tutorial,   //能量球
         Skill_2_Tutorial,   //淨化
         Skill_3_Tutorial,   //棲地合成
@@ -35,6 +43,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     
+    
     public void SetState(TutorialState newState)
     {
         if (currentState == newState) return;
@@ -47,18 +56,20 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         diologPanel.SetActive(false);
+        mapdiologPanel.SetActive(false);
+        checkHandPanel.SetActive(false);
 
         Skill_1_TutorialDiolog();
     }
 
     void Skill_1_TutorialDiolog()
     {
+        Invoke("littleGuyDance",8f);
         ShowTextAfterDelay("泥好啊~人類~ 歡迎來到教學關卡! \n 你將在這裡學習技能的操作方法", firstDiologTime);
-        ShowTextAfterDelay("為了幫助失去家園的生物們重新回歸 \n 運用技能為牠們打造豐富的棲地吧!", 10f);
-        ShowTextAfterDelay("馬上來學習第一個技能吧! \n 將你的左手掌心面向自己 \n 試著 切換技能 或 開啟資訊面板 吧!", 20f);
-
-        Invoke("SwitchTutorialState_1",15f);
-        Invoke("CloseDioLog",28f);
+        ShowTextAfterDelay("為了幫助失去家園的生物們重新回歸 \n 運用技能為牠們打造豐富的棲地吧!", 8f);
+        Invoke("CloseDioLog",15f);
+        
+        Invoke("OpenMapDiolog",15f);
     }
 
     
@@ -85,9 +96,35 @@ public class TutorialManager : MonoBehaviour
         diologPanel.SetActive(false);
     }
 
-    void SwitchTutorialState_1()
+    void littleGuyDance()
     {
-        SetState(TutorialState.Skill_1_Tutorial);
-        Debug.Log("進入能量球_教學");
+        diologBeanAni.SetTrigger("isdance");
     }
+
+    void OpenMapDiolog()
+    {
+        mapdiologPanel.SetActive(true);
+        AudioManager.instance.ShowHint();
+        Invoke("CloseMapDiolog",5f);
+    }
+
+    void CloseMapDiolog()
+    {
+        mapdiologPanel.SetActive(false);
+        OpenCheckHandPanel();
+    }
+
+    //---------------------關卡確認手勢
+    public void OpenCheckHandPanel()
+    {
+        checkHandPanel.SetActive(true);
+        AudioManager.instance.ShowHint();
+    }
+
+    public void CloseCheckHandPanel()
+    {
+        checkHandPanel.SetActive(false);
+    }
+
+   
 }

@@ -10,12 +10,15 @@ public class TutorialCheckHand : MonoBehaviour
     public bool isGood = false;
     public float holdTime = 3.0f;
     private float countdownTime;
+
+    public bool hasPlayCheckSound = false;
     
     void Start()
     {
         countdownTime = holdTime;
         goodHint.fillAmount = 1;
         isGood = false;
+        hasPlayCheckSound = false;
     }
 
     void Update()
@@ -35,6 +38,13 @@ public class TutorialCheckHand : MonoBehaviour
         }
         else
         {
+            if (countdownTime <= 0 && !hasPlayCheckSound)
+            {
+                AudioManager.instance.SoulCatchOverHint();
+                hasPlayCheckSound = true;
+            }
+            
+            StageCheck();
             Debug.Log("完成此教學階段");
         }
     }
@@ -42,6 +52,7 @@ public class TutorialCheckHand : MonoBehaviour
     public void HoldingGood()
     {
         isGood = true;
+        AudioManager.instance.UISound_Wood();
     }
 
 
@@ -50,5 +61,17 @@ public class TutorialCheckHand : MonoBehaviour
         isGood = false;
         countdownTime = holdTime;
         goodHint.fillAmount = 1;
+    }
+    
+
+    void StageCheck()
+    {
+        if (TutorialManager.instance.currentState == TutorialManager.TutorialState.TutorialOpening)
+        {
+            TutorialManager.instance.SetState(TutorialManager.TutorialState.LeftSkill);
+        }
+        
+        TutorialManager.instance.CloseCheckHandPanel();
+        
     }
 }
