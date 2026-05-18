@@ -12,6 +12,11 @@ public class TutorialCheckHand : MonoBehaviour
     private float countdownTime;
 
     public bool hasPlayCheckSound = false;
+
+    [Header("教學關卡完成狀況")] 
+    public bool opening_IsOver = false;
+    public bool left_IsOver = false;
+   
     
     void Start()
     {
@@ -66,9 +71,11 @@ public class TutorialCheckHand : MonoBehaviour
 
     void StageCheck()
     {
-        if (TutorialManager.instance.currentState == TutorialManager.TutorialState.TutorialOpening)
+        if (TutorialManager.instance.currentState == TutorialManager.TutorialState.TutorialOpening && !left_IsOver)
         {
             TutorialManager.instance.SetState(TutorialManager.TutorialState.LeftSkill);
+            TutorialManager.instance.Skill_LeftSkill_TutorialDiolog();
+            left_IsOver = true;
         }
         
         TutorialManager.instance.CloseCheckHandPanel();

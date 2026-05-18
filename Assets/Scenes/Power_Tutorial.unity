@@ -5847,7 +5847,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169904612}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 10246d85179a96c4fa4647eee180cd59, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 55649aaacdae1da47af656fab5564e94, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -93920,8 +93920,10 @@ MonoBehaviour:
   diologBeanAni: {fileID: 1758084365}
   diologText: {fileID: 1337258235}
   firstDiologTime: 3
-  mapdiologPanel: {fileID: 2111617361}
   checkHandPanel: {fileID: 1733873141}
+  videoPlayer: {fileID: 169904614}
+  mapVideo: {fileID: 32900000, guid: 10246d85179a96c4fa4647eee180cd59, type: 3}
+  leftHandVideo: {fileID: 32900000, guid: 55649aaacdae1da47af656fab5564e94, type: 3}
   currentState: 0
 --- !u!4 &1180629048
 Transform:
@@ -93954,6 +93956,8 @@ MonoBehaviour:
   isGood: 0
   holdTime: 3
   hasPlayCheckSound: 0
+  opening_IsOver: 0
+  left_IsOver: 0
 --- !u!114 &1180629050
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -11,12 +12,17 @@ public class TutorialManager : MonoBehaviour
     public GameObject diologPanel;
     public Animator diologBeanAni;
     public Text diologText;
-    public float firstDiologTime = 3f;
     
-    public GameObject mapdiologPanel;
+   // public GameObject mapdiologPanel;
 
     [Header("確認手勢")] 
     public GameObject checkHandPanel;
+    
+    [Header("教學影片")] 
+    public VideoPlayer videoPlayer;
+
+    public VideoClip mapVideo;
+    public VideoClip leftHandVideo;
     
     public enum TutorialState
     {
@@ -56,20 +62,29 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         diologPanel.SetActive(false);
-        mapdiologPanel.SetActive(false);
+      //  mapdiologPanel.SetActive(false);
         checkHandPanel.SetActive(false);
 
-        Skill_1_TutorialDiolog();
+        Skill_Opening_TutorialDiolog();
+        videoPlayer.clip = mapVideo;
     }
 
-    void Skill_1_TutorialDiolog()
+    //--------  教學階段 對話
+    void Skill_Opening_TutorialDiolog()
     {
-        Invoke("littleGuyDance",8f);
-        ShowTextAfterDelay("泥好啊~人類~ 歡迎來到教學關卡! \n 你將在這裡學習技能的操作方法", firstDiologTime);
-        ShowTextAfterDelay("為了幫助失去家園的生物們重新回歸 \n 運用技能為牠們打造豐富的棲地吧!", 8f);
-        Invoke("CloseDioLog",15f);
+        Invoke("littleGuyDance",10f);
+        ShowTextAfterDelay("泥好啊~人類~ 歡迎來到教學關卡! \n 你將在這裡學習技能的操作方法", 3f);
+        ShowTextAfterDelay("為了幫助失去家園的生物們重新回歸 \n 運用技能為牠們打造豐富的棲地吧!", 10f);
+        ShowTextAfterDelay("首先來認識遊戲地圖吧!", 17f);
+        Invoke("CloseDioLog",20f);
         
-        Invoke("OpenMapDiolog",15f);
+    }
+
+    public void Skill_LeftSkill_TutorialDiolog()
+    {
+        ShowTextAfterDelay("讚喔~接下來來學習切換技能吧~",3f);
+        
+        Invoke("CloseDioLog",8f);
     }
 
     
@@ -94,6 +109,8 @@ public class TutorialManager : MonoBehaviour
     void CloseDioLog()
     {
         diologPanel.SetActive(false);
+        
+        OpenCheckHandPanel(currentState);
     }
 
     void littleGuyDance()
@@ -101,6 +118,7 @@ public class TutorialManager : MonoBehaviour
         diologBeanAni.SetTrigger("isdance");
     }
 
+    /*
     void OpenMapDiolog()
     {
         mapdiologPanel.SetActive(true);
@@ -111,12 +129,20 @@ public class TutorialManager : MonoBehaviour
     void CloseMapDiolog()
     {
         mapdiologPanel.SetActive(false);
-        OpenCheckHandPanel();
+        OpenCheckHandPanel(TutorialState.TutorialOpening);
     }
-
+*/
     //---------------------關卡確認手勢
-    public void OpenCheckHandPanel()
+    public void OpenCheckHandPanel(TutorialState currentState)
     {
+        if (currentState == TutorialState.TutorialOpening)
+        {
+            videoPlayer.clip = mapVideo;
+        }else if (currentState == TutorialState.LeftSkill)
+        {
+            videoPlayer.clip = leftHandVideo;
+        }
+        
         checkHandPanel.SetActive(true);
         AudioManager.instance.ShowHint();
     }
