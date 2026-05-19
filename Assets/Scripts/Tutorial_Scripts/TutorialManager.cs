@@ -75,6 +75,7 @@ public class TutorialManager : MonoBehaviour
         diologPanel.SetActive(false);
         checkHandPanel.SetActive(false);
 
+        currentState = TutorialState.TutorialOpening;
         Skill_Opening_TutorialDiolog();
         videoPlayer.clip = mapVideo;
     }
