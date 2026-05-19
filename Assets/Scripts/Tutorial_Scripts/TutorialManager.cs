@@ -140,11 +140,11 @@ public class TutorialManager : MonoBehaviour
         }else if (currentState == TutorialState.Skill_1_Tutorial)
         {
             videoPlayer.clip = skill_1_Video;
-            tutorialText.text = "能量球:*右手控制*\n右手手背會出現準心，透過右手 手掌開合 控制瞄準與發射\n牆面上隨機出現的發亮土坑即為*採集點*，擊中後可隨機獲得一種濕地植物";
+            tutorialText.text = "能量球:*右手控制*\n右手手背會出現準心，透過右手 手掌開合 控制瞄準與發射\n牆面上隨機出現的發亮土坑即為*採集點*，擊中後可隨機獲得一種濕地植物\n*注意*\n環境破裂嚴重會導致 採集點不再生成";
         }else if (currentState == TutorialState.Skill_2_Tutorial)
         {
             videoPlayer.clip = skill_2_Video;
-            tutorialText.text = "淨化:*右手控制*\n使用方法與能量球雷同， 右手握拳 以發射淨化光束\n牆面上時不時會出現人類活動排放造成的髒汙，玩家需使用淨化技能來清除";
+            tutorialText.text = "淨化:*右手控制*\n使用方法與能量球雷同， 右手握拳 以發射淨化光束\n牆面上時不時會出現人類活動排放造成的髒汙，玩家需使用淨化技能來清除\n*注意*\n環境累積過多污染也會導致 採集點不再生成";
         }else if (currentState == TutorialState.Skill_3_Tutorial)
         {
             videoPlayer.clip = skill_3_Video;
