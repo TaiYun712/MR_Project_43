@@ -12,12 +12,13 @@ public class TutorialCheckHand : MonoBehaviour
     private float countdownTime;
 
     public bool hasPlayCheckSound = false;
+    private bool hasCheckHand = false;
 
     [Header("教學關卡完成狀況")] 
-    public bool opening_IsOver = false;
     public bool left_IsOver = false;
-   
-    
+    public bool skill_1_IsOver = false;
+    public bool skill_2_IsOver = false;
+    public bool skill_3_IsOver = false;
     void Start()
     {
         countdownTime = holdTime;
@@ -36,6 +37,8 @@ public class TutorialCheckHand : MonoBehaviour
 
     void HoldingGesture()
     {
+        if(hasCheckHand){return;}
+        
         if (countdownTime > 0)
         {
             countdownTime -= Time.deltaTime;
@@ -48,6 +51,9 @@ public class TutorialCheckHand : MonoBehaviour
                 AudioManager.instance.SoulCatchOverHint();
                 hasPlayCheckSound = true;
             }
+
+            hasCheckHand = true;
+            isGood = false;
             
             StageCheck();
             Debug.Log("完成此教學階段");
@@ -64,6 +70,7 @@ public class TutorialCheckHand : MonoBehaviour
     public void HoldingNothing()
     {
         isGood = false;
+        hasCheckHand = false;
         countdownTime = holdTime;
         goodHint.fillAmount = 1;
     }
@@ -76,6 +83,11 @@ public class TutorialCheckHand : MonoBehaviour
             TutorialManager.instance.SetState(TutorialManager.TutorialState.LeftSkill);
             TutorialManager.instance.Skill_LeftSkill_TutorialDiolog();
             left_IsOver = true;
+        }else if (TutorialManager.instance.currentState == TutorialManager.TutorialState.LeftSkill && !skill_1_IsOver)
+        {
+            TutorialManager.instance.SetState(TutorialManager.TutorialState.Skill_1_Tutorial);
+            TutorialManager.instance.Skill_Skill_1_TutorialDiolog();
+            skill_1_IsOver = true;
         }
         
         TutorialManager.instance.CloseCheckHandPanel();

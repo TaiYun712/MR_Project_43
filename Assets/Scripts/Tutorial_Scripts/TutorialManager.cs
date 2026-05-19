@@ -13,10 +13,9 @@ public class TutorialManager : MonoBehaviour
     public Animator diologBeanAni;
     public Text diologText;
     
-   // public GameObject mapdiologPanel;
-
     [Header("確認手勢")] 
     public GameObject checkHandPanel;
+    public Text tutorialText;
     
     [Header("教學影片")] 
     public VideoPlayer videoPlayer;
@@ -62,7 +61,6 @@ public class TutorialManager : MonoBehaviour
     void Start()
     {
         diologPanel.SetActive(false);
-      //  mapdiologPanel.SetActive(false);
         checkHandPanel.SetActive(false);
 
         Skill_Opening_TutorialDiolog();
@@ -75,9 +73,9 @@ public class TutorialManager : MonoBehaviour
         Invoke("littleGuyDance",10f);
         ShowTextAfterDelay("泥好啊~人類~ 歡迎來到教學關卡! \n 你將在這裡學習技能的操作方法", 3f);
         ShowTextAfterDelay("為了幫助失去家園的生物們重新回歸 \n 運用技能為牠們打造豐富的棲地吧!", 10f);
-        ShowTextAfterDelay("首先來認識遊戲地圖吧!", 17f);
-        Invoke("CloseDioLog",20f);
+        ShowTextAfterDelay("首先來認識遊戲地圖!", 17f);
         
+        Invoke("CloseDioLog",20f);
     }
 
     public void Skill_LeftSkill_TutorialDiolog()
@@ -87,7 +85,14 @@ public class TutorialManager : MonoBehaviour
         Invoke("CloseDioLog",8f);
     }
 
-    
+    public void Skill_Skill_1_TutorialDiolog()
+    {
+        ShowTextAfterDelay("接下來進入第一個技能教學，*能量球*",3f);
+        
+        Invoke("CloseDioLog",8f);
+    }
+
+    //--------  對話方法
     public void ShowTextAfterDelay(string content, float delay)
     {
         StartCoroutine(ShowTextAfterDelayCoroutine(content, delay));
@@ -117,30 +122,18 @@ public class TutorialManager : MonoBehaviour
     {
         diologBeanAni.SetTrigger("isdance");
     }
-
-    /*
-    void OpenMapDiolog()
-    {
-        mapdiologPanel.SetActive(true);
-        AudioManager.instance.ShowHint();
-        Invoke("CloseMapDiolog",5f);
-    }
-
-    void CloseMapDiolog()
-    {
-        mapdiologPanel.SetActive(false);
-        OpenCheckHandPanel(TutorialState.TutorialOpening);
-    }
-*/
+    
     //---------------------關卡確認手勢
     public void OpenCheckHandPanel(TutorialState currentState)
     {
         if (currentState == TutorialState.TutorialOpening)
         {
             videoPlayer.clip = mapVideo;
+            tutorialText.text = "遊戲地圖:\n玩家將在這片土地上為物種擴增棲地\n抓取燈塔 可移動位置 / 滑動滑桿 可旋轉地圖";
         }else if (currentState == TutorialState.LeftSkill)
         {
             videoPlayer.clip = leftHandVideo;
+            tutorialText.text = "技能面板 & 資訊面板:*左手控制*\n掌心朝面 即可開啟技能面板 / 握拳 即可切換技能\n手勢八(正反面) 可開啟資訊面板\n\n共有三種技能 能量球 / 淨化 / 棲地合成 將在之後的階段教學技能使用方式";
         }
         
         checkHandPanel.SetActive(true);

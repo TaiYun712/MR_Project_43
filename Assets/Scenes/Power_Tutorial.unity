@@ -1224,8 +1224,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000071931, y: -452}
-  m_SizeDelta: {x: 3010.6, y: 760.5}
+  m_AnchoredPosition: {x: -0.000071931, y: -507}
+  m_SizeDelta: {x: 4656.9, y: 1224.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36079072
 MonoBehaviour:
@@ -93919,11 +93919,11 @@ MonoBehaviour:
   diologPanel: {fileID: 174225587}
   diologBeanAni: {fileID: 1758084365}
   diologText: {fileID: 1337258235}
-  firstDiologTime: 3
   checkHandPanel: {fileID: 1733873141}
+  tutorialText: {fileID: 36079072}
   videoPlayer: {fileID: 169904614}
-  mapVideo: {fileID: 32900000, guid: 10246d85179a96c4fa4647eee180cd59, type: 3}
-  leftHandVideo: {fileID: 32900000, guid: 55649aaacdae1da47af656fab5564e94, type: 3}
+  mapVideo: {fileID: 32900000, guid: b039171de189030439a2fe8236ee2761, type: 3}
+  leftHandVideo: {fileID: 32900000, guid: eeb8cb99fa41b5e4c96cc2daca42ef0e, type: 3}
   currentState: 0
 --- !u!4 &1180629048
 Transform:
@@ -93956,8 +93956,10 @@ MonoBehaviour:
   isGood: 0
   holdTime: 3
   hasPlayCheckSound: 0
-  opening_IsOver: 0
   left_IsOver: 0
+  skill_1_IsOver: 0
+  skill_2_IsOver: 0
+  skill_3_IsOver: 0
 --- !u!114 &1180629050
 MonoBehaviour:
   m_ObjectHideFlags: 0
