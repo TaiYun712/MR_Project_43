@@ -113,8 +113,9 @@ public class TutorialManager : MonoBehaviour
     public void Skill_Skill_3_TutorialDiolog()
     {
         ShowTextAfterDelay("接下來進入第三個技能教學\n-棲地合成-\n使用收集的植物來打掃生態豐富的棲地!",3f);
-        
-        Invoke("CloseDioLog",8f);
+        ShowTextAfterDelay("試著合成出棲地並拚上地圖吧!",6f);
+
+        Invoke("CloseDioLog",12f);
     }
 
     //--------  對話方法
