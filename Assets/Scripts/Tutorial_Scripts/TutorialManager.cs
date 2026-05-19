@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -118,6 +119,17 @@ public class TutorialManager : MonoBehaviour
         Invoke("CloseDioLog",12f);
     }
 
+    public void TutorialOver_Diolog()
+    {
+        Invoke("LittleGuyGood",5f);
+        ShowTextAfterDelay("恭喜完成教學關卡!",2f);
+        ShowTextAfterDelay("接著試試挑戰一般關卡吧!",5f);
+        
+        Invoke("GoToNormalLevel",8f);
+    }
+    
+    
+
     //--------  對話方法
     public void ShowTextAfterDelay(string content, float delay)
     {
@@ -147,6 +159,11 @@ public class TutorialManager : MonoBehaviour
     void littleGuyDance()
     {
         diologBeanAni.SetTrigger("isdance");
+    }
+
+    void LittleGuyGood()
+    {
+        diologBeanAni.SetTrigger("isfine");
     }
     
     //---------------------關卡確認手勢
@@ -181,6 +198,13 @@ public class TutorialManager : MonoBehaviour
     public void CloseCheckHandPanel()
     {
         checkHandPanel.SetActive(false);
+    }
+    
+    //------------進入一般關卡
+    void GoToNormalLevel()
+    {
+        SceneManager.LoadScene("Power_Destructible Mesh");
+        AudioManager.instance.SwitchGameBGM();
     }
 
    

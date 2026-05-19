@@ -115,11 +115,13 @@ public class Tutorial_Power : MonoBehaviour
 
     [Header("教學用tile")] 
     public GameObject temTile;
+    public GameObject temPlant;
     void Start()
     {
         SkillInitialState();
         hasFirstGamePlay = false;
         temTile.SetActive(false);
+        temPlant.SetActive(false);
     }
 
     private void Update()
@@ -242,8 +244,9 @@ public class Tutorial_Power : MonoBehaviour
             }else if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_3_Tutorial && currentSkill !=2)
             {
                 currentSkill = 2;
-                temTile.SetActive(true);
                 SetSkills();
+                temTile.SetActive(true);
+                temPlant.SetActive(true);
             }
             
             ShowSkillPanel();

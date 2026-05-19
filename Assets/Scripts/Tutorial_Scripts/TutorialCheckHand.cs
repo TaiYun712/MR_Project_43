@@ -19,6 +19,7 @@ public class TutorialCheckHand : MonoBehaviour
     public bool skill_1_IsOver = false;
     public bool skill_2_IsOver = false;
     public bool skill_3_IsOver = false;
+    public bool tutoria_IsOver = false;
     void Start()
     {
         countdownTime = holdTime;
@@ -99,6 +100,11 @@ public class TutorialCheckHand : MonoBehaviour
             TutorialManager.instance.SetState(TutorialManager.TutorialState.Skill_3_Tutorial);
             TutorialManager.instance.Skill_Skill_3_TutorialDiolog();
             skill_3_IsOver = true;
+        }else if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_3_Tutorial && !tutoria_IsOver)
+        {
+            TutorialManager.instance.SetState(TutorialManager.TutorialState.TutorialOver);
+            TutorialManager.instance.TutorialOver_Diolog();
+            tutoria_IsOver = true;
         }
         
         TutorialManager.instance.CloseCheckHandPanel();
