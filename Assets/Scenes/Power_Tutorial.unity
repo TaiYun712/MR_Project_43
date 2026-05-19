@@ -93924,6 +93924,9 @@ MonoBehaviour:
   videoPlayer: {fileID: 169904614}
   mapVideo: {fileID: 32900000, guid: b039171de189030439a2fe8236ee2761, type: 3}
   leftHandVideo: {fileID: 32900000, guid: eeb8cb99fa41b5e4c96cc2daca42ef0e, type: 3}
+  skill_1_Video: {fileID: 32900000, guid: 55649aaacdae1da47af656fab5564e94, type: 3}
+  skill_2_Video: {fileID: 32900000, guid: 63d9641b41ae8fa429582bd9d9ada0c4, type: 3}
+  skill_3_Video: {fileID: 0}
   currentState: 0
 --- !u!4 &1180629048
 Transform:

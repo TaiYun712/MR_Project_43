@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Tutorial_Power : MonoBehaviour
 {
    public bool isOpenOtherPanel;
@@ -230,7 +231,15 @@ public class Tutorial_Power : MonoBehaviour
         
         if (!isOpenOtherPanel)
         {
+            if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_1_Tutorial && currentSkill !=0)
+            {
+                currentSkill = 0;
+                SetSkills();
+            }
+            
             ShowSkillPanel();
+            
+            
         }
     }
 
@@ -262,14 +271,12 @@ public class Tutorial_Power : MonoBehaviour
 
     public void SwitchToNextSkill()   //技能面板切換
     {
-        /*
-        //能量球教學中
-        if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_1_Tutorial &&
-            currentSkill == 0)
+        //如果不是 左手 教學 就不給換技能
+        if (TutorialManager.instance.currentState != TutorialManager.TutorialState.LeftSkill)
         {
             return;
         }
-        else */
+        
         if (isFalmFacing)
         {
             currentSkill = (currentSkill + 1) % totalSkill;

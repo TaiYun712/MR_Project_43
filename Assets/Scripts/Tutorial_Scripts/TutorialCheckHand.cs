@@ -73,6 +73,7 @@ public class TutorialCheckHand : MonoBehaviour
         hasCheckHand = false;
         countdownTime = holdTime;
         goodHint.fillAmount = 1;
+        hasPlayCheckSound = false;
     }
     
 
