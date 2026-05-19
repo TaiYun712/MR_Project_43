@@ -15,7 +15,6 @@ public class TutorialManager : MonoBehaviour
     
     [Header("確認手勢")] 
     public GameObject checkHandPanel;
-    public Text tutorialText;
     
     [Header("教學影片")] 
     public VideoPlayer videoPlayer;
@@ -25,6 +24,15 @@ public class TutorialManager : MonoBehaviour
     public VideoClip skill_1_Video;
     public VideoClip skill_2_Video;
     public VideoClip skill_3_Video;
+
+    [Header("教學文字圖片")]
+    public Image textImage;
+
+    public Sprite map_textImage;
+    public Sprite left_textImage;
+    public Sprite skill1_textImage;
+    public Sprite skill2_textImage;
+    public Sprite skill3_textImage;
     
     public enum TutorialState
     {
@@ -90,7 +98,21 @@ public class TutorialManager : MonoBehaviour
 
     public void Skill_Skill_1_TutorialDiolog()
     {
-        ShowTextAfterDelay("接下來進入第一個技能教學\n-能量球-",3f);
+        ShowTextAfterDelay("接下來進入第一個技能教學\n-能量球-\n在環境中採集資源!",3f);
+        
+        Invoke("CloseDioLog",8f);
+    }
+
+    public void Skill_Skill_2_TutorialDiolog()
+    {
+        ShowTextAfterDelay("接下來進入第二個技能教學\n-淨化-\n維持環境整潔才能使大自然生生不息!",3f);
+        
+        Invoke("CloseDioLog",8f);
+    }
+    
+    public void Skill_Skill_3_TutorialDiolog()
+    {
+        ShowTextAfterDelay("接下來進入第三個技能教學\n-棲地合成-\n使用收集的植物來打掃生態豐富的棲地!",3f);
         
         Invoke("CloseDioLog",8f);
     }
@@ -132,23 +154,23 @@ public class TutorialManager : MonoBehaviour
         if (currentState == TutorialState.TutorialOpening)
         {
             videoPlayer.clip = mapVideo;
-            tutorialText.text = "遊戲地圖:\n玩家將在這片土地上為物種擴增棲地\n抓取燈塔 可移動位置 / 滑動滑桿 可旋轉地圖";
+            textImage.sprite = map_textImage;
         }else if (currentState == TutorialState.LeftSkill)
         {
             videoPlayer.clip = leftHandVideo;
-            tutorialText.text = "技能面板 & 資訊面板:*左手控制*\n掌心朝面 即可開啟技能面板 / 握拳 即可切換技能\n手勢八(正反面) 可開啟資訊面板\n\n共有三種技能 能量球 / 淨化 / 棲地合成 將在之後的階段教學技能使用方式";
+            textImage.sprite = left_textImage;
         }else if (currentState == TutorialState.Skill_1_Tutorial)
         {
             videoPlayer.clip = skill_1_Video;
-            tutorialText.text = "能量球:*右手控制*\n右手手背會出現準心，透過右手 手掌開合 控制瞄準與發射\n牆面上隨機出現的發亮土坑即為*採集點*，擊中後可隨機獲得一種濕地植物\n*注意*\n環境破裂嚴重會導致 採集點不再生成";
+            textImage.sprite = skill1_textImage;
         }else if (currentState == TutorialState.Skill_2_Tutorial)
         {
             videoPlayer.clip = skill_2_Video;
-            tutorialText.text = "淨化:*右手控制*\n使用方法與能量球雷同， 右手握拳 以發射淨化光束\n牆面上時不時會出現人類活動排放造成的髒汙，玩家需使用淨化技能來清除\n*注意*\n環境累積過多污染也會導致 採集點不再生成";
+            textImage.sprite = skill2_textImage;
         }else if (currentState == TutorialState.Skill_3_Tutorial)
         {
             videoPlayer.clip = skill_3_Video;
-            tutorialText.text = "棲地合成:*右手控制*\n掌心朝上 即可開啟合成台 / 握拳 即可合成\n合成出的棲地即可擴拼接於地圖以擴張物種棲地\n*注意*\n-合成台未擺滿五株植物 或 有植物過量放置 即不予合成-\n繁殖力:顯示於植物上方的數字\n1 = 最多放置3個 / 2 = 最多放置2個 / 3 = 最多放置1個";
+            textImage.sprite = skill3_textImage;
         }
         
         checkHandPanel.SetActive(true);

@@ -89,6 +89,16 @@ public class TutorialCheckHand : MonoBehaviour
             TutorialManager.instance.SetState(TutorialManager.TutorialState.Skill_1_Tutorial);
             TutorialManager.instance.Skill_Skill_1_TutorialDiolog();
             skill_1_IsOver = true;
+        }else if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_1_Tutorial && !skill_2_IsOver)
+        {
+            TutorialManager.instance.SetState(TutorialManager.TutorialState.Skill_2_Tutorial);
+            TutorialManager.instance.Skill_Skill_2_TutorialDiolog();
+            skill_2_IsOver = true;
+        }else if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_2_Tutorial && !skill_3_IsOver)
+        {
+            TutorialManager.instance.SetState(TutorialManager.TutorialState.Skill_3_Tutorial);
+            TutorialManager.instance.Skill_Skill_3_TutorialDiolog();
+            skill_3_IsOver = true;
         }
         
         TutorialManager.instance.CloseCheckHandPanel();

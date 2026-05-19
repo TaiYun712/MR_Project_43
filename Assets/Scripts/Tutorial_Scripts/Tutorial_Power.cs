@@ -235,6 +235,14 @@ public class Tutorial_Power : MonoBehaviour
             {
                 currentSkill = 0;
                 SetSkills();
+            }else if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_2_Tutorial && currentSkill !=1)
+            {
+                currentSkill = 1;
+                SetSkills();
+            }else if (TutorialManager.instance.currentState == TutorialManager.TutorialState.Skill_3_Tutorial && currentSkill !=2)
+            {
+                currentSkill = 2;
+                SetSkills();
             }
             
             ShowSkillPanel();
